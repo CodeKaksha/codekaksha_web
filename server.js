@@ -58,4 +58,6 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 
-server.listen(3000);
+server.listen(PORT, host, function () {
+	console.log('Server started.......');
+});
