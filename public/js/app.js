@@ -187,3 +187,11 @@ function connectToNewUser(userId, stream) {
 		video2.remove();
 	});
 }
+function cc()
+{
+	let i=['A','B','C'];
+	return {
+		getI:function (){return i;},
+		addI:function (iix){i.push(iix);return i;},
+	}
+}

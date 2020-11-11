@@ -5,7 +5,9 @@ const express = require('express');
 const app = express();
 
 const http = require('http');
-
+const peerServer = ExpressPeerServer(server, {});
+  
+app.use('/peerjs', peerServer);
 const socketio = require('socket.io');
 const { v4: uuidV4 } = require('uuid');
 const {
