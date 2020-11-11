@@ -3,7 +3,7 @@ const room = window.location.href.split('/')[3];
 var peer = new Peer({
 	secure: true,	
 	host: 'codekaksha.herokuapp.com',
-	port: '443',
+	port: '3001',
 });
 peer.on('open', (id) => {
 	console.log("jhaod")
