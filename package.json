@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "dev":"nodemon server"
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/CodeKaksha/codekaksha_web#readme",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "moment": "^2.29.1",
-    "socket.io": "^3.0.1"
+    "socket.io": "^3.0.1",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

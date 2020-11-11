@@ -1,4 +1,17 @@
 var socket = io();
+const room = window.location.href.split('/')[3];
+var peer = new Peer(undefined, {
+	host: '/',
+	port: '3001',
+});
+peer.on('open', (id) => {
+	console.log("jhaod")
+	socket.emit('join-room', room, id);
+});
+// socket.emit('join-room', room, 1);
+
+console.log(room);
+
 var canvas = document.querySelector('.whiteBoard');
 var colors = document.getElementsByClassName('color');
 var context = canvas.getContext('2d');
@@ -114,19 +127,62 @@ function onDrawingEvent(data) {
 
 // make the canvas fill its parent
 function onResize() {
-    // canvas.style=`padding-top:100px;`
-	canvas.width = window.innerWidth/2;
+	// canvas.style=`padding-top:100px;`
+	canvas.width = window.innerWidth / 2;
 	canvas.height = window.innerHeight;
 }
-const l = console.log
+const l = console.log;
 function getEl(id) {
-    return document.getElementById(id)
+	return document.getElementById(id);
 }
-const editor = getEl("editor")
-editor.addEventListener("keyup", (evt) => {
-    const text = editor.value
-    socket.send(text)
-})
+const editor = getEl('editor');
+editor.addEventListener('keyup', (evt) => {
+	const text = editor.value;
+	socket.send(text);
+});
 socket.on('message', (data) => {
-    editor.value = data
-})
+	editor.value = data;
+});
+const video_grid = document.querySelector('.video-grid');
+const myvideo = document.createElement('video');
+myvideo.classList.add('video');
+myvideo.muted = true;
+navigator.mediaDevices
+	.getUserMedia({
+		video: true,
+		audio: true,
+	})
+	.then((stream) => {
+		addVideoStream(myvideo, stream);
+		// socket.emit('catch_user', stream);
+
+		socket.on('user-connected', (userId) => {
+			console.log(userId);
+			connectToNewUser(userId, stream);
+		});
+		peer.on('call', (call) => {
+			call.answer(stream);
+			const video = document.createElement('video');
+			call.on('stream', (userVideoStream) => {
+				addVideoStream(video, userVideoStream);
+			});
+		});
+	});
+function addVideoStream(video, stream) {
+	video.srcObject = stream;
+	video.addEventListener('loadedmetadata', () => {
+		video.play();
+	});
+	console.log('he');
+	video_grid.appendChild(video);
+}
+function connectToNewUser(userId, stream) {
+	const call = peer.call(userId, stream);
+	const video2 = document.createElement('video');
+	call.on('stream', (userVideoStream) => {
+		addVideoStream(video2, userVideoStream);
+	});
+	call.on('close', () => {
+		video2.remove();
+	});
+}
