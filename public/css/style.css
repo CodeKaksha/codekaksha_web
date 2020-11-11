@@ -63,3 +63,20 @@ nav div a{
         box-shadow: 0 0 0 0 rgba(204,169,44, 0);
     }
   }
+  
+.colors {
+    position: fixed;
+  }
+  
+  .color {
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+  }
+  
+  .color.black { background-color: black; }
+  .color.red { background-color: red; }
+  .color.green { background-color: green; }
+  .color.blue { background-color: blue; }
+  .color.yellow { background-color: yellow; }
+  

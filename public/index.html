@@ -30,7 +30,7 @@
 			</form>
 		</div>
 		<div class="after_join">
-			<nav>
+			<!-- <nav>
 				<div class="nav-wrapper bg-dark">
 					<a href="#!" class="brand-logo"
 						><img src="res/logos/logo2.JPG" alt="" class="logo"
@@ -42,6 +42,13 @@
 						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Services</a></li>
+						<div class="colors">
+							<div class="color black"></div>
+							<div class="color red"></div>
+							<div class="color green"></div>
+							<div class="color blue"></div>
+							<div class="color yellow"></div>
+						</div>
 					</ul>
 					<ul class="side-nav" id="mobile-demo">
 						<li><a href="#">Home</a></li>
@@ -49,14 +56,14 @@
 						<li><a href="#">Services</a></li>
 					</ul>
 				</div>
-			</nav>
+			</nav> -->
 
 			<div class="section1">
+				<canvas class="whiteBoard"></canvas>
 				<textarea name="" class="textArea"></textarea>
-				<div class="whiteBoard"></div>
 			</div>
 		</div>
-
+		<script src="/socket.io/socket.io.js"></script>
 		<!-- Compiled and minified JavaScript -->
 		<script
 			type="text/javascript"
@@ -66,34 +73,6 @@
 		<script>
 			$('.button-collapse').sideNav();
 		</script>
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
-
-		<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-
-		<script>
-			// Your web app's Firebase configuration
-			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-			var firebaseConfig = {
-				apiKey: 'AIzaSyCVnINLR4_jfcbzT1UD8kyDWDbcwrVmbi0',
-				authDomain: 'codekaksha-175d1.firebaseapp.com',
-				databaseURL: 'https://codekaksha-175d1.firebaseio.com',
-				projectId: 'codekaksha-175d1',
-				storageBucket: 'codekaksha-175d1.appspot.com',
-				messagingSenderId: '618957571873',
-				appId: '1:618957571873:web:041171a42614f4a8cba060',
-				measurementId: 'G-WYM62E2N65',
-			};
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-			firebase.analytics();
-
-			const auth = firebase.auth();
-			const db = firebase.firestore();
-		</script>
+		<script src="js/app.js"></script>
 	</body>
 </html>
