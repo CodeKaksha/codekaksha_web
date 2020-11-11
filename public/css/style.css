@@ -6,6 +6,9 @@ nav{
 nav div a{
     color:#333;
 }
+.hidden{
+    display:none!important;
+}
 .logo{
     width:22%;
 
