@@ -1,8 +1,9 @@
 var socket = io();
 const room = window.location.href.split('/')[3];
 var peer = new Peer(undefined, {
-	host: 'https://codekaksha.herokuapp.com',
+	host: 'codekaksha.herokuapp.com',
 	port: '443',
+	secure: true
 });
 peer.on('open', (id) => {
 	console.log("jhaod")
