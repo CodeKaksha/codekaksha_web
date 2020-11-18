@@ -8,13 +8,7 @@ const http = require('http');
 
 const socketio = require('socket.io');
 const { v4: uuidV4 } = require('uuid');
-const {
-	userJoin,
-	getCurrentUser,
-	userLeave,
-	getRoomUsers,
-} = require('./utils/users');
-const { Stream } = require('stream');
+
 
 const server = http.createServer(app);
 
