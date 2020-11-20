@@ -1,7 +1,7 @@
 const path = require('path');
 
 const express = require('express');
-
+var ExpressPeerServer = require('peer').ExpressPeerServer;
 const app = express();
 
 const http = require('http');
@@ -51,7 +51,10 @@ app.set('views', path.join(__dirname, 'public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
-
 server.listen(PORT, host, function () {
 	console.log('Server started.......');
 });
+// var options = {
+//     debug: true
+// }
+// app.use('/api', ExpressPeerServer(server, options));
