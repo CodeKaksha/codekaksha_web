@@ -62,11 +62,6 @@ var options = {
 let peerServer = ExpressPeerServer(server, options)
 app.use('/peerjs', peerServer);
 
-peerServer.on('connection', function(id) {
-    console.log(id)
-  console.log(server._clients)
-});
-
 // var options = {
 //     debug: true
 // }
