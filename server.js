@@ -54,6 +54,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 server.listen(PORT, host, function () {
 	console.log('Server started.......');
 });
+
+var options = {
+    debug: true,
+    allow_discovery: true
+}
+
+app.use('/peerjs', ExpressPeerServer(server, options));
 // var options = {
 //     debug: true
 // }
