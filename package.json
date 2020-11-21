@@ -23,7 +23,8 @@
     "moment": "^2.29.1",
     "nanoid": "^3.1.18",
     "peer": "^0.5.3",
-    "socket.io": "^3.0.1",
+    "socket.io": "^3.0.3",
+    "socketio": "^1.0.0",
     "uuid": "^8.3.1"
   },
   "devDependencies": {

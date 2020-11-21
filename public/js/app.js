@@ -1,15 +1,15 @@
 var socket = io();
 const room = window.location.href.split('/')[3];
 var peer = new Peer({
-	secure: true,	
+	secure: true,
 	host: 'codekaksha.herokuapp.com',
 	port: '',
-	path: '/peerjs'
+	path: '/peerjs',
 });
 console.log(peer);
 peer.on('open', (id) => {
-	console.log("jhaod")
-	socket.emit('join-room', room, id);	
+	console.log('jhaod');
+	socket.emit('join-room', room, id);
 });
 // socket.emit('join-room', room, 1);
 
@@ -138,11 +138,14 @@ const l = console.log;
 function getEl(id) {
 	return document.getElementById(id);
 }
-const editor = getEl('editor');
-editor.addEventListener('keyup', (evt) => {
-	const text = editor.value;
-	socket.send(text);
-});
+window.addEventListener("onload",()=>{
+		const editor = document.querySelector(".ace_content");
+		editor.addEventListener('keyup', (evt) => {
+			const text = editor.value;
+			socket.send(text);
+		});
+
+})
 socket.on('message', (data) => {
 	editor.value = data;
 });
@@ -189,11 +192,22 @@ function connectToNewUser(userId, stream) {
 		video2.remove();
 	});
 }
-function cc()
-{
-	let i=['A','B','C'];
+function cc() {
+	let i = ['A', 'B', 'C'];
 	return {
-		getI:function (){return i;},
-		addI:function (iix){i.push(iix);return i;},
-	}
+		getI: function () {
+			return i;
+		},
+		addI: function (iix) {
+			i.push(iix);
+			return i;
+		},
+	};
 }
+// var myCodeMirror = CodeMirror(document.body, {
+// 	value: "function myScript(){return 100;}\n",
+// 	mode:  "javascript"
+//   });
+var e=ace.edit("jsEditor")
+e.getSession().setMode("ace/mode/javascript")
+e.setTheme("ace/theme/terminal")
