@@ -7,13 +7,16 @@ const app = express();
 const http = require('http');
 
 const socketio = require('socket.io');
-const { v4: uuidV4 } = require('uuid');
+
+var { nanoid } = require("nanoid");
+var ID = nanoid(4);
+
 
 
 const server = http.createServer(app);
 
 const io = socketio(server);
-
+ 
 
 
 function onConnection(socket) {
@@ -35,12 +38,11 @@ function onConnection(socket) {
 io.on('connection', onConnection);
 const PORT = process.env.PORT || 3000;
 const host = '0.0.0.0';
-
-console.log(uuidV4())
+console.log(ID);
 // app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 	console.log("helklo")
-	res.redirect(`${uuidV4()}`);
+	res.redirect(`${ID}`);
 }); 
 
 app.get('/:index', (req, res) => {
