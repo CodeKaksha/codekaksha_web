@@ -1,97 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- Compiled and minified CSS -->
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<!--Import materialize.css-->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
-		/>
-		<!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
-		<!--Let browser know website is optimized for mobile-->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>	
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/style.css" />
-		<title>CodeKaksha| Classroom</title>
-	</head>
-	<body>
-		<div class="login hidden">
-			<form action="" id="room-form">
-				<div class="input-field col s8">
-					<input type="text" id="room" name="room" />
-					<label for="room">Room ID: </label>
-				</div>
-				<input type="submit" class="submit btn" value="Let's Put it" />
-			</form>
-		</div>
-		<div class="after_join">
-			<!-- <nav>
-				<div class="nav-wrapper bg-dark">
-					<a href="#!" class="brand-logo"
-						><img src="res/logos/logo2.JPG" alt="" class="logo"
-					/></a>
-					<a href="#" data-activates="mobile-demo" class="button-collapse"
-						><i class="material-icons">menu</i></a
-					>
-					<ul class="right hide-on-med-and-down">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-						<div class="colors">
-							<div class="color black"></div>
-							<div class="color red"></div>
-							<div class="color green"></div>
-							<div class="color blue"></div>
-							<div class="color yellow"></div>
-						</div>
-					</ul>
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
-					</ul>
-				</div>
-			</nav> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
+    />
+    <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
+    <!--Let browser know website is optimized for mobile-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>CodeKaksha| Classroom</title>
+  </head>
+  <body>
+    <div class="login hidden">
+      <form action="" id="room-form">
+        <div class="input-field col s8">
+          <input type="text" id="room" name="room" />
+          <label for="room">Room ID: </label>
+        </div>
+        <input type="submit" class="submit btn" value="Let's Put it" />
+      </form>
+    </div>
+    <div class="after_join">
+      <div class="section1">
+        <canvas class="whiteBoard"></canvas>
+        <div id="jsEditor" class="textArea">
+        </div>
+      </div>
+      <div class="video-grid" id="video">
+        <div class="video"></div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 
-			<div class="section1">
-				<canvas class="whiteBoard"></canvas>
-				<div id="jsEditor" class="textArea">
-					var id=12p;
-					function teraBhaiMahan()
-					{
-						console.log("da");
-					}
-				</div>
-			</div>
-			<div class="video-grid" id="video">
-				<div class="video"></div>
-			</div>
-			
-		</div>
-		<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
-
-		<script src="/socket.io/socket.io.js"></script>
-		<!-- Compiled and minified JavaScript -->
-		<script
-			type="text/javascript"
-			src="https://code.jquery.com/jquery-2.1.1.min.js"
-		></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-		<script>
-			$('.button-collapse').sideNav();
-		</script>
-		<!-- <link
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.1.1.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script>
+      $(".button-collapse").sideNav();
+    </script>
+    <!-- <link
 			rel="stylesheet"
 			href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css"
 		/>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
 		<script src="codemirror-5.58.3/lib/codemirror.js"></script> -->
-		<script src="js/app.js"></script>
-	</body>
+	<script src="js/app.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="js/peer.js"></script>
+	<script src="js/video.js"></script>
+	<script src="js/whiteboard.js"></script>
+  </body>
 </html>
