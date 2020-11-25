@@ -138,16 +138,21 @@ const l = console.log;
 function getEl(id) {
 	return document.getElementById(id);
 }
-window.addEventListener("onload",()=>{
-		const editor = document.querySelector(".ace_content");
-		editor.addEventListener('keyup', (evt) => {
-			const text = editor.value;
-			socket.send(text);
+window.onload=()=>{
+		const editor = document.querySelector(".ace_text-layer");
+		let observer = new MutationObserver(function(mutationsList, observer) {
+			const text = editor.innerHTML;
+			console.log(text);
+			socket.emit("message",text);
 		});
+		observer.observe(editor, {characterData: false, childList: true, attributes: false});
 
-})
+
+}
 socket.on('message', (data) => {
-	editor.value = data;
+		const editor = document.querySelector(".ace_text-layer");
+		console.log(data,"Hey")
+	editor.innerHTML = data;
 });
 const video_grid = document.querySelector('.video-grid');
 const myvideo = document.createElement('video');
