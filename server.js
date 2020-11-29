@@ -43,7 +43,7 @@ console.log(ID);
 app.get('/', (req, res) => {
 	console.log("helklo")
 	res.redirect(`${ID}`);
-}); 
+});
 
 app.get('/:index', (req, res) => {
 	

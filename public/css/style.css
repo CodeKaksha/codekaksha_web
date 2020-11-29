@@ -1,3 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+body{
+	text-align: center;
+}
+#Leaves2{
+	animation: blowLeaves 1s forwards infinite ease-in-out;
+}
+@keyframes blowLeaves{
+	from{
+
+	}
+	to{
+		
+	}
+}
 nav {
 	background-color: #fff;
 	color: #333;

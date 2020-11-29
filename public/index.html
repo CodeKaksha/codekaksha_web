@@ -21,23 +21,23 @@
     ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>CodeKaksha| Classroom</title>
+    <title>GoCODE| Classroom</title>
   </head>
   <body>
-    <div class="login hidden">
-      <form action="" id="room-form">
-        <div class="input-field col s8">
-          <input type="text" id="room" name="room" />
-          <label for="room">Room ID: </label>
-        </div>
-        <input type="submit" class="submit btn" value="Let's Put it" />
-      </form>
+    <!-- CODISCUSS
+    codekaksha
+    CODELUXE
+    CODESPOT
+    CODESK
+    GOCODE
+       -->
+    <div class="index_page">
+      
     </div>
     <div class="after_join">
       <div class="section1">
         <canvas class="whiteBoard"></canvas>
-        <div id="jsEditor" class="textArea">
-        </div>
+        <div id="jsEditor" class="textArea"></div>
       </div>
       <div class="video-grid" id="video">
         <div class="video"></div>
@@ -55,16 +55,41 @@
     <script>
       $(".button-collapse").sideNav();
     </script>
-    <!-- <link
-			rel="stylesheet"
-			href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css"
-		/>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
-		<script src="codemirror-5.58.3/lib/codemirror.js"></script> -->
-	<script src="js/app.js"></script>
-	<script src="js/editor.js"></script>
-	<script src="js/peer.js"></script>
-	<script src="js/video.js"></script>
-	<script src="js/whiteboard.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBicXQ7S5ltOo3vrIxqr8wU7bRVhH7nJ0Q",
+        authDomain: "codekaksha-e483b.firebaseapp.com",
+        databaseURL: "https://codekaksha-e483b.firebaseio.com",
+        projectId: "codekaksha-e483b",
+        storageBucket: "codekaksha-e483b.appspot.com",
+        messagingSenderId: "312753994162",
+        appId: "1:312753994162:web:cf8e878652bf6686b18cab",
+        measurementId: "G-WTW8L80JKT",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+    <script src="js/app.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/peer.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/whiteboard.js"></script>
   </body>
 </html>
