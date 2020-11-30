@@ -2,18 +2,13 @@
 
 # Shubhang
 
-Make a landing.html page in which you make the front end of the landing page, components:
-<ul>
- <li> Sign Up/ Login </li>
- <li> Join room/ Create one </li>
-</ul>
+<li>landing page (dektop 1 figma)</li>
+<li> meeting screen (figma)</li>
+# Neha Goyal
 
-In index.html, add 
-<li> colors for whiteboard </li>
-<li> Video On/Off and Audio On/Off(Only buttons) </li>
-<li> Pen size option in whiteboard </li>
-<li> Take inspiration from Jamboard</li>
-<li> adjust height and shape of video </li>
+<li>If already logged in(Page in Figma)</li>
+<li>After joining ready screen (figma)</li>
+
 
 # Abhinandan 
 
