@@ -30,10 +30,10 @@
   </head>
 
   <body>
-    <div class="loader">
+    <div class="loader fade_in">
       <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
-    <div class="container1-page1">
+    <div class="container1-page1 index_screen">
       <div class="navbar-page1 z-depth-3">
         <nav>
           <div class="nav-wrapper">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="modal-content">
                   <h5 class="modal-heading">Login To Codekaksha</h5>
-                  <a class="waves-effect waves-light btn logmod-but">
+                  <a class="waves-effect waves-light btn logmod-but" id="googleSignIn">
                     <img
                       class="google-img"
                       src="res\logos\google.svg.png"
@@ -172,7 +172,7 @@
         </div>
       </div>
     </div>
-    <div class="container2-page1 hidden">
+    <div class="container1-page2 after_login_screen hidden">
       <div class="navbar-page1 z-depth-3">
         <nav>
           <div class="nav-wrapper">
@@ -284,14 +284,6 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/front.js"></script>
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -318,5 +310,15 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
-  </body>
+    <script src="js/auth.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/front.js"></script>
+
+      
+</body>
 </html>
