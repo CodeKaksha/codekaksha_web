@@ -33,3 +33,7 @@ function show_screen(screen_name) {
 	}, 1500);
 	screen_name.classList.remove('hidden');
 }
+document.querySelector('.createRoom').addEventListener("click",(e)=>{
+    e.preventDefault();
+    
+})
