@@ -1,3 +1,5 @@
+let username;
+let userDisplayPic;
 const auth = firebase.auth();
 const db = firebase.firestore();
 let googleSignIn=document.querySelector('#googleSignIn');
@@ -5,6 +7,14 @@ auth.onAuthStateChanged((user) => {
 	// var handle_name=document.getElementById('')
 	if (user) {
         console.log('user logged in');
+        console.log(user)
+        console.log(user.photoURL)
+        console.log(user.displayName)
+        username=user.displayName
+        userDisplayPic=user.photoURL;
+        document.querySelector(".username").innerHTML=username
+        document.querySelector(".displayPic").src=userDisplayPic
+
         show_screen(after_login_screen)
 	} else {
 		console.log('user logged out');
@@ -129,7 +139,8 @@ googleSignIn.addEventListener('click', (e) => {
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			var token = result.credential.accessToken;
 			// The signed-in user info.
-			var user = result.user;
+            var user = result.user;
+            console.log(user);
 			// ...
 		})
 		.catch(function (error) {
