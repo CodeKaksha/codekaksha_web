@@ -7,4 +7,5 @@ window.setInterval(()=>{
     {
         diff_height=0;
     }
+    console.log(document.body.scrollTop())
 },3000)
