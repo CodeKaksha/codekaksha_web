@@ -51,38 +51,6 @@ nav div a {
 	display: none !important;
 }
 
-.loader12345 {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 100000;
-	background: black;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.latka {
-	animation: pulse 2s infinite;
-	width: 15%;
-}
-@keyframes pulse {
-	0% {
-		-moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
-		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
-	}
-	70% {
-		-moz-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
-		box-shadow: 0 0 0 30px rgba(204, 169, 44, 0);
-	}
-	100% {
-		-moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-		box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
-	}
-}
-
 .colors {
 	position: fixed;
 }
@@ -159,6 +127,7 @@ video{
 	letter-spacing: 1px;
 }
 
+
 .heading2-page1 {
 	font-family: 'Poppins', sans-serif;
 	font-size: 3rem;
@@ -167,6 +136,7 @@ video{
 	color: #966B9D;
 	margin-top: 20px;
 	letter-spacing: 1px;
+	transition: 0.5s;
 }
 
 .heading3-page1, .heading4-page1 {
@@ -228,4 +198,13 @@ video{
 	font-weight: 700;
 	font-size: 1.2rem;
 	 color: white;
+}
+
+.boil_text{
+	height: 93.52px;
+	transition: 0.5s;
+	overflow: hidden;
+}
+.big_div{
+	transition: 0.5s;
 }
