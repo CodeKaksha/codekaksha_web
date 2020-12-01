@@ -301,3 +301,95 @@ h5 span {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 }
+
+
+/*VIEW AFTER LOGGED IN*/
+.login-page1 img{
+	height: 50px;
+    margin-top: 0.4em;
+}
+.heading1-page2{
+	font-family: 'Poppins', sans-serif;
+	font-size: 2.9rem;
+	text-align: left;
+	color: #000000;
+	margin-top: 120px;
+	font-weight: 700;
+}
+
+
+.icon1 {
+  padding-left: 1em;
+    padding-top: 0.4em;
+}
+.login-buttons{
+	display: inline-flex;
+    margin-top: 1.9em; 
+}
+/* Style the input fields */
+.input-field {
+  height: 36px;
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 0.4em;
+    margin-left: 1em;
+    border-bottom: none;
+    box-shadow: none;
+}
+.input-container {
+ height: 50px;
+    width: max-content;
+    border: 2px solid darkgray;
+    display: inline-flex;
+}
+.input-container:focus-within {
+  border: 2px solid black;
+}
+
+.input-field::-webkit-input-placeholder { /* Edge */
+  font-weight:500;
+}
+
+.input-field:-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+  font-weight:500;
+}
+
+.input-field::placeholder {
+  font-weight:500;
+}
+
+.host-but1 {
+    height: 50px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #6c6ad2;
+    padding: 5px 10px;
+}
+.demo-img img{
+	margin-top:80px;
+	width: 92%;
+    border: 1px solid #d3d3d2;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+@media screen and (max-width: 600px) {
+	  .demo-img img{
+		margin-top:3em;
+	}
+}
+.contactmsg{
+	margin-top: 1em;
+	text-align: left;
+}
+.contactmsg a{
+	letter-spacing: 0.18em;
+    text-align: left;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 30px;
+    color: #966B9D;
+
+}
