@@ -227,3 +227,77 @@ video {
 ::-webkit-scrollbar-thumb:hover {
   background: #6c3874;
 }
+.big_div{
+	transition: 0.5s;
+}
+
+.logmod-but {
+	border-radius: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 1rem;
+	background-color: white;
+	width: 100%;
+}
+
+.logmodal {
+	color: black;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.modal-log {
+	width: 30%;
+	height: 60%;
+	background-color: white;
+}
+
+.log-text {
+	padding-bottom: 5px;
+}
+
+.modal-line {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+	 font-weight: bold;
+}
+
+h5 span {
+    background:#fff;
+    padding:0 10px;
+		font-size: 1rem;
+}
+
+.emailmod-but {
+	border-radius: 15px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 1rem;
+	background-color: #EAEAEA;
+	width: 80%;
+}
+
+.emailmodal {
+	color: black;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.btn {
+    text-transform: none;
+}
+
+.modal .modal-footer {
+	background-color: white;
+	height: 30px;
+}
+
+.modal-heading {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+}

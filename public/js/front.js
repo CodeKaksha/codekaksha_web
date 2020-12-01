@@ -7,5 +7,9 @@ window.setInterval(()=>{
     {
         diff_height=0;
     }
-    console.log(document.body.scrollTop())
 },3000)
+
+$(document).ready(function(){
+    $('#modal1').modal();
+    $('#modal2').modal();
+  });

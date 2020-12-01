@@ -27,8 +27,36 @@
             <span class="navbar-title">CODEKAKSHA</span>
           </ul>
           <div id="nav-mobile" class="right hide-on-med-and-down">
-            <span class="login-page1"><a href="#">Login</a></span>
-            <span class="sign-page1"><a class="waves-effect waves-light btn sign-but">Sign Up</a></span>
+            <span class="login-page1"><a class="modal-trigger login" href="#modal1">Login</a></span>
+            <div id="modal1" class="modal modal-log">
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
+              </div>
+              <div class="modal-content">
+                <h5 class="modal-heading">Login To Codekaksha</h5>
+                <a class="waves-effect waves-light btn logmod-but">
+                  <img class="google-img" src="res\logos\google.svg.png" style="width: 25px; height: 25px; padding: 10px 10px 0 0;" />
+                  <span class="logmodal">Login using Google</span></a>
+                <h5 class="modal-line" style="margin: 20px 0 20px 0;"><span>or</span></h5>
+                <a class="waves-effect waves-light btn emailmod-but">
+                  <span class="emailmodal">Login using Email</span></a>
+              </div>
+            </div>
+            <span class="sign-page1"><a class="waves-effect waves-light btn modal-trigger sign-but" href="#modal2">Sign Up</a></span>
+            <div id="modal2" class="modal modal-log">
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
+              </div>
+              <div class="modal-content">
+                <h5 class="modal-heading">Sign Up for Codekaksha</h5>
+                <a class="waves-effect waves-light btn logmod-but">
+                  <img class="google-img" src="res\logos\google.svg.png" style="width: 25px; height: 25px; padding: 10px 10px 0 0;" />
+                  <span class="logmodal">Sign Up using Google</span></a>
+                <h5 class="modal-line" style="margin: 20px 0 20px 0;"><span>or</span></h5>
+                <a class="waves-effect waves-light btn emailmod-but">
+                  <span class="emailmodal">Sign Up using Email</span></a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -91,8 +119,10 @@
       </div>
     </div>
   </div>
-  <script src="js/front.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/front.js"></script>
 </body>
 
 </html>
