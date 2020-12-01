@@ -8,3 +8,8 @@ window.setInterval(()=>{
         diff_height=0;
     }
 },3000)
+
+$(document).ready(function(){
+    $('#modal1').modal();
+    $('#modal2').modal();
+  });
