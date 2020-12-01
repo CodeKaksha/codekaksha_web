@@ -2,24 +2,24 @@ let username;
 let userDisplayPic;
 const auth = firebase.auth();
 const db = firebase.firestore();
-let googleSignIn=document.querySelector('#googleSignIn');
+let googleSignIn = document.querySelector("#googleSignIn");
 auth.onAuthStateChanged((user) => {
-	// var handle_name=document.getElementById('')
-	if (user) {
-        console.log('user logged in');
-        console.log(user)
-        console.log(user.photoURL)
-        console.log(user.displayName)
-        username=user.displayName
-        userDisplayPic=user.photoURL;
-        document.querySelector(".username").innerHTML=username
-        document.querySelector(".displayPic").src=userDisplayPic
+  // var handle_name=document.getElementById('')
+  if (user) {
+    console.log("user logged in");
+    console.log(user);
+    console.log(user.photoURL);
+    console.log(user.displayName);
+    username = user.displayName;
+    userDisplayPic = user.photoURL;
+    document.querySelector(".username").innerHTML = username;
+    document.querySelector(".displayPic").src = userDisplayPic;
 
-        show_screen(after_login_screen)
-	} else {
-		console.log('user logged out');
-		show_screen(index_screen);
-	}
+    show_screen(after_login_screen);
+  } else {
+    console.log("user logged out");
+    show_screen(index_screen);
+  }
 });
 
 // // for signup
@@ -66,18 +66,15 @@ auth.onAuthStateChanged((user) => {
 // 	e.preventDefault();
 // });
 
-// const logout2 = document.querySelectorAll('.logout2');
+const logout2 = document.querySelectorAll(".logout");
 
-// for (let i = 0; i < logout2.length; i++) {
-// 	logout2[i].addEventListener('click', (e) => {
-// 		e.preventDefault();
-// 		if (protection_mode) {
-// 			show_screen(index_screen);
-// 		} else {
-// 			auth.signOut();
-// 		}
-// 	});
-// }
+for (let i = 0; i < logout2.length; i++) {
+  logout2[i].addEventListener("click", (e) => {
+    e.preventDefault();
+
+    auth.signOut();
+  });
+}
 
 // forgotform.addEventListener('submit', (e) => {
 // 	e.preventDefault();
@@ -130,30 +127,30 @@ auth.onAuthStateChanged((user) => {
 // 	document.querySelector('.disp_err').classList.add('disapper2');
 // }
 
-googleSignIn.addEventListener('click', (e) => {
-	var provider = new firebase.auth.GoogleAuthProvider();
-	firebase
-		.auth()
-		.signInWithPopup(provider)
-		.then(function (result) {
-			// This gives you a Google Access Token. You can use it to access the Google API.
-			var token = result.credential.accessToken;
-			// The signed-in user info.
-            var user = result.user;
-            console.log(user);
-			// ...
-		})
-		.catch(function (error) {
-			console.log('hell');
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			alert(errorMessage);
-			// The email of the user's account used.
-			var email = error.email;
-			// The firebase.auth.AuthCredential type that was used.
-			var credential = error.credential;
-			// ...
-		});
-	e.preventDefault();
+googleSignIn.addEventListener("click", (e) => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then(function (result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+      // ...
+    })
+    .catch(function (error) {
+      console.log("hell");
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage);
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  e.preventDefault();
 });
