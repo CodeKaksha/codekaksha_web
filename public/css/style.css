@@ -566,3 +566,103 @@ h5 span {
 .displayPic{
 	border-radius: 50%;
 }
+
+.container2-meeting {
+	max-height: 100vh;
+	min-height: 100vh;
+	flex: 1;
+	background-color: #FFFFFF;
+}
+
+.container3-meeting {
+	max-height: 100vh;
+	min-height: 100vh;
+	flex: 1;
+	background-color: #314855;
+}
+
+.editor-features {
+	position: fixed;
+	background-color: #fafafa;
+	width: 50%;
+	height: 50px;
+	text-align: left;
+	list-style-type: none;
+}
+
+.edit-feat {
+	padding: 10px 0 0 20px;
+	float: left;
+	font-weight: 500;
+	font-size: 1.3rem;
+}
+
+.headings-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.headings-content span {
+	font-size: 1rem;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.headings:hover .headings-content {
+  display: block;
+}
+
+.dot {
+	height: 17px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+.dot-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dot-content span {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.headings:hover .dot-content {
+  display: block;
+}
+
+.square {
+  height: 17px;
+  width: 15px;
+  background-color: grey;
+	margin: 18px 0 0 20px;
+}
+
+.edit-feat-clear{
+	padding: 10px 20px 0 0;
+	float: right;
+	font-weight: 700;
+	font-size: 1.3rem;
+}
+
+.edit-feat-button{
+	background-color: white;
+	width: 40px;
+	height: 30px;
+	margin: 10px 0 0 20px;
+	float: left;
+	font-weight: 700;
+	font-size: 1rem;
+}
