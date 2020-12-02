@@ -16,6 +16,24 @@ window.setInterval(() => {
 $(document).ready(function () {
 	$('#modal1').modal();
 	$('#modal2').modal();
+	
+	let butColCheck = 0;
+	$(".theme-switcher").click(function() {
+		if (butColCheck == 0) {
+			$(this).css("background-color", "black");
+			$(this).css("color", "white");
+			$(this).html("Dark");
+			$(".whiteBoard").css("background-color", "black");
+			butColCheck = 1;
+		}
+		else {
+			$(this).css("background-color", "white");
+			$(this).css("color", "black");
+			$(this).html("Light");
+			$(".whiteBoard").css("background-color", "white");
+			butColCheck = 0;
+		}
+	});
 });
 
 function loaderOn() {
