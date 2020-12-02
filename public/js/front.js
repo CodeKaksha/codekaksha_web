@@ -41,4 +41,5 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
 	e.preventDefault();
 	loaderOn();
 	show_screen(ready_screen);
+	video(`videoBeforeJoin`);
 });

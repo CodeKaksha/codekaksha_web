@@ -1,7 +1,6 @@
-function video() {
-	const video_grid = document.querySelector('.video-grid');
+function video(videoId) {
+	const video_grid = document.querySelector(`#${videoId}`);
 	const myvideo = document.createElement('video');
-	myvideo.classList.add('video');
 	myvideo.muted = true;
 	navigator.mediaDevices
 		.getUserMedia({
@@ -54,4 +53,7 @@ function video() {
 	//     },
 	//   };
 	// }
+}
+function removeVideo(videoId){
+	document.querySelector(`#${videoId}`).remove();
 }

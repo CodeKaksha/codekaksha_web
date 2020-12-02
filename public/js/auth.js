@@ -11,8 +11,16 @@ auth.onAuthStateChanged((user) => {
 		console.log(user.displayName);
 		username = user.displayName;
 		userDisplayPic = user.photoURL;
-		document.querySelector('.username').innerHTML = username;
-		document.querySelector('.displayPic').src = userDisplayPic;
+		let usernames=document.querySelectorAll('.username');
+		for(let i=0;i<usernames.length;i++)
+		{
+			usernames[i].innerHTML = username;
+		}
+		let DisplayPics=document.querySelectorAll('.displayPic');
+		for(let i=0;i<DisplayPics.length;i++)
+		{
+			DisplayPics[i].src = userDisplayPic;
+		}
 
 		show_screen(after_login_screen);
 	} else {

@@ -1,152 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
+    />
+    <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Let browser know website is optimized for mobile-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>GoCODE| Classroom</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Compiled and minified CSS -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!--Import materialize.css-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
-  <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
-  <!--Let browser know website is optimized for mobile-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>GoCODE| Classroom</title>
-</head>
+  <body>
+    <div class="container1-page1">
+      <div class="navbar-page1 z-depth-3">
+        <nav>
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left" style="display: inline-flex">
+              <span style="display: inline-flex"
+                ><img
+                  src="res/logo1.png"
+                  style="
+                    width: 35px;
+                    height: 45px;
+                    margin-top: 0.8em;
+                    margin-right: 0.4em;
+                  "
+              /></span>
+              <span
+                class="navbar-title"
+                style="
+                  height: 40px;
+                  align-items: center;
+                  display: inline-flex;
+                  padding-left: 0.5em;
+                  margin-top: 0.8em;
+                  border-left: 3px solid #4d4d4d;
+                "
+                >CODEKAKSHA</span
+              >
+            </ul>
+            <div id="nav-mobile" class="right" style="">
+              <span class="login-page1"
+                ><a href="#"><img src="res/avatar.png" /></a
+              ></span>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-<body>
-  <div class="container1-page1">
-    <div class="navbar-page1 z-depth-3">
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left" style="display: inline-flex;">
-            <span style="
-    display: inline-flex;
-"><img src="res/logo1.png" style="
-    width: 35px;
-    height: 45px;
-    margin-top: 0.8em;
-    margin-right: 0.4em;
-"></span>
-            <span class="navbar-title" style="
-    height: 40px;
-    align-items: center;
-    display: inline-flex;
-    padding-left: 0.5em;
-    margin-top: 0.8em;
-    border-left: 3px solid #4D4D4D;
-">CODEKAKSHA</span>
-          </ul>
-          <div id="nav-mobile" class="right " style="
-">
-            <span class="login-page1"><a href="#"><img src="res/avatar.png"></a></span>
-            
+      <div class="row"></div>
+      <div class="row readypage">
+        <div class="col s12 m6 vid-img">
+          <img src="res/vid.png" />
+        </div>
+        <div class="col s12 m6" style="padding-left: 50px">
+          <div class="container2-page2" style="text-align: left">
+            <div class="heading1-page3">Default Language</div>
+            <hr style="border: 1px solid black" />
+            <div class="row">
+              <select class="browser-default">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="c++">C++</option>
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="python">Python</option>
+                <option value="c#">C#</option>
+              </select>
+            </div>
+
+            <div class="heading1-page3">Default Mode</div>
+            <hr style="border: 1px solid black" />
+            <div class="login-buttons1 row">
+              <div
+                class="button1-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but2">Strict</a>
+              </div>
+              <div
+                class="button2-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but3">Default</a>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="button3-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but4">Join</a>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-    </div>
-
-    <div class="row">
-     
-    </div>
-    <div class="row readypage">
-      <div class="col s12 m6 vid-img">
-        <img src="res/vid.png" >
       </div>
-      <div class="col s12 m6" style="padding-left:50px">
-            <div class="container2-page2 " style="text-align:left;">
-              <div class="heading1-page3">
-                Default Language
-              </div>
-              <hr style="border: 1px solid black; ">
-              <div class="row">
-                <select class="browser-default">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="c++">C++</option>
-                  <option value="java">Java</option>
-                  <option value="c">C</option>
-                  <option value="python">Python</option>
-                  <option value="c#">C#</option>
-                </select>               
-              </div>
-              
-              <div class="heading1-page3">
-                Default Mode
-              </div>
-              <hr style="border: 1px solid black;">
-              <div class="login-buttons1 row">
-                <div class="button1-page3 col s12 m6" style="display:inline-flex;padding-left:0">
-                  <a class="waves-effect waves-light  btn host-but2">Strict</a>
-                </div>
-                <div class="button2-page3 col s12 m6" style="display:inline-flex;padding-left:0">
-                  <a class="waves-effect waves-light btn host-but3">Default</a>
-                </div>
 
-                
-              </div>
-              <div class="row">
-                <div class="button3-page3 col s12 m6" style="display:inline-flex;padding-left:0">
-                  <a class="waves-effect waves-light btn host-but4">Join</a>
-                </div>                
-              </div>
-              
-            </div>
-      </div>
-      
-    </div>
-    
-
-    <!--- sizes need to be done appropriately ---->
-    <div class="waves-page1">
-      <div style="height: 80px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path
+      <!--- sizes need to be done appropriately ---->
+      <div class="waves-page1">
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
               d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
               style="stroke: none; fill: #966b9d"
             ></path>
-        </svg></div>
-      <div style="height: 80px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path
+          </svg>
+        </div>
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
               d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
               style="stroke: none; fill: #337357"
             ></path>
-        </svg></div>
+          </svg>
+        </div>
+      </div>
+
+      <div class="botcont-page1">
+        <div class="botcont1">
+          <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
+          <p class="botcon2">GROW</p>
+        </div>
+        <div class="botcont2">
+          <p class="botcon1" style="color: black; padding-top: 40px">
+            CODE WITH
+          </p>
+          <p class="botcon2" style="color: black">FRIEND</p>
+        </div>
+        <div class="botcont3">
+          <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
+          <p class="botcon2">EFFECTIVELY</p>
+        </div>
+      </div>
     </div>
 
-    <div class="botcont-page1">
-      <div class="botcont1">
-        <p class="botcon1" style="padding-top: 40px;">TEACH, LEARN AND</p>
-        <p class="botcon2">GROW</p>
-      </div>
-      <div class="botcont2">
-        <p class="botcon1" style="color: black; padding-top: 40px;">CODE WITH</p>
-        <p class="botcon2" style="color: black;">FRIEND</p>
-      </div>
-      <div class="botcont3">
-        <p class="botcon1" style="padding-top: 40px;">INTERVIEW CANDIDATES</p>
-        <p class="botcon2">EFFECTIVELY</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-  $(function() {
-      $('form').each(function() {
-          $(this).find('input').keypress(function(e) {
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $(function () {
+        $("form").each(function () {
+          $(this)
+            .find("input")
+            .keypress(function (e) {
               // Enter pressed?
-              if(e.which == 10 || e.which == 13) {
-                  this.form.submit();
+              if (e.which == 10 || e.which == 13) {
+                this.form.submit();
               }
-          });
+            });
 
-          $(this).find('input[type=submit]').hide();
+          $(this).find("input[type=submit]").hide();
+        });
       });
-  });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

@@ -177,7 +177,7 @@ nav div a {
 	right: 0;
 	display: flex;
 }
-.video {
+.video-grid video {
 	height: 100px;
 	width: 100px;
 	background: #333;
@@ -497,8 +497,7 @@ h5 span {
 
 
 /*READY SCREEN*/
-.vid-img img{
-	
+.vid-img video{
 	width: 90%;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -563,4 +562,7 @@ h5 span {
 .readypage{
 	display: flex;
     align-items: center;
+}
+.displayPic{
+	border-radius: 50%;
 }
