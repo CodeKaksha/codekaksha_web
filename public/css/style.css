@@ -405,11 +405,11 @@ h5 span {
 }
 
 /*VIEW AFTER LOGGED IN*/
-.login-page1 img {
+.login-page1 img{
 	height: 50px;
-	margin-top: 0.4em;
+    margin-top: 0.4em;
 }
-.heading1-page2 {
+.heading1-page2{
 	font-family: 'Poppins', sans-serif;
 	font-size: 2.9rem;
 	text-align: left;
@@ -417,91 +417,150 @@ h5 span {
 	margin-top: 120px;
 	font-weight: 700;
 }
-.displayPic {
-	border-radius: 50%;
-}
-.heading2-page2 {
-	font-family: 'Poppins', sans-serif;
-	font-size: 2.9rem;
-	text-align: left;
-	color: #000000;
-	padding-top: 1rem;
-	font-weight: 700;
-}
+
 
 .icon1 {
-	padding-left: 1em;
-	padding-top: 0.4em;
+  padding-left: 1em;
+    padding-top: 0.4em;
 }
-.login-buttons {
+.login-buttons{
 	display: inline-flex;
-	margin-top: 1.9em;
+    margin-top: 1.9em; 
 }
 /* Style the input fields */
 .input-field {
-	height: 36px;
-	width: auto;
-	margin-bottom: 0;
-	margin-top: 0.4em;
-	margin-left: 1em;
-	border-bottom: none;
-	box-shadow: none;
+  height: 36px;
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 0.4em;
+    margin-left: 1em;
+    border-bottom: none;
+    box-shadow: none;
 }
 .input-container {
-	height: 50px;
-	width: max-content;
-	border: 2px solid darkgray;
-	display: inline-flex;
+ height: 50px;
+    width: max-content;
+    border: 2px solid darkgray;
+    display: inline-flex;
 }
 .input-container:focus-within {
-	border: 2px solid black;
+  border: 2px solid black;
 }
 
-.input-field::-webkit-input-placeholder {
-	/* Edge */
-	font-weight: 500;
+.input-field::-webkit-input-placeholder { /* Edge */
+  font-weight:500;
 }
 
-.input-field:-ms-input-placeholder {
-	/* Internet Explorer 10-11 */
+.input-field:-ms-input-placeholder { /* Internet Explorer 10-11 */
 
-	font-weight: 500;
+  font-weight:500;
 }
 
 .input-field::placeholder {
-	font-weight: 500;
+  font-weight:500;
 }
 
 .host-but1 {
-	height: 50px;
-	border-radius: 10px;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 500;
-	background-color: #6c6ad2;
-	padding: 5px 10px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #6c6ad2;
+    padding: 5px 10px;
 }
-.demo-img img {
-	margin-top: 80px;
+.demo-img img{
+	margin-top:80px;
 	width: 92%;
-	border: 1px solid #d3d3d2;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border: 1px solid #d3d3d2;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 @media screen and (max-width: 600px) {
-	.demo-img img {
-		margin-top: 3em;
+	  .demo-img img{
+		margin-top:3em;
 	}
 }
-.contactmsg {
+.contactmsg{
 	margin-top: 1em;
 	text-align: left;
 }
-.contactmsg a {
+.contactmsg a{
 	letter-spacing: 0.18em;
-	text-align: left;
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 1em;
-	line-height: 30px;
-	color: #966b9d;
+    text-align: left;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 30px;
+    color: #966B9D;
+
+}
+
+
+/*READY SCREEN*/
+.vid-img img{
+	
+	width: 90%;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+}
+.heading1-page3{
+	font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    text-align: left;
+    color: #000000;
+    font-weight: 600;
+}
+
+.host-but2{
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #966B9D;
+    padding: .4em .6em;
+    text-align: center;
+}
+.host-but3 {
+    width: 140px;
+    height: 50px;
+	border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color: #6C6AD2;
+    padding: .4em .6em;
+    text-align: center;
+    margin-left:0.8em;
+}
+.host-but4{
+    width: 140px;
+    height: 50px;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background-color:  #337357;
+    padding: .4em .6em;
+    text-align: center;
+}
+.login-buttons1{
+	display: inline-flex;
+    margin-top: 1em; 
+}
+.host-but2:hover{
+	background-color: #bf356e;
+}
+.host-but4:hover{
+	background-color: #18ca78;
+}
+.browser-default{
+	width: 180px;
+    border: 2px solid #a59b9b;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+.readypage{
+	display: flex;
+    align-items: center;
 }
