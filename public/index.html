@@ -1,356 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Compiled and minified CSS -->
-    <meta
-         name="description"
-         content="Host interactive coding sessions and interviews."
-         />
-      <meta property="og:url" content="https://codekaksha.herokuapp.com" />
-      <meta property="og:title" content="CODEKAKSHA" />
-      <meta
-         property="og:description"
-         content="Host interactive coding sessions and interviews."
-         />
-      <meta
-         property="og:image"
-         content="https://i.ibb.co/PmFxXDX/logo-dark.png"
-         />
-      <link rel="shortcut icon" href="res/logo.png" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Compiled and minified CSS -->
+		<meta
+			name="description"
+			content="Host interactive coding sessions and interviews."
+		/>
+		<meta property="og:url" content="https://codekaksha.herokuapp.com" />
+		<meta property="og:title" content="CODEKAKSHA" />
+		<meta
+			property="og:description"
+			content="Host interactive coding sessions and interviews."
+		/>
+		<meta
+			property="og:image"
+			content="https://i.ibb.co/PmFxXDX/logo-dark.png"
+		/>
+		<link rel="shortcut icon" href="res/logo.png" />
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!--Import materialize.css-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
-    />
-    <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <!--Let browser know website is optimized for mobile-->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
-    ></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>CodeKakasha</title>
-  </head>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!--Import materialize.css-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
+		/>
+		<!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<!--Let browser know website is optimized for mobile-->
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+		></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>CodeKakasha</title>
+	</head>
 
-  <body>
-    <div class="loader fade_in">
-      <div class="lds-grid">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <div class="container1-page1 index_screen">
-      <div class="navbar-page1 z-depth-3">
-        <nav>
-          <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-              <span class="navbar-title">CODEKAKSHA</span>
-            </ul>
-            <div id="nav-mobile" class="right hide-on-med-and-down">
-              <span class="login-page1"
-                ><a class="modal-trigger login" href="#modal1">Login</a></span
-              >
-              <div id="modal1" class="modal modal-log">
-                <div class="modal-footer">
-                  <a
-                    href="#!"
-                    class="modal-close waves-effect waves-green btn-flat"
-                    >X</a
-                  >
-                </div>
-                <div class="modal-content">
-                  <h5 class="modal-heading">Login To Codekaksha</h5>
-                  <a
-                    class="waves-effect waves-light btn logmod-but"
-                    id="googleSignIn"
-                  >
-                    <img
-                      class="google-img"
-                      src="res\logos\google.svg.png"
-                      style="width: 25px; height: 25px; padding: 10px 10px 0 0"
-                    />
-                    <span class="logmodal">Login using Google</span></a
-                  >
-                  <h5 class="modal-line" style="margin: 20px 0 20px 0">
-                    <span>or</span>
-                  </h5>
-                  <a class="waves-effect waves-light btn emailmod-but">
-                    <span class="emailmodal">Login using Email</span></a
-                  >
-                </div>
-              </div>
-              <span class="sign-page1"
-                ><a
-                  class="waves-effect waves-light btn modal-trigger sign-but"
-                  href="#modal2"
-                  >Sign Up</a
-                ></span
-              >
-              <div id="modal2" class="modal modal-log">
-                <div class="modal-footer">
-                  <a
-                    href="#!"
-                    class="modal-close waves-effect waves-green btn-flat"
-                    >X</a
-                  >
-                </div>
-                <div class="modal-content">
-                  <h5 class="modal-heading">Sign Up for Codekaksha</h5>
-                  <a class="waves-effect waves-light btn logmod-but">
-                    <img
-                      class="google-img"
-                      src="res\logos\google.svg.png"
-                      style="width: 25px; height: 25px; padding: 10px 10px 0 0"
-                    />
-                    <span class="logmodal">Sign Up using Google</span></a
-                  >
-                  <h5 class="modal-line" style="margin: 20px 0 20px 0">
-                    <span>or</span>
-                  </h5>
-                  <a class="waves-effect waves-light btn emailmod-but">
-                    <span class="emailmodal">Sign Up using Email</span></a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
+	<body>
+		<!-- Loader -->
+		<div class="loader fade_in">
+			<div class="lds-grid">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!-- Landing page if person is not logged in -->
+		<div class="container1-page1 index_screen">
+			<div class="navbar-page1 z-depth-3">
+				<nav>
+					<div class="nav-wrapper">
+						<ul id="nav-mobile" class="left hide-on-med-and-down">
+							<span class="navbar-title">CODEKAKSHA</span>
+						</ul>
+						<div id="nav-mobile" class="right hide-on-med-and-down">
+							<span class="login-page1"
+								><a class="modal-trigger login" href="#modal1">Login</a></span
+							>
+							<div id="modal1" class="modal modal-log">
+								<div class="modal-footer">
+									<a
+										href="#!"
+										class="modal-close waves-effect waves-green btn-flat"
+										>X</a
+									>
+								</div>
+								<div class="modal-content">
+									<h5 class="modal-heading">Login To Codekaksha</h5>
+									<a
+										class="waves-effect waves-light btn logmod-but"
+										id="googleSignIn"
+									>
+										<img
+											class="google-img"
+											src="res\logos\google.svg.png"
+											style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+										/>
+										<span class="logmodal">Login using Google</span></a
+									>
+									<h5 class="modal-line" style="margin: 20px 0 20px 0">
+										<span>or</span>
+									</h5>
+									<a class="waves-effect waves-light btn emailmod-but">
+										<span class="emailmodal">Login using Email</span></a
+									>
+								</div>
+							</div>
+							<span class="sign-page1"
+								><a
+									class="waves-effect waves-light btn modal-trigger sign-but"
+									href="#modal2"
+									>Sign Up</a
+								></span
+							>
+							<div id="modal2" class="modal modal-log">
+								<div class="modal-footer">
+									<a
+										href="#!"
+										class="modal-close waves-effect waves-green btn-flat"
+										>X</a
+									>
+								</div>
+								<div class="modal-content">
+									<h5 class="modal-heading">Sign Up for Codekaksha</h5>
+									<a class="waves-effect waves-light btn logmod-but">
+										<img
+											class="google-img"
+											src="res\logos\google.svg.png"
+											style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+										/>
+										<span class="logmodal">Sign Up using Google</span></a
+									>
+									<h5 class="modal-line" style="margin: 20px 0 20px 0">
+										<span>or</span>
+									</h5>
+									<a class="waves-effect waves-light btn emailmod-but">
+										<span class="emailmodal">Sign Up using Email</span></a
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
 
-      <div class="container2-page1">
-        <div class="heading1-page1">HOST AWESOME CODING</div>
-        <div class="boil_text">
-          <div class="big_div">
-            <h1 class="heading2-page1">CLASSES</h1>
-            <h1 class="heading2-page1">SESSIONS</h1>
-            <h1 class="heading2-page1">DISCUSSIONS</h1>
-            <h1 class="heading2-page1">INTERVIEWS</h1>
-          </div>
-        </div>
-        <div class="heading3-page1" style="margin-top: 30px">
-          Codekaksha is a one-of-its-kind multiuse platform that helps
-        </div>
-        <div class="heading4-page1">you bring your code into reality</div>
-        <div class="heading5-page1">
-          <a class="waves-effect waves-light btn host-but">HOST A CODERENCE</a>
-        </div>
-      </div>
+			<div class="container2-page1">
+				<div class="heading1-page1">HOST AWESOME CODING</div>
+				<div class="boil_text">
+					<div class="big_div">
+						<h1 class="heading2-page1">CLASSES</h1>
+						<h1 class="heading2-page1">SESSIONS</h1>
+						<h1 class="heading2-page1">DISCUSSIONS</h1>
+						<h1 class="heading2-page1">INTERVIEWS</h1>
+					</div>
+				</div>
+				<div class="heading3-page1" style="margin-top: 30px">
+					Codekaksha is a one-of-its-kind multiuse platform that helps
+				</div>
+				<div class="heading4-page1">you bring your code into reality</div>
+				<div class="heading5-page1">
+					<a class="waves-effect waves-light btn host-but">HOST A CODERENCE</a>
+				</div>
+			</div>
 
-      <div class="waves-page1">
-        <div style="height: 80px; overflow: hidden">
-          <svg
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-            style="height: 100%; width: 100%"
-          >
-            <path
-              d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
-              style="stroke: none; fill: #966b9d"
-            ></path>
-          </svg>
-        </div>
+			<div class="waves-page1">
+				<div style="height: 80px; overflow: hidden">
+					<svg
+						viewBox="0 0 500 150"
+						preserveAspectRatio="none"
+						style="height: 100%; width: 100%"
+					>
+						<path
+							d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
+							style="stroke: none; fill: #966b9d"
+						></path>
+					</svg>
+				</div>
 
-        <div style="height: 80px; overflow: hidden">
-          <svg
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-            style="height: 100%; width: 100%"
-          >
-            <path
-              d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
-              style="stroke: none; fill: #337357"
-            ></path>
-          </svg>
-        </div>
-      </div>
+				<div style="height: 80px; overflow: hidden">
+					<svg
+						viewBox="0 0 500 150"
+						preserveAspectRatio="none"
+						style="height: 100%; width: 100%"
+					>
+						<path
+							d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
+							style="stroke: none; fill: #337357"
+						></path>
+					</svg>
+				</div>
+			</div>
 
-      <div class="botcont-page1">
-        <div class="botcont1">
-          <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
-          <p class="botcon2">GROW</p>
-        </div>
-        <div class="botcont2">
-          <p class="botcon1" style="color: black; padding-top: 40px">
-            CODE WITH
-          </p>
-          <p class="botcon2" style="color: black">FRIEND</p>
-        </div>
-        <div class="botcont3">
-          <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
-          <p class="botcon2">EFFECTIVELY</p>
-        </div>
-      </div>
-    </div>
-    <div class="container1-page2 after_login_screen hidden">
-      <div class="navbar-page1 z-depth-3">
-        <nav>
-          <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left">
-              <span class="navbar-title">CODEKAKSHA</span>
-            </ul>
-            <div id="nav-mobile" class="right hide-on-med-and-down">
-              <span class="login-page1"
-                ><a href="#"><img src="" class="displayPic" /></a>
-              </span>
-              <a href="" class="logout">logout</a>
-            </div>
-          </div>
-        </nav>
-      </div>
+			<div class="botcont-page1">
+				<div class="botcont1">
+					<p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
+					<p class="botcon2">GROW</p>
+				</div>
+				<div class="botcont2">
+					<p class="botcon1" style="color: black; padding-top: 40px">
+						CODE WITH
+					</p>
+					<p class="botcon2" style="color: black">FRIEND</p>
+				</div>
+				<div class="botcont3">
+					<p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
+					<p class="botcon2">EFFECTIVELY</p>
+				</div>
+			</div>
+		</div>
+		<!-- landing page if person is already logged in -->
+		<div class="container1-page2 after_login_screen hidden">
+			<div class="navbar-page1 z-depth-3">
+				<nav>
+					<div class="nav-wrapper">
+						<ul id="nav-mobile" class="left">
+							<span class="navbar-title">CODEKAKSHA</span>
+						</ul>
+						<div id="nav-mobile" class="right hide-on-med-and-down">
+							<span class="login-page1"
+								><a href="#"><img src="" class="displayPic" /></a>
+							</span>
+							<a href="" class="logout">logout</a>
+						</div>
+					</div>
+				</nav>
+			</div>
 
-      <div class="row"></div>
-      <div class="row">
-        <div class="col s12 m7" style="padding-left: 50px">
-          <div class="container2-page2" style="text-align: left">
-            <div class="heading1-page2">
-              Hey, <span class="username"></span>
-            </div>
-            <div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
+			<div class="row"></div>
+			<div class="row">
+				<div class="col s12 m7" style="padding-left: 50px">
+					<div class="container2-page2" style="text-align: left">
+						<div class="heading1-page2">
+							Hey, <span class="username"></span>
+						</div>
+						<div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
 
-            <div class="login-buttons row">
-              <div
-                class="button1-page2 col s12 m6"
-                style="display: inline-flex; padding-left: 0"
-              >
-                <a class="waves-effect waves-light btn host-but1 createRoom"
-                  >CREATE A CODERENCE</a
-                >
-              </div>
+						<div class="login-buttons row">
+							<div
+								class="button1-page2 col s12 m6"
+								style="display: inline-flex; padding-left: 0"
+							>
+								<a class="waves-effect waves-light btn host-but1 createRoom"
+									>CREATE A CODERENCE</a
+								>
+							</div>
 
-              <div class="col s12 m6" style="display: inline-flex">
-                <form name="loginBox" action="" method="POST">
-                  <div class="input-container">
-                    <span><img src="res/keyboard.svg" class="icon1" /></span>
-                    <input
-                      class="input-field"
-                      name="roomId"
-                      type="text"
-                      placeholder="ENTER THE ROOM ID"
-                      style="
-                        height: 36px;
-                        width: auto;
-                        margin-bottom: 0;
-                        margin-top: 0.4em;
-                        margin-left: 1em;
-                        border-bottom: none;
-                        box-shadow: none;
-                      "
-                    />
-                  </div>
-                  <input type="submit" style="display: none" />
-                </form>
-              </div>
-            </div>
-          </div>
-          <hr style="border: 1px solid black; margin-top: 4em" />
-          <div class="contactmsg">
-            <a href="#">Get in touch with us!</a>
-          </div>
-        </div>
-        <div class="col s12 m5 demo-img">
-          <img src="res/demo.png" />
-        </div>
-      </div>
+							<div class="col s12 m6" style="display: inline-flex">
+								<form name="loginBox" action="" method="POST">
+									<div class="input-container">
+										<span><img src="res/keyboard.svg" class="icon1" /></span>
+										<input
+											class="input-field"
+											name="roomId"
+											type="text"
+											placeholder="ENTER THE ROOM ID"
+											style="
+												height: 36px;
+												width: auto;
+												margin-bottom: 0;
+												margin-top: 0.4em;
+												margin-left: 1em;
+												border-bottom: none;
+												box-shadow: none;
+											"
+										/>
+									</div>
+									<input type="submit" style="display: none" />
+								</form>
+							</div>
+						</div>
+					</div>
+					<hr style="border: 1px solid black; margin-top: 4em" />
+					<div class="contactmsg">
+						<a href="#">Get in touch with us!</a>
+					</div>
+				</div>
+				<div class="col s12 m5 demo-img">
+					<img src="res/demo.png" />
+				</div>
+			</div>
 
-      <!--- sizes need to be done appropriately ---->
-      <div class="waves-page1">
-        <div style="height: 80px; overflow: hidden">
-          <svg
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-            style="height: 100%; width: 100%"
-          >
-            <path
-              d="M-0.90,97.00 C31.26,117.73 24.49,171.01 131.15,178.91 L500.22,182.85 L0.00,150.00 Z"
-              style="stroke: none; fill: #966b9d"
-            ></path>
-          </svg>
-        </div>
-        <div style="height: 80px; overflow: hidden">
-          <svg
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-            style="height: 100%; width: 100%"
-          >
-            <path
-              d="M297.06,280.55 C418.40,225.29 452.82,118.71 501.35,97.00 L500.00,150.00 L279.57,283.51 Z"
-              style="stroke: none; fill: #337357"
-            ></path>
-          </svg>
-        </div>
-      </div>
+			<!--- sizes need to be done appropriately ---->
+			<div class="waves-page1">
+				<div style="height: 80px; overflow: hidden">
+					<svg
+						viewBox="0 0 500 150"
+						preserveAspectRatio="none"
+						style="height: 100%; width: 100%"
+					>
+						<path
+							d="M-0.90,97.00 C31.26,117.73 24.49,171.01 131.15,178.91 L500.22,182.85 L0.00,150.00 Z"
+							style="stroke: none; fill: #966b9d"
+						></path>
+					</svg>
+				</div>
+				<div style="height: 80px; overflow: hidden">
+					<svg
+						viewBox="0 0 500 150"
+						preserveAspectRatio="none"
+						style="height: 100%; width: 100%"
+					>
+						<path
+							d="M297.06,280.55 C418.40,225.29 452.82,118.71 501.35,97.00 L500.00,150.00 L279.57,283.51 Z"
+							style="stroke: none; fill: #337357"
+						></path>
+					</svg>
+				</div>
+			</div>
 
-      <div class="botcont-page1">
-        <div class="botcont1">
-          <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
-          <p class="botcon2">GROW</p>
-        </div>
-        <div class="botcont2">
-          <p class="botcon1" style="color: black; padding-top: 40px">
-            CODE WITH
-          </p>
-          <p class="botcon2" style="color: black">FRIEND</p>
-        </div>
-        <div class="botcont3">
-          <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
-          <p class="botcon2">EFFECTIVELY</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+			<div class="botcont-page1">
+				<div class="botcont1">
+					<p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
+					<p class="botcon2">GROW</p>
+				</div>
+				<div class="botcont2">
+					<p class="botcon1" style="color: black; padding-top: 40px">
+						CODE WITH
+					</p>
+					<p class="botcon2" style="color: black">FRIEND</p>
+				</div>
+				<div class="botcont3">
+					<p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
+					<p class="botcon2">EFFECTIVELY</p>
+				</div>
+			</div>
+		</div>
+		<!-- Ready screen -->
+		<div class="contaner1-page3 ready_screen hidden">
+			<button class="ready">Ready</button>
+		</div>
+		<!-- meet screen -->
+		<div class="container1-page4 meet_screen">
+			<div class="after_join">
+				<div class="section1">
+					<canvas class="whiteBoard"></canvas>
+					<div id="jsEditor" class="textArea"></div>
+				</div>
+				<div class="video-grid" id="video">
+				</div>
+			</div>
+		</div>
 
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
 
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyBicXQ7S5ltOo3vrIxqr8wU7bRVhH7nJ0Q",
-        authDomain: "codekaksha-e483b.firebaseapp.com",
-        databaseURL: "https://codekaksha-e483b.firebaseio.com",
-        projectId: "codekaksha-e483b",
-        storageBucket: "codekaksha-e483b.appspot.com",
-        messagingSenderId: "312753994162",
-        appId: "1:312753994162:web:cf8e878652bf6686b18cab",
-        measurementId: "G-WTW8L80JKT",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
-    <script src="js/auth.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/front.js"></script>
-  </body>
+		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+
+		<script>
+			// Your web app's Firebase configuration
+			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+			var firebaseConfig = {
+				apiKey: 'AIzaSyBicXQ7S5ltOo3vrIxqr8wU7bRVhH7nJ0Q',
+				authDomain: 'codekaksha-e483b.firebaseapp.com',
+				databaseURL: 'https://codekaksha-e483b.firebaseio.com',
+				projectId: 'codekaksha-e483b',
+				storageBucket: 'codekaksha-e483b.appspot.com',
+				messagingSenderId: '312753994162',
+				appId: '1:312753994162:web:cf8e878652bf6686b18cab',
+				measurementId: 'G-WTW8L80JKT',
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+		</script>
+		<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/auth.js"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.js"
+			integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="js/editor.js"></script>
+		<script src="js/whiteboard.js"></script>
+		<script src="js/ready.js"></script>
+		<script src="js/front.js"></script>
+		<script src="js/video.js"></script>
+	</body>
 </html>

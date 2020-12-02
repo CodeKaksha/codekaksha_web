@@ -1,6 +1,8 @@
 let loader = document.querySelector('.loader');
 let index_screen = document.querySelector('.index_screen');
 let after_login_screen = document.querySelector('.after_login_screen');
+let ready_screen = document.querySelector('.ready_screen');
+let meet_screen = document.querySelector('.meet_screen');
 let bigDiv = document.querySelector('.big_div');
 let diff_height = -71;
 window.setInterval(() => {
@@ -27,13 +29,16 @@ function loaderOut() {
 function show_screen(screen_name) {
 	index_screen.classList.add('hidden');
 	after_login_screen.classList.add('hidden');
+	ready_screen.classList.add('hidden');
+	meet_screen.classList.add('hidden');
 	loaderOn();
 	window.setTimeout(() => {
 		loaderOut();
-	}, 1500);
+	}, 600);
 	screen_name.classList.remove('hidden');
 }
-document.querySelector('.createRoom').addEventListener("click",(e)=>{
-    e.preventDefault();
-    
-})
+document.querySelector('.createRoom').addEventListener('click', (e) => {
+	e.preventDefault();
+	loaderOn();
+	show_screen(ready_screen);
+});
