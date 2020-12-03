@@ -14,6 +14,7 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
         }
         else{
             alert('There is no such room available!');
+            loaderOut();    
         }
     })
 })
@@ -25,7 +26,7 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
         console.log(id);
         ready(id);
         show_screen(ready_screen);
-        video(`videoBeforeJoin`);
+        videoOnlyUser(`videoBeforeJoin`);
     })
 });
 

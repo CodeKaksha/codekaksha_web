@@ -35,14 +35,14 @@ function onConnection(socket) {
   socket.on("join-room", (roomId, userId, username) => {
     const user = userJoin(userId, username, roomId);
     socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected", username);
+    socket.to(roomId).broadcast.emit("user-connected", username,userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
   });
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
     console.log(users);
     if (users.length == 0 ) {
-      socket.to(socket.id).emit('roomIdChecked',0);
+      io.to(socket.id).emit('roomIdChecked',0);
     }
     else if(users!=undefined){
       io.to(socket.id).emit('roomIdChecked',1);
@@ -52,6 +52,7 @@ function onConnection(socket) {
   socket.on("drawing", (data, room) =>
     socket.to(room).broadcast.emit("drawing", data)
   );
+ 
 
   
 
@@ -80,8 +81,3 @@ var options = {
 };
 let peerServer = ExpressPeerServer(server, options);
 app.use("/peerjs", peerServer);
-
-// var options = {
-//     debug: true
-// }
-// app.use('/api', ExpressPeerServer(server, options));
