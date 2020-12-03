@@ -55,9 +55,15 @@ function show_screen(screen_name) {
 	}, 600);
 	screen_name.classList.remove('hidden');
 }
-document.querySelector('.createRoom').addEventListener('click', (e) => {
-	e.preventDefault();
-	loaderOn();
-	show_screen(ready_screen);
-	video(`videoBeforeJoin`);
-});
+function displayMessageIncoming(user)
+{
+	alert(user);
+}
+function displayMessageOutgoing(user)
+{
+	alert(user);
+}
+function displayRoomUsers(users)
+{
+	
+}

@@ -66,15 +66,3 @@ for (let i = 0; i < googleSignIn.length; i++) {
     e.preventDefault();
   });
 }
-
-function submitForm() {
-  var http = new XMLHttpRequest();
-  http.open("POST", "https://api.jdoodle.com/v1/execute", true);
-  http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  var params = "" ; // probably use document.getElementById(...).value
-  http.send(params);
-  http.onload = function() {
-      alert(http.responseText);
-  }
-}
-submitForm();
