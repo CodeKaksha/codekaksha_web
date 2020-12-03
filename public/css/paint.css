@@ -1,7 +1,18 @@
-.canvas_abs{
-    position: absolute;
+.canvas_abs {
+  position: absolute;
 }
-.canvas_array{
-    position: absolute;
-    display: flex;
+.canvas_array {
+  position: absolute;
+  display: flex;
+}
+.canvas input {
+  position: absolute;
+  width: 40px;
+  height: 40px; 
+  top:0;
+  z-index:10000;
+}
+.canvas {
+  position: relative;
+ 
 }

@@ -1,5 +1,5 @@
 const path = require('path');
-
+require('dotenv').config()
 const express = require('express');
 var ExpressPeerServer = require('peer').ExpressPeerServer;
 const app = express();
@@ -11,12 +11,13 @@ const socketio = require('socket.io');
 var { nanoid } = require("nanoid");
 var ID = nanoid(4);
 
+console.log(process.env.CLIENT_ID)
+console.log(process.env.CLIENT_SECRET)
 
 
 const server = http.createServer(app);
 
 const io = socketio(server);
- 
 
 
 function onConnection(socket) {
