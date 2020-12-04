@@ -354,7 +354,9 @@ nav div a {
 	height: 60%;
 	background-color: white;
 }
-
+.modal-share{
+	height:40%!important;
+}
 .log-text {
 	padding-bottom: 5px;
 }
@@ -565,4 +567,10 @@ h5 span {
 }
 .displayPic{
 	border-radius: 50%;
+}
+.share-room{
+	position: absolute;
+	top:0;
+	right:0;
+	
 }

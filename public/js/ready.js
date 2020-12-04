@@ -5,7 +5,7 @@ function ready(id)
   console.log(user)
   ready_btn.addEventListener("click", (e) => {
     console.log(user.email)
-
+    document.querySelector('#share-code-room').innerHTML=id;
     socket.emit('join-room',id,user.email,user.displayName)
     e.preventDefault();
     show_screen(meet_screen);

@@ -16,7 +16,7 @@ window.setInterval(() => {
 $(document).ready(function () {
 	$('#modal1').modal();
 	$('#modal2').modal();
-	
+	$('#modal3').modal();
 	let butColCheck = 0;
 	$(".theme-switcher").click(function() {
 		if (butColCheck == 0) {
