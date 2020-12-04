@@ -1,26 +1,31 @@
-# codekaksha_web
+## Codekaksha
+## Team here_for_reason
 
-# Shubhang
+# OBJECTIVES
+<li>To make it easier to understand the concepts of data structures and algorithms with actual interaction with the teachers. </li>
+<li>Aid faculty to teach without any extra cost like writing pad, stylus, etc. </li>
+<li>Make coding much easier to teach and for that, we have thought of making a website(which can be extended to an app in the future) that gives the facility of hosting interactive code sessions with students. </li>
+<li>Make teaching more fun and more interactive.</li>
+<li>Facilitate better peer collaboration and provide a platform to groups to code together.</li>
+<li>Provide an integrated platform to conduct interviews with an integrated code-compiler platform.</li>
 
-<li> meeting screen (figma)</li>
 
-# Neha Goyal
-<li>After joining ready screen (figma)</li>
+# FEATURES
+<li>Collaborative Real-time whiteboard</li>
+<li>Collaborative code compiler</li>
+<li>Video conferencing</li>
+<li>Secured Interview sessions</li>
 
-
-# Abhinandan 
-
-<li> Connect compilers </li>
-<li> Admin Access </li>
-<li> Mute and video off backend </li>
-<li> Cursor change on whiteboard( A pen or something) <li>
+# TECH-STACK USED 
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Node.js</li>
+<li>Firebase</li>
+<li>Socket.io</li>
+<li>Git and Github</li>
  
- # Naman
- 
-<li> Readme <li>
-<li> Presentation:
-  <li> Should be proffessional </li>
-<li>
- <li> Demo Video </li>
- 
-
+# THIRD PARTY LIBRARIES USED
+<li>Peer.js</li>
+<li>WebRTC</li>
+<li>nanoid</li>
