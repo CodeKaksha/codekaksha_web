@@ -32,3 +32,26 @@
 <li>Peer.js(https://peerjs.com/)</li>
 <li>WebRTC(https://webrtc.org/)</li>
 <li>nanoid(https://github.com/ai/nanoid)</li>
+
+
+## Installation In Local
+
+Clone the repo and in the terminal run this command:
+
+```
+npm install
+```
+<br>
+This would install all dependencies used. 
+<br>
+Now run this command to run the website on port 3000. Open localhost:3000 in your browser to view the site.
+<br>
+<br>
+
+```
+npm run start
+```
+
+<br>
+
+# Thanks!
