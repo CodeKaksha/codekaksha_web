@@ -7,9 +7,6 @@ function editor(roomId) {
   editor.getSession().on("change", function () {
     if (fl) {
       socket.emit("editorChange", editor.getValue(), roomId);
-    } else {
-		
-      fl = 1;
     }
   });
   socket.on("changeEdit", (data) => {
