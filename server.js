@@ -45,6 +45,9 @@ function onConnection(socket) {
 	  console.log(room);
 	  socket.to(room).broadcast.emit('changeEdit',data)
   })
+  socket.on('give_alert',(room,username)=>{
+    socket.to(room).broadcast.emit('bhag_gya_lauda',username)
+  })
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
     console.log(users);

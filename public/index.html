@@ -212,7 +212,7 @@
             <ul id="nav-mobile" class="left">
               <span class="navbar-title">CODEKAKSHA</span>
             </ul>
-            <div id="nav-mobile" class="right hide-on-med-and-down">
+            <div id="nav-mobile" class="right hide-on-med-and-down" style="display: flex;">
               <span class="login-page1"
                 ><a href="#"><img src="" class="displayPic" /></a>
               </span>
@@ -410,15 +410,25 @@
 
       <!--- sizes need to be done appropriately ---->
     </div>
-    <div class="notification">
-      hshshshshs
-    </div>
     <!-- meet screen -->
     <div class="container1-page4 meet_screen">
+      <div class="btn btn-outline-dark runCode">Run</div>
       <div class="after_join">
         <div class="section1">
           <canvas class="whiteBoard"></canvas>
-          <div id="jsEditor" class="textArea"></div>
+          <div class="compiler">  
+            <div id="jsEditor" class="textArea"></div>
+            <div class="inp-out">
+              <div class="input">
+                <span class="user-input">INPUT</span>
+                <textarea name="name" id="inp-val" rows="50" cols="35"></textarea>
+              </div>
+              <div class="output">
+                <span class="user-output">OUTPUT</span>
+                <textarea readonly id="out-val" name="name" rows="50" cols="35"></textarea>
+              </div>
+            </div>
+          </div>
         </div>
         <span class="share-room"
                 ><a class="modal-trigger login" href="#modal3"><img src="res/share_icon.png" alt=""></a></span
@@ -440,6 +450,7 @@
                 </div>
               </div>
         <div class="video-grid" id="video-grid"></div>
+
       </div>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

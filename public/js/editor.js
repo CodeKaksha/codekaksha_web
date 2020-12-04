@@ -14,4 +14,7 @@ function editor(roomId) {
     fl = 0;
     editor.setValue(data);
   });
+  document.querySelector('.runCode').addEventListener('click',(e)=>{
+	document.querySelector('#out-val').value=document.querySelector('#inp-val').value;
+  })
 }

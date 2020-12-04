@@ -131,11 +131,32 @@ nav div a {
 	display: flex;
 	flex-direction: row;
 }
-.textArea {
+.compiler{
+	display: flex;
+	flex-direction: column;
 	width: 50%;
-	height: 100vh;
+}
+.textArea {
+	width: 100%;
+	height: 80vh;
 	background: rgba(27, 35, 43, 0.651);
 	color: #fff;
+}
+.runCode{
+	position: absolute;
+	bottom: 3px;
+	right: 3px;	
+}
+.inp-out{
+	background-color: #1a1c20;
+	min-width: 95%;
+	color: #fff;
+	border: 2px;
+	border-color: white;
+	border-style: solid;
+	display: flex;
+	justify-content: space-around;
+	height:20vh;
 }
 .whiteBoard {
 	width: 50%;
@@ -174,12 +195,12 @@ nav div a {
 .video-grid {
 	position: absolute;
 	bottom: 0;
-	right: 0;
+	left: 0;
 	display: flex;
 }
 .video-grid video {
-	height: 100px;
-	width: 100px;
+	height: 150px;
+	width: 150px;
 	background: #333;
 	object-fit: cover;
 }
