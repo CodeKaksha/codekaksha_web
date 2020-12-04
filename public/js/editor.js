@@ -8,9 +8,6 @@ function editor(roomId) {
     if (fl) {
       socket.emit("editorChange", editor.getValue(), roomId);
 	}
-	else{
-		fl=1;
-	}
   });
   socket.on("changeEdit", (data) => {
     console.log(data);
