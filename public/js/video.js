@@ -25,8 +25,6 @@ function video(videoId,username,room) {
           addVideoStream(video, userVideoStream);
         });
       });
-      
-      
     });
   function addVideoStream(video, stream) {
     video.srcObject = stream;

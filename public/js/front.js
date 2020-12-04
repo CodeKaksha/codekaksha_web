@@ -58,10 +58,18 @@ function show_screen(screen_name) {
 function displayMessageIncoming(user)
 {
 	// alert(user);
+	let div=document.createElement('div');
+	div.className='notification';
+	div.innerHTML=(`${user} has joined the coderence!`)
+	document.body.appendChild(div)
 }
 function displayMessageOutgoing(user)
 {
 	// alert(user);
+	let div=document.createElement('div');
+	div.className='notification';
+	div.innerHTML=(`${user} has left the coderence!`)
+	document.body.appendChild(div)
 }
 function displayRoomUsers(users)
 {

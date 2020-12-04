@@ -15,7 +15,7 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
         }
         else{
             alert('There is no such room available!');
-            loaderOut();    
+            loaderOut();
         }
     })
 })
