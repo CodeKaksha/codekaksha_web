@@ -40,6 +40,11 @@ function onConnection(socket) {
     socket.to(roomId).broadcast.emit("user-connected", username,userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
   });
+  socket.on('editorChange',(data,room)=>{
+	  console.log(data);
+	  console.log(room);
+	  socket.to(room).broadcast.emit('changeEdit',data)
+  })
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
     console.log(users);

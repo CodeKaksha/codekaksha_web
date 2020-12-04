@@ -12,7 +12,7 @@ function ready(id)
     removeVideo("videoBeforeJoin");
     whiteBoard(id);
     video("video-grid",user.displayName,id);
-    editor();
+    editor(id);
     // $(window).blur(function () {
     //   alert('hey');
     // });
