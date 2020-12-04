@@ -7,7 +7,7 @@ function video(videoId,username,room) {
   navigator.mediaDevices
     .getUserMedia({
       video: true,
-      audio: true,
+      audio: false,
     })
     .then((stream) => {
       addVideoStream(myvideo, stream);
