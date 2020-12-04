@@ -14,10 +14,7 @@
       property="og:description"
       content="Host interactive coding classes, sessions and interviews with video call and realtime compiler!"
     />
-    <meta
-      property="og:image"
-      content="https://ibb.co/44dHBDd"
-    />
+    <meta property="og:image" content="https://ibb.co/44dHBDd" />
     <link rel="shortcut icon" href="res/logo.png" />
 
     <link
@@ -142,6 +139,7 @@
 
       <div class="container2-page1">
         <div class="heading1-page1">HOST AWESOME CODING</div>
+
         <div class="boil_text">
           <div class="big_div">
             <h1 class="heading2-page1">CLASSES</h1>
@@ -155,7 +153,37 @@
         </div>
         <div class="heading4-page1">you bring your code into reality</div>
         <div class="heading5-page1">
-          <a class="waves-effect waves-light btn host-but">HOST A CODERENCE</a>
+          <span class="login-page1"
+            ><a
+              class="modal-trigger waves-effect waves-light btn host-but"
+              href="#modal12"
+              >HOST A CODERENCE</a
+            ></span
+          >
+          <div id="modal12" class="modal modal-log">
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >X</a
+              >
+            </div>
+            <div class="modal-content">
+              <h5 class="modal-heading">Login To Codekaksha</h5>
+              <a class="waves-effect waves-light btn logmod-but googleSignIn">
+                <img
+                  class="google-img"
+                  src="res\logos\google.svg.png"
+                  style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+                />
+                <span class="logmodal">Login using Google</span></a
+              >
+              <h5 class="modal-line" style="margin: 20px 0 20px 0">
+                <span>or</span>
+              </h5>
+              <a class="waves-effect waves-light btn emailmod-but">
+                <span class="emailmodal">Login using Email</span></a
+              >
+            </div>
+          </div>
         </div>
       </div>
 
@@ -212,7 +240,11 @@
             <ul id="nav-mobile" class="left">
               <span class="navbar-title">CODEKAKSHA</span>
             </ul>
-            <div id="nav-mobile" class="right hide-on-med-and-down" style="display: flex;">
+            <div
+              id="nav-mobile"
+              class="right hide-on-med-and-down"
+              style="display: flex"
+            >
               <span class="login-page1"
                 ><a href="#"><img src="" class="displayPic" /></a>
               </span>
@@ -416,41 +448,50 @@
       <div class="after_join">
         <div class="section1">
           <canvas class="whiteBoard"></canvas>
-          <div class="compiler">  
+          <div class="compiler">
             <div id="jsEditor" class="textArea"></div>
             <div class="inp-out">
               <div class="input">
                 <span class="user-input">INPUT</span>
-                <textarea name="name" id="inp-val" rows="50" cols="35"></textarea>
+                <textarea
+                  name="name"
+                  id="inp-val"
+                  rows="50"
+                  cols="35"
+                ></textarea>
               </div>
               <div class="output">
                 <span class="user-output">OUTPUT</span>
-                <textarea readonly id="out-val" name="name" rows="50" cols="35"></textarea>
+                <textarea
+                  readonly
+                  id="out-val"
+                  name="name"
+                  rows="50"
+                  cols="35"
+                ></textarea>
               </div>
             </div>
           </div>
         </div>
         <span class="share-room"
-                ><a class="modal-trigger login" href="#modal3"><img src="res/share_icon.png" alt=""></a></span
-              >
-              <div id="modal3" class="modal modal-log modal-share">
-                <div class="modal-footer">
-                  <a
-                    href="#!"
-                    class="modal-close waves-effect waves-green btn-flat"
-                    >X</a
-                  >
-                </div>
-                <div class="modal-content">
-                  <h5 class="modal-heading">SHARE THE CODERENCE</h5>
-                  <h6>You are the only one here! Share this code to the people you want in the coderence:
-                   <span id="share-code-room">
-
-                   </span></h6>
-                </div>
-              </div>
+          ><a class="modal-trigger login" href="#modal3"
+            ><img src="res/share_icon.png" alt="" /></a
+        ></span>
+        <div id="modal3" class="modal modal-log modal-share">
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              >X</a
+            >
+          </div>
+          <div class="modal-content">
+            <h5 class="modal-heading">SHARE THE CODERENCE</h5>
+            <h6>
+              You are the only one here! Share this code to the people you want
+              in the coderence: <span id="share-code-room"> </span>
+            </h6>
+          </div>
+        </div>
         <div class="video-grid" id="video-grid"></div>
-
       </div>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
