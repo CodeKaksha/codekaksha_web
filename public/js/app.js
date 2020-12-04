@@ -11,6 +11,7 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
             loaderOut();
             ready(roomIdEntered);
             show_screen(ready_screen);
+            videoOnlyUser(`videoBeforeJoin`);
         }
         else{
             alert('There is no such room available!');

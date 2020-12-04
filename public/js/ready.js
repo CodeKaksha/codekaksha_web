@@ -4,12 +4,14 @@ function ready(id)
   let user=firebase.auth().currentUser;
   console.log(user)
   ready_btn.addEventListener("click", (e) => {
-    socket.emit('join-room',id,user.email,user.name)
+    console.log(user.email)
+
+    socket.emit('join-room',id,user.email,user.displayName)
     e.preventDefault();
     show_screen(meet_screen);
     removeVideo("videoBeforeJoin");
     whiteBoard(id);
-    video("video-grid");
+    video("video-grid",user.displayName,id);
     editor();
     // $(window).blur(function () {
     //   alert('hey');

@@ -57,11 +57,11 @@ function show_screen(screen_name) {
 }
 function displayMessageIncoming(user)
 {
-	alert(user);
+	// alert(user);
 }
 function displayMessageOutgoing(user)
 {
-	alert(user);
+	// alert(user);
 }
 function displayRoomUsers(users)
 {

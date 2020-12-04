@@ -31,8 +31,11 @@ function onConnection(socket) {
       });
     }
   });
-
+  socket.on('join-vid',(peerId,username,room)=>{
+    socket.to(room).broadcast.emit('user-vid-connected',peerId,username);
+  })
   socket.on("join-room", (roomId, userId, username) => {
+    console.log(username)
     const user = userJoin(userId, username, roomId);
     socket.join(roomId);
     socket.to(roomId).broadcast.emit("user-connected", username,userId);
