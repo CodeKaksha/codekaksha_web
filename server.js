@@ -11,7 +11,6 @@ const socketio = require("socket.io");
 const { userJoin, getRoomUsers, userLeave } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
-var ID = nanoid(4);
 
 console.log(process.env.CLIENT_ID);
 console.log(process.env.CLIENT_SECRET);
