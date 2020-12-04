@@ -1,4 +1,7 @@
 # Codekaksha
+
+<img src="https://codekaksha.herokuapp.com/res/logo.png" align="right"
+     alt="GOC LOGO" width="110" height="140">
 # Team here_for_reason
 
 ## OBJECTIVES
