@@ -29,6 +29,6 @@
 <li>Git and Github</li>
  
 ## THIRD PARTY LIBRARIES USED
-<li>[Peer.js](https://peerjs.com/)</li>
-<li>[WebRTC](https://webrtc.org/)</li>
-<li>[nanoid](https://github.com/ai/nanoid)</li>
+<li>Peer.js(https://peerjs.com/)</li>
+<li>WebRTC(https://webrtc.org/)</li>
+<li>nanoid(https://github.com/ai/nanoid)</li>
