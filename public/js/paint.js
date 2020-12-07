@@ -1,5 +1,6 @@
 let rect = document.querySelector(".rectangle");
 let array = document.querySelector(".array");
+let grid = document.querySelector(".grid");
 let array_num = document.querySelector("#array_num");
 let j = 0;
 let k = 0;
@@ -36,6 +37,37 @@ array.addEventListener("click", (e) => {
     alert("BHai kuch value to daal");
   }
 });
+
+grid.addEventListener('click',(e)=>{
+  let num_col=document.querySelector('#grid_col').value;
+  let num_rows=document.querySelector('#grid_rows').value;
+  if(num_col&&num_rows)
+  {
+    let div=document.createElement('div');
+    div.className='grid_div'
+    for(let i=0;i<num_col;i++)
+    {
+      let canvas_array = document.createElement("div");
+      for (let i = 0; i < num_rows; i++) {
+        var canvas = document.createElement("canvas");
+        canvas.id = `${k}array`;
+        k++;
+        canvas.style = "border:1px solid #000000;";
+        canvas.style.height = `40px`;
+        canvas.style.width = `40px`;
+        canvas_array.appendChild(canvas);
+      }
+      canvas_array.className = "canvas_grid_array";
+     div.appendChild(canvas_array);
+    }
+    document.body.appendChild(div);
+    dragElement(div);
+  }
+  else{
+    alert('mazaak chal rha h kya yahan')
+  }
+  e.preventDefault();
+})
 
 function dragElement(elmnt) {
   var pos1 = 0,

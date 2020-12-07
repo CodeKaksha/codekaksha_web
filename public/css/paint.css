@@ -5,3 +5,11 @@
     position: absolute;
     display: flex;
 }
+.grid_div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.canvas_grid_array{
+    display: flex;
+}
