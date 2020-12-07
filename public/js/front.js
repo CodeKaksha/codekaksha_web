@@ -16,6 +16,25 @@ window.setInterval(() => {
 $(document).ready(function () {
 	$('#modal1').modal();
 	$('#modal2').modal();
+	$('#modal3').modal();
+	$('#modal12').modal();
+	let butColCheck = 0;
+	$(".theme-switcher").click(function() {
+		if (butColCheck == 0) {
+			$(this).css("background-color", "black");
+			$(this).css("color", "white");
+			$(this).html("Dark");
+			$(".whiteBoard").css("background-color", "black");
+			butColCheck = 1;
+		}
+		else {
+			$(this).css("background-color", "white");
+			$(this).css("color", "black");
+			$(this).html("Light");
+			$(".whiteBoard").css("background-color", "white");
+			butColCheck = 0;
+		}
+	});
 });
 
 function loaderOn() {
@@ -37,8 +56,23 @@ function show_screen(screen_name) {
 	}, 600);
 	screen_name.classList.remove('hidden');
 }
-document.querySelector('.createRoom').addEventListener('click', (e) => {
-	e.preventDefault();
-	loaderOn();
-	show_screen(ready_screen);
-});
+function displayMessageIncoming(user)
+{
+	// alert(user);
+	let div=document.createElement('div');
+	div.className='notification';
+	div.innerHTML=(`${user} has joined the coderence!`)
+	document.body.appendChild(div)
+}
+function displayMessageOutgoing(user)
+{
+	// alert(user);
+	let div=document.createElement('div');
+	div.className='notification';
+	div.innerHTML=(`${user} has left the coderence!`)
+	document.body.appendChild(div)
+}
+function displayRoomUsers(users)
+{
+	
+}

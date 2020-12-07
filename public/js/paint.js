@@ -22,13 +22,19 @@ array.addEventListener("click", (e) => {
   if (num_array) {
     let canvas_array = document.createElement("div");
     for (let i = 0; i < num_array; i++) {
+      let div=document.createElement('div');
+      div.className='canvas';
       var canvas = document.createElement("canvas");
       canvas.id = `${k}array`;
       k++;
       canvas.style = "border:1px solid #000000;";
       canvas.style.height = `40px`;
       canvas.style.width = `40px`;
-      canvas_array.appendChild(canvas);
+      let inp=document.createElement('input');
+      inp.type="number";
+      div.appendChild(canvas);
+      div.appendChild(inp);
+      canvas_array.appendChild(div);
     }
     canvas_array.className = "canvas_array";
     document.body.appendChild(canvas_array);

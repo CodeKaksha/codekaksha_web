@@ -1,4 +1,4 @@
-function whiteBoard() {
+function whiteBoard(room) {
 	var canvas = document.querySelector('.whiteBoard');
 	var colors = document.getElementsByClassName('color');
 	var context = canvas.getContext('2d');
@@ -23,7 +23,7 @@ function whiteBoard() {
 		colors[i].addEventListener('click', onColorUpdate, false);
 	}
 
-	// socket.on('drawing', onDrawingEvent);
+	socket.on('drawing', onDrawingEvent);
 
 	window.addEventListener('resize', onResize, false);
 	onResize();
@@ -49,7 +49,7 @@ function whiteBoard() {
 			x1: x1 / w,
 			y1: y1 / h,
 			color: color,
-		});
+		},room);
 	}
 
 	function onMouseDown(e) {
