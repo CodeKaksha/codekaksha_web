@@ -54,8 +54,8 @@ function editor(roomId) {
           language: "cpp17",
           versionIndex: "0",
           stdin:input,
-          clientId: "932946c5d15ae06e8db71370e8cf70a7",
-          clientSecret:"ff96ca58ff83876a898f91c734cea395d5ecdd4c3afe1c1bbac54df972d3ced9"
+          clientId: "change to client id",
+          clientSecret:"change to client secret"
         })
       })
       .then(res=>res.json())
