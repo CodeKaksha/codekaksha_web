@@ -19,15 +19,14 @@ $(document).ready(function () {
 	$('#modal3').modal();
 	$('#modal12').modal();
 	let butColCheck = 0;
-	$(".theme-switcher").click(function() {
+	$(".theme-switcher").click(function () {
 		if (butColCheck == 0) {
 			$(this).css("background-color", "black");
 			$(this).css("color", "white");
 			$(this).html("Dark");
 			$(".whiteBoard").css("background-color", "black");
 			butColCheck = 1;
-		}
-		else {
+		} else {
 			$(this).css("background-color", "white");
 			$(this).css("color", "black");
 			$(this).html("Light");
@@ -35,16 +34,30 @@ $(document).ready(function () {
 			butColCheck = 0;
 		}
 	});
+
+	setTimeout(toggle, 3000);
+	function toggle(){
+		$('.mute-end-cam').fadeOut("slow");
+	}
+
+	var timer = null;
+	$(window).on('mousemove', function(){
+		$('.mute-end-cam').fadeIn("slow");
+		clearTimeout(timer);
+		timer = setTimeout(toggle, 3000)
+	  });
 });
 	
 function loaderOn() {
 	loader.classList.remove('fade_out');
 	loader.classList.add('fade_in');
 }
+
 function loaderOut() {
 	loader.classList.remove('fade_in');
 	loader.classList.add('fade_out');
 }
+
 function show_screen(screen_name) {
 	index_screen.classList.add('hidden');
 	after_login_screen.classList.add('hidden');
@@ -56,23 +69,23 @@ function show_screen(screen_name) {
 	}, 600);
 	screen_name.classList.remove('hidden');
 }
-function displayMessageIncoming(user)
-{
+
+function displayMessageIncoming(user) {
 	// alert(user);
-	let div=document.createElement('div');
-	div.className='notification';
-	div.innerHTML=(`${user} has joined the coderence!`)
+	let div = document.createElement('div');
+	div.className = 'notification';
+	div.innerHTML = (`${user} has joined the coderence!`)
 	document.body.appendChild(div)
 }
-function displayMessageOutgoing(user)
-{
+
+function displayMessageOutgoing(user) {
 	// alert(user);
-	let div=document.createElement('div');
-	div.className='notification';
-	div.innerHTML=(`${user} has left the coderence!`)
+	let div = document.createElement('div');
+	div.className = 'notification';
+	div.innerHTML = (`${user} has left the coderence!`)
 	document.body.appendChild(div)
 }
-function displayRoomUsers(users)
-{
-	
+
+function displayRoomUsers(users) {
+
 }
