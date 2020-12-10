@@ -14,7 +14,12 @@ window.setInterval(() => {
 }, 3000);
 
 $(document).ready(function () {
-	$('.fixed-action-btn').floatingActionButton();
+	// $('.fixed-action-btn').floatingActionButton();
+	var elems=document.querySelectorAll('.fixed-action-btn');
+	var instances=M.FloatingActionButton.init(elems,{
+		// direction:'right',
+		// toolbarEnabled : true
+	});
 
 	$('#modal1').modal();
 	$('#modal2').modal();
