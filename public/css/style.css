@@ -636,7 +636,9 @@ h5 span {
 	max-height: 6vh;
 	background-color: #ffffff;
 }
-
+.edit-btn{
+	left:-50px;
+}
 .clear-but {
 	float: right;
 }

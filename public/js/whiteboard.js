@@ -36,9 +36,6 @@ function whiteBoard(room) {
 		context.lineWidth = 2;	
 		context.stroke();
 		context.closePath();
-		db.collection('whiteboard').add({
-			str:JSON.stringify(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight))
-		});
 
 		if (!emit) {
 			return;
