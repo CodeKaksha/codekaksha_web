@@ -748,7 +748,8 @@ h5 span {
 	max-width: 27.5%;
 	height: 78vh;
 	display: flex;
-	flex-direction: column;
+	
+	/* flex-direction: column; */
 	align-items: center;
 	overflow-y: auto;
 }
@@ -774,7 +775,7 @@ h5 span {
 }
 
 textarea {
-	height: 120px;
+	height: 91px;
 }
 
 .input,
@@ -814,38 +815,39 @@ video {
 
 .mute-end-cam {
 	display: flex;
-	height: 15vh;
-	background-color: #8b9e93;
-	width: 50%;
 	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	/* height: 15vh; */
+	/* background-color: #8b9e93; */
+	width: max-content;
+	/* position: absolute; */
+	/* bottom: 0; */
+	/* left: 0; */
+	/* right: 0; */
 	margin-left: auto;
 	margin-right: auto;
-	flex-direction: row;
+	/* flex-direction: row; */
 	align-items: center;
 	justify-content: center;
 	border-top-right-radius: 10%;
 	border-top-left-radius: 10%;
-	box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2), 0px 20px 20px 0px rgba(0, 0, 0, 0.19);
-	border-width: 3px 3px 0 3px;
-	border-style: solid;
-	border-color: rgb(2, 43, 4);
+	/* box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2), 0px 20px 20px 0px rgba(0, 0, 0, 0.19); */
+	/* border-width: 3px 3px 0 3px; */
+	/* border-style: solid; */
+	/* border-color: rgb(2, 43, 4); */
 }
 
 .mic-cam {
-	height: 80px;
-	width: 80px;
+	/* height: 80px; */
+	/* width: 80px; */
 	border-radius: 50%;
 	background-color: white;
-	margin: auto 20px;
+	margin: auto 5px;
 }
 
 .mic-img,
 .end-img,
 .cam-img {
-	height: 50px;
-	width: 50px;
+	height: 25px;
+	width: 25px;
 	padding: auto;
 }
