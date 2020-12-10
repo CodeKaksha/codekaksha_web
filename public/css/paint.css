@@ -5,6 +5,10 @@
   position: absolute;
   display: flex;
 }
+.node{
+    border-radius: 50%;
+    position: absolute;
+}
 .canvas input {
   position: absolute;
   width: 40px;
@@ -16,4 +20,16 @@
 .canvas {
   position: relative;
  
+}
+.canvas_array{
+    position: absolute;
+    display: flex;
+}
+.grid_div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.canvas_grid_array{
+    display: flex;
 }

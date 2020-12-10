@@ -2,6 +2,7 @@ let username;
 let userDisplayPic;
 const auth = firebase.auth();
 const db = firebase.firestore();
+
 let googleSignIn = document.querySelectorAll(".googleSignIn");
 auth.onAuthStateChanged((user) => {
   if (user) {

@@ -41,9 +41,17 @@ function onConnection(socket) {
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
   });
   socket.on('editorChange',(data,room)=>{
-	  console.log(data);
-	  console.log(room);
+	  // console.log(data);
+	  // console.log(room);
 	  socket.to(room).broadcast.emit('changeEdit',data)
+  })
+  socket.on('compileCode',(data,room)=>{
+    console.log(data);
+    const credentials={
+      id:process.env.CLIENT_ID,
+      secret:process.env.CLIENT_SECRET
+    }
+    socket.emit('getCredential',credentials)
   })
   socket.on('give_alert',(room,username)=>{
     socket.to(room).broadcast.emit('bhag_gya_lauda',username)

@@ -8,10 +8,10 @@ function whiteBoard(room) {
 	};
 	var drawing = false;
 
-	canvas.addEventListener('mousedown', onMouseDown, false);
-	canvas.addEventListener('mouseup', onMouseUp, false);
-	canvas.addEventListener('mouseout', onMouseUp, false);
-	canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
+	canvas.addEventListener('mousedown', onMouseDown);
+	canvas.addEventListener('mouseup', onMouseUp);
+	canvas.addEventListener('mouseout', onMouseUp);
+	canvas.addEventListener('mousemove', throttle(onMouseMove, 10));
 
 	//Touch support for mobile devices
 	canvas.addEventListener('touchstart', onMouseDown, false);
@@ -46,7 +46,7 @@ function whiteBoard(room) {
 		context.lineTo(x1, y1);
 		console.log();
 		context.strokeStyle = color;
-		context.lineWidth = 2;
+		context.lineWidth = 2;	
 		context.stroke();
 		context.closePath();
 
@@ -62,7 +62,7 @@ function whiteBoard(room) {
 			x1: x1 / w,
 			y1: y1 / h,
 			color: color,
-		},room);
+		},room); 
 	}
 
 	function onMouseDown(e) {

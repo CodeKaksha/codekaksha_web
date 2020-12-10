@@ -295,6 +295,11 @@
                     />
                   </div>
                   <input type="submit" style="display: none" />
+                  <button class="waves-effect waves-green btn host-but1"
+                  style="
+                  margin-top:10px;
+                  "
+                  >Enter room</button>
                 </form>
               </div>
             </div>
@@ -400,13 +405,11 @@
             <div class="heading1-page3">Default Language</div>
             <hr style="border: 1px solid black" />
             <div class="row">
-              <select class="browser-default">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="c++">C++</option>
-                <option value="java">Java</option>
+              <select class="browser-default" id="language">
+                <option value="cpp17">C++</option>
                 <option value="c">C</option>
-                <option value="python">Python</option>
-                <option value="c#">C#</option>
+                <option value="java">Java</option>
+                <option value="python2">Python</option>
               </select>
             </div>
 
@@ -444,56 +447,94 @@
     </div>
     <!-- meet screen -->
     <div class="container1-page4 meet_screen">
-      <div class="btn btn-outline-dark runCode">Run</div>
-      <div class="after_join">
-        <div class="section1">
-          <canvas class="whiteBoard"></canvas>
-          <div class="compiler">
-            <div id="jsEditor" class="textArea"></div>
-            <div class="inp-out">
-              <div class="input">
-                <span class="user-input">INPUT</span>
-                <textarea
-                  name="name"
-                  id="inp-val"
-                  rows="50"
-                  cols="35"
-                ></textarea>
+    <div class="after_join">
+      <div class="section1">
+        <div class="fixed-action-btn edit-btn">
+          <a class="btn-floating btn-large red">
+            <i class="large material-icons">mode_edit</i>
+          </a>
+          <ul>
+            <li><a class="btn-floating red"><i class="material-icons">file_download</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li>
+            <li><a class="btn-floating blue"><i class="fas fa-eraser"></i></a></li>
+          </ul>
+        </div>
+        <div class="edit-features">
+          <div class="clear-but">
+            <button class="clear-all">Clear all</button>
+          </div>
+          <div class="download-but">
+            <button class="download-all">Download PDF</button>
+          </div>
+          <div class="theme-select">
+            <button class="theme-switcher">Light</button>
+          </div>
+          <div class="color-erase">
+            <form>
+              <div style='order: 2; margin-left: 2px'>
+                <input class="palIcoColorPicker" type="color" id="color-picker">
               </div>
-              <div class="output">
-                <span class="user-output">OUTPUT</span>
-                <textarea
-                  readonly
-                  id="out-val"
-                  name="name"
-                  rows="50"
-                  cols="35"
-                ></textarea>
+              <div class="rubber">
+                <i class="fas fa-eraser fa-2x"></i>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-        <span class="share-room"
-          ><a class="modal-trigger login" href="#modal3"
-            ><img src="res/share_icon.png" alt="" /></a
-        ></span>
+        <canvas class="whiteBoard"></canvas>
+      </div>
+
+      <div class="video-grid">
+
+        <span class="share-room"><a class="modal-trigger login" href="#modal3"><img src="res/share_icon.png"
+              alt="" /></a></span>
         <div id="modal3" class="modal modal-log modal-share">
           <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-              >X</a
-            >
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
           </div>
           <div class="modal-content">
-            <h5 class="modal-heading">SHARE THE CODERENCE</h5>
-            <h6>
+            <h5 class="modal-heading" style="color: black;">SHARE THE CODERENCE</h5>
+            <h6 style="color: black;">
               You are the only one here! Share this code to the people you want
               in the coderence: <span id="share-code-room"> </span>
             </h6>
           </div>
         </div>
-        <div class="video-grid" id="video-grid"></div>
+
+        <div class="video-grid-1">
+          <div id="jsEditor" class="textArea"></div>
+          <div class="video" id="video-add">
+          </div>
+        </div>
+        <div class="video-grid-2">
+          <div class="input-output">
+            <div class="input">
+              <span class="user-input" >INPUT</span>
+              <textarea name="name" rows="50" cols="35" id="inp-val"></textarea>
+            </div>
+            <div class="output">
+              <span class="user-output" >OUTPUT</span>
+              <textarea readonly name="name" rows="50" cols="35" id="out-val"></textarea>
+            </div>
+            <div class="run-com">
+              <button class="run-but">RUN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mute-end-cam">
+        <button class="mic-cam">
+          <img class="mic-img" src="res\logos\mic.png"/>
+        </button>
+        <button class="mic-cam">
+          <img class="end-img" src="res\logos\end.png"/>
+        </button>
+        <button class="mic-cam">
+          <img class="cam-img" src="res\logos\cam.png"/>
+        </button>
       </div>
     </div>
+  </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -532,6 +573,7 @@
     <script src="js/app.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/565487f9b5.js" crossorigin="anonymous"></script>
     <script src="js/editor.js"></script>
     <script src="js/whiteboard.js"></script>
     <script src="js/ready.js"></script>

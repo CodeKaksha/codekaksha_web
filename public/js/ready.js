@@ -10,7 +10,7 @@ function ready(id) {
     show_screen(meet_screen);
     removeVideo("videoBeforeJoin");
     whiteBoard(id);
-    video("video-grid", user.displayName, id);
+    video("video-add", user.displayName, id);
     editor(id);
   });
 
