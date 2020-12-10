@@ -782,10 +782,6 @@ video {
 }
 
 .mic-cam {
-	height: 80px;
-	width: 80px;
-	border-radius: 50%;
-	background-color: white;
 	margin: auto 20px;
 }
 
