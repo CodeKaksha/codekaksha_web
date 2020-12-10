@@ -637,7 +637,8 @@ h5 span {
 	background-color: #ffffff;
 }
 .edit-btn{
-	left:-50px;
+	width: fit-content;
+	left:10px;
 }
 .clear-but {
 	float: right;
@@ -689,7 +690,7 @@ h5 span {
 	font-family: 'FontAwesome';
 	font-size: 2rem;
 	content: "\f1fc";
-	font-color: red;
+	color: red;
 }
 
 .rubber {
