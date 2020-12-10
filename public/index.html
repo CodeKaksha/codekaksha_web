@@ -447,93 +447,148 @@
     </div>
     <!-- meet screen -->
     <div class="container1-page4 meet_screen">
-    <div class="after_join">
-      <div class="section1">
-        <div class="fixed-action-btn edit-btn">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">mode_edit</i>
-          </a>
-          <ul>
-            <li><a class="btn-floating red"><i class="material-icons">file_download</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li>
-            <li><a class="btn-floating blue"><i class="fas fa-eraser"></i></a></li>
-          </ul>
+      <div class="after_join">
+        <div class="section1">
+          <div class="fixed-action-btn edit-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">file_download</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
+              <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li>
+              <li><a class="btn-floating blue"><i class="fas fa-eraser"></i></a></li>
+            </ul>
+          </div>
+          <div class="edit-features">
+            <div class="color-erase">
+              <form>
+                <div style='order: 2; margin-left: 2px'>
+                  <input class="palIcoColorPicker" type="color" id="color-picker">
+                </div>
+              </form>
+            </div>
+          </div>
+          <canvas class="whiteBoard"></canvas>
         </div>
-        <div class="edit-features">
-          <div class="clear-but">
-            <button class="clear-all">Clear all</button>
+    
+        <div class="video-grid">
+          <div class="option-menu" style="cursor: pointer;">
+            <i class="material-icons" style="font-size: 3rem;">
+              menu
+            </i>
           </div>
-          <div class="download-but">
-            <button class="download-all">Download PDF</button>
-          </div>
-          <div class="theme-select">
-            <button class="theme-switcher">Light</button>
-          </div>
-          <div class="color-erase">
-            <form>
-              <div style='order: 2; margin-left: 2px'>
-                <input class="palIcoColorPicker" type="color" id="color-picker">
+          <div class="menu-open">
+            <div class="menu-column1">
+              <div class="option video-hide" style="cursor: pointer;">
+                <i class="small material-icons">
+                  groups
+                </i>
+                <span class="opt-text vid-hid-text">Hide People</span>
               </div>
-              <div class="rubber">
-                <i class="fas fa-eraser fa-2x"></i>
+    
+              <div class="option share-id share-room" style="cursor: pointer;">
+                <a class="modal-trigger login" href="#modal3"><i class="small material-icons">
+                    share
+                  </i></a>
+                <div id="modal3" class="modal modal-log modal-share">
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
+                  </div>
+                  <div class="modal-content">
+                    <h5 class="modal-heading" style="color: black;">SHARE THE CODERENCE</h5>
+                    <h6 style="color: black;">
+                    You are the only one here! Share this code to the people you want
+                    in the coderence: <span id="share-code-room"> </span>
+                    </h6>
+                  </div>
+                  </div>
+                <span class="opt-text share-text">Share</span>
               </div>
-            </form>
+            </div>
+    
+            <div class="menu-column2">
+              <div class="option chat" style="cursor: pointer;">
+                <i class="small material-icons">
+                  chat
+                </i>
+                <span class="opt-text chat-text">Chat</span>
+              </div>
+    
+              <div class="option end-meet" style="cursor: pointer;">
+                <i class="small material-icons">
+                  more_vert
+                </i>
+                <span class="opt-text end-meet-text">Options</span>
+              </div>
+            </div>
+            
+            <div class="menu-column3">
+              <div class="option present-screen" style="cursor: pointer;">
+                <i class="small material-icons">
+                  present_to_all
+                </i>
+                <span class="opt-text present-text">Present</span>
+              </div>
+    
+              <div class="option report" style="cursor: pointer;">
+                <i class="small material-icons">
+                  error
+                </i>
+                <span class="opt-text report-text">Report</span>
+              </div>
+            </div>
+            
           </div>
-        </div>
-        <canvas class="whiteBoard"></canvas>
-      </div>
-
-      <div class="video-grid">
-
-        <span class="share-room"><a class="modal-trigger login" href="#modal3"><img src="res/share_icon.png"
-              alt="" /></a></span>
-        <div id="modal3" class="modal modal-log modal-share">
+          <!--
+          <span class="share-room"><a class="modal-trigger login" href="#modal3"><img src="res/share_icon.png"
+            alt="" /></a></span>
+          <div id="modal3" class="modal modal-log modal-share">
           <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
           </div>
           <div class="modal-content">
             <h5 class="modal-heading" style="color: black;">SHARE THE CODERENCE</h5>
             <h6 style="color: black;">
-              You are the only one here! Share this code to the people you want
-              in the coderence: <span id="share-code-room"> </span>
+            You are the only one here! Share this code to the people you want
+            in the coderence: <span id="share-code-room"> </span>
             </h6>
           </div>
-        </div>
-
-        <div class="video-grid-1">
-          <div id="jsEditor" class="textArea"></div>
-          <div class="video" id="video-add">
-          </div>
-        </div>
-        <div class="video-grid-2">
-          <div class="input-output">
-            <div class="input">
-              <span class="user-input" >INPUT</span>
-              <textarea name="name" rows="50" cols="35" id="inp-val"></textarea>
-            </div>
-            <div class="output">
-              <span class="user-output" >OUTPUT</span>
-              <textarea readonly name="name" rows="50" cols="35" id="out-val"></textarea>
-            </div>
-            <div class="run-com">
-              <button class="run-but">RUN</button>
+          </div>>
+        -->
+          <div class="video-grid-1">
+            <div id="jsEditor" class="textArea"></div>
+            <div class="video video-table" id="video-add">
             </div>
           </div>
+          <div class="video-grid-2">
+            <div class="input-output">
+              <div class="input">
+                <span class="user-input">INPUT</span>
+                <textarea name="name" rows="50" cols="35"></textarea>
+              </div>
+              <div class="output">
+                <span class="user-output">OUTPUT</span>
+                <textarea readonly name="name" rows="50" cols="35"></textarea>
+              </div>
+              <div class="run-com">
+                <button class="run-but">RUN</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mute-end-cam">
+          <button class="mic-cam">
+            <img class="mic-img" src="res\logos\mic.png" />
+          </button>
+          <button class="mic-cam">
+            <img class="end-img" src="res\logos\end.png" />
+          </button>
+          <button class="mic-cam">
+            <img class="cam-img" src="res\logos\cam.png" />
+          </button>
         </div>
       </div>
-      <div class="mute-end-cam">
-        <button class="mic-cam">
-          <img class="mic-img" src="res\logos\mic.png"/>
-        </button>
-        <button class="mic-cam">
-          <img class="end-img" src="res\logos\end.png"/>
-        </button>
-        <button class="mic-cam">
-          <img class="cam-img" src="res\logos\cam.png"/>
-        </button>
-      </div>
-    </div>
   </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
