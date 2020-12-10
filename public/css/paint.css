@@ -5,9 +5,14 @@
   position: absolute;
   display: flex;
 }
+.node{
+    border-radius: 50%;
+    position: absolute;
+}
 .canvas input {
   position: absolute;
   width: 40px;
+  right:0;
   height: 40px; 
   top:0;
   z-index:10000;

@@ -36,7 +36,7 @@ $(document).ready(function () {
 		}
 	});
 });
-
+	
 function loaderOn() {
 	loader.classList.remove('fade_out');
 	loader.classList.add('fade_in');
