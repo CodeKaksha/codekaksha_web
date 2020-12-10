@@ -6,6 +6,36 @@ function whiteBoard(room) {
 	var current = {
 		color: 'black',
 	};
+
+	var pencilWidth=2;
+
+	var colourInput=document.getElementById('color-picker')
+
+	colourInput.addEventListener('input',()=>{
+		current.color=colourInput.value;
+	})
+
+	document.getElementById('eraser').addEventListener('click',()=>{
+		console.log("eraser called");
+		current.color='#FDF7F7'
+	})
+
+	document.getElementById('pencilSmall').addEventListener('click',()=>{
+		pencilWidth=5;
+	})
+
+	document.getElementById('pencilMedium').addEventListener('click',()=>{
+		pencilWidth=10;
+	})
+
+	document.getElementById('pencilTiny').addEventListener('click',()=>{
+		pencilWidth=2;
+	})
+
+	document.getElementById('pencilLarge').addEventListener('click',()=>{
+		pencilWidth=15;
+	})
+
 	var drawing = false;
 
 	canvas.addEventListener('mousedown', onMouseDown);
@@ -28,12 +58,12 @@ function whiteBoard(room) {
 	window.addEventListener('resize', onResize, false);
 	onResize();
 
-	function drawLine(x0, y0, x1, y1, color, emit) {
+	function drawLine(x0, y0, x1, y1, color, emit, width) {
 		context.beginPath();
 		context.moveTo(x0, y0);
 		context.lineTo(x1, y1);
 		context.strokeStyle = color;
-		context.lineWidth = 2;	
+		context.lineWidth = width;	
 		context.stroke();
 		context.closePath();
 
@@ -69,7 +99,8 @@ function whiteBoard(room) {
 			e.clientX || e.touches[0].clientX,
 			e.clientY || e.touches[0].clientY,
 			current.color,
-			true
+			true,
+			pencilWidth
 		);
 	}
 
@@ -83,7 +114,8 @@ function whiteBoard(room) {
 			e.clientX || e.touches[0].clientX,
 			e.clientY || e.touches[0].clientY,
 			current.color,
-			true
+			true,
+			pencilWidth
 		);
 		current.x = e.clientX || e.touches[0].clientX;
 		current.y = e.clientY || e.touches[0].clientY;
@@ -109,7 +141,7 @@ function whiteBoard(room) {
 	function onDrawingEvent(data) {
 		var w = canvas.width;
 		var h = canvas.height;
-		drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
+		drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color,true,pencilWidth);
 	}
 
 	// make the canvas fill its parent
