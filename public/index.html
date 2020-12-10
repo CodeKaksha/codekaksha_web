@@ -405,13 +405,11 @@
             <div class="heading1-page3">Default Language</div>
             <hr style="border: 1px solid black" />
             <div class="row">
-              <select class="browser-default">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="c++">C++</option>
-                <option value="java">Java</option>
+              <select class="browser-default" id="language">
+                <option value="cpp17">C++</option>
                 <option value="c">C</option>
-                <option value="python">Python</option>
-                <option value="c#">C#</option>
+                <option value="java">Java</option>
+                <option value="python2">Python</option>
               </select>
             </div>
 
@@ -511,12 +509,12 @@
         <div class="video-grid-2">
           <div class="input-output">
             <div class="input">
-              <span class="user-input">INPUT</span>
-              <textarea name="name" rows="50" cols="35"></textarea>
+              <span class="user-input" >INPUT</span>
+              <textarea name="name" rows="50" cols="35" id="inp-val"></textarea>
             </div>
             <div class="output">
-              <span class="user-output">OUTPUT</span>
-              <textarea readonly name="name" rows="50" cols="35"></textarea>
+              <span class="user-output" >OUTPUT</span>
+              <textarea readonly name="name" rows="50" cols="35" id="out-val"></textarea>
             </div>
             <div class="run-com">
               <button class="run-but">RUN</button>
