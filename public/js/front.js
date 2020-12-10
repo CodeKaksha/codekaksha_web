@@ -26,11 +26,13 @@ $(document).ready(function () {
 	$('#modal3').modal();
 	$('#modal12').modal();
 
+	$(".menu-open").fadeToggle();
 	$(".option-menu").click(function () {
 		$(".menu-open").removeClass("visible");
 		$(".menu-open").fadeToggle();
 	});
 
+	$(".mute-end-cam").fadeToggle();
 	$(".end-meet").click(function() {
 		$(".mute-end-cam").removeClass("visible");
 		$(".mute-end-cam").fadeToggle();
