@@ -14,52 +14,40 @@ window.setInterval(() => {
 }, 3000);
 
 $(document).ready(function () {
-	
-	document.addEventListener('DOMContentLoaded', function() {
-		var elems = document.querySelectorAll('.fixed-action-btn');
-		var instances = M.FloatingActionButton.init(elems, options);
-	  });
-	
-	  // Or with jQuery
-	
-	  $(document).ready(function(){
-		$('.fixed-action-btn').floatingActionButton();
-	  });
-			
+	$('.fixed-action-btn').floatingActionButton();
+
 	$('#modal1').modal();
 	$('#modal2').modal();
 	$('#modal3').modal();
 	$('#modal12').modal();
-	let butColCheck = 0;
-	$(".theme-switcher").click(function () {
-		if (butColCheck == 0) {
-			$(this).css("background-color", "black");
-			$(this).css("color", "white");
-			$(this).html("Dark");
-			$(".whiteBoard").css("background-color", "black");
-			butColCheck = 1;
-		} else {
-			$(this).css("background-color", "white");
-			$(this).css("color", "black");
-			$(this).html("Light");
-			$(".whiteBoard").css("background-color", "white");
-			butColCheck = 0;
+	/*
+		setTimeout(toggle, 3000);
+		function toggle() {
+			$('.mute-end-cam').fadeOut("slow");
 		}
+		var timer = null;
+		$(window).on('mousemove', function () {
+			$('.mute-end-cam').fadeIn("slow");
+			clearTimeout(timer);
+			timer = setTimeout(toggle, 3000)
+		});
+		*/
+
+	$(".menu-open").fadeOut("slow");
+	$(".option-menu").click(function () {
+		$(".menu-open").fadeToggle();
 	});
 
-	setTimeout(toggle, 3000);
-	function toggle(){
-		$('.mute-end-cam').fadeOut("slow");
-	}
+	$(".mute-end-cam").fadeOut("slow");
+	$(".end-meet").click(function() {
+		$(".mute-end-cam").fadeToggle();
+	});
 
-	var timer = null;
-	$(window).on('mousemove', function(){
-		$('.mute-end-cam').fadeIn("slow");
-		clearTimeout(timer);
-		timer = setTimeout(toggle, 3000)
-	  });
+	$(".video-hide").click(function() {
+		$(".video-table").fadeToggle();
+	});
 });
-	
+
 function loaderOn() {
 	loader.classList.remove('fade_out');
 	loader.classList.add('fade_in');
