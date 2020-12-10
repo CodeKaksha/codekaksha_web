@@ -20,31 +20,39 @@ $(document).ready(function () {
 	$('#modal2').modal();
 	$('#modal3').modal();
 	$('#modal12').modal();
-	/*
-		setTimeout(toggle, 3000);
-		function toggle() {
-			$('.mute-end-cam').fadeOut("slow");
-		}
-		var timer = null;
-		$(window).on('mousemove', function () {
-			$('.mute-end-cam').fadeIn("slow");
-			clearTimeout(timer);
-			timer = setTimeout(toggle, 3000)
-		});
-		*/
 
-	$(".menu-open").fadeOut("slow");
 	$(".option-menu").click(function () {
+		$(".menu-open").removeClass("visible");
 		$(".menu-open").fadeToggle();
 	});
 
-	$(".mute-end-cam").fadeOut("slow");
 	$(".end-meet").click(function() {
+		$(".mute-end-cam").removeClass("visible");
 		$(".mute-end-cam").fadeToggle();
+		$(".menu-open").fadeToggle();
 	});
 
+	var vidHide = 0;
 	$(".video-hide").click(function() {
 		$(".video-table").fadeToggle();
+		$(".menu-open").fadeToggle();
+		if (vidHide == 0) {
+			$(".vid-hid-text").text("Show People");
+			vidHide = 1;
+		} else {
+			$(".vid-hid-text").text("Hide People");
+			vidHide = 0;
+		}
+	});
+
+	$(".chat").click(function() {
+		$(".option-menu").fadeToggle();
+		$(".menu-open").fadeToggle();
+		$(".chat-box").removeClass("visible");
+	});
+
+	$(".close-msg").click(function() {
+		$(".chat-box").addClass("visible");
 	});
 });
 
