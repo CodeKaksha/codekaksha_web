@@ -6,6 +6,13 @@ function whiteBoard(room) {
 	var current = {
 		color: 'black',
 	};
+
+	var colourInput=document.getElementById('color-picker')
+
+	colourInput.addEventListener('input',()=>{
+		current.color=colourInput.value;
+	})
+
 	var drawing = false;
 
 	canvas.addEventListener('mousedown', onMouseDown);
