@@ -58,6 +58,7 @@ $(document).ready(function () {
 
 	$(".close-msg").click(function() {
 		$(".chat-box").addClass("visible");
+		$(".option-menu").fadeToggle();
 	});
 });
 
