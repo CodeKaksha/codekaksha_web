@@ -30,7 +30,9 @@ array.addEventListener("click", (e) => {
       canvas.style.height = `40px`;
       canvas.style.width = `40px`;
       let inp=document.createElement('input');
-      inp.type="number";
+      inp.type="text";
+      
+      inp.value=Math.floor(Math.random() * 100);
       div.appendChild(canvas);
       div.appendChild(inp);
       canvas_array.appendChild(div);

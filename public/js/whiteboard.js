@@ -28,10 +28,23 @@ function whiteBoard(room) {
 	window.addEventListener('resize', onResize, false);
 	onResize();
 
+	db.collection('whiteboard').add({
+		str:JSON.stringify(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight))
+	})
+	db.collection("whiteboard").add({
+		str:JSON.stringify(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight))
+	})
+	.then(function(docRef) {
+		alert("h")
+	})
+	.catch(function(error) {
+		alert(error)
+	});
 	function drawLine(x0, y0, x1, y1, color, emit) {
 		context.beginPath();
 		context.moveTo(x0, y0);
 		context.lineTo(x1, y1);
+		console.log();
 		context.strokeStyle = color;
 		context.lineWidth = 2;
 		context.stroke();
