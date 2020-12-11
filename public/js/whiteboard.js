@@ -17,22 +17,32 @@ function whiteBoard(room) {
 
 	document.getElementById('eraser').addEventListener('click',()=>{
 		console.log("eraser called");
+		document.querySelector('.whiteBoard').style=`cursor:url('../res/erase.png'),auto;`;
 		current.color='#FDF7F7'
 	})
 
 	document.getElementById('pencilSmall').addEventListener('click',()=>{
+		current.color=colourInput.value;
 		pencilWidth=5;
+		document.querySelector('.whiteBoard').style=`cursor:url('../res/dot_sm.png'),auto;`;
 	})
 
 	document.getElementById('pencilMedium').addEventListener('click',()=>{
+		current.color=colourInput.value;
 		pencilWidth=10;
+		document.querySelector('.whiteBoard').style=`cursor:url('../res/dot_med.png'),auto;`;
+
 	})
 
 	document.getElementById('pencilTiny').addEventListener('click',()=>{
-		pencilWidth=2;
+		current.color=colourInput.value;
+		document.querySelector('.whiteBoard').style=`cursor:url('../res/dot_sm.png'),auto;`;
+		pencilWidth=2;	
 	})
-
+	
 	document.getElementById('pencilLarge').addEventListener('click',()=>{
+		current.color=colourInput.value;
+		document.querySelector('.whiteBoard').style=`cursor:url('../res/dot_large.png'),auto!important;`;
 		pencilWidth=15;
 	})
 
