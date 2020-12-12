@@ -6,10 +6,6 @@ const db = firebase.firestore();
 let googleSignIn = document.querySelectorAll(".googleSignIn");
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log("user logged in");
-    console.log(user);
-    console.log(user.photoURL);
-    console.log(user.displayName);
     username = user.displayName;
     userDisplayPic = user.photoURL;
     let usernames = document.querySelectorAll(".username");
@@ -23,7 +19,6 @@ auth.onAuthStateChanged((user) => {
 
     show_screen(after_login_screen);
   } else {
-    console.log("user logged out");
     show_screen(index_screen);
   }
 });
@@ -49,11 +44,9 @@ for (let i = 0; i < googleSignIn.length; i++) {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(user);
         // ...
       })
       .catch(function (error) {
-        console.log("hell");
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;

@@ -10,8 +10,6 @@ function ready(id) {
       var canvasContents = canvas.toDataURL();
       var data = { image: canvasContents, date: Date.now() };
       var string1 = JSON.stringify(data);
-      console.log(string1)
-      console.log(socketId)
       socket.emit("whiteBoard_data", string1, socketId);
     });
     socket.on("whiteData", (data) => {

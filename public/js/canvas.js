@@ -35,7 +35,6 @@ function drawLine(x0, y0, x1, y1, color, emit) {
 	context.lineWidth = 2;
 	context.stroke();
     context.closePath();
-	console.log(canvas.clientHeight)
     void context2.putImageData(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight),0,0,0,0,canvas.clientWidth,canvas.clientHeight);
 	
 	if (!emit) {

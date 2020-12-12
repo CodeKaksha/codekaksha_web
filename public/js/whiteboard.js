@@ -16,7 +16,6 @@ function whiteBoard(room) {
 	})
 
 	document.getElementById('eraser').addEventListener('click',()=>{
-		console.log("eraser called");
 		document.querySelector('.whiteBoard').style=`cursor:url('../res/erase.png'),auto;`;
 		current.color='#FDF7F7'
 	})
@@ -166,7 +165,6 @@ function whiteBoard(room) {
     var canvasContents = canvas.toDataURL();
     var data = { image: canvasContents, date: Date.now() };
     var string = JSON.stringify(data);
-    console.log(string);
     db.collection("whiteboard").add({
       str: string,
     });

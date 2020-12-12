@@ -1,6 +1,5 @@
 function video(videoId,username,room) {
   
-  console.log(peer);
   const video_grid = document.querySelector(`#${videoId}`);
   const myvideo = document.createElement("video");
   myvideo.muted = true;
@@ -36,9 +35,7 @@ function video(videoId,username,room) {
   function connectToNewUser(userId, stream) {
     const call = peer.call(userId, stream);
     const video2 = document.createElement("video");
-    console.log(userId)
     call.on("stream", (userVideoStream) => {
-      console.log("user")
       addVideoStream(video2, userVideoStream);
     });
     call.on("close", () => {
@@ -52,7 +49,6 @@ function video(videoId,username,room) {
     path: "/peerjs",
   });
   peer.on("open", (id) => {
-    console.log('jhaod')
     socket.emit('join-vid',id,username,room)
   });
 }
@@ -78,7 +74,6 @@ function videoOnlyUser(videoId)
     video.addEventListener("loadedmetadata", () => {
       video.play();
     });
-    console.log("he");
     video_grid.appendChild(video);
   }
 }

@@ -136,7 +136,6 @@ function paint(room)
 	}
 	// graph.addEventListener('click', (e) => {
 	// 	let inp = inp_graph.value;
-	// 	console.log(inp.split('\n'));
 	// 	let big_arr = inp.split('\n');
 	// 	for (let i = 0; i < big_arr.length; i++) {
 	// 		let sm_arr = big_arr[i].split(' ');

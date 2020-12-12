@@ -10,7 +10,6 @@ function editor(roomId) {
 	  }
 	});
 	socket.on("changeEdit", (data) => {
-	  console.log(data);
 	  fl = 0;
 	  editor.setValue(data);
 	});
@@ -89,7 +88,6 @@ function editor(roomId) {
 		.then(res=>res.json())
 		.then((data)=>{
 		  var output=document.getElementById('out-val').innerHTML=data.output
-		  console.log("output=",data.output)
 		})
 	})
   

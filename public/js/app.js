@@ -5,7 +5,6 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
     let roomIdEntered=document.querySelector('#roomIdEntered').value;
     socket.emit('checkId',roomIdEntered);
     socket.on('roomIdChecked',(check)=>{
-        console.log(check);
         if(check)
         {
             loaderOut();
@@ -24,7 +23,6 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
 	socket.emit('give_id');
     loaderOn();
     socket.on('rec_id',(id)=>{
-        console.log(id);
         ready(id);
         show_screen(ready_screen);
         videoOnlyUser(`videoBeforeJoin`);
