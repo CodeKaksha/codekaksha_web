@@ -1,6 +1,18 @@
 function editor(roomId) {
   var editor = ace.edit("jsEditor");
   editor.getSession().setMode("ace/mode/c_cpp");
+  document.querySelector(".save").addEventListener("click", (e) => {
+    e.preventDefault();
+    let canvas = document.querySelector(".whiteBoard");
+    var canvasContents = canvas.toDataURL();
+    var data = { image: canvasContents, date: Date.now() };
+    var string = JSON.stringify(data);
+    db.collection("whiteboard").add({
+      roomID: roomId,
+      data_whiteboard: string,
+      data_compiler: editor.getValue(),
+    });
+  });
   editor.setTheme("ace/theme/terminal");
   editor.setShowPrintMargin(false);
   let fl = 1;
@@ -13,18 +25,7 @@ function editor(roomId) {
     fl = 0;
     editor.setValue(data);
   });
-  document.querySelector(".save").addEventListener("click", (e) => {
-    e.preventDefault();
-    let canvas = document.querySelector(".whiteBoard");
-    var canvasContents = canvas.toDataURL();
-    var data = { image: canvasContents, date: Date.now() };
-    var string = JSON.stringify(data);
-    db.collection("whiteboard").add({
-      roomID: room,
-      data_whiteboard: string,
-      data_compiler: editor.getValue(),
-    });
-  });
+  
   const languageChoosenByUser = document.getElementById("language").value;
   if (languageChoosenByUser === "cpp17") {
     const initialCode =
