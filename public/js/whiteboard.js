@@ -160,6 +160,7 @@ function whiteBoard(room) {
 		canvas.width = window.innerWidth / 2;
 		canvas.height = window.innerHeight;
   }
+  
   document.querySelector(".save").addEventListener("click", (e) => {
     e.preventDefault();
     var canvasContents = canvas.toDataURL();
@@ -170,25 +171,25 @@ function whiteBoard(room) {
       str: string,
     });
   });
-
-  document.querySelector(".retrieve").addEventListener("click", (e) => {
-    e.preventDefault();
-    db.collection("whiteboard")
-      .where("str", "!=", "")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          let data_doc = doc.data();
-          let cdata = data_doc.str;
-          var data = JSON.parse(cdata);
-          var image = new Image();
-          image.onload = function () {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(image, 0, 0); // draw the new image to the screen
-          };
-		      image.src = data.image;
+//DON'T REMOVE!
+//   document.querySelector(".retrieve").addEventListener("click", (e) => {
+//     e.preventDefault();
+//     db.collection("whiteboard")
+//       .where("str", "!=", "")
+//       .get()
+//       .then((snapshot) => {
+//         snapshot.docs.forEach((doc) => {
+//           let data_doc = doc.data();
+//           let cdata = data_doc.str;
+//           var data = JSON.parse(cdata);
+//           var image = new Image();
+//           image.onload = function () {
+//             context.clearRect(0, 0, canvas.width, canvas.height);
+//             context.drawImage(image, 0, 0); // draw the new image to the screen
+//           };
+// 		      image.src = data.image;
 		 
-        });
-      });
-  });
+//         });
+//       });
+//   });
 }

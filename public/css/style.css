@@ -916,3 +916,41 @@ a {
 .whiteBoard{
 	cursor:url('../res/dot_sm.png'),auto;
 }
+.canvas_abs {
+	position: absolute;
+  }
+  .canvas_array {
+	position: absolute;
+	display: flex;
+  }
+  .node{
+	  border-radius: 50%;
+	  position: absolute;
+  }
+  .canvas input {
+	position: absolute;
+	width: 40px;
+	right:0;
+	height: 40px; 
+	top:0;
+	z-index:10000;
+  }
+  .canvas {
+	position: relative;
+   
+  }
+  .canvas_array{
+	  position: absolute;
+	  display: flex;
+  }
+  .grid_div{
+	  position: absolute;
+	  display: flex;
+	  flex-direction: column;
+  }
+  .canvas_grid_array{
+	  display: flex;
+  }
+  
+
+  

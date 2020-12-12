@@ -457,17 +457,26 @@
               <i class="large material-icons">mode_edit</i>
             </a>
             <ul>
-              <li><a class="btn-floating red download"><i class="material-icons">file_download</i></a></li>
               <li><a class="btn-floating blue"><i class="material-icons" style="font-size: 30px;" id="pencilLarge">lens</i></a></li>
               <li><a class="btn-floating green"><i class="material-icons" style="font-size: 25px;" id="pencilMedium">lens</i></a></li>
               <li><a class="btn-floating pink"><i class="material-icons" style="font-size: 15px;" id="pencilSmall">lens</i></a></li>
               <li><a class="btn-floating red"><i class="material-icons" style="font-size: 10px;" id="pencilTiny">lens</i></a></li>
               <!-- <li><a class="btn-floating red"><i class="material-icons">hdr_weak</i></a></li> -->
               <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
-              <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li>
+              <!-- <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li> -->
               <li><a class="btn-floating green save"><i class="material-icons">save</i></a></li>
-              <li><a class="btn-floating green retrieve"><i class="material-icons">input</i></a></li>
               <li><a class="btn-floating blue" id="eraser"><i class="fas fa-eraser"></i></a></li>
+            </ul>
+          </div>
+          <div class="fixed-action-btn file-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">add</i>
+            </a>
+            <ul>    
+              <li><a class="btn-floating red array"><i class="material-icons">view_array</i></a></li>
+              <li><a class="btn-floating red grid"><i class="material-icons grid">view_comfy</i></a></li>
+              <li><a class="btn-floating red download"><i class="material-icons">file_download</i></a></li>
+              <li><a class="btn-floating green save"><i class="material-icons">save</i></a></li>
             </ul>
           </div>
           <div class="edit-features">
@@ -504,7 +513,6 @@
                 </i>
               </span>
             </div>
-    
           </div>
           <div class="option-menu" style="cursor: pointer;">
             <i class="material-icons" style="font-size: 3rem;">
@@ -576,11 +584,11 @@
             <div class="input-output">
               <div class="input">
                 <span class="user-input">INPUT</span>
-                <textarea name="name" rows="50" cols="35"></textarea>
+                <textarea name="name" rows="50" id="inp-val" cols="35"></textarea>
               </div>
               <div class="output">
                 <span class="user-output">OUTPUT</span>
-                <textarea readonly name="name" rows="50" cols="35"></textarea>
+                <textarea readonly name="name" rows="50" id="out-val" cols="35"></textarea>
               </div>
               <div class="run-com">
                 <button class="run-but">RUN</button>
@@ -610,6 +618,7 @@
       </div>
       
   </div>
+  <div class="containerForCanvas"></div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -657,5 +666,6 @@
     <script src="js/ready.js"></script>
     <script src="js/video.js"></script>
     <script src="js/saving.js"></script>
+    <script src="js/paint.js"></script>
   </body>
 </html>

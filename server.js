@@ -12,8 +12,6 @@ const { userJoin, getRoomUsers, userLeave } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
 
-console.log(process.env.CLIENT_ID);
-console.log(process.env.CLIENT_SECRET);
 
 const server = http.createServer(app);
 
@@ -30,54 +28,52 @@ function onConnection(socket) {
       });
     }
   });
-  socket.on('join-vid',(peerId,username,room)=>{
-    socket.to(room).broadcast.emit('user-vid-connected',peerId,username);
-  })
-  socket.on("join-room", (roomId, userId, username) => {
-    console.log(username)
-    const user = userJoin(userId, username, roomId);
-    socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected", username,userId);
-    io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
+  socket.on("editorChange", (data, room) => {
+    socket.to(room).broadcast.emit("changeEdit", data);
   });
-  socket.on('editorChange',(data,room)=>{
-	  // console.log(data);
-	  // console.log(room);
-	  socket.to(room).broadcast.emit('changeEdit',data)
-  })
-  socket.on('compileCode',(data,room)=>{
-    console.log(data);
-    const credentials={
-      id:process.env.CLIENT_ID,
-      secret:process.env.CLIENT_SECRET
-    }
-    socket.emit('getCredential',credentials)
-  })
-  socket.on('give_alert',(room,username)=>{
-    socket.to(room).broadcast.emit('bhag_gya_lauda',username)
-  })
+  socket.on("compileCode", (data, room) => {
+    const credentials = {
+      id: process.env.CLIENT_ID,
+      secret: process.env.CLIENT_SECRET,
+    };
+    socket.emit("getCredential", credentials);
+  });
+  socket.on("give_alert", (room, username) => {
+    socket.broadcast.to(room).emit("bhag_gya_lauda", username);
+  });
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
-    console.log(users);
-    if (users.length == 0 ) {
-      io.to(socket.id).emit('roomIdChecked',0);
-    }
-    else if(users!=undefined){
-      io.to(socket.id).emit('roomIdChecked',1);
+    if (users.length == 0) {
+      io.to(socket.id).emit("roomIdChecked", 0);
+    } else if (users != undefined) {
+      io.to(socket.id).emit("roomIdChecked", 1);
     }
   });
-
-  socket.on("drawing", (data, room) =>
-    socket.to(room).broadcast.emit("drawing", data)
-  );
- 
-
-  
+  socket.on("changeInCanvas", (data, room) => {
+    socket.broadcast.to(room).emit("changeAayoRe", data);
+  });
+  socket.on("drawing", (data, room) => {
+    socket.broadcast.to(room).emit("drawing", data);
+  });
 
   socket.on("give_id", () => {
     let ID = nanoid(4);
-    console.log(ID);
     io.to(socket.id).emit("rec_id", ID);
+  });
+  socket.on("join-vid", (peerId, username, room) => {
+    socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
+  });
+  socket.on("join-room", (roomId, userId, username) => {
+    const user = userJoin(userId, username, roomId, socket.id);
+    let roomUsers = getRoomUsers(roomId);
+    io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);
+
+    socket.join(roomId);
+    socket.to(roomId).broadcast.emit("user-connected", username, userId);
+    io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
+  });
+  socket.on("whiteBoard_data", (data, socketId) => {
+    io.to(socketId).emit("whiteData", data);
   });
 }
 
