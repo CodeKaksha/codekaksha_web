@@ -160,15 +160,7 @@ function whiteBoard(room) {
 		canvas.height = window.innerHeight;
   }
   
-  document.querySelector(".save").addEventListener("click", (e) => {
-    e.preventDefault();
-    var canvasContents = canvas.toDataURL();
-    var data = { image: canvasContents, date: Date.now() };
-    var string = JSON.stringify(data);
-    db.collection("whiteboard").add({
-      str: string,
-    });
-  });
+ 
 //DON'T REMOVE!
 //   document.querySelector(".retrieve").addEventListener("click", (e) => {
 //     e.preventDefault();
