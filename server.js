@@ -93,6 +93,44 @@ server.listen(PORT, host, function () {
   console.log("Server started.......");
 });
 
+const bodyParser=require('body-parser');
+
+app.use(bodyParser.urlencoded({extended:true}));
+
+var nodemailer=require('nodemailer')
+
+app.post('/reportError',(req,res)=>{
+
+    var data=req.body;
+    data=JSON.stringify(data)
+    console.log(data)
+
+
+    var transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: '',
+        pass: ''
+      }
+    });
+
+    var mailOptions = {
+      from: 'vikashp0901@gmail.com',
+      to: 'vikash2719@gmail.com , vikashp0901@gmail.com',
+      subject: 'Error reported',
+      html:data
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+})
+
 var options = {
   debug: true,
   allow_discovery: true,

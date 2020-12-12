@@ -562,7 +562,43 @@
 
               <div class="option report" style="cursor: pointer">
                 <i class="small material-icons"> error </i>
-                <span class="opt-text report-text">Report</span>
+                <!-- <span class="opt-text report-text">Report</span> -->
+                <a class="modal-trigger" href="#modal5">Report</a>
+
+                <div id="modal5" class="modal">
+                  <div class="modal-content" style="background:gainsboro;">
+                    <form action="/reportError" method="POST" id="reportForm">
+                      <h4>Help us make this better</h4>
+                      <div >
+                        <p>
+                          <input type="checkbox" id="whiteboardError" name="whiteboardError" value="true"/>
+                          <label for="whiteboardError" style="color:indigo; font-size: larger;">Error with Whiteboard</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="cameraError" name="cameraError" value="true"/>
+                          <label for="cameraError" style="color: indigo; font-size: larger;">Video not streaming properly</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="audioError" name="audioError" value="true"/>
+                          <label for="audioError" style="color: indigo; font-size: larger;">Poor audio</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="compilerError" name="compilerError" value="true"/>
+                          <label for="compilerError" style="color: indigo; font-size: larger;">Error with compiler</label>
+                        </p>
+
+                        <input id="otherErrors" name="otherErrors" type="text" style="color: indigo; font-size: larger;" placeholder="Mention here if there are some other errors"/>
+                        
+                      </div>
+
+                      <div style="background: white;">
+                        <button class="modal-close btn-flat waves-effect waves-green" type="submit" >Submit</button>
+                        <button class="modal-close btn-flat waves-effect waves-green" type="button" >Close</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
               </div>
             </div>
     
