@@ -18,12 +18,14 @@
   },
   "homepage": "https://github.com/CodeKaksha/codekaksha_web#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "nanoid": "^3.1.18",
     "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.17",
     "peer": "^0.5.3",
     "socket.io": "^3.0.3",
     "uuid": "^8.3.1"

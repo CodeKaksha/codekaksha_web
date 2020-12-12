@@ -21,10 +21,23 @@ $(document).ready(function () {
 		// toolbarEnabled : true
 	});
 
+	$("#reportForm").on('submit',function(e){
+		console.log($("#reportForm").serialize())
+		fetch('/reportError',{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/x-www-form-urlencoded"
+			},
+			body:$("#reportForm").serialize()
+		})
+		e.preventDefault();
+	})
+
 	$('#modal1').modal();
 	$('#modal2').modal();
 	$('#modal3').modal();
 	$('#modal12').modal();
+	$('#modal5').modal();
 
 	$(".menu-open").fadeToggle();
 	$(".option-menu").click(function () {

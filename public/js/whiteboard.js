@@ -17,7 +17,7 @@ function whiteBoard(room) {
 
 	document.getElementById('eraser').addEventListener('click',()=>{
 		document.querySelector('.whiteBoard').style=`cursor:url('../res/erase.png'),auto;`;
-		current.color='#FDF7F7'
+		current.color='#F5F5FA'
 	})
 
 	document.getElementById('pencilSmall').addEventListener('click',()=>{
