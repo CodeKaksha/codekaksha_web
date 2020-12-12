@@ -109,14 +109,14 @@ app.post('/reportError',(req,res)=>{
     var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: '',
-        pass: ''
+        user: process.env.GMAIL_ID,
+        pass: process.env.GMAIL_PASSWORD
       }
     });
 
     var mailOptions = {
-      from: 'vikashp0901@gmail.com',
-      to: 'vikash2719@gmail.com , vikashp0901@gmail.com',
+      from: process.env.GMAIL_ID ,
+      to: process.env.GMAIL_ID,
       subject: 'Error reported',
       html:data
     };
