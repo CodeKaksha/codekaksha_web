@@ -24,7 +24,7 @@ chatForm.addEventListener('submit',(e)=>{
     e.target.elements.msg.focus();
 })
 
-// OUTPUT MESSAGE TO CHAT BOX
+// DISPLAY OUTPUT MESSAGE TO CHAT BOX
 function outputMessage(userMessage)
 {
     const div=document.createElement('div')             // meaning of div.classList  
