@@ -3,12 +3,13 @@ require("dotenv").config();
 const express = require("express");
 var ExpressPeerServer = require("peer").ExpressPeerServer;
 const app = express();
+const formatMessage = require('./utils/message');
 
 const http = require("http");
 
 const socketio = require("socket.io");
 
-const { userJoin, getRoomUsers, userLeave } = require("./utils/users");
+const { userJoin, getRoomUsers, userLeave, getCurrentUser } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
 
@@ -64,17 +65,42 @@ function onConnection(socket) {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
   socket.on("join-room", (roomId, userId, username) => {
-    const user = userJoin(userId, username, roomId, socket.id);
+    const user = userJoin(userId, username, roomId, socket.id);    
     let roomUsers = getRoomUsers(roomId);
     io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);
 
     socket.join(roomId);
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
+
+     ///// CHAT 
+
+     socket.emit('message',formatMessage('CodeKaksha','Welcome to chat'))
+
+     socket.broadcast.to(roomId).emit('message',formatMessage('CodeKaksha',`${username} has joined the chat`))
   });
   socket.on("whiteBoard_data", (data, socketId) => {
     io.to(socketId).emit("whiteData", data);
   });
+
+
+  //// CHAT
+  socket.on('disconnect',()=>{
+    const leftUser = userLeave(socket.id);
+    if(leftUser)
+    {
+      io.to(leftUser.room).emit('message',formatMessage('CodeKaksha',`${leftUser.username} has left the chat`)); 
+    }
+    
+  })
+
+  socket.on('chatMessage',(userMessage)=>{
+    console.log(userMessage)
+    const user = getCurrentUser(socket.id);
+    io.to(user.room).emit('message',formatMessage(user.username,userMessage));
+  })
+
+
 }
 
 io.on("connection", onConnection);

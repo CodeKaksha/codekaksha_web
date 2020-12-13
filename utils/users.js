@@ -15,9 +15,17 @@ function userLeave(id) {
 function getRoomUsers(room) {
 	return users.filter((user) => user.room === room);
 }
+
+function getCurrentUser(socketId)
+{
+	return users.find(user=> user.socketId === socketId)
+}
+
+
 module.exports = {
     userJoin,
     getRoomUsers,
-    userLeave
+	userLeave,
+	getCurrentUser
   // giveProblems
 };

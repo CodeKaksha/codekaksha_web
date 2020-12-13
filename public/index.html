@@ -468,17 +468,26 @@
               close
             </i>
           </div>
-          <div class="chat-body">
+          <div class="chat-body" style="text-align: left;">
+
+            <div class="message" >
+            </div>
 
           </div>
-          <div class="chat-message">
-            <textarea name="name" class="form-control user-msg" placeholder=""></textarea>
-            <span class="user-send">
-              <i class="material-icons msg-send">
-                send
-              </i>
-            </span>
-          </div>
+          <form id="chat-form">
+            <div class="chat-message">
+              <input id="msg" name="name" class="form-control user-msg" placeholder="message"></input>
+              <!-- <span class="user-send"> -->
+                <btn>
+                  <i class="material-icons msg-send">
+                    send
+                  </i>
+                </btn>
+                
+              <!-- </span> -->
+            </div>
+          </form>
+          
         </div>
         <div class="option-menu" style="cursor: pointer;">
           <i class="material-icons" style="font-size: 3rem;">
@@ -660,6 +669,7 @@
   <script src="js/video.js"></script>
   <script src="js/saving.js"></script>
   <script src="js/paint.js"></script>
+  <script src="js/chat.js"></script>
 </body>
 
 </html>

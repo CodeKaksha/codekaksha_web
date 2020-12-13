@@ -159,6 +159,11 @@ function whiteBoard(room) {
 		canvas.width = window.innerWidth / 2;
 		canvas.height = window.innerHeight;
   }
+
+  //Clear canvas 
+  document.querySelector('.clear').addEventListener('click',()=>{
+	context.clearRect(0, 0, canvas.width, canvas.height);
+  })
   
  
 //DON'T REMOVE!
