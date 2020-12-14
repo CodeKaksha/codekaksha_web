@@ -267,6 +267,7 @@ nav div a {
 .container1-page2 {
 	min-height: 100vh;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .botcont-page1 {
