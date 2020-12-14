@@ -97,7 +97,14 @@ function onConnection(socket) {
   socket.on('chatMessage',(userMessage)=>{
     console.log(userMessage)
     const user = getCurrentUser(socket.id);
-    io.to(user.room).emit('message',formatMessage(user.username,userMessage));
+    if(user)
+    {
+      io.to(user.room).emit('message',formatMessage(user.username,userMessage));
+      socket.broadcast.to(user.room).emit('toast','You have a new message')
+    }
+    
+    
+
   })
 
 

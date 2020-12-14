@@ -7,9 +7,14 @@ const chatForm=document.getElementById('chat-form');
 socket.on('message',(message)=>{
     console.log(message);
     outputMessage(message);
+    // M.toast({html:'You have new messages' , classes:'rounded' , displayLength:3000})
 
     chatBody.scrollTop=chatBody.scrollHeight;
 
+})
+
+socket.on('toast',(toastMessage)=>{
+    M.toast({html:toastMessage , classes:'rounded' , displayLength:3000})
 })
 
 chatForm.addEventListener('submit',(e)=>{
