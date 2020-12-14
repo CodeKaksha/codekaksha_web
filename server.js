@@ -95,7 +95,7 @@ function onConnection(socket) {
   })
 
   socket.on('chatMessage',(userMessage)=>{
-    console.log(userMessage)
+    // console.log(userMessage)
     const user = getCurrentUser(socket.id);
     io.to(user.room).emit('message',formatMessage(user.username,userMessage));
   })
