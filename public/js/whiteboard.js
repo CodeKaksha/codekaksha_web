@@ -162,10 +162,14 @@ function whiteBoard(room) {
 
   //Clear canvas 
   document.querySelector('.clear').addEventListener('click',()=>{
-	context.clearRect(0, 0, canvas.width, canvas.height);
+var socket = io();
+context.clearRect(0, 0, canvas.width, canvas.height);
+	socket.emit('clearBoard',room)
   })
   
- 
+  socket.on('boardClear',()=>{
+	context.clearRect(0, 0, canvas.width, canvas.height);
+  })
 //DON'T REMOVE!
 //   document.querySelector(".retrieve").addEventListener("click", (e) => {
 //     e.preventDefault();
