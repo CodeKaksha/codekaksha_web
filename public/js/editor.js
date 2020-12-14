@@ -3,34 +3,76 @@ function editor(roomId) {
   editor.getSession().setMode("ace/mode/c_cpp");
   let user = firebase.auth().currentUser;
   document.querySelector(".save").addEventListener("click", (e) => {
+    console.log("ss");
+    e.preventDefault();
     db.collection("whiteboard")
-      .where("room", "==", roomId)
       .get()
       .then((snapshot) => {
+        let fl = 0;
         snapshot.docs.forEach((doc) => {
           let data_doc = doc.data();
-          let cdata = data_doc.str;
-          var data = JSON.parse(cdata);
-          var image = new Image();
-          image.onload = function () {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(image, 0, 0); // draw the new image to the screen
-          };
-		      image.src = data.image;
-		 
+          if (data_doc.email == user.email && data_doc.roomID == roomId) {
+            console.log(data_doc.email, data_doc.roomID);
+            let canvas = document.querySelector(".whiteBoard");
+            var canvasContents = canvas.toDataURL();
+            fl = 1;
+            var data = { image: canvasContents, date: Date.now() };
+            let date = new Date();
+            var string = JSON.stringify(data);
+            db.collection("whiteboard")
+              .doc(doc.id)
+              .update({
+                name: data_doc.name,
+                roomID: roomId,
+                data_whiteboard: string,
+                data_compiler: editor.getValue(),
+                email: user.email,
+                date: JSON.stringify(date),
+              })
+              .then(() => {
+                displaySuccess();
+              })
+              .catch((err) => {
+                displayError(err);
+              });
+          }
         });
+        if (!fl) {
+          console.log("naam to de be");
+          $("#modal_save").modal("");
+          $("#modal_save").modal("open");
+          document
+            .querySelector(".submitNameOfCoderence")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              let canvas = document.querySelector(".whiteBoard");
+              var canvasContents = canvas.toDataURL();
+              fl = 1;
+              var data = { image: canvasContents, date: Date.now() };
+              var string = JSON.stringify(data);
+              let date = new Date();
+
+              let name = document.querySelector("#coderenceName").value;
+              db.collection("whiteboard")
+                .add({
+                  name: name,
+                  roomID: roomId,
+                  data_whiteboard: string,
+                  data_compiler: editor.getValue(),
+                  email: user.email,
+                  date: JSON.stringify(date),
+                })
+                .then(() => {
+                  $("#modal_save").modal("close");
+                  displaySuccess();
+                })
+                .catch((err) => {
+                  displayError(err);
+                });
+            });
+        }
       });
     e.preventDefault();
-    let canvas = document.querySelector(".whiteBoard");
-    var canvasContents = canvas.toDataURL();
-    var data = { image: canvasContents, date: Date.now() };
-    var string = JSON.stringify(data);
-    db.collection("whiteboard").add({
-      roomID: roomId,
-      data_whiteboard: string,
-      data_compiler: editor.getValue(),
-      email:user.email
-    });
   });
   editor.setTheme("ace/theme/terminal");
   editor.setShowPrintMargin(false);
@@ -44,7 +86,7 @@ function editor(roomId) {
     fl = 0;
     editor.setValue(data);
   });
-  
+
   const languageChoosenByUser = document.getElementById("language").value;
   if (languageChoosenByUser === "cpp17") {
     const initialCode =

@@ -38,7 +38,6 @@ $(document).ready(function () {
 	$('#modal3').modal();
 	$('#modal12').modal();
 	$('#modal5').modal();
-	$('#modal_save').modal();
 
 	$(".menu-open").fadeToggle();
 	$(".option-menu").click(function () {
@@ -118,4 +117,11 @@ function displayMessageOutgoing(user) {
 
 function displayRoomUsers(users) {
 
+}
+function displayError(err)
+{
+	alert(err);
+}
+function displaySuccess(){
+	alert("success")
 }
