@@ -118,3 +118,10 @@ function displayMessageOutgoing(user) {
 function displayRoomUsers(users) {
 
 }
+function displayError(err)
+{
+	alert(err);
+}
+function displaySuccess(){
+	alert("success")
+}

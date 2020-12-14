@@ -37,7 +37,7 @@ function ready(id) {
     e.preventDefault();
     $(window).blur(function () {
       socket.emit("give_alert", id, user.displayName);
-
+      
       socket.on("bhag_gya_lauda", (username) => {
         alert(`${username} has switched tabs!`);
       });
