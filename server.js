@@ -27,6 +27,10 @@ function onConnection(socket) {
     const user = userLeave(socket.id);
     if (user) {
       io.to(user.room).emit("user-disconnected", user.username);
+      io.to(user.room).emit(
+        "message",
+        formatMessage("CodeKaksha", `${user.username} has left the chat`)
+      );
       io.to(user.room).emit("roomUsers", {
         room: user.room,
         users: getRoomUsers(user.room),
@@ -95,31 +99,17 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("boardClear");
   });
 
-  //// CHAT
-  socket.on("disconnect", () => {
-    const leftUser = userLeave(socket.id);
-    if (leftUser) {
-      io.to(leftUser.room).emit(
-        "message",
-        formatMessage("CodeKaksha", `${leftUser.username} has left the chat`)
-      );
-    }
-  });
-
   socket.on("chatMessage", (userMessage) => {
     // console.log(userMessage)
     const user = getCurrentUser(socket.id);
-    if(user)
-    {
-      io.to(user.room).emit('message',formatMessage(user.username,userMessage));
-      socket.broadcast.to(user.room).emit('toast','You have a new message')
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        formatMessage(user.username, userMessage)
+      );
+      socket.broadcast.to(user.room).emit("toast", "You have a new message");
     }
-    
-    
-
-  })
-
-
+  });
 }
 
 io.on("connection", onConnection);
