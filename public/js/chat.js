@@ -8,7 +8,6 @@ socket.on('message',(message)=>{
     console.log(message);
     outputMessage(message);
     // M.toast({html:'You have new messages' , classes:'rounded' , displayLength:3000})
-
     chatBody.scrollTop=chatBody.scrollHeight;
 
 })
@@ -37,7 +36,7 @@ function outputMessage(userMessage)
     div.innerHTML=`<p><b>${userMessage.username} ${userMessage.time}</b></p>         
     <p>
       ${userMessage.text}
-    </p>`;
+    </p>`;  
 
     document.querySelector('.chat-body').appendChild(div);
 }
