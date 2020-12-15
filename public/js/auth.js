@@ -16,6 +16,7 @@ auth.onAuthStateChanged((user) => {
     for (let i = 0; i < DisplayPics.length; i++) {
       DisplayPics[i].src = userDisplayPic;
     }
+    displaySavedOnes();
 
     show_screen(after_login_screen);
   } else {
