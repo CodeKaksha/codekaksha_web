@@ -1,649 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <meta
+      name="description"
+      content="Host interactive coding sessions and interviews."
+    />
+    <meta property="og:url" content="https://codekaksha.herokuapp.com" />
+    <meta property="og:title" content="CODEKAKSHA" />
+    <meta
+      property="og:description"
+      content="Host interactive coding classes, sessions and interviews with video call and realtime compiler!"
+    />
+    <meta property="og:image" content="https://ibb.co/44dHBDd" />
+    <link rel="shortcut icon" href="res/logo.png" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Compiled and minified CSS -->
-  <meta name="description" content="Host interactive coding sessions and interviews." />
-  <meta property="og:url" content="https://codekaksha.herokuapp.com" />
-  <meta property="og:title" content="CODEKAKSHA" />
-  <meta property="og:description"
-    content="Host interactive coding classes, sessions and interviews with video call and realtime compiler!" />
-  <meta property="og:image" content="https://ibb.co/44dHBDd" />
-  <link rel="shortcut icon" href="res/logo.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
+    />
+    <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Let browser know website is optimized for mobile-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!--Import materialize.css-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
-  <!-- <link rel="stylesheet" href="codemirror-5.58.3/lib/codemirror.css"> -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet" />
-  <!--Let browser know website is optimized for mobile-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>CodeKakasha</title>
+  </head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>CodeKakasha</title>
-</head>
-
-<body>
-  <!-- Loader -->
-  <div class="loader fade_in">
-    <div class="lds-grid">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  <body>
+    <!-- Loader -->
+    <div class="loader fade_in">
+      <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </div>
-  <!-- Landing page if person is not logged in -->
-  <div class="container1-page1 index_screen">
-    <div class="navbar-page1 z-depth-3">
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <span class="navbar-title">CODEKAKSHA</span>
-          </ul>
-          <div id="nav-mobile" class="right hide-on-med-and-down">
-            <span class="login-page1"><a class="modal-trigger login" href="#modal1">Login</a></span>
-            <div id="modal1" class="modal modal-log">
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
-              </div>
-              <div class="modal-content">
-                <h5 class="modal-heading">Login To Codekaksha</h5>
-                <a class="waves-effect waves-light btn logmod-but googleSignIn">
-                  <img class="google-img" src="res\logos\google.svg.png"
-                    style="width: 25px; height: 25px; padding: 10px 10px 0 0" />
-                  <span class="logmodal">Login using Google</span></a>
-                <h5 class="modal-line" style="margin: 20px 0 20px 0">
-                  <span>or</span>
-                </h5>
-                <a class="waves-effect waves-light btn emailmod-but">
-                  <span class="emailmodal">Login using Email</span></a>
-              </div>
-            </div>
-            <span class="sign-page1"><a class="waves-effect waves-light btn modal-trigger sign-but" href="#modal2">Sign
-                Up</a></span>
-            <div id="modal2" class="modal modal-log">
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
-              </div>
-              <div class="modal-content">
-                <h5 class="modal-heading">Sign Up for Codekaksha</h5>
-                <a class="waves-effect waves-light btn logmod-but googleSignIn">
-                  <img class="google-img" src="res\logos\google.svg.png"
-                    style="width: 25px; height: 25px; padding: 10px 10px 0 0" />
-                  <span class="logmodal">Sign Up using Google</span></a>
-                <h5 class="modal-line" style="margin: 20px 0 20px 0">
-                  <span>or</span>
-                </h5>
-                <a class="waves-effect waves-light btn emailmod-but">
-                  <span class="emailmodal">Sign Up using Email</span></a>
-              </div>
-            </div>
-            <label>
-              <input class='toggle-checkbox' type='checkbox'></input>
-              <div class='toggle-slot'>
-                <div class='sun-icon-wrapper'>
-                  <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+    <!-- Landing page if person is not logged in -->
+    <div class="container1-page1 index_screen">
+      <div class="navbar-page1 z-depth-3">
+        <nav>
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <span class="navbar-title">CODEKAKSHA</span>
+            </ul>
+            <div id="nav-mobile" class="right hide-on-med-and-down">
+              <span class="login-page1"
+                ><a class="modal-trigger login" href="#modal1">Login</a></span
+              >
+              <div id="modal1" class="modal modal-log">
+                <div class="modal-footer">
+                  <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >X</a
+                  >
                 </div>
-                <div class='toggle-button'></div>
-                <div class='moon-icon-wrapper'>
-                  <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                <div class="modal-content">
+                  <h5 class="modal-heading">Login To Codekaksha</h5>
+                  <a
+                    class="waves-effect waves-light btn logmod-but googleSignIn"
+                  >
+                    <img
+                      class="google-img"
+                      src="res\logos\google.svg.png"
+                      style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+                    />
+                    <span class="logmodal">Login using Google</span></a
+                  >
+                  <h5 class="modal-line" style="margin: 20px 0 20px 0">
+                    <span>or</span>
+                  </h5>
+                  <a class="waves-effect waves-light btn emailmod-but">
+                    <span class="emailmodal">Login using Email</span></a
+                  >
                 </div>
               </div>
-            </label>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <div class="container2-page1">
-      <div class="heading1-page1">HOST AWESOME CODING</div>
-
-      <div class="boil_text">
-        <div class="big_div">
-          <h1 class="heading2-page1">CLASSES</h1>
-          <h1 class="heading2-page1">SESSIONS</h1>
-          <h1 class="heading2-page1">DISCUSSIONS</h1>
-          <h1 class="heading2-page1">INTERVIEWS</h1>
-        </div>
-      </div>
-      <div class="heading3-page1" style="margin-top: 30px">
-        Codekaksha is a one-of-its-kind multiuse platform that helps
-      </div>
-      <div class="heading4-page1">you bring your code into reality</div>
-      <div class="heading5-page1">
-        <span class="login-page1"><a class="modal-trigger waves-effect waves-light btn host-but" href="#modal12">HOST A
-            CODERENCE</a></span>
-        <div id="modal12" class="modal modal-log">
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
-          </div>
-          <div class="modal-content">
-            <h5 class="modal-heading">Login To Codekaksha</h5>
-            <a class="waves-effect waves-light btn logmod-but googleSignIn">
-              <img class="google-img" src="res\logos\google.svg.png"
-                style="width: 25px; height: 25px; padding: 10px 10px 0 0" />
-              <span class="logmodal">Login using Google</span></a>
-            <h5 class="modal-line" style="margin: 20px 0 20px 0">
-              <span>or</span>
-            </h5>
-            <a class="waves-effect waves-light btn emailmod-but">
-              <span class="emailmodal">Login using Email</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="waves-page1">
-      <div style="height: 80px; overflow: hidden">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-          <path d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
-            style="stroke: none; fill: #966b9d"></path>
-        </svg>
-      </div>
-
-      <div style="height: 80px; overflow: hidden">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%">
-          <path d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
-            style="stroke: none; fill: #337357"></path>
-        </svg>
-      </div>
-    </div>
-
-    <div class="botcont-page1">
-      <div class="botcont1">
-        <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
-        <p class="botcon2">GROW</p>
-      </div>
-      <div class="botcont2">
-        <p class="botcon1" style="color: black; padding-top: 40px">
-          CODE WITH
-        </p>
-        <p class="botcon2" style="color: black">FRIEND</p>
-      </div>
-      <div class="botcont3">
-        <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
-        <p class="botcon2">EFFECTIVELY</p>
-      </div>
-    </div>
-  </div>
-  <!-- landing page if person is already logged in -->
-  <div class="container1-page2 after_login_screen hidden">
-    <div class="navbar-page1 z-depth-3">
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left">
-            <span class="navbar-title">CODEKAKSHA</span>
-          </ul>
-          <div id="nav-mobile" class="right hide-on-med-and-down" style="display: flex">
-            <span class="login-page1"><a href="#"><img src="" class="displayPic" /></a>
-            </span>
-            <a href="" class="logout">logout</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <div class="row"></div>
-    <div class="row">
-      <div class="col s12 m7" style="padding-left: 50px">
-        <div class="container2-page2" style="text-align: left">
-          <div class="heading1-page2">
-            Hey, <span class="username"></span>
-          </div>
-          <div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
-
-          <div class="login-buttons row">
-            <div class="button1-page2 col s12 m6" style="display: inline-flex; padding-left: 0">
-              <a class="waves-effect waves-light btn host-but1 createRoom">CREATE A CODERENCE</a>
-            </div>
-
-            <div class="col s12 m6" style="display: inline-flex">
-              <form name="loginBox" id="enterRoom" action="" method="POST">
-                <div class="input-container">
-                  <span><img src="res/keyboard.svg" class="icon1" /></span>
-                  <input class="input-field" name="roomId" type="text" id="roomIdEntered"
-                    placeholder="ENTER THE ROOM ID" style="
-                          height: 36px;
-                          width: auto;
-                          margin-bottom: 0;
-                          margin-top: 0.4em;
-                          margin-left: 1em;
-                          border-bottom: none;
-                          box-shadow: none;
-                        " />
+              <span class="sign-page1"
+                ><a
+                  class="waves-effect waves-light btn modal-trigger sign-but"
+                  href="#modal2"
+                  >Sign Up</a
+                ></span
+              >
+              <div id="modal2" class="modal modal-log">
+                <div class="modal-footer">
+                  <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >X</a
+                  >
                 </div>
-                <input type="submit" style="display: none" />
-                <button class="waves-effect waves-green btn host-but1" style="margin-top: 10px">
-                  Enter room
-                </button>
-              </form>
+                <div class="modal-content">
+                  <h5 class="modal-heading">Sign Up for Codekaksha</h5>
+                  <a
+                    class="waves-effect waves-light btn logmod-but googleSignIn"
+                  >
+                    <img
+                      class="google-img"
+                      src="res\logos\google.svg.png"
+                      style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+                    />
+                    <span class="logmodal">Sign Up using Google</span></a
+                  >
+                  <h5 class="modal-line" style="margin: 20px 0 20px 0">
+                    <span>or</span>
+                  </h5>
+                  <a class="waves-effect waves-light btn emailmod-but">
+                    <span class="emailmodal">Sign Up using Email</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container2-page1">
+        <div class="heading1-page1">HOST AWESOME CODING</div>
+
+        <div class="boil_text">
+          <div class="big_div">
+            <h1 class="heading2-page1">CLASSES</h1>
+            <h1 class="heading2-page1">SESSIONS</h1>
+            <h1 class="heading2-page1">DISCUSSIONS</h1>
+            <h1 class="heading2-page1">INTERVIEWS</h1>
+          </div>
+        </div>
+        <div class="heading3-page1" style="margin-top: 30px">
+          Codekaksha is a one-of-its-kind multiuse platform that helps
+        </div>
+        <div class="heading4-page1">you bring your code into reality</div>
+        <div class="heading5-page1">
+          <span class="login-page1"
+            ><a
+              class="modal-trigger waves-effect waves-light btn host-but"
+              href="#modal12"
+              >HOST A CODERENCE</a
+            ></span
+          >
+          <div id="modal12" class="modal modal-log">
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >X</a
+              >
+            </div>
+            <div class="modal-content">
+              <h5 class="modal-heading">Login To Codekaksha</h5>
+              <a class="waves-effect waves-light btn logmod-but googleSignIn">
+                <img
+                  class="google-img"
+                  src="res\logos\google.svg.png"
+                  style="width: 25px; height: 25px; padding: 10px 10px 0 0"
+                />
+                <span class="logmodal">Login using Google</span></a
+              >
+              <h5 class="modal-line" style="margin: 20px 0 20px 0">
+                <span>or</span>
+              </h5>
+              <a class="waves-effect waves-light btn emailmod-but">
+                <span class="emailmodal">Login using Email</span></a
+              >
             </div>
           </div>
         </div>
-        <hr style="border: 1px solid black; margin-top: 4em" />
-        <div class="contactmsg">
-          <a href="#">Get in touch with us!</a>
+      </div>
+
+      <div class="waves-page1">
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
+              d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
+              style="stroke: none; fill: #966b9d"
+            ></path>
+          </svg>
+        </div>
+
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
+              d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
+              style="stroke: none; fill: #337357"
+            ></path>
+          </svg>
         </div>
       </div>
-      <div class="col s12 m5 demo-img">
-        <img src="res/demo.png" />
-      </div>
-    </div>
 
-    <hr class="separator separator--dotter" />
-
-    <div class="saved-coderences">
-      <div class="save-text">
-        <span class="save-code-text">Your Saved Coderences</span>
-      </div>
-      <div class="hor-line">
-      </div>
-    </div>
-
-    <div class="saved-cards">
-      <a class="card1 z-depth-3 no-card" href="#">
-        <div class="card-container1" style="margin-bottom: 10px;">
-          <span class="default-card-head"> LET'S CODE SOMETHING! YOU HAVE NO SAVED CODERENCES </span>
-          <span class="card-head"></span>
+      <div class="botcont-page1">
+        <div class="botcont1">
+          <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
+          <p class="botcon2">GROW</p>
         </div>
-        
-        <div class="go-corner" href="#">
-          <div class="go-arrow">
-            
+        <div class="botcont2">
+          <p class="botcon1" style="color: black; padding-top: 40px">
+            CODE WITH
+          </p>
+          <p class="botcon2" style="color: black">FRIEND</p>
+        </div>
+        <div class="botcont3">
+          <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
+          <p class="botcon2">EFFECTIVELY</p>
+        </div>
+      </div>
+    </div>
+    <!-- landing page if person is already logged in -->
+    <div class="container1-page2 after_login_screen hidden">
+      <div class="navbar-page1 z-depth-3">
+        <nav>
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left">
+              <span class="navbar-title">CODEKAKSHA</span>
+            </ul>
+            <div
+              id="nav-mobile"
+              class="right hide-on-med-and-down"
+              style="display: flex"
+            >
+              <span class="login-page1"
+                ><a href="#"><img src="" class="displayPic" /></a>
+              </span>
+              <a href="" class="logout">logout</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="row"></div>
+      <div class="row">
+        <div class="col s12 m7" style="padding-left: 50px">
+          <div class="container2-page2" style="text-align: left">
+            <div class="heading1-page2">
+              Hey, <span class="username"></span>
+            </div>
+            <div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
+
+            <div class="login-buttons row">
+              <div
+                class="button1-page2 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but1 createRoom"
+                  >CREATE A CODERENCE</a
+                >
+              </div>
+
+              <div class="col s12 m6" style="display: inline-flex">
+                <form name="loginBox" id="enterRoom" action="" method="POST">
+                  <div class="input-container">
+                    <span><img src="res/keyboard.svg" class="icon1" /></span>
+                    <input
+                      class="input-field"
+                      name="roomId"
+                      type="text"
+                      id="roomIdEntered"
+                      placeholder="ENTER THE ROOM ID"
+                      style="
+                        height: 36px;
+                        width: auto;
+                        margin-bottom: 0;
+                        margin-top: 0.4em;
+                        margin-left: 1em;
+                        border-bottom: none;
+                        box-shadow: none;
+                      "
+                    />
+                  </div>
+                  <input type="submit" style="display: none" />
+                  <button
+                    class="waves-effect waves-green btn host-but1"
+                    style="margin-top: 10px"
+                  >
+                    Enter room
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <hr style="border: 1px solid black; margin-top: 4em" />
+          <div class="contactmsg">
+            <a href="#">Get in touch with us!</a>
           </div>
         </div>
-        
-      </a>
-
-    </div>
-
-    <hr class="separator separator--dotter" />
-
-    <div class="botcont-logged">
-      <div class="botcont1-logged">
-        <img class="bot-logo" src="res/logo.png" alt="">
-        <div class="vert-line">
+        <div class="col s12 m5 demo-img">
+          <img src="res/demo.png" />
         </div>
-        <span>CODEKAKSHA</span>
       </div>
-      <div class="botcont2-logged">
-        <p style="font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; margin-left: 30px;">ABOUT US</p>
-        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">We are students of Delhi
-          Technological University, check us here:</p>
-        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Abhinandan Sharma(<a
-            target="_blank" href="https://github.com/abhi-824">Github</a>, <a target="_blank"
-            href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/">Linkedin</a>)</p>
-        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Shubhang Jyotirmay(<a
-            target="_blank" href="https://github.com/shubhangjyotirmay">Github</a>, <a target="_blank"
-            href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196">Linkedin</a>)</p>
-        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Vikash(<a
-            target="_blank" href="https://github.com/vikash452">Github</a>, <a target="_blank"
-            href="https://www.linkedin.com/in/vikash-prasad-482944197/">Linkedin</a>)</p>
+
+      <!--- sizes need to be done appropriately ---->
+      <div class="waves-page1">
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
+              d="M-0.90,97.00 C31.26,117.73 24.49,171.01 131.15,178.91 L500.22,182.85 L0.00,150.00 Z"
+              style="stroke: none; fill: #966b9d"
+            ></path>
+          </svg>
+        </div>
+        <div style="height: 80px; overflow: hidden">
+          <svg
+            viewBox="0 0 500 150"
+            preserveAspectRatio="none"
+            style="height: 100%; width: 100%"
+          >
+            <path
+              d="M297.06,280.55 C418.40,225.29 452.82,118.71 501.35,97.00 L500.00,150.00 L279.57,283.51 Z"
+              style="stroke: none; fill: #337357"
+            ></path>
+          </svg>
+        </div>
       </div>
-      <div class="botcont3-logged">
-        <p style="font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; margin-left: 30px;">Contact Us!</p>
-        <p style="font-size: 0.9rem; margin-bottom: 30px; font-weight: 500; margin-left: 30px;">Write to us at <a
-            href="">codidya@gmail.com</a></p>
-        <span style="font-size: 0.9rem; margin-bottom: 30px; font-weight: 500; margin-left: 30px;">Follow us at:
-          <i class="material-icons" style="vertical-align: middle; padding-left: 3px;">
-            facebook
-          </i>
-          <img class="linkedin" src="res/logos/linkedin.png" alt="" style="vertical-align: middle; padding-left: 3px;">
-          <img class="linkedin" src="res/logos/instagram.png" alt="" style="vertical-align: middle; padding-left: 3px;">
-        </span>
+
+      <div class="botcont-page1">
+        <div class="botcont1">
+          <p class="botcon1" style="padding-top: 40px">TEACH, LEARN AND</p>
+          <p class="botcon2">GROW</p>
+        </div>
+        <div class="botcont2">
+          <p class="botcon1" style="color: black; padding-top: 40px">
+            CODE WITH
+          </p>
+          <p class="botcon2" style="color: black">FRIEND</p>
+        </div>
+        <div class="botcont3">
+          <p class="botcon1" style="padding-top: 40px">INTERVIEW CANDIDATES</p>
+          <p class="botcon2">EFFECTIVELY</p>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Ready screen -->
-  <div class="contaner1-page3 ready_screen hidden">
-    <div class="navbar-page1 z-depth-3">
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left" style="display: inline-flex">
-            <span style="display: inline-flex"><img src="res/logo1.png" style="
+    <!-- Ready screen -->
+    <div class="contaner1-page3 ready_screen hidden">
+      <div class="navbar-page1 z-depth-3">
+        <nav>
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left" style="display: inline-flex">
+              <span style="display: inline-flex"
+                ><img
+                  src="res/logo1.png"
+                  style="
                     width: 35px;
                     height: 45px;
                     margin-top: 0.8em;
                     margin-right: 0.4em;
-                  " /></span>
-            <span class="navbar-title" style="
+                  "
+              /></span>
+              <span
+                class="navbar-title"
+                style="
                   height: 40px;
                   align-items: center;
                   display: inline-flex;
                   padding-left: 0.5em;
                   margin-top: 0.8em;
                   border-left: 3px solid #4d4d4d;
-                ">CODEKAKSHA</span>
-          </ul>
-          <div id="nav-mobile" class="right">
-            <span class="login-page1"><a href="#"><img src="" class="displayPic" /></a></span>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-    <div class="row"></div>
-    <div class="row readypage">
-      <div class="col s12 m6 vid-img" id="videoBeforeJoin"></div>
-      <div class="col s12 m6" style="padding-left: 50px">
-        <div class="container2-page2" style="text-align: left">
-          <div class="heading1-page3">Default Language</div>
-          <hr style="border: 1px solid black" />
-          <div class="row">
-            <select class="browser-default" id="language">
-              <option value="cpp17">C++</option>
-              <option value="c">C</option>
-              <option value="java">Java</option>
-              <option value="python2">Python</option>
-            </select>
-          </div>
-
-          <div class="heading1-page3">Default Mode</div>
-          <hr style="border: 1px solid black" />
-          <div class="login-buttons1 row">
-            <div class="button1-page3 col s12 m6" style="display: inline-flex; padding-left: 0">
-              <a class="waves-effect waves-light btn host-but2 strictMode">Strict</a>
-            </div>
-            <div class="button2-page3 col s12 m6" style="display: inline-flex; padding-left: 0">
-              <a class="waves-effect waves-light btn host-but3">Default</a>
+                "
+                >CODEKAKSHA</span
+              >
+            </ul>
+            <div id="nav-mobile" class="right">
+              <span class="login-page1"
+                ><a href="#"><img src="" class="displayPic" /></a
+              ></span>
             </div>
           </div>
-          <div class="row">
-            <div class="button3-page3 col s12 m6" style="display: inline-flex; padding-left: 0">
-              <a class="waves-effect waves-light btn host-but4 ready">Join</a>
-            </div>
-          </div>
-        </div>
+        </nav>
       </div>
-    </div>
 
-    <!--- sizes need to be done appropriately ---->
-  </div>
-  <!-- meet screen -->
-  <div class="container1-page4 meet_screen" id="meet_screen">
-    <div class="after_join">
-      <div class="section1">
-        <div class="fixed-action-btn edit-btn">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">mode_edit</i>
-          </a>
-          <ul>
-            <li><a class="btn-floating blue"><i class="material-icons" style="font-size: 30px;"
-                  id="pencilLarge">lens</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons" style="font-size: 25px;"
-                  id="pencilMedium">lens</i></a></li>
-            <li><a class="btn-floating pink"><i class="material-icons" style="font-size: 15px;"
-                  id="pencilSmall">lens</i></a></li>
-            <li><a class="btn-floating red"><i class="material-icons" style="font-size: 10px;"
-                  id="pencilTiny">lens</i></a></li>
-            <!-- <li><a class="btn-floating red"><i class="material-icons">hdr_weak</i></a></li> -->
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
-            <!-- <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li> -->
-            <li><a class="btn-floating blue" id="eraser"><i class="fas fa-eraser"></i></a></li>
-            <li><a class="btn-floating orange clear" id="eraser"><i class="fas fa-chalkboard"></i></a></li>
+      <div class="row"></div>
+      <div class="row readypage">
+        <div class="col s12 m6 vid-img" id="videoBeforeJoin"></div>
+        <div class="col s12 m6" style="padding-left: 50px">
+          <div class="container2-page2" style="text-align: left">
+            <div class="heading1-page3">Default Language</div>
+            <hr style="border: 1px solid black" />
+            <div class="row">
+              <select class="browser-default" id="language">
+                <option value="cpp17">C++</option>
+                <option value="c">C</option>
+                <option value="java">Java</option>
+                <option value="python2">Python</option>
+              </select>
+            </div>
 
-          </ul>
-        </div>
-        <div id="modal_save" class="modal modal-log modal-share">
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
-          </div>
-          <div class="modal-content">
-            <h5 class="modal-heading" style="color: black;">SAVE THE CODERENCE</h5>
-            <h6 style="color: black;">
-              You haven't name the coderence yet! Give it a name that defines this awesome session!
-            </h6>
-            <form action="">
-              <input type="text" id="coderenceName">
-              <button class="btn btn-primary submitNameOfCoderence">Submit</but ton>
-            </form>
-          </div>
-        </div>
-        <div class="fixed-action-btn file-btn">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">add</i>
-          </a>
-          <ul>
-            <li><a class="btn-floating red array"><i class="material-icons">view_array</i></a></li>
-            <li><a class="btn-floating red grid"><i class="material-icons grid">view_comfy</i></a></li>
-            <li><a class="btn-floating red download"><i class="material-icons">file_download</i></a></li>
-            <li><a class="btn-floating green save modal-trigger login" href="#modal_save"><i class="material-icons">save</i></a></li>
-          </ul>
-        </div>
-        <div class="edit-features">
-          <div class="color-erase">
-            <form>
-              <div style="order: 2; margin-left: 2px">
-                <input class="palIcoColorPicker" type="color" id="color-picker" />
+            <div class="heading1-page3">Default Mode</div>
+            <hr style="border: 1px solid black" />
+            <div class="login-buttons1 row">
+              <div
+                class="button1-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but2 strictMode"
+                  >Strict</a
+                >
               </div>
-            </form>
+              <div
+                class="button2-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but3">Default</a>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="button3-page3 col s12 m6"
+                style="display: inline-flex; padding-left: 0"
+              >
+                <a class="waves-effect waves-light btn host-but4 ready">Join</a>
+              </div>
+            </div>
           </div>
         </div>
-        <canvas class="whiteBoard"></canvas>
       </div>
 
-      <div class="video-grid">
-        <div class="chat-box z-depth-3 visible">
-          <div class="chat-header">
-            <i class="small material-icons close-msg" style="cursor: pointer;">
-              close
+      <!--- sizes need to be done appropriately ---->
+    </div>
+    <!-- meet screen -->
+    <div class="container1-page4 meet_screen" id="meet_screen">
+      <div class="after_join">
+        <div class="section1">
+          <div class="fixed-action-btn edit-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating blue"><i class="material-icons" style="font-size: 30px;" id="pencilLarge">lens</i></a></li>
+              <li><a class="btn-floating green"><i class="material-icons" style="font-size: 25px;" id="pencilMedium">lens</i></a></li>
+              <li><a class="btn-floating pink"><i class="material-icons" style="font-size: 15px;" id="pencilSmall">lens</i></a></li>
+              <li><a class="btn-floating red"><i class="material-icons" style="font-size: 10px;" id="pencilTiny">lens</i></a></li>
+              <!-- <li><a class="btn-floating red"><i class="material-icons">hdr_weak</i></a></li> -->
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
+              <!-- <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li> -->
+              <li><a class="btn-floating blue" id="eraser"><i class="fas fa-eraser"></i></a></li>
+            </ul>
+          </div>
+          <div class="fixed-action-btn file-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">add</i>
+            </a>
+            <ul>    
+              <li><a class="btn-floating red array"><i class="material-icons">view_array</i></a></li>
+              <li><a class="btn-floating red grid"><i class="material-icons grid">view_comfy</i></a></li>
+              <li><a class="btn-floating red download"><i class="material-icons">file_download</i></a></li>
+              <li><a class="btn-floating green save"><i class="material-icons">save</i></a></li>
+            </ul>
+          </div>
+          <div class="edit-features">
+            <div class="color-erase">
+              <form>
+                <div style="order: 2; margin-left: 2px">
+                  <input
+                    class="palIcoColorPicker"
+                    type="color"
+                    id="color-picker"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <canvas class="whiteBoard"></canvas>
+        </div>
+
+        <div class="video-grid">
+          <div class="chat-box z-depth-3 visible">
+            <div class="chat-header">
+              <i class="small material-icons close-msg" style="cursor: pointer;">
+                close
+              </i>
+            </div>
+            <div class="chat-body">
+    
+            </div>
+            <div class="chat-message">
+              <textarea name="name" class="form-control user-msg" placeholder=""></textarea>
+              <span class="user-send">
+                <i class="material-icons msg-send">
+                  send
+                </i>
+              </span>
+            </div>
+          </div>
+          <div class="option-menu" style="cursor: pointer;">
+            <i class="material-icons" style="font-size: 3rem;">
+              menu
             </i>
           </div>
-          <div class="chat-body" style="text-align: left;">
-
-            <div class="message" >
-            </div>
-
-          </div>
-          <form id="chat-form">
-            <div class="chat-message">
-              <input id="msg" name="name" class="form-control user-msg" placeholder="message"></input>
-              <!-- <span class="user-send"> -->
-                <btn>
-                  <i class="material-icons msg-send">
-                    send
-                  </i>
-                </btn>
-                
-              <!-- </span> -->
-            </div>
-          </form>
-          
-        </div>
-        <div class="option-menu" style="cursor: pointer;">
-          <i class="material-icons" style="font-size: 3rem;">
-            menu
-          </i>
-        </div>
-        <div class="menu-open visible">
-          <div class="menu-column1">
-            <div class="option video-hide" style="cursor: pointer">
-              <i class="small material-icons"> groups </i>
-              <span class="opt-text vid-hid-text">Hide People</span>
-            </div>
-
-            <div class="option share-id share-room" style="cursor: pointer">
-              <a class="modal-trigger login" href="#modal3"><i class="small material-icons"> share </i></a>
-              <div id="modal3" class="modal modal-log modal-share">
-                <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a>
-                </div>
-                <div class="modal-content">
-                  <h5 class="modal-heading" style="color: black;">SHARE THE CODERENCE</h5>
-                  <h6 style="color: black;">
-                    You are the only one here! Share this code to the people you want
-                    in the coderence: <span id="share-code-room"> </span>
-                  </h6>
-                </div>
-              </div>
-              <span class="opt-text share-text">Share</span>
-            </div>
-          </div>
-
-          <div class="menu-column2">
-            <div class="option chat" style="cursor: pointer">
-              <i class="small material-icons"> chat </i>
-              <span class="opt-text chat-text">Chat</span>
-            </div>
-
-            <div class="option end-meet" style="cursor: pointer">
-              <i class="small material-icons"> more_vert </i>
-              <span class="opt-text end-meet-text">Options</span>
-            </div>
-          </div>
-
-          <div class="menu-column3">
-            <div class="option present-screen" style="cursor: pointer">
-              <i class="small material-icons"> present_to_all </i>
-              <span class="opt-text present-text">Present</span>
-            </div>
-
-            <div class="option report" style="cursor: pointer">
-              <i class="small material-icons"> error </i>
-              <!-- <span class="opt-text report-text">Report</span> -->
-              <a class="modal-trigger" href="#modal5">Report</a>
-
-              <div id="modal5" class="modal">
-                <div class="modal-content" style="background:gainsboro;">
-                  <form action="/reportError" method="POST" id="reportForm">
-                    <h4>Help us make this better</h4>
-                    <div>
-                      <p>
-                        <input type="checkbox" id="whiteboardError" name="whiteboardError" value="true" />
-                        <label for="whiteboardError" style="color:indigo; font-size: larger;">Error with
-                          Whiteboard</label>
-                      </p>
-                      <p>
-                        <input type="checkbox" id="cameraError" name="cameraError" value="true" />
-                        <label for="cameraError" style="color: indigo; font-size: larger;">Video not streaming
-                          properly</label>
-                      </p>
-                      <p>
-                        <input type="checkbox" id="audioError" name="audioError" value="true" />
-                        <label for="audioError" style="color: indigo; font-size: larger;">Poor audio</label>
-                      </p>
-                      <p>
-                        <input type="checkbox" id="compilerError" name="compilerError" value="true" />
-                        <label for="compilerError" style="color: indigo; font-size: larger;">Error with compiler</label>
-                      </p>
-
-                      <input id="otherErrors" name="otherErrors" type="text" style="color: indigo; font-size: larger;"
-                        placeholder="Mention here if there are some other errors" />
-
-                    </div>
-
-                    <div style="background: white;">
-                      <button class="modal-close btn-flat waves-effect waves-green" type="submit">Submit</button>
-                      <button class="modal-close btn-flat waves-effect waves-green" type="button">Close</button>
-                    </div>
-                  </form>
-                </div>
+          <div class="menu-open visible">
+            <div class="menu-column1">
+              <div class="option video-hide" style="cursor: pointer">
+                <i class="small material-icons"> groups </i>
+                <span class="opt-text vid-hid-text">Hide People</span>
               </div>
 
+              <div class="option share-id share-room" style="cursor: pointer">
+                <a class="modal-trigger login" href="#modal3"
+                  ><i class="small material-icons"> share </i></a
+                >
+                <div id="modal3" class="modal modal-log modal-share">
+                  <div class="modal-footer">
+                    <a
+                      href="#!"
+                      class="modal-close waves-effect waves-green btn-flat"
+                      >X</a
+                    >
+                  </div>
+                  <div class="modal-content">
+                    <h5 class="modal-heading" style="color: black;">SHARE THE CODERENCE</h5>
+                    <h6 style="color: black;">
+                      You are the only one here! Share this code to the people you want
+                      in the coderence: <span id="share-code-room"> </span>
+                    </h6>
+                  </div>
+                </div>
+                <span class="opt-text share-text">Share</span>
+              </div>
+            </div>
+
+            <div class="menu-column2">
+              <div class="option chat" style="cursor: pointer">
+                <i class="small material-icons"> chat </i>
+                <span class="opt-text chat-text">Chat</span>
+              </div>
+
+              <div class="option end-meet" style="cursor: pointer">
+                <i class="small material-icons"> more_vert </i>
+                <span class="opt-text end-meet-text">Options</span>
+              </div>
+            </div>
+    
+            <div class="menu-column3">
+              <div class="option present-screen" style="cursor: pointer">
+                <i class="small material-icons"> present_to_all </i>
+                <span class="opt-text present-text">Present</span>
+              </div>
+
+              <div class="option report" style="cursor: pointer">
+                <i class="small material-icons"> error </i>
+                <!-- <span class="opt-text report-text">Report</span> -->
+                <a class="modal-trigger" href="#modal5">Report</a>
+
+                <div id="modal5" class="modal">
+                  <div class="modal-content" style="background:gainsboro;">
+                    <form action="/reportError" method="POST" id="reportForm">
+                      <h4>Help us make this better</h4>
+                      <div >
+                        <p>
+                          <input type="checkbox" id="whiteboardError" name="whiteboardError" value="true"/>
+                          <label for="whiteboardError" style="color:indigo; font-size: larger;">Error with Whiteboard</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="cameraError" name="cameraError" value="true"/>
+                          <label for="cameraError" style="color: indigo; font-size: larger;">Video not streaming properly</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="audioError" name="audioError" value="true"/>
+                          <label for="audioError" style="color: indigo; font-size: larger;">Poor audio</label>
+                        </p>
+                        <p>
+                          <input type="checkbox" id="compilerError" name="compilerError" value="true"/>
+                          <label for="compilerError" style="color: indigo; font-size: larger;">Error with compiler</label>
+                        </p>
+
+                        <input id="otherErrors" name="otherErrors" type="text" style="color: indigo; font-size: larger;" placeholder="Mention here if there are some other errors"/>
+                        
+                      </div>
+
+                      <div style="background: white;">
+                        <button class="modal-close btn-flat waves-effect waves-green" type="submit" >Submit</button>
+                        <button class="modal-close btn-flat waves-effect waves-green" type="button" >Close</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+    
+          </div>
+    
+          <div class="video-grid-1">
+            <div id="jsEditor" class="textArea"></div>
+            <div class="video video-table" id="video-add"></div>
+          </div>
+          <div class="video-grid-2">
+            <div class="input-output">
+              <div class="input">
+                <span class="user-input">INPUT</span>
+                <textarea name="name" rows="50" id="inp-val" cols="35"></textarea>
+              </div>
+              <div class="output">
+                <span class="user-output">OUTPUT</span>
+                <textarea readonly name="name" rows="50" id="out-val" cols="35"></textarea>
+              </div>
+              <div class="run-com">
+                <button class="run-but">RUN</button>
+              </div>
             </div>
           </div>
-
         </div>
-
-        <div class="video-grid-1">
-          <div id="jsEditor" class="textArea"></div>
-          <div class="video video-table" id="video-add"></div>
-        </div>
-        <div class="video-grid-2">
-          <div class="input-output">
-            <div class="input">
-              <span class="user-input">INPUT</span>
-              <textarea name="name" rows="50" id="inp-val" cols="35"></textarea>
-            </div>
-            <div class="output">
-              <span class="user-output">OUTPUT</span>
-              <textarea readonly name="name" rows="50" id="out-val" cols="35"></textarea>
-            </div>
-            <div class="run-com">
-              <button class="run-but">RUN</button>
-            </div>
+        <div class="mute-end-cam visible">
+    
+          <div class="mic-cam">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mic_off</i>
+            </a>
           </div>
+          <div class="mic-cam">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">call_end</i>
+            </a>
+          </div>
+          <div class="mic-cam">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">videocam_off</i>
+            </a>
+          </div>
+    
         </div>
       </div>
-      <div class="mute-end-cam visible">
-
-        <div class="mic-cam">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">mic_off</i>
-          </a>
-        </div>
-        <div class="mic-cam">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">call_end</i>
-          </a>
-        </div>
-        <div class="mic-cam">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">videocam_off</i>
-          </a>
-        </div>
-
-      </div>
-    </div>
-
+      
   </div>
   <div class="containerForCanvas"></div>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
 
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyBicXQ7S5ltOo3vrIxqr8wU7bRVhH7nJ0Q",
-      authDomain: "codekaksha-e483b.firebaseapp.com",
-      databaseURL: "https://codekaksha-e483b.firebaseio.com",
-      projectId: "codekaksha-e483b",
-      storageBucket: "codekaksha-e483b.appspot.com",
-      messagingSenderId: "312753994162",
-      appId: "1:312753994162:web:cf8e878652bf6686b18cab",
-      measurementId: "G-WTW8L80JKT",
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
-  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
-  <script src="js/front.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/whiteboard.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBicXQ7S5ltOo3vrIxqr8wU7bRVhH7nJ0Q",
+        authDomain: "codekaksha-e483b.firebaseapp.com",
+        databaseURL: "https://codekaksha-e483b.firebaseio.com",
+        projectId: "codekaksha-e483b",
+        storageBucket: "codekaksha-e483b.appspot.com",
+        messagingSenderId: "312753994162",
+        appId: "1:312753994162:web:cf8e878652bf6686b18cab",
+        measurementId: "G-WTW8L80JKT",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/front.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/whiteboard.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://kit.fontawesome.com/565487f9b5.js" crossorigin="anonymous"></script>
-  <script src="js/editor.js"></script>
-  <script src="js/ready.js"></script>
-  <script src="js/video.js"></script>
-  <script src="js/saving.js"></script>
-  <script src="js/paint.js"></script>
-  <script src="js/chat.js"></script>
-  <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
-  <script src="js/theme.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/565487f9b5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/editor.js"></script>
+    <script src="js/ready.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/saving.js"></script>
+    <script src="js/paint.js"></script>
+  </body>
 </html>
