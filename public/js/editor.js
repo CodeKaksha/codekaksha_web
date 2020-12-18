@@ -1,7 +1,25 @@
 function editor(roomId) {
   var editor = ace.edit("jsEditor");
   editor.getSession().setMode("ace/mode/c_cpp");
+  let user = firebase.auth().currentUser;
   document.querySelector(".save").addEventListener("click", (e) => {
+    db.collection("whiteboard")
+      .where("room", "==", roomId)
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          let data_doc = doc.data();
+          let cdata = data_doc.str;
+          var data = JSON.parse(cdata);
+          var image = new Image();
+          image.onload = function () {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(image, 0, 0); // draw the new image to the screen
+          };
+		      image.src = data.image;
+		 
+        });
+      });
     e.preventDefault();
     let canvas = document.querySelector(".whiteBoard");
     var canvasContents = canvas.toDataURL();
@@ -11,6 +29,7 @@ function editor(roomId) {
       roomID: roomId,
       data_whiteboard: string,
       data_compiler: editor.getValue(),
+      email:user.email
     });
   });
   editor.setTheme("ace/theme/terminal");

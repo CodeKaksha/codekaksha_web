@@ -19,124 +19,199 @@
 </head>
 
 <body>
-  <div class="container1-page1">
+  <div class="container1-page2 after_login_screen">
     <div class="navbar-page1 z-depth-3">
       <nav>
         <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left" style="
-    display: inline-flex;
-">
-            <span style="
-    display: inline-flex;
-"><img src="res/logo1.png" style="
-    width: 35px;
-    height: 45px;
-    margin-top: 0.8em;
-    margin-right: 0.4em;
-"></span>
-            <span class="navbar-title" style="
-    height: 40px;
-    align-items: center;
-    display: inline-flex;
-    padding-left: 0.5em;
-    margin-top: 0.8em;
-    border-left: 3px solid #4D4D4D;
-">CODEKAKSHA</span>
+          <ul id="nav-mobile" class="left">
+            <span class="navbar-title">CODEKAKSHA</span>
           </ul>
-          <div id="nav-mobile" class="right hide-on-med-and-down" style="
-">
-            <span class="login-page1"><a href="#"><img src="res/avatar.png"></a></span>
-            
+          <div id="nav-mobile" class="right hide-on-med-and-down" style="display: flex">
+            <span class="login-page1"><a href="#"><img src="" class="displayPic" /></a>
+            </span>
+            <a href="" class="logout">logout</a>
           </div>
         </div>
       </nav>
     </div>
 
+    <div class="row"></div>
     <div class="row">
-     
-    </div>
-    <div class="row">
-      <div class="col s12 m7" style="padding-left:50px">
-            <div class="container2-page2 " style="text-align:left;">
-              <div class="heading1-page2">
-                LET'S CODE THE WAY OUT
-              </div>
-              
-              <div class="login-buttons row">
-                <div class="button1-page2 col s12 m6" style="display:inline-flex;padding-left:0">
-                  <a class="waves-effect waves-light btn host-but1">CREATE A CODERENCE</a>
-                </div>
+      <div class="col s12 m7" style="padding-left: 50px">
+        <div class="container2-page2" style="text-align: left">
+          <div class="heading1-page2">
+            Hey, <span class="username"></span>
+          </div>
+          <div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
 
-                <div class="col s12 m6"style="display:inline-flex;">
-                  <form name="loginBox" action="" method="POST">
-                      
-                      <div class="input-container">
-                          <span><img src="res/keyboard.svg" class="icon1"></span>
-                          <input class="input-field" name="roomId" type="text" placeholder="ENTER THE ROOM ID" style="height:36px;width: auto;margin-bottom: 0;margin-top: 0.4em;margin-left: 1em;border-bottom: none;box-shadow: none;"/>
-                      </div>
-                      <input type="submit" style="display: none;"/>
-                  </form>
+          <div class="login-buttons row">
+            <div class="button1-page2 col s12 m6" style="display: inline-flex; padding-left: 0">
+              <a class="waves-effect waves-light btn host-but1 createRoom">CREATE A CODERENCE</a>
+            </div>
+
+            <div class="col s12 m6" style="display: inline-flex">
+              <form name="loginBox" id="enterRoom" action="" method="POST">
+                <div class="input-container">
+                  <span><img src="res/keyboard.svg" class="icon1" /></span>
+                  <input class="input-field" name="roomId" type="text" id="roomIdEntered"
+                    placeholder="ENTER THE ROOM ID" style="
+                        height: 36px;
+                        width: auto;
+                        margin-bottom: 0;
+                        margin-top: 0.4em;
+                        margin-left: 1em;
+                        border-bottom: none;
+                        box-shadow: none;
+                      " />
                 </div>
-              </div>
-              
+                <input type="submit" style="display: none" />
+                <button class="waves-effect waves-green btn host-but1" style="margin-top: 10px">
+                  Enter room
+                </button>
+              </form>
             </div>
-            <hr style="border: 1px solid black; margin-top:4em">
-            <div class="contactmsg">
-              <a href="#">Get in touch with us!</a>
-            </div>
+          </div>
+        </div>
+        <hr style="border: 1px solid black; margin-top: 4em" />
+        <div class="contactmsg">
+          <a href="#">Get in touch with us!</a>
+        </div>
       </div>
       <div class="col s12 m5 demo-img">
-        <img src="res/demo.png" >
+        <img src="res/demo.png" />
       </div>
-    </div>
-    
-
-    <!--- sizes need to be done appropriately ---->
-    <div class="waves-page1">
-      <div style="height: 80px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path
-              d="M-0.33,-2.66 C291.42,105.89 74.72,249.96 553.27,167.06 L200.00,180.89 L-0.90,152.26 Z"
-              style="stroke: none; fill: #966b9d"
-            ></path>
-        </svg></div>
-      <div style="height: 80px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path
-              d="M-131.82,171.01 C446.61,206.54 179.11,104.90 500.22,-2.66 L502.48,150.29 L456.77,265.75 Z"
-              style="stroke: none; fill: #337357"
-            ></path>
-        </svg></div>
     </div>
 
-    <div class="botcont-page1">
-      <div class="botcont1">
-        <p class="botcon1" style="padding-top: 40px;">TEACH, LEARN AND</p>
-        <p class="botcon2">GROW</p>
+    <hr class="separator separator--dotter" />
+
+    <div class="saved-coderences">
+      <div class="save-text">
+        <span class="save-code-text">Your Saved Coderences</span>
       </div>
-      <div class="botcont2">
-        <p class="botcon1" style="color: black; padding-top: 40px;">CODE WITH</p>
-        <p class="botcon2" style="color: black;">FRIEND</p>
-      </div>
-      <div class="botcont3">
-        <p class="botcon1" style="padding-top: 40px;">INTERVIEW CANDIDATES</p>
-        <p class="botcon2">EFFECTIVELY</p>
+      <div class="hor-line">
       </div>
     </div>
+
+    <div class="saved-cards">
+      <a class="card1 z-depth-3" href="#">
+        <div class="card-container1" style="margin-bottom: 10px;">
+          <span class="default-card-head">Name: </span> 
+          <span class="card-head"></span>
+        </div>
+        <div class="card-container2" style="margin-bottom: 30px;">
+          <span class="default-card-date">Date last visited: </span> 
+          <span class="card-date"></span>
+        </div>
+        <div class="go-corner" href="#">
+          <div class="go-arrow">
+            →
+          </div>
+        </div>
+        <div class="card-container3">
+          <i class="small material-icons">
+            create
+          </i>
+          <i class=" small material-icons">
+            delete
+          </i>
+        </div>
+      </a>
+
+      <a class="card1 z-depth-3" href="#">
+        <div class="card-container1" style="margin-bottom: 10px;">
+          <span class="default-card-head">Name: </span> 
+          <span class="card-head"></span>
+        </div>
+        <div class="card-container2" style="margin-bottom: 30px;">
+          <span class="default-card-date">Date last visited: </span> 
+          <span class="card-date"></span>
+        </div>
+        <div class="go-corner" href="#">
+          <div class="go-arrow">
+            →
+          </div>
+        </div>
+        <div class="card-container3">
+          <i class="small material-icons">
+            create
+          </i>
+          <i class=" small material-icons">
+            delete
+          </i>
+        </div>
+      </a>
+
+      <a class="card1 z-depth-3" href="#">
+        <div class="card-container1" style="margin-bottom: 10px;">
+          <span class="default-card-head">Name: </span> 
+          <span class="card-head"></span>
+        </div>
+        <div class="card-container2" style="margin-bottom: 30px;">
+          <span class="default-card-date">Date last visited: </span> 
+          <span class="card-date"></span>
+        </div>
+        <div class="go-corner" href="#">
+          <div class="go-arrow">
+            →
+          </div>
+        </div>
+        <div class="card-container3">
+          <i class="small material-icons">
+            create
+          </i>
+          <i class=" small material-icons">
+            delete
+          </i>
+        </div>
+      </a>
+    </div>
+
+    <hr class="separator separator--dotter" />
+
+    <div class="botcont-logged">
+      <div class="botcont1-logged">
+        <img class="bot-logo" src="res/logo.png" alt="">
+        <div class="vert-line">
+        </div>
+        <span>CODEKAKSHA</span>
+      </div>
+      <div class="botcont2-logged">
+        <p style="font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; margin-left: 30px;">ABOUT US</p>
+        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">We are students of Delhi Technological University, check us here:</p>
+        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Abhinandan Sharma(<a target="_blank" href="https://github.com/abhi-824">Github</a>, <a target="_blank" href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/">Linkedin</a>)</p>
+        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Shubhang Jyotirmay(<a target="_blank" href="https://github.com/shubhangjyotirmay">Github</a>, <a target="_blank" href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196">Linkedin</a>)</p>
+        <p style="font-size: 0.9rem; margin-bottom: 2px; font-weight: 500; margin-left: 30px;">> Vikash(<a target="_blank" href="https://github.com/vikash452">Github</a>, <a target="_blank" href="https://www.linkedin.com/in/vikash-prasad-482944197/">Linkedin</a>)</p>
+      </div>
+      <div class="botcont3-logged">
+        <p style="font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; margin-left: 30px;">Contact Us!</p>
+        <p style="font-size: 0.9rem; margin-bottom: 30px; font-weight: 500; margin-left: 30px;">Write to us at <a href="">codidya@gmail.com</a></p>
+        <span style="font-size: 0.9rem; margin-bottom: 30px; font-weight: 500; margin-left: 30px;">Follow us at: 
+          <i class="material-icons" style="vertical-align: middle; padding-left: 3px;">
+          facebook
+          </i>
+          <img class="linkedin" src="res/logos/linkedin.png" alt="" style="vertical-align: middle; padding-left: 3px;">
+          <img class="linkedin" src="res/logos/instagram.png" alt="" style="vertical-align: middle; padding-left: 3px;">
+        </span>
+      </div>
+    </div>
+
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
   <script type="text/javascript">
-  $(function() {
-      $('form').each(function() {
-          $(this).find('input').keypress(function(e) {
-              // Enter pressed?
-              if(e.which == 10 || e.which == 13) {
-                  this.form.submit();
-              }
-          });
+    $(function () {
+      $('form').each(function () {
+        $(this).find('input').keypress(function (e) {
+          // Enter pressed?
+          if (e.which == 10 || e.which == 13) {
+            this.form.submit();
+          }
+        });
 
-          $(this).find('input[type=submit]').hide();
+        $(this).find('input[type=submit]').hide();
       });
-  });
+    });
   </script>
 </body>
 

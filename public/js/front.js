@@ -38,6 +38,7 @@ $(document).ready(function () {
 	$('#modal3').modal();
 	$('#modal12').modal();
 	$('#modal5').modal();
+	$('#modal_save').modal();
 
 	$(".menu-open").fadeToggle();
 	$(".option-menu").click(function () {
