@@ -267,6 +267,7 @@ nav div a {
 .container1-page2 {
 	min-height: 100vh;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .botcont-page1 {
@@ -1159,4 +1160,230 @@ a {
 .linkedin {
 	height: 25px;
 	width: 25px;
+}
+
+#toast-container {
+	top: auto !important;
+	right: auto !important;
+	bottom: 5%;
+	left:7%;
+  }
+
+  /* THEME SWITCHER TEMP */
+.toggle-checkbox {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.toggle-slot {
+	position: absolute;
+	height: 3rem;
+	width: 8em;
+	border: 5px solid #e4e7ec;
+	border-radius: 10em;
+	background-color: white;
+	box-shadow: 0px 10px 25px #e4e7ec;
+	transition: background-color 250ms;
+	margin-top: 10px;
+	top: 0;
+	right: 0;
+}
+
+.toggle-checkbox:checked~.toggle-slot {
+	background-color: #374151;
+}
+
+.toggle-button {
+	transform: translate(0.5rem, 0.5rem);
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	background-color: #ffeccf;
+	box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+	transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26, 2, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .toggle-button {
+	background-color: #485367;
+	box-shadow: inset 0px 0px 0px 0.75em white;
+	transform: translate(0.5rem, 0.5rem);
+}
+
+.sun-icon {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	color: #ffbb52;
+}
+
+.sun-icon-wrapper {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	opacity: 1;
+	transform: translate(0.5rem, 0.5rem) rotate(15deg);
+	transform-origin: 50% 50%;
+	transition: opacity 150ms, transform 500ms cubic-bezier(.26, 2, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .sun-icon-wrapper {
+	opacity: 0;
+	transform: translate(0.5rem, 0.5rem) rotate(0deg);
+}
+
+.moon-icon {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	color: white;
+}
+
+.moon-icon-wrapper {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	opacity: 0;
+	transform: translate(0.5rem, 0.5rem) rotate(0deg);
+	transform-origin: 50% 50%;
+	transition: opacity 150ms, transform 500ms cubic-bezier(.26, 2.5, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .moon-icon-wrapper {
+	opacity: 1;
+	transform: translate(0.5rem, 0.5rem) rotate(-15deg);
+}
+
+.head-page1-anim {
+	animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+	to {
+		text-shadow: 0 0 20px rgb(221, 205, 204);
+	}
+}
+
+.botcon-page1-anim {
+	animation: glow-botcon 1.5s infinite alternate;
+}
+
+@keyframes glow-botcon {
+	to {
+		text-shadow: 0 0 10px rgb(11, 48, 3);
+	}
+}
+
+.nav-title-anim {
+	text-align: center;
+	background: linear-gradient(to left, #FFF 20%, rgb(188, 219, 178) 30%, rgb(102, 168, 108) 70%, #FFF 80%);
+	background-size: 200% auto;
+	color: #000;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+	to {
+		background-position: 200% center;
+	}
+}
+
+.nav-page1-anim {
+	background: linear-gradient(to right, #141417, #141418, #131419, #13151b, #12151c, #10161d, #0e161e, #0b171f, #08191f, #061a1e, #051b1d, #061c1b);
+	background-size: 400% 400%;
+	animation: gradient-nav 5s ease infinite;
+}
+
+@keyframes gradient-nav {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.botcont1-anim {
+    background: linear-gradient(317deg, #000000, #050817, #120205, #031201);
+    background-size: 800% 800%;
+
+    -webkit-animation: botcont1-animname 5s ease infinite;
+    -moz-animation: botcont1-animname 5s ease infinite;
+    animation: botcont1-animname 5s ease infinite;
+}
+
+@-webkit-keyframes botcont1-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@-moz-keyframes botcont1-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@keyframes botcont1-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+
+.botcont2-anim {
+	/*background: linear-gradient(178deg, #000000, #050817, #120205, #031201);*/
+	background: linear-gradient(37deg, #000000, #050817, #120205, #031201);
+    background-size: 800% 800%;
+
+    -webkit-animation: botcont2-animname 20s ease infinite;
+    -moz-animation: botcont2-animname 20s ease infinite;
+    animation: botcont2-animname 20s ease infinite;
+}
+
+@-webkit-keyframes botcont2-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@-moz-keyframes botcont2-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@keyframes botcont2-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+
+.botcont3-anim {
+    background: linear-gradient(37deg, #000000, #050817, #120205, #031201);
+    background-size: 800% 800%;
+
+    -webkit-animation: botcont3-animname 5s ease infinite;
+    -moz-animation: botcont3-animname 5s ease infinite;
+    animation: botcont3-animname 5s ease infinite;
+}
+
+@-webkit-keyframes botcont3-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@-moz-keyframes botcont3-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
+}
+@keyframes botcont3-animname {
+    0%{background-position:53% 0%}
+    50%{background-position:48% 100%}
+    100%{background-position:53% 0%}
 }

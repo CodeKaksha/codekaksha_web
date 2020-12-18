@@ -89,6 +89,18 @@
                   <span class="emailmodal">Sign Up using Email</span></a>
               </div>
             </div>
+            <label>
+              <input class='toggle-checkbox' type='checkbox'></input>
+              <div class='toggle-slot'>
+                <div class='sun-icon-wrapper'>
+                  <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                </div>
+                <div class='toggle-button'></div>
+                <div class='moon-icon-wrapper'>
+                  <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                </div>
+              </div>
+            </label>
           </div>
         </div>
       </nav>
@@ -240,77 +252,20 @@
     </div>
 
     <div class="saved-cards">
-      <a class="card1 z-depth-3" href="#">
+      <a class="card1 z-depth-3 no-card" href="#">
         <div class="card-container1" style="margin-bottom: 10px;">
-          <span class="default-card-head">Name: </span>
+          <span class="default-card-head"> LET'S CODE SOMETHING! YOU HAVE NO SAVED CODERENCES </span>
           <span class="card-head"></span>
         </div>
-        <div class="card-container2" style="margin-bottom: 30px;">
-          <span class="default-card-date">Date last visited: </span>
-          <span class="card-date"></span>
-        </div>
+        
         <div class="go-corner" href="#">
           <div class="go-arrow">
-            →
+            
           </div>
         </div>
-        <div class="card-container3">
-          <i class="small material-icons">
-            create
-          </i>
-          <i class=" small material-icons">
-            delete
-          </i>
-        </div>
+        
       </a>
 
-      <a class="card1 z-depth-3" href="#">
-        <div class="card-container1" style="margin-bottom: 10px;">
-          <span class="default-card-head">Name: </span>
-          <span class="card-head"></span>
-        </div>
-        <div class="card-container2" style="margin-bottom: 30px;">
-          <span class="default-card-date">Date last visited: </span>
-          <span class="card-date"></span>
-        </div>
-        <div class="go-corner" href="#">
-          <div class="go-arrow">
-            →
-          </div>
-        </div>
-        <div class="card-container3">
-          <i class="small material-icons">
-            create
-          </i>
-          <i class=" small material-icons">
-            delete
-          </i>
-        </div>
-      </a>
-
-      <a class="card1 z-depth-3" href="#">
-        <div class="card-container1" style="margin-bottom: 10px;">
-          <span class="default-card-head">Name: </span>
-          <span class="card-head"></span>
-        </div>
-        <div class="card-container2" style="margin-bottom: 30px;">
-          <span class="default-card-date">Date last visited: </span>
-          <span class="card-date"></span>
-        </div>
-        <div class="go-corner" href="#">
-          <div class="go-arrow">
-            →
-          </div>
-        </div>
-        <div class="card-container3">
-          <i class="small material-icons">
-            create
-          </i>
-          <i class=" small material-icons">
-            delete
-          </i>
-        </div>
-      </a>
     </div>
 
     <hr class="separator separator--dotter" />
@@ -436,6 +391,8 @@
             <li><a class="btn-floating yellow darken-1"><i class="material-icons">highlight_off</i></a></li>
             <!-- <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li> -->
             <li><a class="btn-floating blue" id="eraser"><i class="fas fa-eraser"></i></a></li>
+            <li><a class="btn-floating orange clear" id="eraser"><i class="fas fa-chalkboard"></i></a></li>
+
           </ul>
         </div>
         <div id="modal_save" class="modal modal-log modal-share">
@@ -448,8 +405,8 @@
               You haven't name the coderence yet! Give it a name that defines this awesome session!
             </h6>
             <form action="">
-              <input type="text">
-              <button class="btn btn-primary">Submit</but ton>
+              <input type="text" id="coderenceName">
+              <button class="btn btn-primary submitNameOfCoderence">Submit</but ton>
             </form>
           </div>
         </div>
@@ -483,17 +440,26 @@
               close
             </i>
           </div>
-          <div class="chat-body">
+          <div class="chat-body" style="text-align: left;">
+
+            <div class="message" >
+            </div>
 
           </div>
-          <div class="chat-message">
-            <textarea name="name" class="form-control user-msg" placeholder=""></textarea>
-            <span class="user-send">
-              <i class="material-icons msg-send">
-                send
-              </i>
-            </span>
-          </div>
+          <form id="chat-form">
+            <div class="chat-message">
+              <input id="msg" name="name" class="form-control user-msg" placeholder="message"></input>
+              <!-- <span class="user-send"> -->
+                <btn>
+                  <i class="material-icons msg-send">
+                    send
+                  </i>
+                </btn>
+                
+              <!-- </span> -->
+            </div>
+          </form>
+          
         </div>
         <div class="option-menu" style="cursor: pointer;">
           <i class="material-icons" style="font-size: 3rem;">
@@ -675,6 +641,9 @@
   <script src="js/video.js"></script>
   <script src="js/saving.js"></script>
   <script src="js/paint.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="https://code.iconify.design/1/1.0.4/iconify.min.js">   </script>
+  <script src="js/theme.js"></script>
 </body>
 
 </html>

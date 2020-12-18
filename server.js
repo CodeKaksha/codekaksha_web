@@ -3,15 +3,20 @@ require("dotenv").config();
 const express = require("express");
 var ExpressPeerServer = require("peer").ExpressPeerServer;
 const app = express();
+const formatMessage = require("./utils/message");
 
 const http = require("http");
 
 const socketio = require("socket.io");
 
-const { userJoin, getRoomUsers, userLeave } = require("./utils/users");
+const {
+  userJoin,
+  getRoomUsers,
+  userLeave,
+  getCurrentUser,
+} = require("./utils/users");
 
 var { nanoid } = require("nanoid");
-
 
 const server = http.createServer(app);
 
@@ -22,6 +27,10 @@ function onConnection(socket) {
     const user = userLeave(socket.id);
     if (user) {
       io.to(user.room).emit("user-disconnected", user.username);
+      io.to(user.room).emit(
+        "message",
+        formatMessage("CodeKaksha", `${user.username} has left the chat`)
+      );
       io.to(user.room).emit("roomUsers", {
         room: user.room,
         users: getRoomUsers(user.room),
@@ -71,9 +80,35 @@ function onConnection(socket) {
     socket.join(roomId);
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
+
+    ///// CHAT
+
+    socket.emit("message", formatMessage("CodeKaksha", "Welcome to chat"));
+
+    socket.broadcast
+      .to(roomId)
+      .emit(
+        "message",
+        formatMessage("CodeKaksha", `${username} has joined the chat`)
+      );
   });
   socket.on("whiteBoard_data", (data, socketId) => {
     io.to(socketId).emit("whiteData", data);
+  });
+  socket.on("clearBoard", (room) => {
+    socket.broadcast.to(room).emit("boardClear");
+  });
+
+  socket.on("chatMessage", (userMessage) => {
+    // console.log(userMessage)
+    const user = getCurrentUser(socket.id);
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        formatMessage(user.username, userMessage)
+      );
+      socket.broadcast.to(user.room).emit("toast", "You have a new message");
+    }
   });
 }
 
@@ -89,43 +124,40 @@ server.listen(PORT, host, function () {
   console.log("Server started.......");
 });
 
-const bodyParser=require('body-parser');
+const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var nodemailer=require('nodemailer')
+var nodemailer = require("nodemailer");
 
-app.post('/reportError',(req,res)=>{
+app.post("/reportError", (req, res) => {
+  var data = req.body;
+  data = JSON.stringify(data);
+  console.log(data);
 
-    var data=req.body;
-    data=JSON.stringify(data)
-    console.log(data)
+  var transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.GMAIL_ID,
+      pass: process.env.GMAIL_PASSWORD,
+    },
+  });
 
+  var mailOptions = {
+    from: process.env.GMAIL_ID,
+    to: process.env.GMAIL_ID,
+    subject: "Error reported",
+    html: data,
+  };
 
-    var transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: process.env.GMAIL_ID,
-        pass: process.env.GMAIL_PASSWORD
-      }
-    });
-
-    var mailOptions = {
-      from: process.env.GMAIL_ID ,
-      to: process.env.GMAIL_ID,
-      subject: 'Error reported',
-      html:data
-    };
-
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
-
-})
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+});
 
 var options = {
   debug: true,
