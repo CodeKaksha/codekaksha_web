@@ -123,7 +123,6 @@ app.use(express.static(path.join(__dirname, "public")));
 server.listen(PORT, host, function () {
   console.log("Server started.......");
 });
-
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));

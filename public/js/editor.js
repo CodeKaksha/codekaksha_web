@@ -156,8 +156,8 @@ function editor(roomId) {
       })
         .then((res) => res.json())
         .then((data) => {
-          var output = (document.getElementById("out-val").innerHTML =
-            data.output);
+          document.getElementById("out-val").innerHTML =
+            data.output;
         });
     });
   });
