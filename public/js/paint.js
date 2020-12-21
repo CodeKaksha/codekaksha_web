@@ -89,7 +89,6 @@ function paint(room)
 	});
 	
 	
-	
 	function dragElement(elmnt) {
 		var pos1 = 0,
 			pos2 = 0,
@@ -105,7 +104,7 @@ function paint(room)
 	
 		function dragMouseDown(e) {
 			e = e || window.event;
-			e.preventDefault();
+			// e.preventDefault();
 			// get the mouse cursor position at startup:
 			pos3 = e.clientX;
 			pos4 = e.clientY;
