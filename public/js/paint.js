@@ -22,9 +22,9 @@ function paint(room)
 	// 	dragElement(canvas);
 	// 	j++;
 	// });
-	
+	let p=1;
 	array.addEventListener('click', (e) => {
-		let num_array = 10;
+		let num_array = 15;
 		if (num_array) {
 			let canvas_array = document.createElement('div');
 			for (let i = 0; i < num_array; i++) {
@@ -38,7 +38,8 @@ function paint(room)
 				canvas.style.width = `40px`;
 				let inp = document.createElement('input');
 				inp.type = 'number';
-				inp.value = Math.floor(Math.random() * 100);
+				inp.value = p;
+				p++;
 				div.appendChild(canvas);
 				div.appendChild(inp);
 				canvas_array.appendChild(div);
@@ -105,7 +106,7 @@ function paint(room)
 	
 		function dragMouseDown(e) {
 			e = e || window.event;
-			e.preventDefault();
+			// e.preventDefault();
 			// get the mouse cursor position at startup:
 			pos3 = e.clientX;
 			pos4 = e.clientY;

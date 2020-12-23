@@ -131,14 +131,14 @@ function displayMessageIncoming(user) {
 }
 
 function displayMessageOutgoing(user) {
-  // alert(user);
+  alert(user);
   let div = document.createElement("div");
   div.className = "notification";
   div.innerHTML = `${user} has left the coderence!`;
   document.body.appendChild(div);
 }
 
-function displayRoomUsers(users) {}
+function  displayRoomUsers(users) {}
 function displayError(err) {
   alert(err);
 }

@@ -1,3 +1,4 @@
+
 function video(videoId,username,room) {
   
   const video_grid = document.querySelector(`#${videoId}`);
@@ -11,7 +12,13 @@ function video(videoId,username,room) {
     .then((stream) => {
       addVideoStream(myvideo, stream);
       // socket.emit('catch_user', stream);
-
+      document.querySelector('.mic_on_off').addEventListener('click',(e)=>{
+        console.log(stream.getAudioTracks())
+        console.log("kk")
+        //VIKAS IDHAR AAJA TU
+        stream.getVideoTracks()[0].enabled=false;
+        console.log(stream.getVideoTracks())
+      })
       socket.on("user-vid-connected", (peerId,username) => {
         displayMessageIncoming(username);
        
@@ -67,6 +74,7 @@ function videoOnlyUser(videoId)
     })
     .then((stream) => {
       addVideoStream(myvideo, stream);
+      
       
     });
   function addVideoStream(video, stream) {

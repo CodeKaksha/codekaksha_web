@@ -98,10 +98,12 @@ function editor(roomId) {
       "\treturn 0;\r\n" +
       "}\r\n";
 
-    editor.setValue(initialCode);
+  editor.getSession().setMode("ace/mode/c_cpp");
+  editor.setValue(initialCode);
   } else if (languageChoosenByUser === "python2") {
     const initialCode = "# write your python code here\r\n";
-    editor.setValue(initialCode);
+  editor.getSession().setMode("ace/mode/python");
+  editor.setValue(initialCode);
   } else if (languageChoosenByUser === "java") {
     const initialCode =
       "public class Solution {\r\n" +
@@ -109,7 +111,8 @@ function editor(roomId) {
       "        // Write your code here\r\n" +
       "    }\r\n" +
       "}";
-    editor.setValue(initialCode);
+  editor.getSession().setMode("ace/mode/java");
+  editor.setValue(initialCode);
   } else if (languageChoosenByUser === "c") {
     const initialCode =
       "#include <stdio.h>\r\n" +
@@ -119,7 +122,8 @@ function editor(roomId) {
       "\treturn 0;\r\n" +
       "}\r\n" +
       "\r\n";
-    editor.setValue(initialCode);
+  editor.getSession().setMode("ace/mode/c_cpp");
+  editor.setValue(initialCode);
   }
 
   document.querySelector(".run-but").addEventListener("click", (e) => {

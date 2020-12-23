@@ -45,7 +45,7 @@ function onConnection(socket) {
       id: process.env.CLIENT_ID,
       secret: process.env.CLIENT_SECRET,
     };
-    socket.emit("getCredential", credentials);
+    socket.to(room).emit("getCredential", credentials);
   });
   socket.on("give_alert", (room, username) => {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
@@ -53,9 +53,9 @@ function onConnection(socket) {
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
     if (users.length == 0) {
-      io.to(socket.id).emit("roomIdChecked", 0);
+      socket.emit("roomIdChecked", 0);
     } else if (users != undefined) {
-      io.to(socket.id).emit("roomIdChecked", 1);
+      socket.emit("roomIdChecked", 1);
     }
   });
   socket.on("changeInCanvas", (data, room) => {

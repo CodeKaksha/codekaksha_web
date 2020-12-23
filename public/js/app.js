@@ -28,6 +28,8 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
         videoOnlyUser(`videoBeforeJoin`);
     })
 });
-
+socket.on("user-disconnected", (username) => {
+    displayMessageOutgoing(username);
+  });
 
 
