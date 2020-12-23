@@ -97,6 +97,7 @@ function editor(roomId) {
       "\t// your code goes here\r\n" +
       "\treturn 0;\r\n" +
       "}\r\n";
+      editor.getSession().setMode("ace/mode/c_cpp");
 
   editor.getSession().setMode("ace/mode/c_cpp");
   editor.setValue(initialCode);
@@ -156,8 +157,8 @@ function editor(roomId) {
       })
         .then((res) => res.json())
         .then((data) => {
-          var output = (document.getElementById("out-val").innerHTML =
-            data.output);
+          document.getElementById("out-val").innerHTML =
+            data.output;
         });
     });
   });
