@@ -1,10 +1,6 @@
 .canvas_abs {
   position: absolute;
 }
-.canvas_array {
-  position: absolute;
-  display: flex;
-}
 .node{
     border-radius: 50%;
     position: absolute;
