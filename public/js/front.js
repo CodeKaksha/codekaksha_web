@@ -77,6 +77,22 @@ $(document).ready(function () {
   });
 });
 
+  $(".mic_on").click(()=>{
+    $(".mic_on").addClass("hidden");
+  })
+
+  $(".mic_off").click(()=>{
+    $(".mic_on").removeClass("hidden");
+  })
+
+  $(".video_on").click(()=>{
+    $(".video_on").addClass("hidden");
+  })
+  
+  $(".video_off").click(()=>{
+    $(".video_on").removeClass("hidden");
+  })
+
 function displaySavedOnes() {
 	let user = firebase.auth().currentUser;
 	const db = firebase.firestore();

@@ -1,9 +1,12 @@
 
 function video(videoId,username,room) {
-  
+
   const video_grid = document.querySelector(`#${videoId}`);
   const myvideo = document.createElement("video");
   myvideo.muted = true;
+  console.log('in video main')
+  var videoCurrentState=true;
+  var audioCurrentState=true;
   navigator.mediaDevices
     .getUserMedia({
       video: true,
@@ -12,13 +15,37 @@ function video(videoId,username,room) {
     .then((stream) => {
       addVideoStream(myvideo, stream);
       // socket.emit('catch_user', stream);
-      document.querySelector('.mic_on_off').addEventListener('click',(e)=>{
-        console.log(stream.getAudioTracks())
-        console.log("kk")
-        //VIKAS IDHAR AAJA TU
-        stream.getVideoTracks()[0].enabled=false;
-        console.log(stream.getVideoTracks())
+      document.querySelector('.video_on').addEventListener('click',(e)=>{
+        // if(stream.getVideoTracks()[0].enabled)
+          console.log("a");
+          stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind===' video')
+            {
+              track.enabled=!track.enabled;
+              track.stop();
+            }
+          })
+          stream.getVideoTracks()[0].enabled=false;   
+          videoCurrentState=false;
+          myvideo.srcObject=null;
+        
       })
+
+      document.querySelector('.video_off').addEventListener('click',()=>{
+        videoCurrentState=true;
+        console.log("b")
+        navigator.mediaDevices.getUserMedia({
+          video:true,
+          audio:false
+        })
+        .then((newVideoStream)=>{
+          stream.removeTrack(stream.getVideoTracks()[0])
+          stream.addTrack(newVideoStream.getVideoTracks()[0])
+          addVideoStream(myvideo,newVideoStream);
+        })
+      })
+
+
       socket.on("user-vid-connected", (peerId,username) => {
         displayMessageIncoming(username);
        
@@ -67,14 +94,46 @@ function videoOnlyUser(videoId)
   const video_grid = document.querySelector(`#${videoId}`);
   const myvideo = document.createElement("video");
   myvideo.muted = true;
+  var videoCurrentState=true;
+  var audioCurrentState=true;
+  console.log("in video only user");
   navigator.mediaDevices
     .getUserMedia({
       video: true,
-      audio: true,
+      audio: false,
     })
     .then((stream) => {
       addVideoStream(myvideo, stream);
       
+      document.querySelector('.video_on').addEventListener('click',(e)=>{
+        // if(stream.getVideoTracks()[0].enabled)
+          console.log("c");
+          stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind===' video')
+            {
+              track.enabled=!track.enabled;
+              track.stop();
+            }
+          })
+          stream.getVideoTracks()[0].enabled=false;   
+          videoCurrentState=false;
+          myvideo.srcObject=null;
+      })
+
+      document.querySelector('.video_off').addEventListener('click',()=>{
+        videoCurrentState=true;
+        console.log("d")
+        navigator.mediaDevices.getUserMedia({
+          video:true,
+          audio:false
+        })
+        .then((newVideoStream)=>{
+          stream.removeTrack(stream.getVideoTracks()[0])
+          stream.addTrack(newVideoStream.getVideoTracks()[0])
+          addVideoStream(myvideo,newVideoStream);
+        })
+      })
+
       
     });
   function addVideoStream(video, stream) {
