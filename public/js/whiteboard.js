@@ -179,6 +179,7 @@ function whiteBoard(room) {
     // canvas.style=`padding-top:100px;`
     canvas.width = window.innerWidth / 2;
     canvas.height = window.innerHeight;
+    
   }
 
   //Clear canvas
@@ -194,22 +195,22 @@ function whiteBoard(room) {
   //DON'T REMOVE!
   //   document.querySelector(".retrieve").addEventListener("click", (e) => {
   //     e.preventDefault();
-  //     db.collection("whiteboard")
-  //       .where("str", "!=", "")
-  //       .get()
-  //       .then((snapshot) => {
-  //         snapshot.docs.forEach((doc) => {
-  //           let data_doc = doc.data();
-  //           let cdata = data_doc.str;
-  //           var data = JSON.parse(cdata);
-  //           var image = new Image();
-  //           image.onload = function () {
-  //             context.clearRect(0, 0, canvas.width, canvas.height);
-  //             context.drawImage(image, 0, 0); // draw the new image to the screen
-  //           };
-  // 		      image.src = data.image;
+      // db.collection("whiteboard")
+      //   .where("roomID", "==", room)
+      //   .get()
+      //   .then((snapshot) => {
+      //     snapshot.docs.forEach((doc) => {
+      //       let data_doc = doc.data();
+      //       let cdata = data_doc.str;
+      //       var data = JSON.parse(cdata);
+      //       var image = new Image();
+      //       image.onload = function () {
+      //         context.clearRect(0, 0, canvas.width, canvas.height);
+      //         context.drawImage(image, 0, 0); // draw the new image to the screen
+      //       };
+  		//       image.src = data.image;
 
-  //         });
-  //       });
+      //     });
+      //   });
   //   });
 }

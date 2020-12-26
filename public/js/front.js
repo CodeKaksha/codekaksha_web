@@ -19,7 +19,7 @@ $(document).ready(function () {
   var instances = M.FloatingActionButton.init(elems, {
     // direction:'right',
     // toolbarEnabled : true
-    hoverEnabled: false
+    hoverEnabled: false,
   });
 
   $("#reportForm").on("submit", function (e) {
@@ -78,45 +78,61 @@ $(document).ready(function () {
   });
 });
 
-  $(".mic_on").click(()=>{
-    $(".mic_on").addClass("hidden");
-  })
+$(".mic_on").click(() => {
+  $(".mic_on").addClass("hidden");
+});
 
-  $(".mic_off").click(()=>{
-    $(".mic_on").removeClass("hidden");
-  })
+$(".mic_off").click(() => {
+  $(".mic_on").removeClass("hidden");
+});
 
-  $(".video_on").click(()=>{
-    $(".video_on").addClass("hidden");
-  })
-  
-  $(".video_off").click(()=>{
-    $(".video_on").removeClass("hidden");
-  })
+$(".video_on").click(() => {
+  $(".video_on").addClass("hidden");
+});
+
+$(".video_off").click(() => {
+  $(".video_on").removeClass("hidden");
+});
 
 function displaySavedOnes() {
-	let user = firebase.auth().currentUser;
-	const db = firebase.firestore();
-	console.log(user.email);
-	db.collection("whiteboard")
-	  .where("email", "==", user.email)
-	  .get()
-	  .then((snapshot) => {
-		snapshot.forEach((doc) => {
-		  let docData = doc.data();
-		  let div = make_card_save(docData.name, docData.date, docData.roomID);
-		  
-		  document.querySelector(".saved-cards").appendChild(div);
-		  document.querySelector(`.${docData.roomID}_edit`).addEventListener('click',(e)=>{
-			  e.preventDefault();
-			  show_screen(ready_screen);
-			  ready(docData.room);	
-		  })
-		});
-		document.querySelector('.no-card').remove();
-	  });
-  }
-  
+  let user = firebase.auth().currentUser;
+  const db = firebase.firestore();
+  console.log(user.email);
+  db.collection("whiteboard")
+    .where("email", "==", user.email)
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        let docData = doc.data();
+        let div = make_card_save(docData.name, docData.date, docData.roomID);
+
+        document.querySelector(".saved-cards").appendChild(div);
+        document
+          .querySelector(`.${docData.roomID}_edit`)
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            db.collection("whiteboard")
+              .where("roomID", "==", docData.roomID)
+              .get()
+              .then((data_to_show) => {
+                data_to_show.forEach((docTo) => {
+                  let data = docTo.data();
+                  var canvas = document.querySelector(".whiteBoard");
+                  var context = canvas.getContext("2d");
+                  var data2 = JSON.parse(data.data_whiteboard);
+                  
+                  console.log(data2)
+                  show_screen(ready_screen);
+                  ready(docData.roomID,data2);
+                });
+              });
+              
+          });
+      });
+      document.querySelector(".no-card").remove();
+    });
+}
+
 function loaderOn() {
   loader.classList.remove("fade_out");
   loader.classList.add("fade_in");
@@ -155,14 +171,14 @@ function displayMessageOutgoing(user) {
   document.body.appendChild(div);
 }
 
-function  displayRoomUsers(users) {}
+function displayRoomUsers(users) {}
 function displayError(err) {
   alert(err);
 }
 function displaySuccess() {
   alert("success");
 }
-function make_card_save(name, date,room) {
+function make_card_save(name, date, room) {
   let div = document.createElement("div");
   div.innerHTML = `
 	<a class="card1 z-depth-3" href="#">

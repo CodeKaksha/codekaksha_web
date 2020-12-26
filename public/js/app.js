@@ -8,7 +8,7 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
         if(check)
         {
             loaderOut();
-            ready(roomIdEntered);
+            ready(roomIdEntered,0);
             show_screen(ready_screen);
             videoOnlyUser(`videoBeforeJoin`);
         }
@@ -23,7 +23,7 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
 	socket.emit('give_id');
     loaderOn();
     socket.on('rec_id',(id)=>{
-        ready(id);
+        ready(id,0);
         show_screen(ready_screen);
         videoOnlyUser(`videoBeforeJoin`);
     })

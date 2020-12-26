@@ -39,7 +39,6 @@ function editor(roomId) {
         });
         if (!fl) {
           console.log("naam to de be");
-          $("#modal_save").modal("");
           $("#modal_save").modal("open");
           document
             .querySelector(".submitNameOfCoderence")

@@ -77,7 +77,6 @@ function onConnection(socket) {
     const user = userJoin(userId, username, roomId, socket.id);
     let roomUsers = getRoomUsers(roomId);
     io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);
-
     socket.join(roomId);
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
