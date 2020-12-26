@@ -45,7 +45,7 @@ function onConnection(socket) {
       id: process.env.CLIENT_ID,
       secret: process.env.CLIENT_SECRET,
     };
-    socket.to(room).emit("getCredential", credentials);
+    socket.emit("getCredential", credentials);
   });
   socket.on("give_alert", (room, username) => {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);

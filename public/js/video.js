@@ -9,40 +9,74 @@ function video(videoId,username,room) {
   var audioCurrentState=true;
   navigator.mediaDevices
     .getUserMedia({
-      video: true,
-      audio: false,
+      video: videoCurrentState,
+      audio: audioCurrentState,
     })
     .then((stream) => {
       addVideoStream(myvideo, stream);
-      // socket.emit('catch_user', stream);
-      document.querySelector('.video_on').addEventListener('click',(e)=>{
-        // if(stream.getVideoTracks()[0].enabled)
-          console.log("a");
-          stream.getTracks().forEach(function(track){
-            if(track.readyState=='live' && track.kind===' video')
+
+      document.querySelector('.videoToggler').addEventListener('click',()=>{
+        if(stream.getVideoTracks()[0].enabled)
+        {
+            stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind==='video')
             {
               track.enabled=!track.enabled;
               track.stop();
             }
-          })
-          stream.getVideoTracks()[0].enabled=false;   
-          videoCurrentState=false;
-          myvideo.srcObject=null;
-        
+            })
+            stream.getVideoTracks()[0].enabled=false;   
+            videoCurrentState=false;
+            myvideo.srcObject=null;
+            console.log("a video");
+            // console.log(stream.getVideoTracks()[0]);
+        }
+        else
+        {
+            videoCurrentState=true;
+            navigator.mediaDevices.getUserMedia({
+              video:videoCurrentState,
+              audio:audioCurrentState
+            })
+            .then((newVideoStream)=>{
+              stream.removeTrack(stream.getVideoTracks()[0])
+              stream.addTrack(newVideoStream.getVideoTracks()[0])
+              addVideoStream(myvideo,newVideoStream);
+            })
+            console.log("b video")
+        }
       })
-
-      document.querySelector('.video_off').addEventListener('click',()=>{
-        videoCurrentState=true;
-        console.log("b")
-        navigator.mediaDevices.getUserMedia({
-          video:true,
-          audio:false
-        })
-        .then((newVideoStream)=>{
-          stream.removeTrack(stream.getVideoTracks()[0])
-          stream.addTrack(newVideoStream.getVideoTracks()[0])
-          addVideoStream(myvideo,newVideoStream);
-        })
+      
+      document.querySelector('.micToggler').addEventListener('click',()=>{
+        if(stream.getAudioTracks()[0].enabled)
+        {
+            stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind==='audio')
+            {
+              track.enabled=!track.enabled;
+              track.stop();
+            }
+            })
+            stream.getAudioTracks()[0].enabled=false;   
+            audioCurrentState=false;
+            // myvideo.srcObject=null;
+            console.log("a audio");
+            // console.log(stream.getAudioTracks()[0]);
+        }
+        else
+        {
+            audioCurrentState=true;
+            navigator.mediaDevices.getUserMedia({
+              video:videoCurrentState,
+              audio:audioCurrentState
+            })
+            .then((newAudioStream)=>{
+              stream.removeTrack(stream.getAudioTracks()[0])
+              stream.addTrack(newAudioStream.getAudioTracks()[0])
+              addVideoStream(myvideo,newAudioStream);
+            })
+            console.log("b audio")
+        }
       })
 
 
@@ -99,42 +133,77 @@ function videoOnlyUser(videoId)
   console.log("in video only user");
   navigator.mediaDevices
     .getUserMedia({
-      video: true,
-      audio: false,
+      video: videoCurrentState,
+      audio: audioCurrentState,
     })
     .then((stream) => {
-      addVideoStream(myvideo, stream);
-      
-      document.querySelector('.video_on').addEventListener('click',(e)=>{
-        // if(stream.getVideoTracks()[0].enabled)
-          console.log("c");
-          stream.getTracks().forEach(function(track){
-            if(track.readyState=='live' && track.kind===' video')
+      addVideoStream(myvideo, stream)
+
+      document.querySelector('.videoToggler').addEventListener('click',()=>{
+        if(stream.getVideoTracks()[0].enabled)
+        {
+            stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind==='video')
             {
               track.enabled=!track.enabled;
               track.stop();
             }
-          })
-          stream.getVideoTracks()[0].enabled=false;   
-          videoCurrentState=false;
-          myvideo.srcObject=null;
+            })
+            stream.getVideoTracks()[0].enabled=false;   
+            videoCurrentState=false;
+            myvideo.srcObject=null;
+            console.log("c video");
+            // console.log(stream.getVideoTracks()[0]);
+        }
+        else
+        {
+            videoCurrentState=true;
+            navigator.mediaDevices.getUserMedia({
+              video:videoCurrentState,
+              audio:audioCurrentState
+            })
+            .then((newVideoStream)=>{
+              stream.removeTrack(stream.getVideoTracks()[0])
+              stream.addTrack(newVideoStream.getVideoTracks()[0])
+              addVideoStream(myvideo,newVideoStream);
+            })
+            console.log("d video")
+        }
       })
 
-      document.querySelector('.video_off').addEventListener('click',()=>{
-        videoCurrentState=true;
-        console.log("d")
-        navigator.mediaDevices.getUserMedia({
-          video:true,
-          audio:false
-        })
-        .then((newVideoStream)=>{
-          stream.removeTrack(stream.getVideoTracks()[0])
-          stream.addTrack(newVideoStream.getVideoTracks()[0])
-          addVideoStream(myvideo,newVideoStream);
-        })
+      document.querySelector('.micToggler').addEventListener('click',()=>{
+        // console.log("yha dekh be ",stream);
+        if(stream.getAudioTracks()[0].enabled)
+        {
+            stream.getTracks().forEach(function(track){
+            if(track.readyState=='live' && track.kind==='audio')
+            {
+              track.enabled=!track.enabled;
+              track.stop();
+            }
+            })
+            stream.getAudioTracks()[0].enabled=false;   
+            audioCurrentState=false;
+            // myvideo.srcObject=null;
+            console.log("c audio");
+            // console.log(stream.getAudioTracks()[0]);
+        }
+        else
+        {
+            audioCurrentState=true;
+            navigator.mediaDevices.getUserMedia({
+              video:videoCurrentState,
+              audio:audioCurrentState
+            })
+            .then((newAudioStream)=>{
+              stream.removeTrack(stream.getAudioTracks()[0])
+              stream.addTrack(newAudioStream.getAudioTracks()[0])
+              addVideoStream(myvideo,newAudioStream);
+            })
+            console.log("d audio")
+        }
       })
 
-      
     });
   function addVideoStream(video, stream) {
     video.srcObject = stream;
