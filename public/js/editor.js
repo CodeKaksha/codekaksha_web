@@ -135,12 +135,14 @@ function editor(roomId) {
       myCode,
       input,
     };
+    console.log("data")
 
     socket.emit("compileCode", data, roomId);
 
     socket.on("getCredential", (credentials) => {
       const proxy = "https://cors-anywhere.herokuapp.com/";
       const url = "https://api.jdoodle.com/v1/execute";
+
       fetch(proxy + url, {
         method: "POST",
         headers: {
@@ -159,6 +161,7 @@ function editor(roomId) {
         .then((data) => {
           document.getElementById("out-val").innerHTML =
             data.output;
+            console.log(data)
         });
     });
   });

@@ -25,7 +25,7 @@ function video(videoId,username,room) {
               track.stop();
             }
           })
-          stream.getVideoTracks()[0].enabled=false;   
+          stream.getVideoTracks()[0].enabled=false;
           videoCurrentState=false;
           myvideo.srcObject=null;
         

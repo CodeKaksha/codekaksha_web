@@ -45,7 +45,7 @@ function onConnection(socket) {
       id: process.env.CLIENT_ID,
       secret: process.env.CLIENT_SECRET,
     };
-    socket.to(room).emit("getCredential", credentials);
+    socket.emit("getCredential", credentials);
   });
   socket.on("give_alert", (room, username) => {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
@@ -73,6 +73,7 @@ function onConnection(socket) {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
   socket.on("join-room", (roomId, userId, username) => {
+    console.log(userId);  
     const user = userJoin(userId, username, roomId, socket.id);
     let roomUsers = getRoomUsers(roomId);
     io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);

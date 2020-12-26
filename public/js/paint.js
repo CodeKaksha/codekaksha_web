@@ -71,8 +71,7 @@ function paint(room) {
             ]
           );
         });
-	  }
-
+      }
     } else {
       alert("BHai kuch value to daal");
     }

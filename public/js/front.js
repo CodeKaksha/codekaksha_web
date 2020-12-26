@@ -19,6 +19,7 @@ $(document).ready(function () {
   var instances = M.FloatingActionButton.init(elems, {
     // direction:'right',
     // toolbarEnabled : true
+    hoverEnabled: false
   });
 
   $("#reportForm").on("submit", function (e) {

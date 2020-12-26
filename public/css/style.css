@@ -626,7 +626,7 @@ h5 span {
 }
 
 .edit-features {
-  width: 50%;
+  width: min-content;
   position: absolute;
   min-height: 6vh;
   max-height: 6vh;
