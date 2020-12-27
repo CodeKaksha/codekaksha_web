@@ -932,21 +932,18 @@ a {
 .drag_handle {
   cursor: move;
 }
-.btns {
-	position: absolute;
+
+.btns_array {
+  display: flex;
+  position: absolute;
 	right: 0;
 	top:-40px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .canvas_abs {
   position: absolute;
-}
-
-.canvas_array {
-  position: absolute;
-  display: flex;
 }
 
 .node {
@@ -967,11 +964,6 @@ a {
   position: relative;
 }
 
-.canvas_array {
-  position: absolute;
-  display: flex;
-}
-
 .grid_div {
   position: absolute;
   display: flex;
@@ -980,6 +972,15 @@ a {
 
 .canvas_grid_array {
   display: flex;
+}
+
+.canvas_grid_array:hover .btns {
+  display: flex;
+  position: absolute;
+	right: -120px;
+	top: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .separator {

@@ -43,8 +43,9 @@ function paint(room) {
         canvas_array.appendChild(div);
       }
       let btns = document.createElement("div");
-      btns.className = "btns";
+      btns.className = "btns_array";
       btns.classList.add("hidden");
+      //$(".btn").fadeOut();
       btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red delete"><i class="material-icons">delete</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red" id="drag_handle"><i class="material-icons">drag_handle</i></a> 
@@ -64,7 +65,7 @@ function paint(room) {
         containerForCanvas.children[i].addEventListener("click", () => {
           containerForCanvas.children[i].children[
             containerForCanvas.children[i].children.length - 1
-          ].classList.toggle("hidden");
+          ]//.fadeToggle(); //classList.toggle("hidden");
           console.log(
             containerForCanvas.children[i].children[
               containerForCanvas.children[i].children.length - 1
@@ -75,6 +76,12 @@ function paint(room) {
     } else {
       alert("BHai kuch value to daal");
     }
+
+    $(".canvas_array").hover(function() {
+      $(".btns_array").removeClass("hidden");
+    }, function() {
+      $(".btns_array").addClass("hidden");
+    });
   });
 
   grid.addEventListener("click", (e) => {
@@ -103,6 +110,7 @@ function paint(room) {
           canvas_array.appendChild(div);
         }
         let btns = document.createElement("div");
+        btns.className = "btns";
         btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red" class="drag_handle"><i class="material-icons">drag_handle</i></a> 
