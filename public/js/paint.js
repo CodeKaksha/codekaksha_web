@@ -8,6 +8,7 @@ function paint(room) {
   let array_num = document.querySelector("#array_num");
   let j = 0;
   let k = 0;
+  let gridRow = 1;
   // rect.addEventListener('click', (e) => {
   // 	var canvas = document.createElement('canvas');
   // 	canvas.id = `${j}header`;
@@ -44,7 +45,6 @@ function paint(room) {
         div.appendChild(inp);
         canvas_array.appendChild(div);
       }
-
       canvas_array.className = "canvas_array";
       document.querySelector(".containerForCanvas").appendChild(canvas_array);
       socket.emit(
@@ -56,6 +56,12 @@ function paint(room) {
     } else {
       alert("BHai kuch value to daal");
     }
+
+    $(".canvas_array").hover(function () {
+      $(".btns_array").removeClass("hidden");
+    }, function () {
+      $(".btns_array").addClass("hidden");
+    });
   });
 
   grid.addEventListener("submit", (e) => {
@@ -84,9 +90,11 @@ function paint(room) {
 
           canvas_array.appendChild(div);
         }
-
         canvas_array.className = "canvas_grid_array";
+        let tempClass = "array-grid" + gridRow;
+        canvas_array.classList.add(tempClass);
         div2.appendChild(canvas_array);
+        gridRow++;
       }
       document.querySelector(".containerForCanvas").appendChild(div2);
       socket.emit(
@@ -99,6 +107,15 @@ function paint(room) {
       alert("mazaak chal rha h kya yahan");
     }
     e.preventDefault();
+
+    for (let i = 1; i <= gridRow; i++) {
+      let s = ".array-grid" + i; 
+      $(s).hover(function () {
+        $(".btns_grid").removeClass("hidden");
+      }, function () {
+        $(".btns_grid").addClass("hidden");
+      });
+    }
   });
 
   function dragElement(elmnt) {
