@@ -25,15 +25,18 @@ function onConnection(socket) {
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
     console.log(user);
-    io.to(user.room).emit("user-disconnected", user.username);
-    io.to(user.room).emit(
-      "message",
-      formatMessage("CodeKaksha", `${user.username} has left the chat`)
-    );
-    io.to(user.room).emit("roomUsers", {
-      room: user.room,
-      users: getRoomUsers(user.room),
-    });
+    if(user)
+    {
+      io.to(user.room).emit("user-disconnected", user.username);
+      io.to(user.room).emit(
+        "message",
+        formatMessage("CodeKaksha", `${user.username} has left the chat`)
+      );
+      io.to(user.room).emit("roomUsers", {
+        room: user.room,
+        users: getRoomUsers(user.room),
+      });
+    }
   });
   socket.on("editorChange", (data, room) => {
     socket.to(room).broadcast.emit("changeEdit", data);
