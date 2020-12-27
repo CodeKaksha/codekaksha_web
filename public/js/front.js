@@ -39,6 +39,8 @@ $(document).ready(function () {
   $("#modal3").modal();
   $("#modal12").modal();
   $("#modal5").modal();
+  $("#array_data").modal();
+  $("#grid_data").modal();
 
   $(".menu-open").fadeToggle();
   $(".option-menu").click(function () {
@@ -128,9 +130,11 @@ function displaySavedOnes() {
               });
               
           });
-      });
+        });
+      document.querySelector('.saved_coderence_loader').remove();
       document.querySelector(".no-card").remove();
     });
+
 }
 
 function loaderOn() {

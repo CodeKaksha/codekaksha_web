@@ -345,7 +345,48 @@
         </div>
         <div class="hor-line"></div>
       </div>
+      <div class="preloader-wrapper saved_coderence_loader big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
 
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+        
       <div class="saved-cards">
         <a class="card1 z-depth-3 no-card" href="#">
           <div class="card-container1" style="margin-bottom: 10px">
@@ -583,6 +624,97 @@
 
       <!--- sizes need to be done appropriately ---->
     </div>
+
+    <div id="array_data" class="modal">
+      <div class="modal-content" style="background: gainsboro">
+        <form action="" id="array_val">
+          <h4>Drop an Array!</h4>
+          <div>
+            <label for="array_size">Size of Array:</label>
+            <input
+              id="array_size"
+              name="array_size"
+              type="number"
+              value="10"
+            />
+          </div>
+          <div>
+            <label for="array_nums">Elements of Array Separated by a space(If left empty would be filled randomly): </label>
+            <input
+              id="array_nums"
+              name="array_nums"
+              type="text"
+              placeholder="1 2 3 4 5 6 7 8"
+            />
+          </div>
+
+
+          <div style="background: white">
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="submit"
+            >
+              OK
+            </button>
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="grid_data" class="modal">
+      <div class="modal-content" style="background: gainsboro">
+        <form action="" id="grid_val">
+          <h4>Drop an Array!</h4>
+          <div>
+            <label for="grid_row">Size of Array:</label>
+            <input
+              id="grid_row"
+              name="grid_row"
+              type="number"
+              value="5"
+            />
+            <input
+              id="grid_col"
+              name="grid_col"
+              type="number"
+              value="5"
+            />
+          </div>
+          <div>
+            <label for="grid_nums">Elements of Grid Separated by a space(If left empty would be filled randomly): </label>
+            <input
+              id="grid_nums"
+              name="grid_nums"
+              type="text"
+              placeholder="1 2 3 4 5 6 7 8 
+              9 10 11 12 13"
+            />
+          </div>
+
+
+          <div style="background: white">
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="submit"
+            >
+              OK
+            </button>
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- meet screen -->
     <div class="container1-page4 meet_screen" id="meet_screen">
       <div class="after_join">
@@ -674,12 +806,12 @@
             </a>
             <ul>
               <li>
-                <a class="btn-floating red array"
+                <a class="btn-floating red array modal-trigger" href="#array_data"
                   ><i class="material-icons">view_array</i></a
                 >
               </li>
               <li>
-                <a class="btn-floating red grid"
+                <a class="btn-floating red grid modal-trigger" href="#grid_data"
                   ><i class="material-icons grid">view_comfy</i></a
                 >
               </li>

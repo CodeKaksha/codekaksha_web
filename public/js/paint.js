@@ -1,7 +1,7 @@
 function paint(room) {
   let rect = document.querySelector(".rectangle");
-  let array = document.querySelector(".array");
-  let grid = document.querySelector(".grid");
+  let array = document.querySelector("#array_val");
+  let grid = document.querySelector("#grid_val");
   let circle = document.querySelector(".circle");
   let graph = document.querySelector(".graph");
   let inp_graph = document.querySelector("#graph");
@@ -20,10 +20,12 @@ function paint(room) {
   // 	dragElement(canvas);
   // 	j++;
   // });
-  let p = 1;
-  array.addEventListener("click", (e) => {
-    let num_array = 15;
-    if (num_array) {
+  let p = 0;
+  array.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let arr = document.querySelector("#array_nums").value.split(" ");
+    let num_array = document.querySelector("#array_size").value;
+    if (num_array > 0) {
       let canvas_array = document.createElement("div");
       for (let i = 0; i < num_array; i++) {
         let div = document.createElement("div");
@@ -36,20 +38,13 @@ function paint(room) {
         canvas.style.width = `40px`;
 
         let inp = document.createElement("div");
-        inp.innerHTML = `<input type="number" value="${p}">`;
+        inp.innerHTML = `<input type="number" value="${arr[p] ? arr[p] : p}">`;
         p++;
         div.appendChild(canvas);
         div.appendChild(inp);
         canvas_array.appendChild(div);
       }
-      let btns = document.createElement("div");
-      btns.className = "btns";
-      btns.classList.add("hidden");
-      btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
-		<a class="btn-floating btn-small waves-effect waves-light red delete"><i class="material-icons">delete</i></a>
-		<a class="btn-floating btn-small waves-effect waves-light red" id="drag_handle"><i class="material-icons">drag_handle</i></a> 
-		`;
-      canvas_array.appendChild(btns);
+
       canvas_array.className = "canvas_array";
       document.querySelector(".containerForCanvas").appendChild(canvas_array);
       socket.emit(
@@ -58,28 +53,15 @@ function paint(room) {
         room
       );
       dragElement(canvas_array);
-
-      let containerForCanvas = document.querySelector(".containerForCanvas");
-      for (let i = 0; i < containerForCanvas.children.length; i++) {
-        containerForCanvas.children[i].addEventListener("click", () => {
-          containerForCanvas.children[i].children[
-            containerForCanvas.children[i].children.length - 1
-          ].classList.toggle("hidden");
-          console.log(
-            containerForCanvas.children[i].children[
-              containerForCanvas.children[i].children.length - 1
-            ]
-          );
-        });
-      }
     } else {
       alert("BHai kuch value to daal");
     }
   });
 
-  grid.addEventListener("click", (e) => {
-    let num_col = 5;
-    let num_rows = 5;
+  grid.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let num_col = document.querySelector("#grid_col").value;
+    let num_rows = document.querySelector("#grid_row").value;
     if (num_col && num_rows) {
       let div2 = document.createElement("div");
       div2.className = "grid_div";
@@ -102,12 +84,7 @@ function paint(room) {
 
           canvas_array.appendChild(div);
         }
-        let btns = document.createElement("div");
-        btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
-		<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-		<a class="btn-floating btn-small waves-effect waves-light red" class="drag_handle"><i class="material-icons">drag_handle</i></a> 
-		`;
-        canvas_array.appendChild(btns);
+
         canvas_array.className = "canvas_grid_array";
         div2.appendChild(canvas_array);
       }
