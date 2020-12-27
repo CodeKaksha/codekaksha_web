@@ -7,7 +7,7 @@ function userJoin(id, username, room,socketId) {
 }
 
 function userLeave(id) {
-	const index = users.find((user) => user.id === id);
+	const index = users.find((user) => user.socketId === id);
 	if (index !== -1) {
 		return users.splice(index, 1)[0];
 	}
@@ -15,6 +15,7 @@ function userLeave(id) {
 
 function getRoomUsers(room) {
 	console.log(users);
+	
 	return users.filter((user) => user.room === room);
 }
 

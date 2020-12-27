@@ -7,7 +7,10 @@ const formatMessage = require("./utils/message");
 
 const http = require("http");
 
-const socketio = require("socket.io");
+const socketio = require("socket.io")({
+  pingTimeout: 6000000,
+  pingInterval: 30000,
+});
 
 const {
   userJoin,
@@ -21,21 +24,20 @@ var { nanoid } = require("nanoid");
 const server = http.createServer(app);
 
 const io = socketio(server);
-
+io.set("transports", ["websocket"]);
 function onConnection(socket) {
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
-    if (user) {
-      io.to(user.room).emit("user-disconnected", user.username);
-      io.to(user.room).emit(
-        "message",
-        formatMessage("CodeKaksha", `${user.username} has left the chat`)
-      );
-      io.to(user.room).emit("roomUsers", {
-        room: user.room,
-        users: getRoomUsers(user.room),
-      });
-    }
+    console.log(user);
+    io.to(user.room).emit("user-disconnected", user.username);
+    io.to(user.room).emit(
+      "message",
+      formatMessage("CodeKaksha", `${user.username} has left the chat`)
+    );
+    io.to(user.room).emit("roomUsers", {
+      room: user.room,
+      users: getRoomUsers(user.room),
+    });
   });
   socket.on("editorChange", (data, room) => {
     socket.to(room).broadcast.emit("changeEdit", data);
@@ -63,7 +65,7 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("changeAayoRe", data);
   });
   socket.on("drawing", (data, width, room) => {
-    socket.broadcast.to(room).emit("drawing", data,width);
+    socket.broadcast.to(room).emit("drawing", data, width);
   });
 
   socket.on("give_id", () => {
@@ -74,11 +76,10 @@ function onConnection(socket) {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
   socket.on("join-room", (roomId, userId, username) => {
-    // console.log(userId);  
+    // console.log(userId);
     const user = userJoin(userId, username, roomId, socket.id);
     let roomUsers = getRoomUsers(roomId);
-    if(roomUsers.length)
-    {
+    if (roomUsers.length) {
       io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);
     }
     socket.join(roomId);
@@ -170,9 +171,9 @@ var options = {
 };
 let peerServer = ExpressPeerServer(server, options);
 app.use("/peerjs", peerServer);
-app.get('*',(req,res)=>{
+app.get("*", (req, res) => {
   app.set("views", path.join(__dirname, "error"));
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
   app.use(express.static(path.join(__dirname, "error")));
-})
+});
