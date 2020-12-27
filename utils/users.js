@@ -3,7 +3,6 @@ const users = [];
 function userJoin(id, username, room,socketId) {
 	const user = { id, username, room,socketId };
 	users.push(user);
-	console.log(users);
 	return user;
 }
 
@@ -15,7 +14,6 @@ function userLeave(id) {
 }
 
 function getRoomUsers(room) {
-	console.log(users);
 	return users.filter((user) => user.room === room);
 }
 

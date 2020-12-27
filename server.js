@@ -51,11 +51,12 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
   });
   socket.on("checkId", (room) => {
-    let users = getRoomUsers(room);
-    console.log(users)
-    if (users.length == 0) {
+    // console.log(room);
+    let users2 = getRoomUsers(room);
+    // console.log(users2)
+    if (users2.length == 0) {
       socket.emit("roomIdChecked", 0);
-    } else if (users != undefined) {
+    } else if (users2 != undefined) {
       socket.emit("roomIdChecked", 1);
     }
   });
@@ -74,7 +75,7 @@ function onConnection(socket) {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
   socket.on("join-room", (roomId, userId, username) => {
-    console.log(userId);  
+    // console.log(userId);  
     const user = userJoin(userId, username, roomId, socket.id);
     let roomUsers = getRoomUsers(roomId);
     if(roomUsers.length)
@@ -83,7 +84,7 @@ function onConnection(socket) {
     }
     socket.join(roomId);
     roomUsers = getRoomUsers(roomId);
-    console.log(roomUsers)
+    // console.log(roomUsers)
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
 
