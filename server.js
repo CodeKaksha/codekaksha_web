@@ -7,10 +7,7 @@ const formatMessage = require("./utils/message");
 
 const http = require("http");
 
-const socketio = require("socket.io")({
-  pingTimeout: 6000000,
-  pingInterval: 30000,
-});
+const socketio = require("socket.io");
 
 const {
   userJoin,
@@ -24,7 +21,6 @@ var { nanoid } = require("nanoid");
 const server = http.createServer(app);
 
 const io = socketio(server);
-io.set("transports", ["websocket"]);
 function onConnection(socket) {
   socket.on("disconnect", () => {
     const user = userLeave(socket.id);
