@@ -51,9 +51,8 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
   });
   socket.on("checkId", (room) => {
-    // console.log(room);
+    console.log(room);
     let users2 = getRoomUsers(room);
-    // console.log(users2)
     if (users2.length == 0) {
       socket.emit("roomIdChecked", 0);
     } else if (users2 != undefined) {
