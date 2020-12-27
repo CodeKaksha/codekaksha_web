@@ -2,6 +2,8 @@ let ready_btn = document.querySelector(".ready");
 function ready(id, edit) {
   let user = firebase.auth().currentUser;
   ready_btn.addEventListener("click", (e) => {
+    console.log(id);
+    console.log(user.room);
     socket.emit("join-room", id, user.email, user.displayName);
     document.querySelector("#share-code-room").innerHTML = id;
     socket.on("data_dijiye", (socketId) => {

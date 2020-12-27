@@ -1,7 +1,9 @@
 const users = [];
+
 function userJoin(id, username, room,socketId) {
 	const user = { id, username, room,socketId };
 	users.push(user);
+	console.log(users);
 	return user;
 }
 
