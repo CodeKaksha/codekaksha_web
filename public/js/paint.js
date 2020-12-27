@@ -8,6 +8,7 @@ function paint(room) {
   let array_num = document.querySelector("#array_num");
   let j = 0;
   let k = 0;
+  let gridRow = 1;
   // rect.addEventListener('click', (e) => {
   // 	var canvas = document.createElement('canvas');
   // 	canvas.id = `${j}header`;
@@ -65,7 +66,7 @@ function paint(room) {
         containerForCanvas.children[i].addEventListener("click", () => {
           containerForCanvas.children[i].children[
             containerForCanvas.children[i].children.length - 1
-          ]//.fadeToggle(); //classList.toggle("hidden");
+          ] //.fadeToggle(); //classList.toggle("hidden");
           console.log(
             containerForCanvas.children[i].children[
               containerForCanvas.children[i].children.length - 1
@@ -77,9 +78,9 @@ function paint(room) {
       alert("BHai kuch value to daal");
     }
 
-    $(".canvas_array").hover(function() {
+    $(".canvas_array").hover(function () {
       $(".btns_array").removeClass("hidden");
-    }, function() {
+    }, function () {
       $(".btns_array").addClass("hidden");
     });
   });
@@ -110,14 +111,18 @@ function paint(room) {
           canvas_array.appendChild(div);
         }
         let btns = document.createElement("div");
-        btns.className = "btns";
+        btns.className = "btns_grid";
+        btns.classList.add("hidden");
         btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
 		<a class="btn-floating btn-small waves-effect waves-light red" class="drag_handle"><i class="material-icons">drag_handle</i></a> 
 		`;
         canvas_array.appendChild(btns);
         canvas_array.className = "canvas_grid_array";
+        let tempClass = "array-grid" + gridRow;
+        canvas_array.classList.add(tempClass);
         div2.appendChild(canvas_array);
+        gridRow++;
       }
       document.querySelector(".containerForCanvas").appendChild(div2);
       socket.emit(
@@ -130,6 +135,15 @@ function paint(room) {
       alert("mazaak chal rha h kya yahan");
     }
     e.preventDefault();
+
+    for (let i = 1; i <= gridRow; i++) {
+      let s = ".array-grid" + i; 
+      $(s).hover(function () {
+        $(".btns_grid").removeClass("hidden");
+      }, function () {
+        $(".btns_grid").addClass("hidden");
+      });
+    }
   });
 
   function dragElement(elmnt) {

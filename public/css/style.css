@@ -974,7 +974,7 @@ a {
   display: flex;
 }
 
-.canvas_grid_array:hover .btns {
+.btns_grid {
   display: flex;
   position: absolute;
 	right: -120px;
