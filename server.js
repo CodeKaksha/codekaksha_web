@@ -52,6 +52,7 @@ function onConnection(socket) {
   });
   socket.on("checkId", (room) => {
     let users = getRoomUsers(room);
+    console.log(users)
     if (users.length == 0) {
       socket.emit("roomIdChecked", 0);
     } else if (users != undefined) {
@@ -61,8 +62,8 @@ function onConnection(socket) {
   socket.on("changeInCanvas", (data, room) => {
     socket.broadcast.to(room).emit("changeAayoRe", data);
   });
-  socket.on("drawing", (data, room) => {
-    socket.broadcast.to(room).emit("drawing", data);
+  socket.on("drawing", (data, width, room) => {
+    socket.broadcast.to(room).emit("drawing", data,width);
   });
 
   socket.on("give_id", () => {

@@ -100,6 +100,7 @@ function whiteBoard(room) {
         y1: y1 / h,
         color: color,
       },
+      pencilWidth,
       room
     );
   }
@@ -160,7 +161,7 @@ function whiteBoard(room) {
     };
   }
 
-  function onDrawingEvent(data) {
+  function onDrawingEvent(data,width) {
     var w = canvas.width;
     var h = canvas.height;
     drawLine(
@@ -169,8 +170,8 @@ function whiteBoard(room) {
       data.x1 * w,
       data.y1 * h,
       data.color,
-      true,
-      pencilWidth
+      false,
+      width
     );
   }
 
