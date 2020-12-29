@@ -131,6 +131,10 @@ function editor(roomId) {
     const myCode = editor.getValue();
     const input = document.getElementById("inp-val").value;
 
+    document.getElementById("out-val").innerHTML="Running...";
+    document.querySelector('.run-but').disabled=true;
+    document.querySelector('.run-but').style.opacity='0.5';
+
     const data = {
       myCode,
       input,
@@ -162,6 +166,8 @@ function editor(roomId) {
           document.getElementById("out-val").innerHTML =
             data.output;
             console.log(data)
+            document.querySelector('.run-but').disabled=false;
+            document.querySelector('.run-but').style.opacity='1';
         });
     });
   });
