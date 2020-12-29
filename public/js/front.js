@@ -112,7 +112,7 @@ function displaySavedOnes() {
 
         document.querySelector(".saved-cards").appendChild(div);
         document
-          .querySelector(`.${docData.roomID}_edit`)
+          .querySelector(`.edit${docData.roomID}`)
           .addEventListener("click", (e) => {
             e.preventDefault();
             db.collection("whiteboard")
@@ -202,7 +202,7 @@ function make_card_save(name, date, room) {
           </div>
         </div>
         <div class="card-container3">
-          <i class="small material-icons ${room}_edit">
+          <i class="small material-icons edit${room}">
             create
           </i>
           <i class=" small material-icons">
