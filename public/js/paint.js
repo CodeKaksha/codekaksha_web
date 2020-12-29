@@ -45,6 +45,14 @@ function paint(room) {
         div.appendChild(inp);
         canvas_array.appendChild(div);
       }
+      let btns = document.createElement("div");
+      btns.className = "btns";
+      btns.className = "btns_array";
+      btns.classList.add("hidden");
+      btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
+		<a class="btn-floating btn-small waves-effect waves-light red delete"><i class="material-icons">delete</i></a>
+    <a class="btn-floating btn-small waves-effect waves-light red" id="drag_handle"><i class="material-icons">drag_handle</i></a> `;
+      canvas_array.appendChild(btns);
       canvas_array.className = "canvas_array";
       document.querySelector(".containerForCanvas").appendChild(canvas_array);
       socket.emit(
@@ -93,6 +101,15 @@ function paint(room) {
 
           canvas_array.appendChild(div);
         }
+        let btns = document.createElement("div");
+        btns.className = "btns";
+        btns.className = "btns_grid";
+        btns.classList.add("hidden");
+        btns.innerHTML = `<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">reorder</i></a>
+		<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+		<a class="btn-floating btn-small waves-effect waves-light red" class="drag_handle"><i class="material-icons">drag_handle</i></a> 
+		`;
+        canvas_array.appendChild(btns);
         canvas_array.className = "canvas_grid_array";
         let tempClass = "array-grid" + gridRow;
         canvas_array.classList.add(tempClass);
@@ -125,16 +142,15 @@ function paint(room) {
   });
   graph.addEventListener("submit", (e) => {
     e.preventDefault();
-    let data=document.querySelector('#graph_nums').value.split('\n');
+    let data = document.querySelector('#graph_nums').value.split('\n');
     console.log(data);
-    let base_url=`https://chart.googleapis.com/chart?cht=gv&chl=graph{`;
-    for(let i=0;i<data.length;i++)
-    {
-      let nums=data[i].split(' ');
-    console.log(nums);
-    base_url+=`${nums[0]}--${nums[1]}[label="${nums[2]}"];`
+    let base_url = `https://chart.googleapis.com/chart?cht=gv&chl=graph{`;
+    for (let i = 0; i < data.length; i++) {
+      let nums = data[i].split(' ');
+      console.log(nums);
+      base_url += `${nums[0]}--${nums[1]}[label="${nums[2]}"];`
     }
-    base_url+="}";
+    base_url += "}";
     console.log(base_url)
     let url = `https://chart.googleapis.com/chart?cht=gv&chl=graph{1--3[label="10"];2--4[label="11"];5--4[label="10"];3--5[label="12"];1--6[label="10"];6--5[label="12"]}`;
     let img = document.createElement("img");
@@ -144,7 +160,7 @@ function paint(room) {
 
     document.querySelector(".containerForCanvas").appendChild(img);
   });
-  
+
   function dragElement(elmnt) {
     var pos1 = 0,
       pos2 = 0,
