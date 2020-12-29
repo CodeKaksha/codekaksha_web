@@ -98,6 +98,12 @@ $(".video_off").click(() => {
   $(".video_on").removeClass("hidden");
 });
 
+$(".call_end").click(function() {
+  let x = confirm("You are about to leave the meeting!\nPress Ok to leave");
+  if (x == true) {
+    window.location.href=window.location.href;
+  }
+});
 
 function displaySavedOnes() {
   let user = firebase.auth().currentUser;
