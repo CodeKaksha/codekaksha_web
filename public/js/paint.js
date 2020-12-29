@@ -3,7 +3,7 @@ function paint(room) {
   let array = document.querySelector("#array_val");
   let grid = document.querySelector("#grid_val");
   let circle = document.querySelector(".circle");
-  let graph = document.querySelector(".graph");
+  let graph = document.querySelector("#graph_val");
   let inp_graph = document.querySelector("#graph");
   let array_num = document.querySelector("#array_num");
   let j = 0;
@@ -57,11 +57,14 @@ function paint(room) {
       alert("BHai kuch value to daal");
     }
 
-    $(".canvas_array").hover(function () {
-      $(".btns_array").removeClass("hidden");
-    }, function () {
-      $(".btns_array").addClass("hidden");
-    });
+    $(".canvas_array").hover(
+      function () {
+        $(".btns_array").removeClass("hidden");
+      },
+      function () {
+        $(".btns_array").addClass("hidden");
+      }
+    );
   });
 
   grid.addEventListener("submit", (e) => {
@@ -109,15 +112,39 @@ function paint(room) {
     e.preventDefault();
 
     for (let i = 1; i <= gridRow; i++) {
-      let s = ".array-grid" + i; 
-      $(s).hover(function () {
-        $(".btns_grid").removeClass("hidden");
-      }, function () {
-        $(".btns_grid").addClass("hidden");
-      });
+      let s = ".array-grid" + i;
+      $(s).hover(
+        function () {
+          $(".btns_grid").removeClass("hidden");
+        },
+        function () {
+          $(".btns_grid").addClass("hidden");
+        }
+      );
     }
   });
+  graph.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let data=document.querySelector('#graph_nums').value.split('\n');
+    console.log(data);
+    let base_url=`https://chart.googleapis.com/chart?cht=gv&chl=graph{`;
+    for(let i=0;i<data.length;i++)
+    {
+      let nums=data[i].split(' ');
+    console.log(nums);
+    base_url+=`${nums[0]}--${nums[1]}[label="${nums[2]}"];`
+    }
+    base_url+="}";
+    console.log(base_url)
+    let url = `https://chart.googleapis.com/chart?cht=gv&chl=graph{1--3[label="10"];2--4[label="11"];5--4[label="10"];3--5[label="12"];1--6[label="10"];6--5[label="12"]}`;
+    let img = document.createElement("img");
+    img.src = base_url;
+    img.className = "graph_img";
+    dragElement(img);
 
+    document.querySelector(".containerForCanvas").appendChild(img);
+  });
+  
   function dragElement(elmnt) {
     var pos1 = 0,
       pos2 = 0,

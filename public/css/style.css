@@ -1485,3 +1485,8 @@ a {
     background-position: 53% 0%;
   }
 }
+.graph_img{
+  position: absolute;
+  height: 200px;
+  top:0;
+}

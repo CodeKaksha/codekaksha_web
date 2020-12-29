@@ -669,9 +669,9 @@
     <div id="grid_data" class="modal">
       <div class="modal-content" style="background: gainsboro">
         <form action="" id="grid_val">
-          <h4>Drop an Array!</h4>
+          <h4>Drop a Grid!</h4>
           <div>
-            <label for="grid_row">Size of Array:</label>
+            <label for="grid_row">Size of Grid:</label>
             <input
               id="grid_row"
               name="grid_row"
@@ -687,13 +687,53 @@
           </div>
           <div>
             <label for="grid_nums">Elements of Grid Separated by a space(If left empty would be filled randomly): </label>
-            <input
+            <textarea
               id="grid_nums"
               name="grid_nums"
               type="text"
-              placeholder="1 2 3 4 5 6 7 8 
-              9 10 11 12 13"
-            />
+              placeholder="1 2 3 4
+5 6 7 8 
+9 10 11 12
+            "
+            ></textarea>
+          </div>
+
+
+          <div style="background: white">
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="submit"
+            >
+              OK
+            </button>
+            <button
+              class="modal-close btn-flat waves-effect waves-green"
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div id="graph_data" class="modal">
+      <div class="modal-content" style="background: gainsboro">
+        <form action="" id="graph_val">
+          <h4>Drop a Graph!</h4>
+          <div>
+            <label for="graph_nums">Input of graph: </label>
+            <textarea
+              id="graph_nums"
+              name="graph_nums"
+              type="text"
+              placeholder="1 3 10
+2 4 11
+5 4 10
+3 5 12
+1 6 10
+6 5 12"
+            ></textarea>
           </div>
 
 
@@ -812,9 +852,16 @@
               </li>
               <li>
                 <a class="btn-floating red grid modal-trigger" href="#grid_data"
-                  ><i class="material-icons grid">view_comfy</i></a
+                  ><i class="material-icons grid">grid_on</i></a
                 >
               </li>
+              
+              <li>
+                <a class="btn-floating red graph modal-trigger" href="#graph_data"
+                  ><i class="material-icons grid">timeline</i></a
+                >
+              </li>
+              
               <li>
                 <a class="btn-floating red download"
                   ><i class="material-icons">file_download</i></a

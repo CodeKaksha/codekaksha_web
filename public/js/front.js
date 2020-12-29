@@ -41,6 +41,7 @@ $(document).ready(function () {
   $("#modal5").modal();
   $("#array_data").modal();
   $("#grid_data").modal();
+  $("#graph_data").modal();
   $("#modal_save").modal();
 
   $(".menu-open").fadeToggle();
