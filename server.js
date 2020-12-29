@@ -22,7 +22,7 @@ const server = http.createServer(app);
 
 const io = socketio(server);
 function onConnection(socket) {
-  socket.on("disconnect", () => {
+  socket.on("chala_gaya", () => {
     const user = userLeave(socket.id);
     console.log(user);
     if(user)
