@@ -98,6 +98,7 @@ $(".video_off").click(() => {
   $(".video_on").removeClass("hidden");
 });
 
+
 function displaySavedOnes() {
   let user = firebase.auth().currentUser;
   const db = firebase.firestore();
@@ -109,8 +110,24 @@ function displaySavedOnes() {
       snapshot.forEach((doc) => {
         let docData = doc.data();
         let div = make_card_save(docData.name, docData.date, docData.roomID);
-
         document.querySelector(".saved-cards").appendChild(div);
+        document.querySelector(`.del${docData.roomID}`).addEventListener('click',(e)=>{
+          e.preventDefault();
+          console.log(`.del${docData.roomID}`)
+          db.collection("whiteboard")
+              .where("roomID", "==", docData.roomID)
+              .get()
+              .then((data_to_show) => {
+                data_to_show.forEach((docTo) => {
+                  db.collection("whiteboard").doc(docTo.id).delete().then(()=>{
+                    alert("Deleted Succesfully")
+                  }).catch((err)=>{
+                    alert("Some eroor Occured")
+                  });
+
+                })})
+
+        })
         document
           .querySelector(`.edit${docData.roomID}`)
           .addEventListener("click", (e) => {
@@ -132,9 +149,9 @@ function displaySavedOnes() {
               });
               
           });
+          document.querySelector(".no-card").remove();
         });
       document.querySelector('.saved_coderence_loader').remove();
-      document.querySelector(".no-card").remove();
     });
 
 }
@@ -205,7 +222,7 @@ function make_card_save(name, date, room) {
           <i class="small material-icons edit${room}">
             create
           </i>
-          <i class=" small material-icons">
+          <i class=" small material-icons delete del${room}">
             delete
           </i>
         </div>
