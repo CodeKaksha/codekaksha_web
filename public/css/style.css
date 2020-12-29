@@ -271,6 +271,7 @@ nav div a {
 
 .botcont-page1 {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
   height: 155px;
@@ -292,6 +293,12 @@ nav div a {
   background-color: #337357;
   flex: 1;
   text-align: center;
+}
+
+@media (max-width: 991px) {
+  .botcont1, .botcont2, .botcont3 {
+    min-width: 100vw;
+  }
 }
 
 .botcon1,
@@ -1213,6 +1220,16 @@ a {
   margin-top: 10px;
   top: 0;
   right: 0;
+}
+
+@media (max-width: 991px) {
+  .toggle-slot {
+    display: none;
+    position: relative;
+  }
+  .navbar-title{
+    display: inline-block;
+  }
 }
 
 .toggle-checkbox:checked ~ .toggle-slot {

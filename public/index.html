@@ -21,6 +21,13 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
     <!--Import materialize.css-->
     <link
       rel="stylesheet"
@@ -62,15 +69,19 @@
     <!-- Landing page if person is not logged in -->
     <div class="container1-page1 index_screen">
       <div class="navbar-page1 z-depth-3">
-        <nav>
-          <div class="nav-wrapper">
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+
+          <div class="navbar navbar-expand-lg nav-wrapper">
+            <a class="navbar-brand" href="#"><ul id="" class="left">
               <span class="navbar-title">CODEKAKSHA</span>
-            </ul>
-            <div id="nav-mobile" class="right hide-on-med-and-down">
-              <span class="login-page1"
+            </ul></a>
+            <button class="navbar-toggler" type="button" style="background-color: rgb(207, 136, 201);" data-toggle="collapse" data-target="#nav-mobile" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nav-mobile" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item mt-1"><span class="login-page1"
                 ><a class="modal-trigger login" href="#modal1">Login</a></span
-              >
+              ></li>
               <div id="modal1" class="modal modal-log">
                 <div class="modal-footer">
                   <a
@@ -99,13 +110,13 @@
                   >
                 </div>
               </div>
-              <span class="sign-page1"
+              <li class="nav-item"><span class="sign-page1"
                 ><a
                   class="waves-effect waves-light btn modal-trigger sign-but"
                   href="#modal2"
                   >Sign Up</a
                 ></span
-              >
+              ></li>
               <div id="modal2" class="modal modal-log">
                 <div class="modal-footer">
                   <a
@@ -134,7 +145,7 @@
                   >
                 </div>
               </div>
-              <label>
+              <li class="nav-item" id="tog-btn"><label>
                 <input class="toggle-checkbox" type="checkbox" />
                 <div class="toggle-slot">
                   <div class="sun-icon-wrapper">
@@ -153,7 +164,8 @@
                     ></div>
                   </div>
                 </div>
-              </label>
+              </label></li>
+            </ul>
             </div>
           </div>
         </nav>
