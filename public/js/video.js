@@ -6,7 +6,7 @@ function video(videoId,username,room) {
   myvideo.muted = true;
   console.log('in video main')
   var videoCurrentState=true;
-  var audioCurrentState=true;
+  var audioCurrentState=false;
   navigator.mediaDevices
     .getUserMedia({
       video: videoCurrentState,
@@ -16,6 +16,29 @@ function video(videoId,username,room) {
       addVideoStream(myvideo, stream);
 
       document.querySelector('.videoToggler').addEventListener('click',()=>{
+        if(stream.getVideoTracks()[0].enabled)
+        {
+          stream.getVideoTracks()[0].enabled=false;
+        }
+        else
+        {
+          stream.getVideoTracks()[0].enabled=true;
+        }
+      })
+
+      document.querySelector('.micToggler').addEventListener('click',()=>{
+        if(stream.getAudioTracks()[0].enabled)
+        {
+          stream.getAudioTracks()[0].enabled=false;
+        }
+        else
+        {
+          stream.getAudioTracks()[0].enabled=true;
+        }
+      })
+
+      //LIGHTS ON/OFF KRNE WALA PART ISKE NICHE HAI, ABHI COMMENTS ME HI REHNE DO
+      /*document.querySelector('.videoToggler').addEventListener('click',()=>{
         if(stream.getVideoTracks()[0].enabled)
         {
             stream.getTracks().forEach(function(track){
@@ -77,7 +100,7 @@ function video(videoId,username,room) {
             })
             console.log("b audio")
         }
-      })
+      })*/
 
 
       socket.on("user-vid-connected", (peerId,username) => {
@@ -129,7 +152,7 @@ function videoOnlyUser(videoId)
   const myvideo = document.createElement("video");
   myvideo.muted = true;
   var videoCurrentState=true;
-  var audioCurrentState=true;
+  var audioCurrentState=false;
   console.log("in video only user");
   navigator.mediaDevices
     .getUserMedia({
@@ -140,6 +163,29 @@ function videoOnlyUser(videoId)
       addVideoStream(myvideo, stream)
 
       document.querySelector('.videoToggler').addEventListener('click',()=>{
+        if(stream.getVideoTracks()[0].enabled)
+        {
+          stream.getVideoTracks()[0].enabled=false;
+        }
+        else
+        {
+          stream.getVideoTracks()[0].enabled=true;
+        }
+      })
+
+      document.querySelector('.micToggler').addEventListener('click',()=>{
+        if(stream.getAudioTracks()[0].enabled)
+        {
+          stream.getAudioTracks()[0].enabled=false;
+        }
+        else
+        {
+          stream.getAudioTracks()[0].enabled=true;
+        }
+      })
+
+      //LIGHTS ON/OFF KRNE WALA PART ISKE NICHE HAI, ABHI COMMENTS ME HI REHNE DO
+      /*document.querySelector('.videoToggler').addEventListener('click',()=>{
         if(stream.getVideoTracks()[0].enabled)
         {
             stream.getTracks().forEach(function(track){
@@ -202,7 +248,7 @@ function videoOnlyUser(videoId)
             })
             console.log("d audio")
         }
-      })
+      })*/
 
     });
   function addVideoStream(video, stream) {
