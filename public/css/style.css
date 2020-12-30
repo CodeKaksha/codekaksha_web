@@ -19,6 +19,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.left-btn{
+  position: absolute;
+  right:51%;
+}
 
 .fade_in {
   opacity: 1;

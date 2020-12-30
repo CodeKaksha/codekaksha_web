@@ -18,7 +18,7 @@ $(document).ready(function () {
   var elems = document.querySelectorAll(".fixed-action-btn");
   var instances = M.FloatingActionButton.init(elems, {
     // direction:'right',
-    // toolbarEnabled : true
+    // toolbarEnabled : true,
     hoverEnabled: false,
   });
 
@@ -98,10 +98,10 @@ $(".video_off").click(() => {
   $(".video_on").removeClass("hidden");
 });
 
-$(".call_end").click(function() {
+$(".call_end").click(function () {
   let x = confirm("You are about to leave the meeting!\nPress Ok to leave");
   if (x == true) {
-    window.location.href=window.location.href;
+    window.location.href = window.location.href;
   }
 });
 
@@ -117,23 +117,29 @@ function displaySavedOnes() {
         let docData = doc.data();
         let div = make_card_save(docData.name, docData.date, docData.roomID);
         document.querySelector(".saved-cards").appendChild(div);
-        document.querySelector(`.del${docData.roomID}`).addEventListener('click',(e)=>{
-          e.preventDefault();
-          console.log(`.del${docData.roomID}`)
-          db.collection("whiteboard")
+        document
+          .querySelector(`.del${docData.roomID}`)
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(`.del${docData.roomID}`);
+            db.collection("whiteboard")
               .where("roomID", "==", docData.roomID)
               .get()
               .then((data_to_show) => {
                 data_to_show.forEach((docTo) => {
-                  db.collection("whiteboard").doc(docTo.id).delete().then(()=>{
-                    alert("Deleted Succesfully")
-                  }).catch((err)=>{
-                    alert("Some eroor Occured")
-                  });
-
-                })})
-
-        })
+                  db.collection("whiteboard")
+                    .doc(docTo.id)
+                    .delete()
+                    .then(() => {
+                      document.querySelector(`.del${docData.roomID}`).parentElement.parentElement.remove();
+                      alert("Deleted Succesfully");
+                    })
+                    .catch((err) => {
+                      alert("Some error Occured");
+                    });
+                });
+              });
+          });
         document
           .querySelector(`.edit${docData.roomID}`)
           .addEventListener("click", (e) => {
@@ -147,19 +153,18 @@ function displaySavedOnes() {
                   var canvas = document.querySelector(".whiteBoard");
                   var context = canvas.getContext("2d");
                   var data2 = JSON.parse(data.data_whiteboard);
-                  
-                  console.log(data2)
+                  videoOnlyUser(`videoBeforeJoin`);
+
+                  console.log(data2);
                   show_screen(ready_screen);
-                  ready(docData.roomID,data2);
+                  ready(docData.roomID, data2);
                 });
                 // document.querySelector(".no-card").remove();
               });
-              
           });
-        });
-      document.querySelector('.saved_coderence_loader').remove();
+      });
+      document.querySelector(".saved_coderence_loader").remove();
     });
-
 }
 
 function loaderOn() {
