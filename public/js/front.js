@@ -152,10 +152,10 @@ function displaySavedOnes() {
                   show_screen(ready_screen);
                   ready(docData.roomID,data2);
                 });
+                // document.querySelector(".no-card").remove();
               });
               
           });
-          document.querySelector(".no-card").remove();
         });
       document.querySelector('.saved_coderence_loader').remove();
     });
