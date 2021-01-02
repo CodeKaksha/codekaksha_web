@@ -1,9 +1,14 @@
 const users = [];
-
+const roomAdmins= new Map();
 function userJoin(id, username, room,socketId) {
 	const user = { id, username, room,socketId };
 	users.push(user);
 	return user;
+}
+
+function setAdmin(roomId,userid) {
+	roomAdmins.set(roomId,userid);
+	console.log(roomAdmins)
 }
 
 function userLeave(id) {
@@ -29,6 +34,7 @@ module.exports = {
     userJoin,
     getRoomUsers,
 	userLeave,
-	getCurrentUser
+	getCurrentUser,
+	setAdmin
   // giveProblems
 };

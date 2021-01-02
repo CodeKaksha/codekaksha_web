@@ -14,6 +14,7 @@ const {
   getRoomUsers,
   userLeave,
   getCurrentUser,
+  setAdmin,   
 } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
@@ -74,8 +75,12 @@ function onConnection(socket) {
   socket.on("join-vid", (peerId, username, room) => {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
-  socket.on("join-room", (roomId, userId, username) => {
+  socket.on("join-room", (roomId, userId, username,isAdmin) => {
     // console.log(userId);
+    if(isAdmin)
+    {
+      setAdmin(roomId,userId);
+    }
     const user = userJoin(userId, username, roomId, socket.id);
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {
