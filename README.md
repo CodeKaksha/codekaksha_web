@@ -2,8 +2,7 @@
 
 <img src="https://codekaksha.herokuapp.com/res/logo.png" align="right"
      alt="GOC LOGO" width="110" height="140">
-# Team here_for_reason
-
+# Team ChamChamateCoders
 ## OBJECTIVES
 <li>To make it easier to understand the concepts of data structures and algorithms with actual interaction with the teachers. </li>
 <li>Aid faculty to teach without any extra cost like writing pad, stylus, etc. </li>

@@ -101,7 +101,7 @@ $(".video_off").click(() => {
 $(".call_end").click(function () {
   let x = confirm("You are about to leave the meeting!\nPress Ok to leave");
   if (x == true) {
-    window.location.href = window.location.href;
+    window.location.reload();
   }
 });
 
