@@ -29,7 +29,6 @@ function ready(id, edit,isAdmin) {
         console.log("hello");
       }
     });
-
     var canvas = document.querySelector(".whiteBoard");
     var context = canvas.getContext("2d");
     var image = new Image();

@@ -86,47 +86,52 @@ function editor(roomId) {
   });
   socket.on("changeEdit", (data) => {
     fl = 0;
+    
     editor.setValue(data);
   });
 
   const languageChoosenByUser = document.getElementById("language").value;
-  if (languageChoosenByUser === "cpp17") {
-    const initialCode =
-      "#include <iostream>\r\n" +
-      "using namespace std;\r\n" +
-      "\r\n" +
-      "int main() {\r\n" +
-      "\t// your code goes here\r\n" +
-      "\treturn 0;\r\n" +
-      "}\r\n";
-      editor.getSession().setMode("ace/mode/c_cpp");
+  if(!editor.getValue())
+  {
 
-  editor.getSession().setMode("ace/mode/c_cpp");
-  editor.setValue(initialCode);
-  } else if (languageChoosenByUser === "python2") {
-    const initialCode = "# write your python code here\r\n";
-  editor.getSession().setMode("ace/mode/python");
-  editor.setValue(initialCode);
-  } else if (languageChoosenByUser === "java") {
-    const initialCode =
-      "public class Solution {\r\n" +
-      "    public static void main(String[] args) {\r\n" +
-      "        // Write your code here\r\n" +
-      "    }\r\n" +
-      "}";
-  editor.getSession().setMode("ace/mode/java");
-  editor.setValue(initialCode);
-  } else if (languageChoosenByUser === "c") {
-    const initialCode =
-      "#include <stdio.h>\r\n" +
-      "\r\n" +
-      "int main(void) {\r\n" +
-      "\t// your code goes here\r\n" +
-      "\treturn 0;\r\n" +
-      "}\r\n" +
-      "\r\n";
-  editor.getSession().setMode("ace/mode/c_cpp");
-  editor.setValue(initialCode);
+    if (languageChoosenByUser === "cpp17") {
+      const initialCode =
+        "#include <iostream>\r\n" +
+        "using namespace std;\r\n" +
+        "\r\n" +
+        "int main() {\r\n" +
+        "\t// your code goes here\r\n" +
+        "\treturn 0;\r\n" +
+        "}\r\n";
+        editor.getSession().setMode("ace/mode/c_cpp");
+  
+    editor.getSession().setMode("ace/mode/c_cpp");
+    editor.setValue(initialCode);
+    } else if (languageChoosenByUser === "python2") {
+      const initialCode = "# write your python code here\r\n";
+    editor.getSession().setMode("ace/mode/python");
+    editor.setValue(initialCode);
+    } else if (languageChoosenByUser === "java") {
+      const initialCode =
+        "public class Solution {\r\n" +
+        "    public static void main(String[] args) {\r\n" +
+        "        // Write your code here\r\n" +
+        "    }\r\n" +
+        "}";
+    editor.getSession().setMode("ace/mode/java");
+    editor.setValue(initialCode);
+    } else if (languageChoosenByUser === "c") {
+      const initialCode =
+        "#include <stdio.h>\r\n" +
+        "\r\n" +
+        "int main(void) {\r\n" +
+        "\t// your code goes here\r\n" +
+        "\treturn 0;\r\n" +
+        "}\r\n" +
+        "\r\n";
+    editor.getSession().setMode("ace/mode/c_cpp");
+    editor.setValue(initialCode);
+    }
   }
 
   document.querySelector(".run-but").addEventListener("click", (e) => {
