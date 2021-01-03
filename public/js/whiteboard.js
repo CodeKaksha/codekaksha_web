@@ -74,7 +74,7 @@ function whiteBoard(room) {
 	socket.on('drawing', onDrawingEvent);
 
 	  window.addEventListener("resize", onResize, false);
-	onResize();
+	onResize2();
 
 	function drawLine(x0, y0, x1, y1, color, emit, width) {
 		context.beginPath();
@@ -193,6 +193,11 @@ function whiteBoard(room) {
 		image.src = data.image;
 		
 
+		canvas.width = window.innerWidth / 2;
+		canvas.height = window.innerHeight;
+	}
+	function onResize2()
+	{
 		canvas.width = window.innerWidth / 2;
 		canvas.height = window.innerHeight;
 	}

@@ -156,8 +156,9 @@ function displaySavedOnes() {
                   videoOnlyUser(`videoBeforeJoin`);
 
                   console.log(data2);
+                  document.querySelector('.containerForCanvas').innerHTML=data.data_elems;
                   show_screen(ready_screen);
-                  ready(docData.roomID, data2);
+                  ready(docData.roomID, data2,1);
                 });
                 // document.querySelector(".no-card").remove();
               });

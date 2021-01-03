@@ -26,6 +26,7 @@ function editor(roomId) {
                 roomID: roomId,
                 data_whiteboard: string,
                 data_compiler: editor.getValue(),
+                data_elems:document.querySelector('.containerForCanvas').innerHTML,
                 email: user.email,
                 date: JSON.stringify(date),
               })
@@ -59,6 +60,7 @@ function editor(roomId) {
                   roomID: roomId,
                   data_whiteboard: string,
                   data_compiler: editor.getValue(),
+                  data_elems:document.querySelector('.containerForCanvas').innerHTML,
                   email: user.email,
                   date: JSON.stringify(date),
                 })
