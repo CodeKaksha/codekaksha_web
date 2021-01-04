@@ -621,11 +621,14 @@ h5 span {
   flex-direction: column;
   min-width: 50%;
   max-width: 50%;
+  height:100vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .whiteBoard {
   display: flex;
-  height: 100vh;
+  height: 200vh;
   background-color: #f5f5f5;
 }
 

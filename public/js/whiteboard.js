@@ -21,6 +21,12 @@ function whiteBoard(room) {
 		).style = `cursor:url('../res/erase.png'),auto;`;
 		current.color = '#F5F5FA';
 	});
+	document.getElementById('hand').addEventListener('click', () => {
+		document.querySelector(
+			'.whiteBoard'
+		).style = `cursor:move`;
+		dragWhiteboard(canvas);
+	});
 
 	document.getElementById('pencilSmall').addEventListener('click', () => {
 		current.color = colourInput.value;
@@ -107,8 +113,9 @@ function whiteBoard(room) {
 
 	function onMouseDown(e) {
 		drawing = true;
-		current.x = e.clientX || e.touches[0].clientX;
-		current.y = e.clientY || e.touches[0].clientY;
+		current.x = e.pageX || e.touches[0].pageX;
+		current.y = e.pageY || e.touches[0].pageY;
+		console.log(current);
 	}
 
 	function onMouseUp(e) {
@@ -119,8 +126,8 @@ function whiteBoard(room) {
 		drawLine(
 			current.x,
 			current.y,
-			e.clientX || e.touches[0].clientX,
-			e.clientY || e.touches[0].clientY,
+			e.pageX || e.touches[0].pageX,
+			e.pageY || e.touches[0].pageY,
 			current.color,
 			true,
 			pencilWidth
@@ -134,14 +141,14 @@ function whiteBoard(room) {
 		drawLine(
 			current.x,
 			current.y,
-			e.clientX || e.touches[0].clientX,
-			e.clientY || e.touches[0].clientY,
+			e.pageX || e.touches[0].pageX,
+			e.pageY || e.touches[0].pageY,
 			current.color,
 			true,
 			pencilWidth
 		);
-		current.x = e.clientX || e.touches[0].clientX;
-		current.y = e.clientY || e.touches[0].clientY;
+		current.x = e.pageX || e.touches[0].pageX;
+		current.y = e.pageY || e.touches[0].pageY;
 	}
 
 	function onColorUpdate(e) {
@@ -194,12 +201,13 @@ function whiteBoard(room) {
 		
 
 		canvas.width = window.innerWidth / 2;
-		canvas.height = window.innerHeight;
+		canvas.height = 2*window.innerHeight;
+		console.log(canvas.width, canvas.height);
 	}
 	function onResize2()
 	{
 		canvas.width = window.innerWidth / 2;
-		canvas.height = window.innerHeight;
+		canvas.height = 2*window.innerHeight;
 	}
 
 	//Clear canvas
@@ -233,4 +241,12 @@ function whiteBoard(room) {
 	//     });
 	//   });
 	//   });
+}
+
+function dragWhiteboard(whiteboard)
+{
+	whiteboard.addEventListener('mousedown',(e)=>{
+		e.preventDefault();
+		
+	})
 }
