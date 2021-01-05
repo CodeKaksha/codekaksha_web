@@ -125,9 +125,8 @@ addText.addEventListener('click',(e)=>{
           var canvas = document.createElement("canvas");
           canvas.id = `${k}array`;
           k++;
-          let inp = document.createElement("input");
-          inp.type = "number";
-          inp.value = Math.floor(Math.random() * 100);
+          let inp = document.createElement("div");
+          inp.innerHTML = `<input type="number" value="${Math.floor(Math.random() * 100)}">`;
           canvas.style = "border:1px solid #000000;";
           canvas.style.height = `40px`;
           canvas.style.width = `40px`;
@@ -246,6 +245,7 @@ addText.addEventListener('click',(e)=>{
   }
   socket.on("changeAayoRe", (data) => {
     let div = document.createElement("div");
+    let containerForCanvas=document.querySelector(".containerForCanvas");
     containerForCanvas.innerHTML = data;
     for (let i = 0; i < containerForCanvas.children.length; i++) {
       dragElement(containerForCanvas.children[i]);

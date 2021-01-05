@@ -1,9 +1,11 @@
 let ready_btn = document.querySelector(".ready");
-function ready(id, edit) {
+function ready(id, edit,isAdmin) {
   let user = firebase.auth().currentUser;
+  console.log(edit)
   ready_btn.addEventListener("click", (e) => {
     console.log(id);
-    socket.emit("join-room", id, user.email, user.displayName);
+    document.querySelector('.containerForCanvas').classList.remove('hidden');
+    socket.emit("join-room", id, user.email, user.displayName,isAdmin);
     document.querySelector("#share-code-room").innerHTML = id;
     socket.on("data_dijiye", (socketId) => {
       var canvas = document.querySelector(".whiteBoard");
@@ -27,7 +29,6 @@ function ready(id, edit) {
         console.log("hello");
       }
     });
-
     var canvas = document.querySelector(".whiteBoard");
     var context = canvas.getContext("2d");
     var image = new Image();

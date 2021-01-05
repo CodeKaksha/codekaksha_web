@@ -1,3 +1,4 @@
+let whiteBoardPages = [];
 function whiteBoard(room) {
   var canvas = document.querySelector(".whiteBoard");
   var colors = document.getElementsByClassName("color");
@@ -20,6 +21,10 @@ function whiteBoard(room) {
       ".whiteBoard"
     ).style = `cursor:url('../res/erase.png'),auto;`;
     current.color = "#F5F5FA";
+  });
+  document.getElementById("hand").addEventListener("click", () => {
+    document.querySelector(".whiteBoard").style = `cursor:move`;
+    dragWhiteboard(canvas);
   });
 
   document.getElementById("pencilSmall").addEventListener("click", () => {
@@ -74,7 +79,7 @@ function whiteBoard(room) {
   socket.on("drawing", onDrawingEvent);
 
   window.addEventListener("resize", onResize, false);
-  onResize();
+  onResize2();
 
   function drawLine(x0, y0, x1, y1, color, emit, width) {
     context.beginPath();
@@ -107,8 +112,9 @@ function whiteBoard(room) {
 
   function onMouseDown(e) {
     drawing = true;
-    current.x = e.clientX || e.touches[0].clientX;
-    current.y = e.clientY || e.touches[0].clientY;
+    current.x = e.pageX || e.touches[0].pageX;
+    current.y = e.pageY + $(".section1").scrollTop() || e.touches[0].pageY;
+    console.log(current);
   }
 
   function onMouseUp(e) {
@@ -119,8 +125,8 @@ function whiteBoard(room) {
     drawLine(
       current.x,
       current.y,
-      e.clientX || e.touches[0].clientX,
-      e.clientY || e.touches[0].clientY,
+      e.pageX || e.touches[0].pageX,
+      e.pageY + $(".section1").scrollTop() || e.touches[0].pageY,
       current.color,
       true,
       pencilWidth
@@ -134,14 +140,14 @@ function whiteBoard(room) {
     drawLine(
       current.x,
       current.y,
-      e.clientX || e.touches[0].clientX,
-      e.clientY || e.touches[0].clientY,
+      e.pageX || e.touches[0].pageX,
+      e.pageY + $(".section1").scrollTop() || e.touches[0].pageY,
       current.color,
       true,
       pencilWidth
     );
-    current.x = e.clientX || e.touches[0].clientX;
-    current.y = e.clientY || e.touches[0].clientY;
+    current.x = e.pageX || e.touches[0].pageX;
+    current.y = e.pageY + $(".section1").scrollTop() || e.touches[0].pageY;
   }
 
   function onColorUpdate(e) {
@@ -161,7 +167,7 @@ function whiteBoard(room) {
     };
   }
 
-  function onDrawingEvent(data,width) {
+  function onDrawingEvent(data, width) {
     var w = canvas.width;
     var h = canvas.height;
     drawLine(
@@ -178,9 +184,25 @@ function whiteBoard(room) {
   // make the canvas fill its parent
   function onResize() {
     // canvas.style=`padding-top:100px;`
+    let canvas = document.querySelector(".whiteBoard");
+    var canvasContents = canvas.toDataURL();
+    fl = 1;
+    var data = { image: canvasContents, date: Date.now() };
+
+    var image = new Image();
+    image.onload = function () {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0); // draw the new image to the screen
+    };
+    image.src = data.image;
+
     canvas.width = window.innerWidth / 2;
-    canvas.height = window.innerHeight;
-    
+    canvas.height = 4 * window.innerHeight;
+    console.log(canvas.width, canvas.height);
+  }
+  function onResize2() {
+    canvas.width = window.innerWidth / 2;
+    canvas.height = 4 * window.innerHeight;
   }
 
   //Clear canvas
@@ -193,25 +215,62 @@ function whiteBoard(room) {
   socket.on("boardClear", () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
   });
+  let nextBtn = $(".nextPage");
+  let prevBtn = $(".prevPage");
+  nextBtn.on("click", (e) => {
+    e.preventDefault();
+    let canvas = document.querySelector(".whiteBoard");
+    var canvasContents = canvas.toDataURL();
+    fl = 1;
+    var data = { image: canvasContents, date: Date.now() };
+    let date = new Date();
+    var string = JSON.stringify(data);
+    whiteBoardPages.push(string);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+	socket.emit("clearBoard", room);
+	j++;
+  });
+  let j=0;
+  prevBtn.on("click", (e) => {
+    e.preventDefault();
+	console.log(whiteBoardPages);
+	var canvas = document.querySelector(".whiteBoard");
+    var context = canvas.getContext("2d");
+    var image = new Image();
+    image.onload = function () {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      console.log("d");
+      context.drawImage(image, 0, 0); // draw the new image to the screen
+    };
+	j--;
+	console.log(j)
+	image.src = JSON.parse(whiteBoardPages[j]).image;
+  });
   //DON'T REMOVE!
   //   document.querySelector(".retrieve").addEventListener("click", (e) => {
   //     e.preventDefault();
-      // db.collection("whiteboard")
-      //   .where("roomID", "==", room)
-      //   .get()
-      //   .then((snapshot) => {
-      //     snapshot.docs.forEach((doc) => {
-      //       let data_doc = doc.data();
-      //       let cdata = data_doc.str;
-      //       var data = JSON.parse(cdata);
-      //       var image = new Image();
-      //       image.onload = function () {
-      //         context.clearRect(0, 0, canvas.width, canvas.height);
-      //         context.drawImage(image, 0, 0); // draw the new image to the screen
-      //       };
-  		//       image.src = data.image;
+  // db.collection("whiteboard")
+  //   .where("roomID", "==", room)
+  //   .get()
+  //   .then((snapshot) => {
+  //     snapshot.docs.forEach((doc) => {
+  //       let data_doc = doc.data();
+  //       let cdata = data_doc.str;
+  //       var data = JSON.parse(cdata);
+  //       var image = new Image();
+  //       image.onload = function () {
+  //         context.clearRect(0, 0, canvas.width, canvas.height);
+  //         context.drawImage(image, 0, 0); // draw the new image to the screen
+  //       };
+  //       image.src = data.image;
 
-      //     });
-      //   });
+  //     });
   //   });
+  //   });
+}
+
+function dragWhiteboard(whiteboard) {
+  whiteboard.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+  });
 }

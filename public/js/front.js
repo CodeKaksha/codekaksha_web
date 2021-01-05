@@ -154,10 +154,15 @@ function displaySavedOnes() {
                   var context = canvas.getContext("2d");
                   var data2 = JSON.parse(data.data_whiteboard);
                   videoOnlyUser(`videoBeforeJoin`);
+                  console.log(data.data_compiler)
+                  var editor = ace.edit("jsEditor");
+                  
+                  editor.setValue(data.data_compiler);
 
                   console.log(data2);
+                  document.querySelector('.containerForCanvas').innerHTML=data.data_elems;
                   show_screen(ready_screen);
-                  ready(docData.roomID, data2);
+                  ready(docData.roomID, data2,1);
                 });
                 // document.querySelector(".no-card").remove();
               });
