@@ -625,7 +625,17 @@ h5 span {
   overflow: scroll;
   overflow-x: hidden;
 }
-
+.nextPage{
+  position:absolute;
+  top:0;
+  right:50%;
+}
+.prevPage{
+  
+  position:absolute;
+  top:0 ;
+  left:0%;
+}
 .whiteBoard {
   display: flex;
   height: 400vh;
