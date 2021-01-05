@@ -6,21 +6,56 @@ function paint(room) {
   let graph = document.querySelector("#graph_val");
   let inp_graph = document.querySelector("#graph");
   let array_num = document.querySelector("#array_num");
+  let addText = document.querySelector(".text_add");
   let j = 0;
   let k = 0;
   let gridRow = 1;
-  // rect.addEventListener('click', (e) => {
-  // 	var canvas = document.createElement('canvas');
-  // 	canvas.id = `${j}header`;
-  // 	canvas.className = 'canvas_abs';
-  // 	canvas.style = 'border:1px solid #000000;';
-  // 	canvas.style.width = `40px`;
-  // 	canvas.style.height = `40px`;
+  
+  //Add Rectangle
+  rect.addEventListener('click', (e) => {
+  	var canvas = document.createElement('canvas');
+  	canvas.id = `${j}header`;
+  	canvas.className = 'canvas_abs';
+  	canvas.style = 'border:1px solid #000000;';
+  	canvas.style.width = `40px`;
+    canvas.style.height = `40px`;
+    document.body.appendChild(canvas);
 
-  // 	document.body.appendChild(canvas);
-  // 	dragElement(canvas);
-  // 	j++;
-  // });
+  	dragElement(canvas);
+    j++;
+    
+  });
+  //Add Circles
+  let s = 0;
+  circle.addEventListener('click',(e)=>{
+  	var canvas = document.createElement('canvas');
+    canvas.id = `${s}header`;
+  	canvas.className = 'canvas_abs';
+  	canvas.style = 'border:1px solid #000000;';
+  	canvas.style.width = `40px`;
+    canvas.style.height = `40px`;
+    canvas.style.borderRadius = `50%`;
+    document.body.appendChild(canvas);
+
+  	dragElement(canvas);
+    s++;
+  })
+
+//Add Text Box
+let n =0;
+addText.addEventListener('click',(e)=>{
+  var text = document.createElement('textarea');
+  text.className = 'canvas_abs';
+  text.id = `${n}header`;
+  text.style = 'border:1px solid #000000;';
+  text.style.width = `100px`;
+  text.style.height = `50px`;
+  document.body.appendChild(text);
+  dragElement(text);
+  n++;
+})
+
+
   let p = 0;
   array.addEventListener("submit", (e) => {
     e.preventDefault();
