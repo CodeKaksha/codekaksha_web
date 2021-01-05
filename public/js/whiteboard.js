@@ -114,7 +114,7 @@ function whiteBoard(room) {
 	function onMouseDown(e) {
 		drawing = true;
 		current.x = e.pageX || e.touches[0].pageX;
-		current.y = e.pageY || e.touches[0].pageY;
+		current.y = e.pageY+$('.section1').scrollTop()  || e.touches[0].pageY;
 		console.log(current);
 	}
 
@@ -127,7 +127,7 @@ function whiteBoard(room) {
 			current.x,
 			current.y,
 			e.pageX || e.touches[0].pageX,
-			e.pageY || e.touches[0].pageY,
+			e.pageY+$('.section1').scrollTop() || e.touches[0].pageY,
 			current.color,
 			true,
 			pencilWidth
@@ -142,13 +142,13 @@ function whiteBoard(room) {
 			current.x,
 			current.y,
 			e.pageX || e.touches[0].pageX,
-			e.pageY || e.touches[0].pageY,
+			e.pageY+$('.section1').scrollTop() || e.touches[0].pageY,
 			current.color,
 			true,
 			pencilWidth
 		);
 		current.x = e.pageX || e.touches[0].pageX;
-		current.y = e.pageY || e.touches[0].pageY;
+		current.y = e.pageY+$('.section1').scrollTop() || e.touches[0].pageY;
 	}
 
 	function onColorUpdate(e) {
@@ -201,13 +201,13 @@ function whiteBoard(room) {
 		
 
 		canvas.width = window.innerWidth / 2;
-		canvas.height = 2*window.innerHeight;
+		canvas.height = 4*window.innerHeight;
 		console.log(canvas.width, canvas.height);
 	}
 	function onResize2()
 	{
 		canvas.width = window.innerWidth / 2;
-		canvas.height = 2*window.innerHeight;
+		canvas.height = 4*window.innerHeight;
 	}
 
 	//Clear canvas
