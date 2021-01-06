@@ -10,51 +10,51 @@ function paint(room) {
   let j = 0;
   let k = 0;
   let gridRow = 1;
-  
+
   //Add Rectangle
-  rect.addEventListener('click', (e) => {
-  	var canvas = document.createElement('canvas');
-  	canvas.id = `${j}header`;
-  	canvas.className = 'canvas_abs';
-  	canvas.style = 'border:1px solid #000000;';
-  	canvas.style.width = `40px`;
+  rect.addEventListener("click", (e) => {
+    var canvas = document.createElement("canvas");
+    canvas.id = `${j}header`;
+    canvas.className = "canvas_abs";
+    canvas.style = "border:1px solid #000000;";
+    canvas.style.width = `40px`;
     canvas.style.height = `40px`;
     document.body.appendChild(canvas);
 
-  	dragElement(canvas);
+    dragElement(canvas);
     j++;
-    
   });
   //Add Circles
   let s = 0;
-  circle.addEventListener('click',(e)=>{
-  	var canvas = document.createElement('canvas');
+  circle.addEventListener("click", (e) => {
+    var canvas = document.createElement("canvas");
     canvas.id = `${s}header`;
-  	canvas.className = 'canvas_abs';
-  	canvas.style = 'border:1px solid #000000;';
-  	canvas.style.width = `40px`;
+    canvas.className = "canvas_abs";
+    canvas.style = "border:1px solid #000000;";
+    canvas.style.width = `40px`;
     canvas.style.height = `40px`;
     canvas.style.borderRadius = `50%`;
     document.body.appendChild(canvas);
 
-  	dragElement(canvas);
+    dragElement(canvas);
     s++;
-  })
+  });
 
-//Add Text Box
-let n =0;
-addText.addEventListener('click',(e)=>{
-  var text = document.createElement('textarea');
-  text.className = 'canvas_abs';
-  text.id = `${n}header`;
-  text.style = 'border:1px solid #000000;';
-  text.style.width = `100px`;
-  text.style.height = `50px`;
-  document.body.appendChild(text);
-  dragElement(text);
-  n++;
-})
-
+  //Add Text Box
+  let n = 0;
+  addText.addEventListener("click", (e) => {
+    let div = document.createElement("div");
+    div.className = "canvas";
+    let text = document.createElement("div");
+    var canvas = document.createElement("canvas");
+    canvas.id = `${n}header`;
+    text.innerHTML = `<textarea style="width:100px;height:100px;border:1px solid #000000;" class="canvas_abs" ></textarea>`;
+    div.appendChild(canvas);
+    div.appendChild(text);
+    document.body.appendChild(div);
+    dragElement(div);
+    n++;
+  });
 
   let p = 0;
   array.addEventListener("submit", (e) => {
@@ -126,7 +126,9 @@ addText.addEventListener('click',(e)=>{
           canvas.id = `${k}array`;
           k++;
           let inp = document.createElement("div");
-          inp.innerHTML = `<input type="number" value="${Math.floor(Math.random() * 100)}">`;
+          inp.innerHTML = `<input type="number" value="${Math.floor(
+            Math.random() * 100
+          )}">`;
           canvas.style = "border:1px solid #000000;";
           canvas.style.height = `40px`;
           canvas.style.width = `40px`;
@@ -176,16 +178,16 @@ addText.addEventListener('click',(e)=>{
   });
   graph.addEventListener("submit", (e) => {
     e.preventDefault();
-    let data = document.querySelector('#graph_nums').value.split('\n');
+    let data = document.querySelector("#graph_nums").value.split("\n");
     console.log(data);
     let base_url = `https://chart.googleapis.com/chart?cht=gv&chl=graph{`;
     for (let i = 0; i < data.length; i++) {
-      let nums = data[i].split(' ');
+      let nums = data[i].split(" ");
       console.log(nums);
-      base_url += `${nums[0]}--${nums[1]}[label="${nums[2]}"];`
+      base_url += `${nums[0]}--${nums[1]}[label="${nums[2]}"];`;
     }
     base_url += "}";
-    console.log(base_url)
+    console.log(base_url);
     let url = `https://chart.googleapis.com/chart?cht=gv&chl=graph{1--3[label="10"];2--4[label="11"];5--4[label="10"];3--5[label="12"];1--6[label="10"];6--5[label="12"]}`;
     let img = document.createElement("img");
     img.src = base_url;
@@ -245,7 +247,7 @@ addText.addEventListener('click',(e)=>{
   }
   socket.on("changeAayoRe", (data) => {
     let div = document.createElement("div");
-    let containerForCanvas=document.querySelector(".containerForCanvas");
+    let containerForCanvas = document.querySelector(".containerForCanvas");
     containerForCanvas.innerHTML = data;
     for (let i = 0; i < containerForCanvas.children.length; i++) {
       dragElement(containerForCanvas.children[i]);
