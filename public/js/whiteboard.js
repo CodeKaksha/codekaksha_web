@@ -221,7 +221,7 @@ function whiteBoard(room) {
   let j = 0;
   nextBtn.on("click", (e) => {
     e.preventDefault();
-    if (j == Math.max(whiteBoardPages.length-1, 0)) {
+    if (j == Math.max(whiteBoardPages.length, 0)) {
       let canvas = document.querySelector(".whiteBoard");
       var context = canvas.getContext("2d");
       var canvasContents = canvas.toDataURL();

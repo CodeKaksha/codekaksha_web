@@ -40,7 +40,25 @@ $(document).ready(function () {
         $(".botcont3").addClass("botcont3-anim");
     }
 
-    function light() {}
+    function light() {
+        $(".container1-page1").css({
+            background: "#fff"
+        });
+        $(".login").css("color", "black");
+        $(".sign-but").css("background-color", "#6c6ad2").css("color", "white");
+        $("nav").removeClass("nav-page1-anim");
+        $(".heading1-page1").css("color", "#337357").removeClass("head-page1-anim");
+        $(".heading2-page1").css("color", "#966b9d");
+        $(".host-but").css("background-color", "#6c6ad2").css("color", "white");
+        $(".heading3-page1").css("color", "black");
+        $(".heading4-page1").css("color", "black");
+        $(".navbar-title").css("color", "#966b9d").removeClass("nav-title-anim");
+        $(".waves-page1").removeClass("visible");
+        $(".botcon1, .botcon2").css("color", "black").removeClass("botcon-page1-anim");
+        $(".botcont1").removeClass("botcont1-anim");
+        $(".botcont2").removeClass("botcont2-anim");
+        $(".botcont3").removeClass("botcont3-anim");
+    }
 
     var themeCount = 0;
 
