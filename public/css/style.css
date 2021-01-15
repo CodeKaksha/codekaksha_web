@@ -616,6 +616,7 @@ h5 span {
 }
 
 .section1 {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
