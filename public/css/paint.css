@@ -19,6 +19,7 @@
 }
 .canvas_array{
     position: absolute;
+    top:0;
     display: flex;
 }
 .grid_div{

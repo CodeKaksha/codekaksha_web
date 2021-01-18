@@ -942,7 +942,8 @@ a {
 
 .canvas_array {
   position: absolute;
-  display: flex;
+    top:0;
+    display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -984,6 +985,7 @@ a {
 
 .grid_div {
   position: absolute;
+  top:0;
   display: flex;
   flex-direction: column;
 }

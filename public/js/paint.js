@@ -253,4 +253,25 @@ function paint(room) {
       dragElement(containerForCanvas.children[i]);
     }
   });
+  function array_open(e){
+   if(e.keyCode==65){
+    $("#array_data").modal("open"); 
+   } 
+  }
+  
+  function grid_open(e){
+    if(e.keyCode==71){
+     $("#grid_data").modal("open"); 
+    } 
+   }
+   
+  function graph_open(e){
+    if(e.keyCode==84){
+     $("#graph_data").modal("open"); 
+    } 
+   }
+  document.addEventListener("keyup", array_open, false);
+  document.addEventListener("keyup", grid_open, false);
+  document.addEventListener("keyup", graph_open, false);
+
 }

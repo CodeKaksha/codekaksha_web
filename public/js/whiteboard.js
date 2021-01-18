@@ -21,7 +21,51 @@ function whiteBoard(room) {
       ".whiteBoard"
     ).style = `cursor:url('../res/erase.png'),auto;`;
     current.color = "#F5F5FA";
+    pencilWidth = 15;
   });
+  function erase(e) {
+    console.log(e.keyCode)
+    if (e.keyCode == 69) {
+      document.querySelector(
+        ".whiteBoard"
+      ).style = `cursor:url('../res/erase.png'),auto;`;
+      current.color = "#F5F5FA";
+      pencilWidth = 15;
+    }
+  }
+  function penLarge(e)
+  {
+    if(e.keyCode==76)
+    {
+      current.color = colourInput.value;
+      document.querySelector(
+        ".whiteBoard"
+      ).style = `cursor:url('../res/dot_large.png'),auto!important;`;
+      pencilWidth = 15;
+    }
+  }
+  function penMed(e)
+  {
+    if(e.keyCode==77)
+    {
+      current.color = colourInput.value;
+      pencilWidth = 10;
+      document.querySelector(
+        ".whiteBoard"
+      ).style = `cursor:url('../res/dot_med.png'),auto;`;
+    }
+  }
+  function penSm(e)
+  {
+    if(e.keyCode==83)
+    {
+      current.color = colourInput.value;
+    pencilWidth = 5;
+    document.querySelector(
+      ".whiteBoard"
+    ).style = `cursor:url('../res/dot_sm.png'),auto;`;
+    }
+  }
   document.getElementById("hand").addEventListener("click", () => {
     document.querySelector(".whiteBoard").style = `cursor:move`;
     dragWhiteboard(canvas);
@@ -297,6 +341,10 @@ function whiteBoard(room) {
   //     });
   //   });
   //   });
+  document.addEventListener("keyup", erase, false);
+  document.addEventListener("keyup", penLarge, false);
+  document.addEventListener("keyup", penMed, false);
+  document.addEventListener("keyup", penSm, false);
 }
 
 function dragWhiteboard(whiteboard) {
