@@ -614,7 +614,10 @@ h5 span {
   display: flex;
   flex-direction: row;
 }
-
+.textDrop{
+  top:0;
+  position: absolute;
+}
 .section1 {
   position: relative;
   display: flex;
