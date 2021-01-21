@@ -25,7 +25,7 @@ function whiteBoard(room) {
   });
   function erase(e) {
     console.log(e.keyCode)
-    if (e.keyCode == 69) {
+    if (e.keyCode == 69&&document.activeElement==document.body) {
       document.querySelector(
         ".whiteBoard"
       ).style = `cursor:url('../res/erase.png'),auto;`;
@@ -35,7 +35,7 @@ function whiteBoard(room) {
   }
   function penLarge(e)
   {
-    if(e.keyCode==76)
+    if(e.keyCode==76&&document.activeElement==document.body)
     {
       current.color = colourInput.value;
       document.querySelector(
@@ -46,7 +46,7 @@ function whiteBoard(room) {
   }
   function penMed(e)
   {
-    if(e.keyCode==77)
+    if(e.keyCode==77&&document.activeElement==document.body)
     {
       current.color = colourInput.value;
       pencilWidth = 10;
@@ -57,7 +57,7 @@ function whiteBoard(room) {
   }
   function penSm(e)
   {
-    if(e.keyCode==83)
+    if(e.keyCode==83&&document.activeElement==document.body)
     {
       current.color = colourInput.value;
     pencilWidth = 5;

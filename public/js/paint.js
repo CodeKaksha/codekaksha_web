@@ -286,19 +286,21 @@ function paint(room) {
 		}
 	});
 	function array_open(e) {
-		if (e.keyCode == 65) {
+    
+		if (e.keyCode == 65&&document.activeElement==document.body) {
 			$('#array_data').modal('open');
 		}
-	}
+  }
+  
 
 	function grid_open(e) {
-		if (e.keyCode == 71) {
+		if (e.keyCode == 71 &&document.activeElement==document.body) {
 			$('#grid_data').modal('open');
 		}
 	}
 
 	function graph_open(e) {
-		if (e.keyCode == 84) {
+		if (e.keyCode == 84 &&document.activeElement==document.body) {
 			$('#graph_data').modal('open');
 		}
 	}
@@ -306,3 +308,6 @@ function paint(room) {
 	document.addEventListener('keyup', grid_open, false);
 	document.addEventListener('keyup', graph_open, false);
 }
+// window.setInterval(()=>{
+//   console.log(document.activeElement)
+// },1000)
