@@ -57,6 +57,8 @@ function paint(room) {
   });
 
   let p = 0;
+  let id_arr=0;
+  let last_id_active=0;
   array.addEventListener("submit", (e) => {
     e.preventDefault();
     let arr = document.querySelector("#array_nums").value.split(" ");
@@ -89,7 +91,26 @@ function paint(room) {
     <a class="btn-floating btn-small waves-effect waves-light red" id="drag_handle"><i class="material-icons">drag_handle</i></a> `;
       canvas_array.appendChild(btns);
       canvas_array.className = "canvas_array";
+      canvas_array.id=`array${id_arr}`
+      id_arr++;
+      
       document.querySelector(".containerForCanvas").appendChild(canvas_array);
+      document.querySelector(`#array${id_arr-1}`).addEventListener('click',(e)=>{
+        console.log(e.target)
+        if(e.target.parentElement.parentElement.classList.contains('canvas_array')){
+          e.target.parentElement.parentElement.classList.add('active_array'); 
+
+        }
+        else{
+
+          last_id_active=e.target.parentElement.parentElement.parentElement.id.split('array')[1];
+          console.log(e.target.parentElement.parentElement.parentElement.id.split('array'))
+          e.target.parentElement.parentElement.parentElement.classList.add('active_array'); 
+          document.querySelector(`#array${last_id_active}`).addEventListener('focusout',(e)=>{
+            document.querySelector(`#array${last_id_active}`).classList.remove('active_array'); 
+          })
+        }
+      })
       socket.emit(
         "changeInCanvas",
         document.querySelector(".containerForCanvas").innerHTML,
