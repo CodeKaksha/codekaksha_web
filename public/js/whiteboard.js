@@ -3,6 +3,7 @@ function whiteBoard(room) {
   var canvas = document.querySelector(".whiteBoard");
   var colors = document.getElementsByClassName("color");
   var context = canvas.getContext("2d");
+  canvas.style.resize = "both";
 
   var current = {
     color: "black",

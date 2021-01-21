@@ -55,7 +55,7 @@ function paint(room) {
 
     let inp = document.createElement('div');
     inp.style="position:absolute;top:0;"
-		inp.innerHTML = `<input type="text" value="hey">`;
+		inp.innerHTML = `<input type="text" value="hey"  onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';">`;
 		p++;
 		div.appendChild(inp);
 		div.appendChild(canvas);
