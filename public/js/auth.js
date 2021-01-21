@@ -5,6 +5,7 @@ const db = firebase.firestore();
 
 let googleSignIn = document.querySelectorAll(".googleSignIn");
 auth.onAuthStateChanged((user) => {
+  console.log("user aaa gya dekho vo aa ga")
   if (user) {
     username = user.displayName;
     userDisplayPic = user.photoURL;

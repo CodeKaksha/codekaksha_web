@@ -6,6 +6,7 @@
 
 body {
   text-align: center;
+  overflow-y: scroll!important;
 }
 
 /* utils */
@@ -160,6 +161,17 @@ nav div a {
 
 .colors {
   position: fixed;
+}
+.redo{
+  position:fixed;
+  top:40px;
+  right:50%;
+}
+
+.undo{
+  position:fixed;
+  top:40px;
+  left:0;
 }
 
 .color {
