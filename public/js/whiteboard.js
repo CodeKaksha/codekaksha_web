@@ -25,6 +25,7 @@ function whiteBoard(room) {
     ).style = `cursor:url('../res/erase.png'),auto;`;
     current.color = "#F5F5FA";
     pencilWidth = 15;
+    zIndexManage();
   });
   function erase(e) {
     console.log(e.keyCode);
@@ -35,6 +36,7 @@ function whiteBoard(room) {
       current.color = "#F5F5FA";
       pencilWidth = 15;
     }
+    zIndexManage();
   }
   function penLarge(e) {
     if (e.keyCode == 76 && document.activeElement == document.body) {
@@ -44,6 +46,7 @@ function whiteBoard(room) {
       ).style = `cursor:url('../res/dot_large.png'),auto!important;`;
       pencilWidth = 15;
     }
+    zIndexManage();
   }
   function penMed(e) {
     if (e.keyCode == 77 && document.activeElement == document.body) {
@@ -53,6 +56,7 @@ function whiteBoard(room) {
         ".whiteBoard"
       ).style = `cursor:url('../res/dot_med.png'),auto;`;
     }
+    zIndexManage();
   }
   function penSm(e) {
     if (e.keyCode == 83 && document.activeElement == document.body) {
@@ -62,10 +66,14 @@ function whiteBoard(room) {
         ".whiteBoard"
       ).style = `cursor:url('../res/dot_sm.png'),auto;`;
     }
+    zIndexManage();
   }
   document.getElementById("hand").addEventListener("click", () => {
-    document.querySelector(".whiteBoard").style = `cursor:move`;
+    document.querySelector(".whiteBoard").style = `cursor:auto`;
     dragWhiteboard(canvas);
+    zIndexManageOpposite();
+    current.color = "transparent";
+
   });
 
   document.getElementById("pencilSmall").addEventListener("click", () => {
@@ -412,4 +420,19 @@ function dragWhiteboard(whiteboard) {
   whiteboard.addEventListener("mousedown", (e) => {
     e.preventDefault();
   });
+}
+function zIndexManage()
+{
+  let containerForCanvas=document.querySelectorAll('.containerForCanvas');
+  for(let i=0;i<containerForCanvas.length;i++){
+    containerForCanvas[i].style="z-index:-1";
+  }
+}
+
+function zIndexManageOpposite()
+{
+  let containerForCanvas=document.querySelectorAll('.containerForCanvas');
+  for(let i=0;i<containerForCanvas.length;i++){
+    containerForCanvas[i].style="z-index:1";
+  }
 }

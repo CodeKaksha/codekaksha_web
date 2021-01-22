@@ -655,7 +655,7 @@ h5 span {
 .whiteBoard {
   display: flex;
   height: 400vh;
-  background-color: #f5f5f5;
+  background-color: transparent;
 }
 
 .edit-features {
