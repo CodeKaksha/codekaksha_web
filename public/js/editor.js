@@ -26,7 +26,8 @@ function editor(roomId) {
                 roomID: roomId,
                 data_whiteboard: string,
                 data_compiler: editor.getValue(),
-                data_elems:document.querySelector('.containerForCanvas').innerHTML,
+                data_elems: document.querySelector(".containerForCanvas")
+                  .innerHTML,
                 email: user.email,
                 date: JSON.stringify(date),
               })
@@ -40,7 +41,7 @@ function editor(roomId) {
         });
         if (!fl) {
           console.log("naam to de be");
-          console.log($("#modal_save"))
+          console.log($("#modal_save"));
           $("#modal_save").modal("open");
           document
             .querySelector(".submitNameOfCoderence")
@@ -60,7 +61,8 @@ function editor(roomId) {
                   roomID: roomId,
                   data_whiteboard: string,
                   data_compiler: editor.getValue(),
-                  data_elems:document.querySelector('.containerForCanvas').innerHTML,
+                  data_elems: document.querySelector(".containerForCanvas")
+                    .innerHTML,
                   email: user.email,
                   date: JSON.stringify(date),
                 })
@@ -78,22 +80,10 @@ function editor(roomId) {
   });
   editor.setTheme("ace/theme/terminal");
   editor.setShowPrintMargin(false);
-  let fl = 1;
-  editor.getSession().on("change", function () {
-    if (fl) {
-      socket.emit("editorChange", editor.getValue(), roomId);
-    }
-  });
-  socket.on("changeEdit", (data) => {
-    fl = 0;
-    
-    editor.setValue(data);
-  });
+
 
   const languageChoosenByUser = document.getElementById("language").value;
-  if(!editor.getValue())
-  {
-
+  if (!editor.getValue()) {
     if (languageChoosenByUser === "cpp17") {
       const initialCode =
         "#include <iostream>\r\n" +
@@ -103,14 +93,14 @@ function editor(roomId) {
         "\t// your code goes here\r\n" +
         "\treturn 0;\r\n" +
         "}\r\n";
-        editor.getSession().setMode("ace/mode/c_cpp");
-  
-    editor.getSession().setMode("ace/mode/c_cpp");
-    editor.setValue(initialCode);
+      editor.getSession().setMode("ace/mode/c_cpp");
+
+      editor.getSession().setMode("ace/mode/c_cpp");
+      editor.setValue(initialCode);
     } else if (languageChoosenByUser === "python2") {
       const initialCode = "# write your python code here\r\n";
-    editor.getSession().setMode("ace/mode/python");
-    editor.setValue(initialCode);
+      editor.getSession().setMode("ace/mode/python");
+      editor.setValue(initialCode);
     } else if (languageChoosenByUser === "java") {
       const initialCode =
         "public class Solution {\r\n" +
@@ -118,8 +108,8 @@ function editor(roomId) {
         "        // Write your code here\r\n" +
         "    }\r\n" +
         "}";
-    editor.getSession().setMode("ace/mode/java");
-    editor.setValue(initialCode);
+      editor.getSession().setMode("ace/mode/java");
+      editor.setValue(initialCode);
     } else if (languageChoosenByUser === "c") {
       const initialCode =
         "#include <stdio.h>\r\n" +
@@ -129,24 +119,33 @@ function editor(roomId) {
         "\treturn 0;\r\n" +
         "}\r\n" +
         "\r\n";
-    editor.getSession().setMode("ace/mode/c_cpp");
-    editor.setValue(initialCode);
+      editor.getSession().setMode("ace/mode/c_cpp");
+      editor.setValue(initialCode);
     }
   }
-
+  document.querySelector(".ace_text-input").addEventListener("keyup", () => {
+    console.log("hello");
+    const text = editor.getValue();
+    socket.emit("editorChange",text,roomId);
+  });
+  socket.on("changeEdit", (data) => {
+    console.log("hey");
+    editor.setValue(data);
+  }); 
+  
   document.querySelector(".run-but").addEventListener("click", (e) => {
     const myCode = editor.getValue();
     const input = document.getElementById("inp-val").value;
 
-    document.getElementById("out-val").innerHTML="Running...";
-    document.querySelector('.run-but').disabled=true;
-    document.querySelector('.run-but').style.opacity='0.5';
+    document.getElementById("out-val").innerHTML = "Running...";
+    document.querySelector(".run-but").disabled = true;
+    document.querySelector(".run-but").style.opacity = "0.5";
 
     const data = {
       myCode,
       input,
     };
-    console.log("data")
+    console.log("data");
 
     socket.emit("compileCode", data, roomId);
 
@@ -170,11 +169,10 @@ function editor(roomId) {
       })
         .then((res) => res.json())
         .then((data) => {
-          document.getElementById("out-val").innerHTML =
-            data.output;
-            console.log(data)
-            document.querySelector('.run-but').disabled=false;
-            document.querySelector('.run-but').style.opacity='1';
+          document.getElementById("out-val").innerHTML = data.output;
+          console.log(data);
+          document.querySelector(".run-but").disabled = false;
+          document.querySelector(".run-but").style.opacity = "1";
         });
     });
   });

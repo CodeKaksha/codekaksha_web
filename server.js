@@ -40,7 +40,8 @@ function onConnection(socket) {
     }
   });
   socket.on("editorChange", (data, room) => {
-    socket.to(room).broadcast.emit("changeEdit", data);
+    console.log(data,room)
+    socket.broadcast.to(room).emit("changeEdit", data);
   });
   socket.on("compileCode", (data, room) => {
     const credentials = {
