@@ -175,11 +175,15 @@ function displaySavedOnes() {
 
     $(".user-submit").click(function () {
       show_screen(after_login_screen);
-    })
+    });
 
     $(".ongoing-but").click(function() {
       show_screen(Ongoing_coderences_screen);
-    })
+    });
+
+    $(".ongoing-back-but").click(function() {
+      show_screen(after_login_screen);
+    });
 }
 
 function loaderOn() {

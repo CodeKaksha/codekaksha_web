@@ -1662,23 +1662,26 @@ span > .user-fields:focus {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .ongoing-card {
-  width: 800px;
-  height: 100px;
+  width: 1200px;
+  height: 150px;
   background-color: green;
   cursor: pointer;
 }
 
 .ongoing-heading {
-  position: absolute;
-  top: 50px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   color: black;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 2.5rem;
   letter-spacing: 0.5px;
+  padding: 25px 0;
 }
