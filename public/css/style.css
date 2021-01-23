@@ -1653,3 +1653,32 @@ span > .user-fields:focus {
   color: #999;
   font-weight: 400;
 }
+
+.container111-page222 {
+  min-height: 100vh;
+}
+
+.ongoing-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ongoing-card {
+  width: 800px;
+  height: 100px;
+  background-color: green;
+  cursor: pointer;
+}
+
+.ongoing-heading {
+  position: absolute;
+  top: 50px;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+}

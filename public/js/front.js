@@ -4,6 +4,7 @@ let after_login_screen = document.querySelector(".after_login_screen");
 let user_detail_screen = document.querySelector(".user_detail_screen");
 let ready_screen = document.querySelector(".ready_screen");
 let meet_screen = document.querySelector(".meet_screen");
+let Ongoing_coderences_screen = document.querySelector(".Ongoing_coderences_screen");
 let bigDiv = document.querySelector(".big_div");
 let diff_height = -71;
 window.setInterval(() => {
@@ -175,6 +176,10 @@ function displaySavedOnes() {
     $(".user-submit").click(function () {
       show_screen(after_login_screen);
     })
+
+    $(".ongoing-but").click(function() {
+      show_screen(Ongoing_coderences_screen);
+    })
 }
 
 function loaderOn() {
@@ -193,6 +198,7 @@ function show_screen(screen_name) {
   ready_screen.classList.add("hidden");
   meet_screen.classList.add("hidden");
   user_detail_screen.classList.add("hidden");
+  Ongoing_coderences_screen.classList.add("hidden");
   loaderOn();
   window.setTimeout(() => {
     loaderOut();
