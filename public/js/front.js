@@ -4,6 +4,7 @@ let after_login_screen = document.querySelector(".after_login_screen");
 let user_detail_screen = document.querySelector(".user_detail_screen");
 let ready_screen = document.querySelector(".ready_screen");
 let meet_screen = document.querySelector(".meet_screen");
+let golive_form_screen = document.querySelector(".golive_form_screen");
 let Ongoing_coderences_screen = document.querySelector(
   ".Ongoing_coderences_screen"
 );
@@ -108,6 +109,7 @@ $(".call_end").click(function () {
     window.location.reload();
   }
 });
+
 var socket = io();
 
 socket.on("ongoingLives", (currLiveStreams) => {
@@ -224,6 +226,14 @@ function displaySavedOnes() {
   $(".ongoing-back").click(function () {
     show_screen(after_login_screen);
   });
+
+  $(".golive-but").click(function(){
+    show_screen(golive_form_screen);
+  });
+
+  $(".golive-back").click(function() {
+    show_screen(after_login_screen);
+  });
 }
 
 function loaderOn() {
@@ -243,6 +253,7 @@ function show_screen(screen_name) {
   meet_screen.classList.add("hidden");
   user_detail_screen.classList.add("hidden");
   Ongoing_coderences_screen.classList.add("hidden");
+  golive_form_screen.classList.add("hidden");
   loaderOn();
   window.setTimeout(() => {
     loaderOut();

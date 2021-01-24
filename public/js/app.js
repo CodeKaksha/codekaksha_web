@@ -30,7 +30,7 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
     })
 });
 
-document.querySelector('.golive-but').addEventListener('click', (e) => {
+document.querySelector('.golive-submit').addEventListener('click', (e) => {
 	e.preventDefault();
 	socket.emit('give_id');
     loaderOn();

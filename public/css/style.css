@@ -1735,3 +1735,67 @@ span > .user-fields:focus {
   background-color: #6c6ad2;
   padding: 5px 30px 40px 30px;
 }
+
+.container101-page201 {
+  min-height: 100vh;
+}
+
+.golive_form_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  counter-reset: section;
+}
+
+.golive_form_heading {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  padding-bottom: 30px;
+}
+
+span > .golive-fields{
+  border: 1px solid rgb(201, 194, 194);
+  display:inline-block;
+  height:60px;
+  vertical-align:middle;
+  position:relative;
+  bottom:14px;
+  right:9px;
+  width:500px;
+  box-sizing:border-box;
+  padding:0 18px; 
+  border-radius: 15px;
+  box-shadow: none;
+}
+
+span > .golive-fields:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.golive-detail-fields span::before{
+  counter-increment:section;
+  content:counter(section);
+  border:2px solid #4c2639;
+  width:40px;
+  height:40px;
+  color:rgb(255, 255, 255);
+  display:inline-block;
+  border-radius:50%;
+  line-height:1.6em;
+  font-size:1.5em;
+  position:relative;
+  left:-30px;
+  top: -20px;
+  background:#2F1E27;
+}
+
+.golive-form-but {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+}
