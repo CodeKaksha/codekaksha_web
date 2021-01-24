@@ -1725,3 +1725,11 @@ span > .user-fields:focus {
 .ongoing-tags, .ongoing-ad {
   font-size: 0.8rem;
 }
+
+.golive-but {
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background-color: #6c6ad2;
+  padding: 5px 30px 40px 30px;
+}
