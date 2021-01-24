@@ -228,6 +228,15 @@ nav div a {
   padding: 5px 30px 40px 30px;
 }
 
+.ongoing-but, .ongoing-back {
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background-color: #6c6ad2;
+  padding: 5px 30px 40px 30px;
+  margin: 10px 30px 0 0;
+}
+
 .heading1-page1 {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
@@ -1669,8 +1678,9 @@ span > .user-fields:focus {
 .ongoing-card {
   width: 1200px;
   height: 150px;
-  background-color: green;
+  background-color:#337357;
   cursor: pointer;
+  margin: 20px 0;
 }
 
 .ongoing-heading {
@@ -1683,5 +1693,35 @@ span > .user-fields:focus {
   font-weight: 900;
   font-size: 2.5rem;
   letter-spacing: 0.5px;
-  padding: 25px 0;
+  padding: 25px 0 10px 0;
+}
+
+.visible-icon {
+  float: right;
+  color: white;
+  font-size: 4rem;
+  padding: 45px 20px 0 0;
+}
+
+.ongoing-image {
+  float: left;
+  padding: 30px 0 0 40px;
+}
+
+.ongoing-card-content {
+  text-align: left;
+  float: left;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 25px 0 0 40px;
+}
+
+.ongoing-title {
+  font-size: 2.4rem;
+}
+
+.ongoing-tags, .ongoing-ad {
+  font-size: 0.8rem;
 }

@@ -181,7 +181,7 @@ function displaySavedOnes() {
       show_screen(Ongoing_coderences_screen);
     });
 
-    $(".ongoing-back-but").click(function() {
+    $(".ongoing-back").click(function() {
       show_screen(after_login_screen);
     });
 }
