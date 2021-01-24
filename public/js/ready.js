@@ -1,8 +1,13 @@
 let ready_btn = document.querySelector(".ready");
+
 function ready(id, edit,isAdmin) {
   let user = firebase.auth().currentUser;
   console.log(edit)
   ready_btn.addEventListener("click", (e) => {
+    if(live==1)
+    {
+      socket.emit("addToLiveSessions",id,user.email,user.displayName);
+    }
     console.log(id);
     document.querySelector('.containerForCanvas').classList.remove('hidden');
     socket.emit("join-room", id, user.email, user.displayName,isAdmin);

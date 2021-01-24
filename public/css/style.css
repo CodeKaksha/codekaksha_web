@@ -1671,8 +1671,10 @@ span > .user-fields:focus {
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  width: max-content;
+    padding: 2rem;
 }
 
 .ongoing-card {

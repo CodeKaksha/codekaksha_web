@@ -15,6 +15,7 @@ const {
   userLeave,
   getCurrentUser,
   setAdmin,   
+  addToLiveStream
 } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
@@ -39,6 +40,11 @@ function onConnection(socket) {
       });
     }
   });
+  socket.on("addToLiveSessions",(roomId,adminEmail,adminName)=>{
+    let currLiveStreams=addToLiveStream(roomId,adminName);
+    console.log(currLiveStreams)
+    io.emit("ongoingLives",currLiveStreams);
+  })
   socket.on("editorChange", (data, room) => {
     console.log(data,room)
     socket.broadcast.to(room).emit("changeEdit", data);

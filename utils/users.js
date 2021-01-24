@@ -1,4 +1,5 @@
 const users = [];
+const liveSessions=[];
 const roomAdmins= new Map();
 function userJoin(id, username, room,socketId) {
 	const user = { id, username, room,socketId };
@@ -18,6 +19,16 @@ function userLeave(id) {
 	}
 }
 
+function addToLiveStream(id,username,)
+{
+	const user = { id, username };
+	liveSessions.push(user);
+	return liveSessions;
+}
+function deleteLiveStream(){
+
+}
+
 function getRoomUsers(room) {
 	console.log(users);
 	
@@ -35,6 +46,7 @@ module.exports = {
     getRoomUsers,
 	userLeave,
 	getCurrentUser,
-	setAdmin
+	setAdmin,
+	addToLiveStream
   // giveProblems
 };

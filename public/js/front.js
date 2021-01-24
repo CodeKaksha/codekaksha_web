@@ -4,7 +4,9 @@ let after_login_screen = document.querySelector(".after_login_screen");
 let user_detail_screen = document.querySelector(".user_detail_screen");
 let ready_screen = document.querySelector(".ready_screen");
 let meet_screen = document.querySelector(".meet_screen");
-let Ongoing_coderences_screen = document.querySelector(".Ongoing_coderences_screen");
+let Ongoing_coderences_screen = document.querySelector(
+  ".Ongoing_coderences_screen"
+);
 let bigDiv = document.querySelector(".big_div");
 let diff_height = -71;
 window.setInterval(() => {
@@ -106,6 +108,41 @@ $(".call_end").click(function () {
     window.location.reload();
   }
 });
+var socket = io();
+
+socket.on("ongoingLives", (currLiveStreams) => {
+  for (let i = 0; i < currLiveStreams.length; i++) {
+    let div = document.createElement("div");
+    div.className = "ongoing-card";
+    div.classList.add("z-depth-5");
+    div.innerHTML = `
+    <span class="ongoing-image">
+      <img src="https://lh3.googleusercontent.com/a-/AOh14GgRrjdvx4gxdGrywp26XGatxSDDsytCSxS3s3Djsg=s96-c" class="displayPic ongoing-img">
+    </span>
+    <span class="ongoing-card-content">
+      <span class="ongoing-title">${currLiveStreams[i].id}</span>
+      <br>
+      <span class="ongoing-tags"> #web #lawda #lassan</span>
+      <br>
+      <span class="ongoing-ad">Admin: <span class="ongoing-admin">${currLiveStreams[i].username}</span></span>
+    </span>
+    <span class="material-icons visible-icon">
+      visibility
+    </span>
+  `;
+    document.querySelector(".ongoing-container").appendChild(div);
+    console.log(div);
+  }
+  let ongoingLives = document.querySelectorAll(".ongoing-card");
+  for (let i = 0; i < ongoingLives.length; i++) {
+    ongoingLives[i].addEventListener("click", () => {
+      console.log("ahhah");
+      ready(ongoingLives[i].children[1].children[0].textContent, 0, 0);
+      show_screen(ready_screen);
+      videoOnlyUser(`videoBeforeJoin`);
+    });
+  }
+});
 
 function displaySavedOnes() {
   let user = firebase.auth().currentUser;
@@ -133,7 +170,9 @@ function displaySavedOnes() {
                     .doc(docTo.id)
                     .delete()
                     .then(() => {
-                      document.querySelector(`.del${docData.roomID}`).parentElement.parentElement.remove();
+                      document
+                        .querySelector(`.del${docData.roomID}`)
+                        .parentElement.parentElement.remove();
                       alert("Deleted Succesfully");
                     })
                     .catch((err) => {
@@ -156,15 +195,16 @@ function displaySavedOnes() {
                   var context = canvas.getContext("2d");
                   var data2 = JSON.parse(data.data_whiteboard);
                   videoOnlyUser(`videoBeforeJoin`);
-                  console.log(data.data_compiler)
+                  console.log(data.data_compiler);
                   var editor = ace.edit("jsEditor");
-                  
+
                   editor.setValue(data.data_compiler);
 
                   console.log(data2);
-                  document.querySelector('.containerForCanvas').innerHTML=data.data_elems;
+                  document.querySelector(".containerForCanvas").innerHTML =
+                    data.data_elems;
                   show_screen(ready_screen);
-                  ready(docData.roomID, data2,1);
+                  ready(docData.roomID, data2, 1);
                 });
                 // document.querySelector(".no-card").remove();
               });
@@ -173,17 +213,17 @@ function displaySavedOnes() {
       document.querySelector(".saved_coderence_loader").remove();
     });
 
-    $(".user-submit").click(function () {
-      show_screen(after_login_screen);
-    });
+  $(".user-submit").click(function () {
+    show_screen(after_login_screen);
+  });
 
-    $(".ongoing-but").click(function() {
-      show_screen(Ongoing_coderences_screen);
-    });
+  $(".ongoing-but").click(function () {
+    show_screen(Ongoing_coderences_screen);
+  });
 
-    $(".ongoing-back").click(function() {
-      show_screen(after_login_screen);
-    });
+  $(".ongoing-back").click(function () {
+    show_screen(after_login_screen);
+  });
 }
 
 function loaderOn() {
