@@ -9,7 +9,7 @@ function userJoin(id, username, room,socketId) {
 
 function setAdmin(roomId,userid) {
 	roomAdmins.set(roomId,userid);
-	console.log(roomAdmins)
+	//console.log(roomAdmins)
 }
 
 function userLeave(id) {
@@ -19,10 +19,15 @@ function userLeave(id) {
 	}
 }
 
-function addToLiveStream(id,username,)
+function addToLiveStream(id,username,title,tags)
 {
-	const user = { id, username };
+	const user = { id, username ,title,tags};
 	liveSessions.push(user);
+	return liveSessions;
+}
+
+function getCurrLiveStreams()
+{
 	return liveSessions;
 }
 function deleteLiveStream(){
@@ -30,7 +35,7 @@ function deleteLiveStream(){
 }
 
 function getRoomUsers(room) {
-	console.log(users);
+	//console.log(users);
 	
 	return users.filter((user) => user.room === room);
 }
@@ -47,6 +52,7 @@ module.exports = {
 	userLeave,
 	getCurrentUser,
 	setAdmin,
-	addToLiveStream
+	addToLiveStream,
+	getCurrLiveStreams
   // giveProblems
 };

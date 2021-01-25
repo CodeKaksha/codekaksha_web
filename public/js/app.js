@@ -29,17 +29,28 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
         videoOnlyUser(`videoBeforeJoin`);
     })
 });
-
+let globalLive;
 document.querySelector('.golive-submit').addEventListener('click', (e) => {
-	e.preventDefault();
-	socket.emit('give_id');
-    loaderOn();
-    socket.on('rec_id',(id)=>{
-        ready(id,0,1);
-        live=1;
-        show_screen(ready_screen);
-        videoOnlyUser(`videoBeforeJoin`);
-    })
+    e.preventDefault();
+    let title=document.querySelector(".golive-title").value;
+    let tags=document.querySelector(".golive-tags").value;
+    let desc=document.querySelector(".golive-description").value;
+    globalLive={
+        'title':title,
+        'tags':tags,
+        'desc':desc
+    }
+    if(title&&tags&&desc)
+    {
+        socket.emit('give_id');
+        loaderOn();
+        socket.on('rec_id',(id)=>{
+            ready(id,0,1);
+            live=1;
+            show_screen(ready_screen);
+            videoOnlyUser(`videoBeforeJoin`);
+        })
+    }
 });
 socket.on("user-disconnected", (username) => {
     displayMessageOutgoing(username);

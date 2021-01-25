@@ -6,7 +6,7 @@ function ready(id, edit,isAdmin) {
   ready_btn.addEventListener("click", (e) => {
     if(live==1)
     {
-      socket.emit("addToLiveSessions",id,user.email,user.displayName);
+      socket.emit("addToLiveSessions",id,user.email,user.displayName,JSON.stringify(globalLive));
     }
     console.log(id);
     document.querySelector('.containerForCanvas').classList.remove('hidden');

@@ -15,7 +15,8 @@ const {
   userLeave,
   getCurrentUser,
   setAdmin,   
-  addToLiveStream
+  addToLiveStream,
+  getCurrLiveStreams
 } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
@@ -26,7 +27,7 @@ const io = socketio(server);
 function onConnection(socket) {
   socket.on("chala_gaya", () => {
     const user = userLeave(socket.id);
-    console.log(user);
+    //console.log(user);
     if(user)
     {
       io.to(user.room).emit("user-disconnected", user.username);
@@ -40,13 +41,19 @@ function onConnection(socket) {
       });
     }
   });
-  socket.on("addToLiveSessions",(roomId,adminEmail,adminName)=>{
-    let currLiveStreams=addToLiveStream(roomId,adminName);
-    console.log(currLiveStreams)
+  socket.on("addToLiveSessions",(roomId,adminEmail,adminName,data)=>{
+    data=JSON.parse(data);
+    let currLiveStreams=addToLiveStream(roomId,adminName,data.title,data.tags);
+    //console.log(currLiveStreams)
     io.emit("ongoingLives",currLiveStreams);
   })
+  socket.on("bringLives",()=>{
+    console.log(getCurrLiveStreams())
+
+    socket.emit("ongoingLives",getCurrLiveStreams());
+  })
   socket.on("editorChange", (data, room) => {
-    console.log(data,room)
+    //console.log(data,room)
     socket.broadcast.to(room).emit("changeEdit", data);
   });
   socket.on("compileCode", (data, room) => {
@@ -60,7 +67,7 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
   });
   socket.on("checkId", (room) => {
-    console.log(room);
+    //console.log(room);
     let users2 = getRoomUsers(room);
     if (users2.length == 0) {
       socket.emit("roomIdChecked", 0);
@@ -83,7 +90,7 @@ function onConnection(socket) {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
   socket.on("join-room", (roomId, userId, username,isAdmin) => {
-    // console.log(userId);
+    // //console.log(userId);
     if(isAdmin)
     {
       setAdmin(roomId,userId);
@@ -95,7 +102,7 @@ function onConnection(socket) {
     }
     socket.join(roomId);
     roomUsers = getRoomUsers(roomId);
-    // console.log(roomUsers)
+    // //console.log(roomUsers)
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
 
@@ -118,7 +125,7 @@ function onConnection(socket) {
   });
 
   socket.on("chatMessage", (userMessage) => {
-    // console.log(userMessage)
+    // //console.log(userMessage)
     const user = getCurrentUser(socket.id);
     if (user) {
       io.to(user.room).emit(
@@ -139,7 +146,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 app.use(express.static(path.join(__dirname, "public")));
 server.listen(PORT, host, function () {
-  console.log("Server started.......");
+  //console.log("Server started.......");
 });
 const bodyParser = require("body-parser");
 
@@ -150,7 +157,7 @@ var nodemailer = require("nodemailer");
 app.post("/reportError", (req, res) => {
   var data = req.body;
   data = JSON.stringify(data);
-  console.log(data);
+  //console.log(data);
 
   var transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -169,9 +176,9 @@ app.post("/reportError", (req, res) => {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log(error);
+      //console.log(error);
     } else {
-      console.log("Email sent: " + info.response);
+      //console.log("Email sent: " + info.response);
     }
   });
 });

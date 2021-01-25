@@ -113,6 +113,7 @@ $(".call_end").click(function () {
 var socket = io();
 
 socket.on("ongoingLives", (currLiveStreams) => {
+  console.log(currLiveStreams)
   for (let i = 0; i < currLiveStreams.length; i++) {
     let div = document.createElement("div");
     div.className = "ongoing-card";
@@ -122,9 +123,10 @@ socket.on("ongoingLives", (currLiveStreams) => {
       <img src="https://lh3.googleusercontent.com/a-/AOh14GgRrjdvx4gxdGrywp26XGatxSDDsytCSxS3s3Djsg=s96-c" class="displayPic ongoing-img">
     </span>
     <span class="ongoing-card-content">
-      <span class="ongoing-title">${currLiveStreams[i].id}</span>
+    <span class="ongoing-title hidden">${currLiveStreams[i].id}</span> 
+    <span class="ongoing-title">${currLiveStreams[i].title}</span>
       <br>
-      <span class="ongoing-tags"> #web #lawda #lassan</span>
+      <span class="ongoing-tags"> ${currLiveStreams[i].tags}</span>
       <br>
       <span class="ongoing-ad">Admin: <span class="ongoing-admin">${currLiveStreams[i].username}</span></span>
     </span>
@@ -221,6 +223,7 @@ function displaySavedOnes() {
 
   $(".ongoing-but").click(function () {
     show_screen(Ongoing_coderences_screen);
+    socket.emit("bringLives");
   });
 
   $(".ongoing-back").click(function () {
