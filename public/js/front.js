@@ -140,14 +140,34 @@ function backNavRight() {
   $(".closebtn").removeClass("hidden");
   $(".sidenav-right-menu").removeClass("hidden");
   $(".chat-box").addClass("hidden");
+  $(".sidenav-share-code").addClass("hidden");
   $(".backbtn").addClass("hidden");
 }
 
+$(".copy-code").click(function() {
+  var copyText = document.getElementById("share-code-room");
+  var textArea = document.createElement("textarea");
+  textArea.value = copyText.textContent;
+  document.body.appendChild(textArea);
+  let copyCode = textArea.value;
+  textArea.select();
+  document.execCommand("Copy");
+  textArea.remove();
+  alert("Copied the code: " + copyCode);
+})
+
+$(".right-share").click(function() {
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
+  $(".sidenav-share-code").removeClass("hidden");
+  $(".backbtn").removeClass("hidden");
+})
+
 $(".right-chat").click(function(){
   $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
   $(".chat-box").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
-  $(".closebtn").addClass("hidden");
 })
 
 $(".right-options").click(function () {

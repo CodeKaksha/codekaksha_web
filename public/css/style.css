@@ -1991,3 +1991,21 @@ span > .golive-fields:focus {
   align-items: center;
   cursor: pointer;
 }
+
+.sidenav-share-code {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.share-row1, .share-row2 {
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-default-text, .share-codes {
+  font-size: 1.4rem;
+}
