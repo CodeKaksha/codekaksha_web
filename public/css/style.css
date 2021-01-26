@@ -2111,3 +2111,8 @@ span > .golive-fields:focus {
 .user-cam, .user-mic, .user-kick {
   cursor: pointer;
 }
+
+.sidenav-error {
+  display: flex;
+  width: 90%;
+}

@@ -142,6 +142,7 @@ function backNavRight() {
   $(".chat-box").addClass("hidden");
   $(".sidenav-share-code").addClass("hidden");
   $(".user-list").addClass("hidden");
+  $(".sidenav-error").addClass("hidden");
   $(".backbtn").addClass("hidden");
 }
 
@@ -184,6 +185,17 @@ $(".right-options").click(function () {
   $(".menu-open").fadeToggle();
   closeNavRight();
 });
+
+$(".right-error").click(function() {
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
+  $(".sidenav-error").removeClass("hidden");
+  $(".backbtn").removeClass("hidden");
+})
+
+$(".error-submit").click(function() {
+  alert("Your report form has been submitted!\nWe will try to fix the errors soon!");
+})
 
 var socket = io();
 
