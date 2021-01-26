@@ -38,7 +38,16 @@ $(document).ready(function () {
     });
     e.preventDefault();
   });
-
+  document.querySelector(".feedback-form-link").addEventListener("click", (e)=>{
+    show_screen(user_detail_screen);
+  })
+  let logos=document.querySelectorAll(".logog");
+  for (let i=0; i < logos.length; i++)
+  {
+    logos[i].addEventListener("click", (e)=>{
+      show_screen(after_login_screen);
+    })
+  }
   $("#modal1").modal();
   $("#modal2").modal();
   $("#modal3").modal();
