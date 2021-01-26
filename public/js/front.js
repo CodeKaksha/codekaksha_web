@@ -141,8 +141,16 @@ function backNavRight() {
   $(".sidenav-right-menu").removeClass("hidden");
   $(".chat-box").addClass("hidden");
   $(".sidenav-share-code").addClass("hidden");
+  $(".user-list").addClass("hidden");
   $(".backbtn").addClass("hidden");
 }
+
+$(".right-people-list").click(function() {
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
+  $(".user-list").removeClass("hidden");
+  $(".backbtn").removeClass("hidden");
+})
 
 $(".copy-code").click(function() {
   var copyText = document.getElementById("share-code-room");

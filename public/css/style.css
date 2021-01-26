@@ -2009,3 +2009,46 @@ span > .golive-fields:focus {
 .share-default-text, .share-codes {
   font-size: 1.4rem;
 }
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.user-list-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+}
+
+.user-name {
+  padding-right: 10px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
+}
+
+.user-pic {
+  padding-right: 10px;
+}
+
+.user-photo {
+  height: 30px;
+  width: 30px;
+}
+
+.user-mic {
+  padding-right: 10px;
+}
+
+.user-cam {
+  padding-right: 10px;
+}
+
+.user-cam, .user-mic, .user-kick {
+  cursor: pointer;
+}
