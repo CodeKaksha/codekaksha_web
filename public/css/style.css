@@ -224,8 +224,63 @@ nav div a {
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  background-color: #6c6ad2;
+  background-color: #966b9d;
   padding: 5px 30px 40px 30px;
+}
+.illustration1{
+  position: absolute;
+  right:3rem;
+  top:0;
+  width:360px;
+
+}
+.vidTitle h1{
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #337357;
+}
+.title h1{
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #337357;
+
+}
+.featureList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  grid-gap:2rem;
+  padding:1rem;
+}
+.feature{
+  padding:1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.feature img{
+  width:100px;  
+}
+.feature h1{
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 0.7rem;
+  font-family: "Poppins", sans-serif;
+}
+.title h2{
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+
 }
 
 .ongoing-but, .ongoing-back {
@@ -294,7 +349,7 @@ li.fixed-action-btn-horizontal .btn-floating {
 .heading1-page1 {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
-  text-align: center;
+  text-align: left;
   color: #337357;
   margin-top: 150px;
   font-weight: 700;
@@ -305,7 +360,7 @@ li.fixed-action-btn-horizontal .btn-floating {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   color: #966b9d;
   margin-top: 20px;
   letter-spacing: 1px;
@@ -316,12 +371,12 @@ li.fixed-action-btn-horizontal .btn-floating {
 .heading4-page1 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  text-align: center;
+  text-align: left; 
   color: black;
 }
 
 .heading5-page1 {
-  text-align: center;
+  text-align: left;
   margin-top: 30px;
 }
 
@@ -329,10 +384,14 @@ li.fixed-action-btn-horizontal .btn-floating {
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  background-color: #6c6ad2;
+  background-color: #966b9d;
   padding: 5px 30px 40px 30px;
 }
-
+.container2-page1{
+  padding:0rem 3rem;
+  position: relative;
+  min-height: 80vh;
+}
 .waves-page1 {
   display: flex;
   justify-content: space-between;

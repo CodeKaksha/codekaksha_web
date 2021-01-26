@@ -73,7 +73,6 @@ function whiteBoard(room) {
     dragWhiteboard(canvas);
     zIndexManageOpposite();
     current.color = "transparent";
-
   });
 
   document.getElementById("pencilSmall").addEventListener("click", () => {
@@ -269,51 +268,63 @@ function whiteBoard(room) {
   socket.on("boardClear", () => {
     context.clearRect(0, 0, canvas.width, canvas.height);
   });
-  let redoBtn = document.querySelector(".redo");
-  redoBtn.addEventListener("click", redo);
+  // let redoBtn = document.querySelector(".redo");
+  // redoBtn.addEventListener("click", redo);
   function redo(e) {
-    var image = new Image();
-    image.onload = function () {
+    if (
+      e.ctrlKey &&
+      e.keyCode == 89 &&
+      document.activeElement == document.body
+    ) {
+      var image = new Image();
+      image.onload = function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        console.log("d");
+        context.drawImage(image, 0, 0); // draw the new image to the screen
+      };
       context.clearRect(0, 0, canvas.width, canvas.height);
-      console.log("d");
-      context.drawImage(image, 0, 0); // draw the new image to the screen
-    };
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    image.src = JSON.parse(redoStack.peek()).image;
-    stack.push(redoStack.peek());
-    socket.emit("redo",room);
-    redoStack.pop();
+      image.src = JSON.parse(redoStack.peek()).image;
+      stack.push(redoStack.peek());
+      socket.emit("redo", room);
+      redoStack.pop();
+    }
   }
 
-  let undoBtn = document.querySelector(".undo");
-  undoBtn.addEventListener("click", undo);
+  // let undoBtn = document.querySelector(".undo");
+  // undoBtn.addEventListener("click", undo);
   function undo(e) {
-    redoStack.push(stack.peek());
-    stack.pop();
-    var image = new Image();
-    image.onload = function () {
+    if (
+      e.ctrlKey &&
+      e.keyCode == 90 &&
+      document.activeElement == document.body
+    ) {
+      redoStack.push(stack.peek());
+      stack.pop();
+      var image = new Image();
+      image.onload = function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        console.log("d");
+        context.drawImage(image, 0, 0); // draw the new image to the screen
+      };
       context.clearRect(0, 0, canvas.width, canvas.height);
-      console.log("d");
-      context.drawImage(image, 0, 0); // draw the new image to the screen
-    };
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    socket.emit("undo",room);
-    image.src = JSON.parse(stack.peek()).image;
+      socket.emit("undo", room);
+      image.src = JSON.parse(stack.peek()).image;
+    }
   }
-  socket.on("undo",()=>{
+  socket.on("undo", () => {
     undo();
   });
-  socket.on("redo",()=>{
-    redo()
-  })
+  socket.on("redo", () => {
+    redo();
+  });
   let nextBtn = $(".nextPage");
   let prevBtn = $(".prevPage");
   let no1 = 0;
   let j = 0;
   nextBtn.on("click", nextBtnFn);
-  function nextBtnFn(e){
+  function nextBtnFn(e) {
     e.preventDefault();
-    socket.emit("nextBtn",room);
+    socket.emit("nextBtn", room);
     if (j == Math.max(whiteBoardPages.length, 0)) {
       let canvas = document.querySelector(".whiteBoard");
       var context = canvas.getContext("2d");
@@ -366,9 +377,9 @@ function whiteBoard(room) {
   }
 
   prevBtn.on("click", prevBtnFn);
-  function prevBtnFn(e){
+  function prevBtnFn(e) {
     e.preventDefault();
-    socket.emit("prevBtn",room);
+    socket.emit("prevBtn", room);
     console.log(whiteBoardPages);
     var canvas = document.querySelector(".whiteBoard");
     var context = canvas.getContext("2d");
@@ -402,13 +413,12 @@ function whiteBoard(room) {
     document.querySelector(".containerForCanvas").innerHTML =
       whiteBoardPages[j].containerForCanvas;
   }
-  socket.on("nextBtn",()=>{
+  socket.on("nextBtn", () => {
     nextBtnFn();
-  })
-  socket.on("prevBtn",()=>{
+  });
+  socket.on("prevBtn", () => {
     prevBtnFn();
-  })
-
+  });
 
   //DON'T REMOVE!
   //   document.querySelector(".retrieve").addEventListener("click", (e) => {
@@ -435,6 +445,8 @@ function whiteBoard(room) {
   document.addEventListener("keyup", penLarge, false);
   document.addEventListener("keyup", penMed, false);
   document.addEventListener("keyup", penSm, false);
+  document.addEventListener("keyup", undo, false);
+  document.addEventListener("keyup", redo, false);
 }
 
 function dragWhiteboard(whiteboard) {
@@ -442,18 +454,16 @@ function dragWhiteboard(whiteboard) {
     e.preventDefault();
   });
 }
-function zIndexManage()
-{
-  let containerForCanvas=document.querySelectorAll('.containerForCanvas');
-  for(let i=0;i<containerForCanvas.length;i++){
-    containerForCanvas[i].style="z-index:-1";
+function zIndexManage() {
+  let containerForCanvas = document.querySelectorAll(".containerForCanvas");
+  for (let i = 0; i < containerForCanvas.length; i++) {
+    containerForCanvas[i].style = "z-index:-1";
   }
 }
 
-function zIndexManageOpposite()
-{
-  let containerForCanvas=document.querySelectorAll('.containerForCanvas');
-  for(let i=0;i<containerForCanvas.length;i++){
-    containerForCanvas[i].style="z-index:1";
+function zIndexManageOpposite() {
+  let containerForCanvas = document.querySelectorAll(".containerForCanvas");
+  for (let i = 0; i < containerForCanvas.length; i++) {
+    containerForCanvas[i].style = "z-index:1";
   }
 }
