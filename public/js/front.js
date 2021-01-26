@@ -182,7 +182,7 @@ $(".right-options").click(function () {
   $(".mute-end-cam").removeClass("visible");
   $(".mute-end-cam").fadeToggle();
   $(".menu-open").fadeToggle();
-  closeNav();
+  closeNavRight();
 });
 
 var socket = io();
