@@ -21,10 +21,13 @@ window.setInterval(() => {
 $(document).ready(function () {
   // $('.fixed-action-btn').floatingActionButton();
   var elems = document.querySelectorAll(".fixed-action-btn");
+  var elems2 = document.querySelectorAll(".fixed-action-btn-horizontal");
   var instances = M.FloatingActionButton.init(elems, {
-    // direction:'right',
     // toolbarEnabled : true,
     hoverEnabled: false,
+  });
+  var instances2 = M.FloatingActionButton.init(elems2, {
+    direction:'right',
   });
 
   $("#reportForm").on("submit", function (e) {
