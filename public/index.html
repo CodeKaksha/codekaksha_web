@@ -1044,7 +1044,7 @@
       </div>
 
       <div class="video-grid">
-        <div class="chat-box z-depth-3 visible">
+        <!-- <div class="chat-box z-depth-3 visible">
           <div class="chat-header">
             <i class="small material-icons close-msg" style="cursor: pointer">
               close
@@ -1056,18 +1056,79 @@
           <form id="chat-form">
             <div class="chat-message">
               <input id="msg" name="name" class="form-control user-msg" placeholder="message" />
-              <!-- <span class="user-send"> -->
+               <span class="user-send">
               <btn>
                 <i class="material-icons msg-send"> send </i>
               </btn>
 
+               </span>
+            </div>
+          </form>
+        </div> -->
+        <!-- <div class="option-menu" style="cursor: pointer">
+          <i class="material-icons" style="font-size: 3rem"> menu </i>
+        </div>   -->
+
+        <div onclick="openNavRight()" class="option-menus" style="cursor: pointer">
+          <i class="material-icons" style="font-size: 3rem"> menu </i>
+        </div> 
+
+        <div id="mySidenav-right" class="sidenav-right">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavRight()">&times;</a>
+          <a href="javascript:void(0)" class="backbtn hidden" onclick="backNavRight()">&larr;</a>
+          <div class="sidenav-right-menu hidden">
+            <div class="right-people-list">
+              <i class="small material-icons"> list </i>
+              <span class="right-menu-text">Show People List</span>
+            </div>
+            <div class="right-video-list">
+              <i class="small material-icons"> group </i>
+              <span class="right-menu-text">Show People video</span>
+            </div>
+            <div class="right-chat">
+              <i class="small material-icons"> chat </i>
+              <span class="right-menu-text">Chat</span>
+            </div>
+            <div class="right-share" style="cursor: pointer">
+              <i class="small material-icons"> share </i>
+              <span class="right-menu-text"> Share </span>
+          </div>
+          <div class="right-present">
+            <i class="small material-icons"> present_to_all </i>
+            <span class="right-menu-text">Present Screen</span>
+          </div>
+          <div class="right-options">
+            <i class="small material-icons"> more_vert </i>
+            <span class="right-menu-text">Options</span>
+          </div>
+          <div class="right-error">
+            <i class="small material-icons"> error </i>
+            <span class="right-menu-text">Report</span>
+          </div>
+        </div>
+
+        <div class="chat-box hidden">
+          <span class="chat-title"> Chat </span>
+          <div class="chat-body" style="text-align: left">
+            <div class="message"></div>
+          </div>
+          <form id="chat-form">
+            <div class="chat-message">
+              <input id="msg" name="name" class="form-control user-msg" placeholder="message" autocomplete="off"/>
+              <!-- <span class="user-send"> -->
+              <btn>
+                <i class="material-icons msg-send"> send </i>
+              </btn>
               <!-- </span> -->
             </div>
           </form>
         </div>
-        <div class="option-menu" style="cursor: pointer">
-          <i class="material-icons" style="font-size: 3rem"> menu </i>
-        </div>
+
+      </div>
+
+
+
+
         <div class="menu-open visible">
           <div class="menu-column1">
             <div class="option video-hide" style="cursor: pointer">

@@ -110,6 +110,41 @@ $(".call_end").click(function () {
   }
 });
 
+// side-nav-right
+function openNavRight() {
+  document.getElementById("mySidenav-right").style.width = "350px";
+  setTimeout(() => {
+    $(".sidenav-right-menu").removeClass("hidden");
+  }, 700);
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNavRight() {
+  document.getElementById("mySidenav-right").style.width = "0";
+  $(".sidenav-right-menu").addClass("hidden");
+}
+
+function backNavRight() {
+  $(".closebtn").removeClass("hidden");
+  $(".sidenav-right-menu").removeClass("hidden");
+  $(".chat-box").addClass("hidden");
+  $(".backbtn").addClass("hidden");
+}
+
+$(".right-chat").click(function(){
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".chat-box").removeClass("hidden");
+  $(".backbtn").removeClass("hidden");
+  $(".closebtn").addClass("hidden");
+})
+
+$(".right-options").click(function () {
+  $(".mute-end-cam").removeClass("visible");
+  $(".mute-end-cam").fadeToggle();
+  $(".menu-open").fadeToggle();
+  closeNav();
+});
+
 var socket = io();
 
 socket.on("ongoingLives", (currLiveStreams) => {
