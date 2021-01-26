@@ -885,6 +885,71 @@ a {
   color: inherit;
 }
 
+.chat-title {
+  font-size: 2rem;
+  color: white;
+}
+.chat-box {
+  height: 548px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.chat-body {
+  min-height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.chat-message {
+  height: 100px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-msg {
+  height: 80px;
+  min-width: 150px;
+  max-width: 150px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white;
+  overflow: auto;
+  border: none;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.chat-box .message {
+  width: 280px;
+  margin-left: 10px;
+}
+
+.user-img:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+
+.user-send {
+  height: 80px;
+  width: 30px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.msg-send {
+  font-size: 1.6rem;
+}
+
+/*
 .chat-box {
   z-index: 99999;
   height: 78vh;
@@ -956,7 +1021,7 @@ a {
 .msg-send {
   font-size: 1.6rem;
 }
-
+*/
 .visible {
   visibility: hidden;
 }
@@ -1798,4 +1863,77 @@ span > .golive-fields:focus {
   display: flex;
   justify-content: space-between;
   width: 35%;
+}
+
+
+/* The side navigation menu */
+.sidenav-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.7s;
+  padding-top: 100px;
+}
+
+.sidenav-right a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav-right a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav-right .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidenav-right .backbtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+}
+
+.option-menus {
+  position: absolute;
+  right: 0;
+}
+
+.sidenav-right-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.right-menu-text {
+  font-size: 1.4rem;
+  padding-left: 10px;
+}
+
+.right-people-list, .right-video-list, .right-chat,
+.right-share, .right-present, .right-options, .right-error {
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
 }
