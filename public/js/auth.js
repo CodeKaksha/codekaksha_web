@@ -19,7 +19,7 @@ auth.onAuthStateChanged((user) => {
     }
     displaySavedOnes();
 
-    show_screen(user_detail_screen);
+    show_screen(after_login_screen);
     //show_screen(after_login_screen);
   } else {
     show_screen(index_screen);

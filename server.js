@@ -81,7 +81,12 @@ function onConnection(socket) {
   socket.on("drawing", (data, width, room) => {
     socket.broadcast.to(room).emit("drawing", data, width);
   });
-
+  socket.on("undo",room=>{
+    socket.broadcast.to(room).emit("undo");
+  });
+  socket.on("redo",room=>{
+    socket.broadcast.to(room).emit("redo");
+  })
   socket.on("give_id", () => {
     let ID = nanoid(4);
     io.to(socket.id).emit("rec_id", ID);
@@ -95,7 +100,12 @@ function onConnection(socket) {
     {
       setAdmin(roomId,userId);
     }
+    else{
+      let roomUsers = getRoomUsers(roomId);
+      io.to(roomUsers[0].socketId).emit("notificationToAccept",username);
+    }
     const user = userJoin(userId, username, roomId, socket.id);
+
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {
       io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);

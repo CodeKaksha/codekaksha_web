@@ -281,6 +281,7 @@ function whiteBoard(room) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     image.src = JSON.parse(redoStack.peek()).image;
     stack.push(redoStack.peek());
+    socket.emit("redo",room);
     redoStack.pop();
   }
 
@@ -296,14 +297,23 @@ function whiteBoard(room) {
       context.drawImage(image, 0, 0); // draw the new image to the screen
     };
     context.clearRect(0, 0, canvas.width, canvas.height);
+    socket.emit("undo",room);
     image.src = JSON.parse(stack.peek()).image;
   }
+  socket.on("undo",()=>{
+    undo();
+  });
+  socket.on("redo",()=>{
+    redo()
+  })
   let nextBtn = $(".nextPage");
   let prevBtn = $(".prevPage");
   let no1 = 0;
   let j = 0;
-  nextBtn.on("click", (e) => {
+  nextBtn.on("click", nextBtnFn);
+  function nextBtnFn(e){
     e.preventDefault();
+    socket.emit("nextBtn",room);
     if (j == Math.max(whiteBoardPages.length, 0)) {
       let canvas = document.querySelector(".whiteBoard");
       var context = canvas.getContext("2d");
@@ -353,9 +363,12 @@ function whiteBoard(room) {
           whiteBoardPages[j].containerForCanvas;
       }
     }
-  });
-  prevBtn.on("click", (e) => {
+  }
+
+  prevBtn.on("click", prevBtnFn);
+  function prevBtnFn(e){
     e.preventDefault();
+    socket.emit("prevBtn",room);
     console.log(whiteBoardPages);
     var canvas = document.querySelector(".whiteBoard");
     var context = canvas.getContext("2d");
@@ -388,7 +401,15 @@ function whiteBoard(room) {
     image.src = JSON.parse(whiteBoardPages[j].whiteboard).image;
     document.querySelector(".containerForCanvas").innerHTML =
       whiteBoardPages[j].containerForCanvas;
-  });
+  }
+  socket.on("nextBtn",()=>{
+    nextBtnFn();
+  })
+  socket.on("prevBtn",()=>{
+    prevBtnFn();
+  })
+
+
   //DON'T REMOVE!
   //   document.querySelector(".retrieve").addEventListener("click", (e) => {
   //     e.preventDefault();
