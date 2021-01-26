@@ -1988,7 +1988,7 @@ span > .golive-fields:focus {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 999999999999999;
   top: 0;
   right: 0;
   background-color: #111;
