@@ -861,6 +861,7 @@ h5 span {
   background-color: #314855;
 }
 
+
 .video {
   background-color: #314855;
   min-width: 27.5%;
@@ -871,7 +872,7 @@ h5 span {
   /* flex-direction: column; */
   align-items: center;
   overflow-y: auto;
-}
+} 
 
 .input-output {
   background-color: #1a1c20;
@@ -918,13 +919,13 @@ textarea {
   font-size: 1rem;
   color: black;
 }
-
+/*
 video {
   height: 20%;
   width: 90%;
   background-color: transparent;
   margin-top: 20px;
-}
+} */
 
 .mute-end-cam {
   display: flex;
@@ -2025,6 +2026,13 @@ span > .golive-fields:focus {
   font-size: 36px;
 }
 
+.sidenav-right .backvidbtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+}
+
 .option-menus {
   position: absolute;
   right: 0;
@@ -2116,6 +2124,68 @@ span > .golive-fields:focus {
   display: flex;
   width: 90%;
 }
+
+.sidenav-videogrid {
+  display: flex;
+  height: 100%;
+  width: 96%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.video-element {
+  min-width: 24%;
+  height: 100%;
+  max-height: 400px;
+  background-color: white;
+}
+
+.video-element video {
+  min-width: 24%;
+  height: 100%;
+  max-height: 400px;
+}
+
+/* left side navigation */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9999999999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
 /* BOT */
 
 .floating-chat {

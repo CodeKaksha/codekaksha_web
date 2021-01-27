@@ -136,6 +136,28 @@ function closeNavRight() {
   $(".sidenav-right-menu").addClass("hidden");
 }
 
+function decNavRight() {
+  document.getElementById("mySidenav-right").style.width = "350px";
+  $(".closebtn").removeClass("hidden");
+  setTimeout(() => {
+    $(".sidenav-right-menu").removeClass("hidden");
+  }, 700);
+  $(".backvidbtn").addClass("hidden");
+  $(".sidenav-videogrid").addClass("hidden");
+}
+
+function expNavRight() {
+  document.getElementById("mySidenav-right").style.width = "100%";
+}
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
 function backNavRight() {
   $(".closebtn").removeClass("hidden");
   $(".sidenav-right-menu").removeClass("hidden");
@@ -153,6 +175,16 @@ $(".right-people-list").click(function() {
   $(".backbtn").removeClass("hidden");
 })
 
+$(".right-video-list").click(function() {
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
+  expNavRight();
+  setTimeout(() => {
+    $(".sidenav-videogrid").removeClass("hidden");
+    $(".backvidbtn").removeClass("hidden");
+  }, 700);
+})
+
 $(".copy-code").click(function() {
   var copyText = document.getElementById("share-code-room");
   var textArea = document.createElement("textarea");
@@ -165,17 +197,22 @@ $(".copy-code").click(function() {
   alert("Copied the code: " + copyCode);
 })
 
-$(".right-share").click(function() {
-  $(".sidenav-right-menu").addClass("hidden");
-  $(".closebtn").addClass("hidden");
-  $(".sidenav-share-code").removeClass("hidden");
-  $(".backbtn").removeClass("hidden");
+$(".right-present").click(function() {
+  closeNavRight();
+  openNav();
 })
 
 $(".right-chat").click(function(){
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   $(".chat-box").removeClass("hidden");
+  $(".backbtn").removeClass("hidden");
+})
+
+$(".right-share").click(function() {
+  $(".sidenav-right-menu").addClass("hidden");
+  $(".closebtn").addClass("hidden");
+  $(".sidenav-share-code").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
 })
 

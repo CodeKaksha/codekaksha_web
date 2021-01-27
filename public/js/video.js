@@ -1,7 +1,7 @@
 
 function video(videoId,username,room) {
 
-  const video_grid = document.querySelector(`#${videoId}`);
+  const video_grid = document.querySelector(`.${videoId}`);
   const myvideo = document.createElement("video");
   myvideo.muted = true;
   console.log('in video main')

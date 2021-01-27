@@ -48,7 +48,7 @@ function ready(id, edit,isAdmin) {
     paint(id);
     removeVideo("videoBeforeJoin");
     whiteBoard(id);
-    video("video-add", user.displayName, id);
+    video("sidenav-videogrid", user.displayName, id);
     editor(id);
   });
 
