@@ -1,23 +1,24 @@
 const path = require("path");
 require("dotenv").config();
 const StreamrClient = require('streamr-client')
-
+const wallet=StreamrClient.generateEthereumAccount()
 const streamr = new StreamrClient({
     auth: {
-        privateKey: '0xe0850db7c1901b9b7e4d400cc5803959d79588aadc70157ccdd94dae57f1e24b',
+        privateKey: wallet.privateKey,
     },
-    // url:'wss://hack.streamr.network/api/v1/ws',
-    // restUrl: 'https://hack.streamr.network/api/v1'
+    url:'wss://hack.streamr.network/api/v1/ws',
+    restUrl: 'https://hack.streamr.network/api/v1'
 })
 
-// Subscribe to a stream
+streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
+// Subscribe to a stream 
 streamr.subscribe({
-    stream: '0x2bf0f8547d90f39c0f4894a7cd144f3476f0f0f7/codekaksha',
+    stream: '0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha',
 }, (message, metadata) => {
     // Do something with the message here!
     console.log(message)
 })
-streamr.publish('0x2bf0f8547d90f39c0f4894a7cd144f3476f0f0f7/codekaksha', {
+streamr.publish('0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha', {
   temperature: 25.4,
   humidity: 10,
   happy: true,
