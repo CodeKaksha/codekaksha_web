@@ -1,5 +1,29 @@
 const path = require("path");
 require("dotenv").config();
+const StreamrClient = require('streamr-client')
+
+const streamr = new StreamrClient({
+    auth: {
+        privateKey: '0xe0850db7c1901b9b7e4d400cc5803959d79588aadc70157ccdd94dae57f1e24b',
+    },
+    // url:'wss://hack.streamr.network/api/v1/ws',
+    // restUrl: 'https://hack.streamr.network/api/v1'
+})
+
+// Subscribe to a stream
+streamr.subscribe({
+    stream: '0x2bf0f8547d90f39c0f4894a7cd144f3476f0f0f7/codekaksha',
+}, (message, metadata) => {
+    // Do something with the message here!
+    console.log(message)
+})
+streamr.publish('0x2bf0f8547d90f39c0f4894a7cd144f3476f0f0f7/codekaksha', {
+  temperature: 25.4,
+  humidity: 10,
+  happy: true,
+})
+
+// client.publish("0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha", msg)
 const express = require("express");
 var ExpressPeerServer = require("peer").ExpressPeerServer;
 const app = express();
@@ -156,7 +180,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 app.use(express.static(path.join(__dirname, "public")));
 server.listen(PORT, host, function () {
-  //console.log("Server started.......");
+  console.log("Server started.......");
 });
 const bodyParser = require("body-parser");
 

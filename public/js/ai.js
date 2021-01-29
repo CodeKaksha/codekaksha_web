@@ -77,7 +77,18 @@ const trigger = [
   ["4"],
   ["5"]  
 ];
-
+const def=[`Hey, How may I help you? Please choose one of the following.
+<br>
+1. How to create a coderence
+<br>
+2. Shortcut keys for whiteboard.
+<br>
+3. How to share meeting code.
+<br>
+4. Go Live Instructions
+<br>
+5. Saving and editing coderences
+<br>`]
 const reply = [
   //0
   ["Hello!", "Hi!", "Hey!", "Hi there!"],
@@ -97,11 +108,29 @@ const reply = [
   ["You're Welcome", "Thank my creators!"],
   //7
   ["Goodbye", "See you later"],
-  ["1"],
-  ["2"],
-  ["3"],
-  ["4"],
-  ["5"] 
+  ["After you login, click on 'Create Coderence' button and you would be redirected to the meet which would have its own code.<br> If you wish to join some other room enter your room id in 'Enter Room Id' input."],
+  [`Here are some shortcuts for your rescue:
+  <br><br>
+
+  A: Drop an array
+  <br>
+  G: Drop a Grid
+  <br>
+  T: Drop a graph
+  <br>
+  S: Pencil Size to Small
+  <br>
+  M: Pencil Size to Medium
+  <br>
+  L: Pencil Size to Large
+  <br>
+  
+  <br>
+  Please Note that they are not functional if your cursor is on the code editor. You have to be in whiteboard Section
+  `],
+  ["Go to the Top right button -> Share Screen3"],
+  ["You can go live and then anyone can join without your permission to the room and without your room id. Though you would have all the access to who controls the whiteboard.	(Maybe not Functional(We are too lazy))"],
+  ["Click on the bottom middle right button with + tag in it and then the save button with 'save' symbol on it."] 
  
 ];
 
@@ -111,7 +140,12 @@ const alternative = [
   "I am not AI",
   "That's rude now",
 ];
-function sendNewMessage() {
+var messagesContainer = $(".messages");
+window.setTimeout(()=>{
+  
+  messagesContainer.append(['<li class="other">', def, "</li>"].join(""));
+},2000)
+  function sendNewMessage() {
   var userInput = $(".text-box");
   var newMessage = userInput
     .html()
@@ -122,7 +156,6 @@ function sendNewMessage() {
 
   if (!newMessage) return;
 
-  var messagesContainer = $(".messages");
 
   messagesContainer.append(['<li class="self">', newMessage, "</li>"].join(""));
   let product;
@@ -134,6 +167,7 @@ function sendNewMessage() {
     product = alternative[Math.floor(Math.random() * alternative.length)];
   }
   messagesContainer.append(['<li class="other">', product, "</li>"].join(""));
+  messagesContainer.append(['<li class="other">', def, "</li>"].join(""));
 
   // clean out old message
   userInput.html("");
