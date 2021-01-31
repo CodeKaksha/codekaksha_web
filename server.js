@@ -10,7 +10,7 @@ const streamr = new StreamrClient({
     restUrl: 'https://hack.streamr.network/api/v1'
 })
 
-// streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
+streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
 // Subscribe to a stream 
 streamr.subscribe({
     stream: '0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha',
