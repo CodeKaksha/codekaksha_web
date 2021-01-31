@@ -41,9 +41,15 @@ $(document).ready(function () {
     });
     e.preventDefault();
   });
-  document.querySelector(".feedback-form-link").addEventListener("click", (e)=>{
-    show_screen(user_detail_screen);
-  })
+  let feebackForm=document.querySelectorAll(".feedback-form-link");
+  for(let i=0; i<feebackForm.length; i++)
+  {
+    feebackForm[i].addEventListener("click", (e)=>{
+      console.log("hey")
+      show_screen(user_detail_screen);
+    })
+
+  }
   let logos=document.querySelectorAll(".logog");
   for (let i=0; i < logos.length; i++)
   {
@@ -55,7 +61,7 @@ $(document).ready(function () {
   $("#modal2").modal();
   $("#modal3").modal();
   $("#modal12").modal();
-  $("#modal5").modal();
+  // $("#modal5").modal();
   $("#array_data").modal();
   $("#grid_data").modal();
   $("#graph_data").modal();
