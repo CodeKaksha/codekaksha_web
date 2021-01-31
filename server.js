@@ -1,10 +1,10 @@
 const path = require("path");
 require("dotenv").config();
 const StreamrClient = require('streamr-client')
-const wallet=StreamrClient.generateEthereumAccount()
+// const wallet=StreamrClient.generateEthereumAccount()
 const streamr = new StreamrClient({
     auth: {
-        privateKey: wallet.privateKey,
+        privateKey:"0f5acd5162446d132389cb5c33f27fb4802224bb9e610d9315e216ecb17bd069",
     },
     url:'wss://hack.streamr.network/api/v1/ws',
     restUrl: 'https://hack.streamr.network/api/v1'
