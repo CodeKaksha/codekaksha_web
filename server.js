@@ -1,28 +1,23 @@
 const path = require("path");
 require("dotenv").config();
 const StreamrClient = require('streamr-client')
-const wallet=StreamrClient.generateEthereumAccount()
+// const wallet=StreamrClient.generateEthereumAccount()
 const streamr = new StreamrClient({
     auth: {
-        privateKey: wallet.privateKey,
+        privateKey:"0f5acd5162446d132389cb5c33f27fb4802224bb9e610d9315e216ecb17bd069",
     },
     url:'wss://hack.streamr.network/api/v1/ws',
     restUrl: 'https://hack.streamr.network/api/v1'
 })
 
-streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
+// streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
 // Subscribe to a stream 
 streamr.subscribe({
     stream: '0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha',
 }, (message, metadata) => {
     // Do something with the message here!
     console.log(message)
-})
-streamr.publish('0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha', {
-  temperature: 25.4,
-  humidity: 10,
-  happy: true,
-})
+}) 
 
 // client.publish("0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha", msg)
 const express = require("express");
@@ -68,6 +63,12 @@ function onConnection(socket) {
   });
   socket.on("addToLiveSessions",(roomId,adminEmail,adminName,data)=>{
     data=JSON.parse(data);
+    
+    streamr.publish('0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha', {
+      title: data.title,
+      tags: data.tags,
+      admin: data.adminName,
+    })
     let currLiveStreams=addToLiveStream(roomId,adminName,data.title,data.tags);
     //console.log(currLiveStreams)
     io.emit("ongoingLives",currLiveStreams);
