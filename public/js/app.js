@@ -30,8 +30,9 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
     })
 });
 let globalLive;
-document.querySelector('.golive-submit').addEventListener('click', (e) => {
+document.querySelector('.golive_form_page').addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log("jei")
     let title=document.querySelector(".golive-title").value;
     let tags=document.querySelector(".golive-tags").value;
     let desc=document.querySelector(".golive-description").value;
@@ -50,6 +51,10 @@ document.querySelector('.golive-submit').addEventListener('click', (e) => {
             show_screen(ready_screen);
             videoOnlyUser(`videoBeforeJoin`);
         })
+    }
+    else{
+        alert("some values not entered")
+        show_screen(golive_form_screen)
     }
 });
 socket.on("user-disconnected", (username) => {

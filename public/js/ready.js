@@ -1,5 +1,5 @@
 let ready_btn = document.querySelector(".ready");
-
+let user_email;
 function ready(id, edit,isAdmin) {
   let user = firebase.auth().currentUser;
   console.log(edit)
@@ -10,6 +10,7 @@ function ready(id, edit,isAdmin) {
     }
     console.log(id);
     document.querySelector('.containerForCanvas').classList.remove('hidden');
+    user_email=user.email;
     socket.emit("join-room", id, user.email, user.displayName,isAdmin,user.photoURL);
     document.querySelector("#share-code-room").innerHTML = id;
     socket.on("data_dijiye", (socketId) => {

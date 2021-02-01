@@ -130,7 +130,7 @@ function onConnection(socket) {
       let roomUsers = getRoomUsers(roomId);
       io.to(roomUsers[0].socketId).emit("notificationToAccept",username);
     }
-    const user = userJoin(userId, username, roomId,displayPic, socket.id);
+    const user = userJoin(userId, username, roomId,displayPic, socket.id,isAdmin);
 
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {

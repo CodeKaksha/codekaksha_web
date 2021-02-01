@@ -1,8 +1,8 @@
 const users = [];
 const liveSessions=[];
 const roomAdmins= new Map();
-function userJoin(id, username, room,displayPic,socketId) {
-	const user = { id, username, room, socketId, displayPic};
+function userJoin(id, username, room,displayPic,socketId,isAdmin) {
+	const user = { id, username, room, socketId, displayPic,isAdmin};
 	users.push(user);
 	return user;
 }
