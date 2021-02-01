@@ -76,7 +76,7 @@ function onConnection(socket) {
   socket.on("bringLives",()=>{
     console.log(getCurrLiveStreams())
 
-    socket.emit("ongoingLives",getCurrLiveStreams());
+    io.emit("ongoingLives",getCurrLiveStreams());
   })
   socket.on("editorChange", (data, room) => {
     //console.log(data,room)
