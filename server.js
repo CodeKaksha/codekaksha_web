@@ -120,7 +120,7 @@ function onConnection(socket) {
   socket.on("join-vid", (peerId, username, room) => {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
-  socket.on("join-room", (roomId, userId, username,isAdmin) => {
+  socket.on("join-room", (roomId, userId, username,isAdmin, displayPic) => {
     // //console.log(userId);
     if(isAdmin)
     {
@@ -130,7 +130,7 @@ function onConnection(socket) {
       let roomUsers = getRoomUsers(roomId);
       io.to(roomUsers[0].socketId).emit("notificationToAccept",username);
     }
-    const user = userJoin(userId, username, roomId, socket.id);
+    const user = userJoin(userId, username, roomId,displayPic, socket.id);
 
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {
@@ -140,6 +140,7 @@ function onConnection(socket) {
     roomUsers = getRoomUsers(roomId);
     // //console.log(roomUsers)
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
+    console.log(getRoomUsers(user.room))
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
 
     ///// CHAT

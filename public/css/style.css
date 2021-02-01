@@ -2336,7 +2336,7 @@ span > .golive-fields:focus {
 }
 .floating-chat .chat .messages li.other:before {
   left: -10px;
-  background-image: url('../images/robo.png');
+  /* background-image: url('../images/robo.png'); */
 }
 .floating-chat .chat .messages li.other:after {
   border-right: 10px solid transparent;

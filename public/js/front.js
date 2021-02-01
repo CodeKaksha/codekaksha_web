@@ -27,7 +27,7 @@ $(document).ready(function () {
     hoverEnabled: false,
   });
   var instances2 = M.FloatingActionButton.init(elems2, {
-    direction:'right',
+    direction: "right",
   });
 
   $("#reportForm").on("submit", function (e) {
@@ -41,21 +41,18 @@ $(document).ready(function () {
     });
     e.preventDefault();
   });
-  let feebackForm=document.querySelectorAll(".feedback-form-link");
-  for(let i=0; i<feebackForm.length; i++)
-  {
-    feebackForm[i].addEventListener("click", (e)=>{
-      console.log("hey")
+  let feebackForm = document.querySelectorAll(".feedback-form-link");
+  for (let i = 0; i < feebackForm.length; i++) {
+    feebackForm[i].addEventListener("click", (e) => {
+      console.log("hey");
       show_screen(user_detail_screen);
-    })
-
+    });
   }
-  let logos=document.querySelectorAll(".logog");
-  for (let i=0; i < logos.length; i++)
-  {
-    logos[i].addEventListener("click", (e)=>{
+  let logos = document.querySelectorAll(".logog");
+  for (let i = 0; i < logos.length; i++) {
+    logos[i].addEventListener("click", (e) => {
       show_screen(after_login_screen);
-    })
+    });
   }
   $("#modal1").modal();
   $("#modal2").modal();
@@ -174,14 +171,14 @@ function backNavRight() {
   $(".backbtn").addClass("hidden");
 }
 
-$(".right-people-list").click(function() {
+$(".right-people-list").click(function () {
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   $(".user-list").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
-})
+});
 
-$(".right-video-list").click(function() {
+$(".right-video-list").click(function () {
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   expNavRight();
@@ -189,9 +186,9 @@ $(".right-video-list").click(function() {
     $(".sidenav-videogrid").removeClass("hidden");
     $(".backvidbtn").removeClass("hidden");
   }, 700);
-})
+});
 
-$(".copy-code").click(function() {
+$(".copy-code").click(function () {
   var copyText = document.getElementById("share-code-room");
   var textArea = document.createElement("textarea");
   textArea.value = copyText.textContent;
@@ -201,26 +198,26 @@ $(".copy-code").click(function() {
   document.execCommand("Copy");
   textArea.remove();
   alert("Copied the code: " + copyCode);
-})
+});
 
-$(".right-present").click(function() {
+$(".right-present").click(function () {
   closeNavRight();
   openNav();
-})
+});
 
-$(".right-chat").click(function(){
+$(".right-chat").click(function () {
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   $(".chat-box").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
-})
+});
 
-$(".right-share").click(function() {
+$(".right-share").click(function () {
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   $(".sidenav-share-code").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
-})
+});
 
 $(".right-options").click(function () {
   $(".mute-end-cam").removeClass("visible");
@@ -229,21 +226,23 @@ $(".right-options").click(function () {
   closeNavRight();
 });
 
-$(".right-error").click(function() {
+$(".right-error").click(function () {
   $(".sidenav-right-menu").addClass("hidden");
   $(".closebtn").addClass("hidden");
   $(".sidenav-error").removeClass("hidden");
   $(".backbtn").removeClass("hidden");
-})
+});
 
-$(".error-submit").click(function() {
-  alert("Your report form has been submitted!\nWe will try to fix the errors soon!");
-})
+$(".error-submit").click(function () {
+  alert(
+    "Your report form has been submitted!\nWe will try to fix the errors soon!"
+  );
+});
 
 var socket = io();
 
 socket.on("ongoingLives", (currLiveStreams) => {
-  console.log(currLiveStreams)
+  console.log(currLiveStreams);
   for (let i = 0; i < currLiveStreams.length; i++) {
     let div = document.createElement("div");
     div.className = "ongoing-card";
@@ -360,11 +359,11 @@ function displaySavedOnes() {
     show_screen(after_login_screen);
   });
 
-  $(".golive-but").click(function(){
+  $(".golive-but").click(function () {
     show_screen(golive_form_screen);
   });
 
-  $(".golive-back").click(function() {
+  $(".golive-back").click(function () {
     show_screen(after_login_screen);
   });
 }
@@ -410,7 +409,6 @@ function displayMessageOutgoing(user) {
   document.body.appendChild(div);
 }
 
-function displayRoomUsers(users) {}
 function displayError(err) {
   alert(err);
 }

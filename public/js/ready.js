@@ -10,7 +10,7 @@ function ready(id, edit,isAdmin) {
     }
     console.log(id);
     document.querySelector('.containerForCanvas').classList.remove('hidden');
-    socket.emit("join-room", id, user.email, user.displayName,isAdmin);
+    socket.emit("join-room", id, user.email, user.displayName,isAdmin,user.photoURL);
     document.querySelector("#share-code-room").innerHTML = id;
     socket.on("data_dijiye", (socketId) => {
       var canvas = document.querySelector(".whiteBoard");
