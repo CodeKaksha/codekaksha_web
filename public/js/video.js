@@ -183,6 +183,30 @@ function videoOnlyUser(videoId)
           stream.getAudioTracks()[0].enabled=true;
         }
       })
+      
+      document.querySelector('.video_icon').addEventListener('click',(e)=>{
+        // if(stream.getVideoTracks()[0].enabled)
+        // {
+        //   stream.getVideoTracks()[0].enabled=false;
+        // }
+        // else
+        // {
+        //   stream.getVideoTracks()[0].enabled=true;
+        // }
+        document.querySelector('.video_icon').classList.toggle("pressed")
+      })
+
+      document.querySelector('.mute_icon').addEventListener('click',(e)=>{
+        // if(stream.getAudioTracks()[0].enabled)
+        // {
+        //   stream.getAudioTracks()[0].enabled=false;
+        // }
+        // else
+        // {
+        //   stream.getAudioTracks()[0].enabled=true;
+        // }
+        document.querySelector('.mute_icon').classList.toggle("pressed")
+      })
 
       //LIGHTS ON/OFF KRNE WALA PART ISKE NICHE HAI, ABHI COMMENTS ME HI REHNE DO
       /*document.querySelector('.videoToggler').addEventListener('click',()=>{

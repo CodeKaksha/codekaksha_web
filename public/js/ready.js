@@ -53,14 +53,14 @@ function ready(id, edit,isAdmin) {
     editor(id);
   });
 
-  document.querySelector(".strictMode").addEventListener("click", (e) => {
-    e.preventDefault();
-    $(window).blur(function () {
-      socket.emit("give_alert", id, user.displayName);
+  // document.querySelector(".strictMode").addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   $(window).blur(function () {
+  //     socket.emit("give_alert", id, user.displayName);
 
-      socket.on("bhag_gya_lauda", (username) => {
-        alert(`${username} has switched tabs!`);
-      });
-    });
-  });
+  //     socket.on("bhag_gya_lauda", (username) => {
+  //       alert(`${username} has switched tabs!`);
+  //     });
+  //   });
+  // });
 }

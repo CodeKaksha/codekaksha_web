@@ -2334,6 +2334,55 @@ span > .golive-fields:focus {
   text-align: left;
   color: #ffffff;
 }
+video {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.buttons_ready_screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  
+  z-index: 1;
+  bottom: 0;
+  left:35%;
+  
+} 
+#videoBeforeJoin{
+  position: relative;
+}
+.buttons_ready_screen div{
+  margin:1rem;
+  width:60px;
+  height:60px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background: rgb(223, 223, 223);
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.buttons_ready_screen .pressed{
+ 
+  background:#d93025;
+  color:#fff;
+}
+.buttons_ready_screen .pressed:hover{
+  background: rgba(217, 49, 37, 0.726);
+  box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+}
+.buttons_ready_screen div:hover{
+  background: rgba(212, 212, 212, 0.692);
+  box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+}
+.buttons_ready_screen div i{
+  padding:1rem
+}
+
 .floating-chat .chat .messages li.other:before {
   left: -10px;
   /* background-image: url('../images/robo.png'); */
