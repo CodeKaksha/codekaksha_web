@@ -241,57 +241,6 @@ $(".error-submit").click(function () {
 
 var socket = io();
 
-socket.on("roomUsers", (userForRoom) => {
-  console.log(userForRoom)
-  displayRoomUsers(userForRoom);
-});
-function displayRoomUsers(users) {
-  document.querySelector(".user-list").innerHTML='';
-  for(let i=0;i<users.length;i++){
-    if(users[i].id==user_email)
-    {
-      giveControls();
-    }
-    else if(user[i].isAdmin){
-      giveAllControls();
-    }
-    else{
-
-      let div = document.createElement("div");
-      div.className = "user-list-row";
-      div.innerHTML = `
-      <span class="user-pic">
-                    <img src="${users[i].displayPic}" class="displayPic user-photo">
-                  </span>
-                  <span class="user-name">
-                  ${users[i].username}
-                  </span>
-                  <span class="user-mic">
-                    <i class="material-icons">
-                      mic_off
-                    </i>
-                  </span>
-                  <span class="user-cam">
-                    <i class="material-icons">
-                      videocam_off
-                    </i>
-                  </span>
-                  <span class="user-kick">
-                    <i class="material-icons">
-                      person_remove
-                    </i>
-                  </span>`;
-        document.querySelector(".user-list").appendChild(div)
-    }
-  }
-}
-function giveControls()
-{
-
-}
-function giveAllControls(){
-
-}
 socket.on("ongoingLives", (currLiveStreams) => {
   console.log(currLiveStreams);
   for (let i = 0; i < currLiveStreams.length; i++) {

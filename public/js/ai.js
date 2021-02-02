@@ -64,7 +64,7 @@ const trigger = [
   //2
   ["what is going on", "what is up"],
   //3
-  ["happy", "good", "well", "fantastic", "cool"],
+  ["happy", "good", "well", "fantastic", "cool","ok","okay"],
   //4
   ["bad", "bored", "tired", "sad"],
   //6
@@ -135,10 +135,10 @@ const reply = [
 ];
 
 const alternative = [
-  "Invalid Input Given",
-  "That's not what you typed",
-  "I am not AI",
-  "That's rude now",
+  "Just the above options!",
+  "I wish I was siri",
+  "I am not AI!",
+  "I know I do feel like AI but I am not! I wish I were AI, but these developers, they are just too lazy🤐!",
 ];
 var messagesContainer = $(".messages");
 window.setTimeout(()=>{
