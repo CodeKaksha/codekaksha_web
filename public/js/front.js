@@ -239,7 +239,8 @@ $(".error-submit").click(function () {
   );
 });
 
-var socket = io();
+var socket = io({transports: ['websocket'], upgrade: false});
+
 
 socket.on("ongoingLives", (currLiveStreams) => {
   console.log(currLiveStreams);

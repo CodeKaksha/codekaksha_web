@@ -1,25 +1,31 @@
 const path = require("path");
 require("dotenv").config();
 const StreamrClient = require('streamr-client')
-// const wallet=StreamrClient.generateEthereumAccount()
+const wallet=StreamrClient.generateEthereumAccount()
 const streamr = new StreamrClient({
     auth: {
         privateKey:"0f5acd5162446d132389cb5c33f27fb4802224bb9e610d9315e216ecb17bd069",
     },
     url:'wss://hack.streamr.network/api/v1/ws',
     restUrl: 'https://hack.streamr.network/api/v1'
+})      
+const streamr2 = new StreamrClient({
+  auth: {
+      privateKey:wallet.privateKey,
+  },
+  url:'wss://hack.streamr.network/api/v1/ws',
+  restUrl: 'https://hack.streamr.network/api/v1'
 })
 
-streamr.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw')
-// Subscribe to a stream 
+streamr2.joinDataUnion('0xe89935273d5be635b06df6bf611c82f3c9a9c822','GwYuraUUTrijJmeBChGAXg04LVtL0pQgWDBeL4T9F2Nw').then(()=>{
+  console.log("ho gya") 
+})
 streamr.subscribe({
     stream: '0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha',
 }, (message, metadata) => {
-    // Do something with the message here!
     console.log(message)
 }) 
 
-// client.publish("0xff9fc08971bb45499184141d1bfd1a4fed2b9cf2/codekaksha", msg)
 const express = require("express");
 var ExpressPeerServer = require("peer").ExpressPeerServer;
 const app = express();
@@ -172,9 +178,9 @@ function onConnection(socket) {
       socket.broadcast.to(user.room).emit("toast", "You have a new message");
     }
   });
-}
+} 
 
-io.on("connection", onConnection);
+io.on("connection", onConnection); 
 const PORT = process.env.PORT || 3000;
 const host = "0.0.0.0";
 
@@ -195,7 +201,7 @@ app.post("/reportError", (req, res) => {
   var data = req.body;
   data = JSON.stringify(data);
   //console.log(data);
-
+ 
   var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {

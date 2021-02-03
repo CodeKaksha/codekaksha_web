@@ -131,6 +131,7 @@ function editor(roomId) {
   socket.on("changeEdit", (data) => {
     console.log("hey");
     editor.setValue(data);
+    editor.clearSelection();
   }); 
   
   document.querySelector(".run-but").addEventListener("click", (e) => {

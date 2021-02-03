@@ -260,7 +260,8 @@ function whiteBoard(room) {
 
   //Clear canvas
   document.querySelector(".clear").addEventListener("click", () => {
-    var socket = io();
+    var socket = io({transports: ['websocket'], upgrade: false});
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     socket.emit("clearBoard", room);
   });

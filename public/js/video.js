@@ -185,6 +185,17 @@ function videoOnlyUser(videoId)
       })
       
       document.querySelector('.video_icon').addEventListener('click',(e)=>{
+        if(document.querySelector('.video_icon').classList.contains("pressed"))
+        {
+          stream.getTracks().forEach(function(track) {
+                track.enabled=true;
+          });
+        }
+        else{
+          stream.getTracks().forEach(function(track) {
+                track.enabled=false;
+          });
+        }
         // if(stream.getVideoTracks()[0].enabled)
         // {
         //   stream.getVideoTracks()[0].enabled=false;

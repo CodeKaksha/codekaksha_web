@@ -22,7 +22,7 @@ var gradientSpeed = .0015;
 $(document).ready(function () {
     function dark() {
         $(".container1-page1").css({
-            background: "radial-gradient(circle, #030b17, #080712, #09030b, #060104, #000000)"
+            background: "#333"
         });
         $("nav").addClass("nav-page1-anim");
         $(".navbar-title").css("color", "white").addClass("nav-title-anim");
