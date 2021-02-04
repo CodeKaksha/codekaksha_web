@@ -2,7 +2,7 @@ function paint(room) {
   let rect = document.querySelector(".rectangle");
   let array = document.querySelector("#array_val");
   let grid = document.querySelector("#grid_val");
-  let circle = document.querySelector(".circle");
+  let circle = document.querySelector("#circleBanao");
   let graph = document.querySelector("#graph_val");
   let inp_graph = document.querySelector("#graph");
   let array_num = document.querySelector("#array_num");
@@ -23,6 +23,11 @@ function paint(room) {
     document.querySelector(".containerForCanvas").appendChild(canvas);
     changeMouse();
     dragElement(canvas);
+    socket.emit(
+      "changeInCanvas",
+      document.querySelector(".containerForCanvas").innerHTML,
+      room
+    );
     j++;
   });
   //Add Circles
@@ -40,6 +45,11 @@ function paint(room) {
     changeMouse();
 
     dragElement(canvas);
+    socket.emit(
+      "changeInCanvas",
+      document.querySelector(".containerForCanvas").innerHTML,
+      room
+    );
     s++;
   });
 
@@ -65,6 +75,11 @@ function paint(room) {
     console.trace();
     dragElement(div);
     changeMouse();
+    socket.emit(
+      "changeInCanvas",
+      document.querySelector(".containerForCanvas").innerHTML,
+      room
+    );
     n++;
   });
 
