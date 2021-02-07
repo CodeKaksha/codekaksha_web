@@ -234,6 +234,7 @@ let peerServer = ExpressPeerServer(server, options);
 app.use("/peerjs", peerServer);
 app.get("*", (req, res) => {
   app.set("views", path.join(__dirname, "error"));
+  //aja
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
   app.use(express.static(path.join(__dirname, "error")));
