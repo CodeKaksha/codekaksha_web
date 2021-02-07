@@ -135,7 +135,7 @@ function video(videoId,username,room) {
   }
   var peer = new Peer({
     // secure:true,
-    host: "codekaksha.herokuapp.com",
+    host: "meetncode.herokuapp.com",
     port: "",
     path: "/peerjs",
   });

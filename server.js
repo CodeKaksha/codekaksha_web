@@ -59,7 +59,7 @@ function onConnection(socket) {
       io.to(user.room).emit("user-disconnected", user.username);
       io.to(user.room).emit(
         "message",
-        formatMessage("CodeKaksha", `${user.username} has left the chat`)
+        formatMessage("MeetNCode", `${user.username} has left the chat`)
       );
       io.to(user.room).emit("roomUsers", {
         room: user.room,
@@ -151,13 +151,13 @@ function onConnection(socket) {
 
     ///// CHAT
 
-    socket.emit("message", formatMessage("CodeKaksha", "Welcome to chat"));
+    socket.emit("message", formatMessage("MeetNCode", "Welcome to chat"));
 
     socket.broadcast
       .to(roomId)
       .emit(
         "message",
-        formatMessage("CodeKaksha", `${username} has joined the chat`)
+        formatMessage("MeetNCode", `${username} has joined the chat`)
       );
   });
   socket.on("whiteBoard_data", (data, socketId) => {
