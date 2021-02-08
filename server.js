@@ -160,6 +160,10 @@ function onConnection(socket) {
         formatMessage("MeetNCode", `${username} has joined the chat`)
       );
   });
+  socket.on("mousePosChanged",(x,y,room)=>{
+    console.log(x,y);
+    socket.to(room).broadcast.emit("changeMouseHoGya",x,y);
+  })
   socket.on("whiteBoard_data", (data, socketId) => {
     io.to(socketId).emit("whiteData", data);
   });

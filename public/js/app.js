@@ -11,7 +11,7 @@ document.querySelector('#enterRoom').addEventListener('submit',(e)=>{
             loaderOut();
             ready(roomIdEntered,0,0);   
             show_screen(ready_screen);
-            videoOnlyUser(`videoBeforeJoin`);
+            videoOnlyUser(`videoBeforeJoin`,1);
         }
         else{
             alert('There is no such room available!');
@@ -26,7 +26,7 @@ document.querySelector('.createRoom').addEventListener('click', (e) => {
     socket.on('rec_id',(id)=>{
         ready(id,0,1);
         show_screen(ready_screen);
-        videoOnlyUser(`videoBeforeJoin`);
+        videoOnlyUser(`videoBeforeJoin`,1);
     })
 });
 let globalLive;
@@ -49,7 +49,7 @@ document.querySelector('.golive_form_page').addEventListener('submit', (e) => {
             ready(id,0,1);
             live=1;
             show_screen(ready_screen);
-            videoOnlyUser(`videoBeforeJoin`);
+            videoOnlyUser(`videoBeforeJoin`,1);
         })
     }
     else{

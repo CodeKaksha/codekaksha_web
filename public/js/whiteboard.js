@@ -18,6 +18,14 @@ function whiteBoard(room) {
   colourInput.addEventListener("input", () => {
     current.color = colourInput.value;
   });
+  document.addEventListener('mousemove', (e) => {
+    socket.emit("mousePosChanged",e.pageX,e.pageY,room);
+  })
+  socket.on('changeMouseHoGya',(pos1,pos2)=>{
+    document.querySelector('.mousemove').classList.remove("hidden")
+    document.querySelector('.mousemove').style=`top:${pos2}px;left:${pos1}px`
+  })
+
 
   document.getElementById("eraser").addEventListener("click", () => {
     document.querySelector(
