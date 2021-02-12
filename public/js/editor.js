@@ -142,39 +142,28 @@ function editor(roomId) {
     document.querySelector(".run-but").disabled = true;
     document.querySelector(".run-but").style.opacity = "0.5";
 
-    const data = {
-      myCode,
-      input,
-    };
-    console.log("data");
+    const data={
+      codeWritten:myCode,
+      language:languageChoosenByUser,
+      inputGiven:input,
+    }
+    // console.log(data);
 
-    socket.emit("compileCode", data, roomId);
+    // socket.emit("compileCode", data, roomId);
 
-    socket.on("getCredential", (credentials) => {
-      const proxy = "https://cors-anywhere.herokuapp.com/";
-      const url = "https://api.jdoodle.com/v1/execute";
-
-      fetch(proxy + url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          script: myCode,
-          language: languageChoosenByUser,
-          versionIndex: "0",
-          stdin: input,
-          clientId: credentials.id,
-          clientSecret: credentials.secret,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          document.getElementById("out-val").innerHTML = data.output;
-          console.log(data);
+    fetch('/compileKro',{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(data)
+    })
+    .then(res=>res.json())
+    .then((res2)=>{
+      document.getElementById("out-val").innerHTML = res2.output;
+          // console.log(data);
           document.querySelector(".run-but").disabled = false;
           document.querySelector(".run-but").style.opacity = "1";
-        });
-    });
+    })
   });
 }
