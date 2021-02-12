@@ -1,5 +1,6 @@
 const path = require("path");
 require("dotenv").config();
+const fetch=require('node-fetch');
 const StreamrClient = require('streamr-client')
 const wallet=StreamrClient.generateEthereumAccount()
 const streamr = new StreamrClient({
@@ -87,13 +88,6 @@ function onConnection(socket) {
   socket.on("editorChange", (data, room) => {
     //console.log(data,room)
     socket.broadcast.to(room).emit("changeEdit", data);
-  });
-  socket.on("compileCode", (data, room) => {
-    const credentials = {
-      id: process.env.CLIENT_ID,
-      secret: process.env.CLIENT_SECRET,
-    };
-    socket.emit("getCredential", credentials);
   });
   socket.on("give_alert", (room, username) => {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
@@ -198,6 +192,7 @@ server.listen(PORT, host, function () {
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 var nodemailer = require("nodemailer");
 
@@ -229,6 +224,32 @@ app.post("/reportError", (req, res) => {
     }
   });
 });
+
+app.post('/compileKro',(req,res)=>{
+      const url = "https://api.jdoodle.com/v1/execute";
+      fetch(url,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body:JSON.stringify({
+            script: req.body.codeWritten,
+            language: req.body.language,
+            versionIndex: "0",
+            stdin: req.body.inputGiven,
+            clientId: process.env.CLIENT_ID,
+            clientSecret: process.env.CLIENT_SECRET,
+        })
+      })
+      .then(t=>t.json())
+      .then((data)=>{
+          res.json(data)
+      })
+      .catch((err)=>{
+          console.log(err)
+      })
+})
 
 var options = {
   debug: true,
