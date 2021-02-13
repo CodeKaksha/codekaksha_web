@@ -11,7 +11,7 @@ function video(videoId, username, room) {
       audio: audioCurrentState,
     })
     .then((stream) => {
-      addVideoStream(myvideo, stream);
+      addVideoStream(myvideo, stream,username);
 
       myvideo.parentElement.children[0].children[1].addEventListener("click", () => {
         if (stream.getVideoTracks()[0].enabled) {
@@ -26,6 +26,7 @@ function video(videoId, username, room) {
           videoCurrentState = false;
           myvideo.srcObject = null;
           console.log("c video");
+          // myvideo.remove();
           // console.log(stream.getVideoTracks()[0]);
         } else {
           videoCurrentState = true;
@@ -42,14 +43,24 @@ function video(videoId, username, room) {
               myvideo.addEventListener("loadedmetadata", () => {
                 myvideo.play();
               });
+              var peer = new Peer({
+                host: "meetncode.herokuapp.com",
+                port: "",
+                path: "/peerjs",
+              });
+              peer.on("call", (call) => {
+                call.answer(stream);
+                const video = document.createElement("video");
+                call.on("stream", (userVideoStream) => {
+                  addVideoStream(video, userVideoStream);
+                });
+              });
+              peer.on("open", (id) => {
+                socket.emit("join-vid", id, username, room);
+              });
             });
           console.log("d video");
         }
-        // if (stream.getVideoTracks()[0].enabled) {
-        //   stream.getVideoTracks()[0].enabled = false;
-        // } else {
-        //   stream.getVideoTracks()[0].enabled = true;
-        // }
         myvideo.parentElement.children[0].children[1].classList.toggle("pressed")
       });
 
@@ -62,85 +73,21 @@ function video(videoId, username, room) {
         myvideo.parentElement.children[0].children[0].classList.toggle("pressed")
       });
 
-      //LIGHTS ON/OFF KRNE WALA PART ISKE NICHE HAI, ABHI COMMENTS ME HI REHNE DO
-      /*document.querySelector('.videoToggler').addEventListener('click',()=>{
-        if(stream.getVideoTracks()[0].enabled)
-        {
-            stream.getTracks().forEach(function(track){
-            if(track.readyState=='live' && track.kind==='video')
-            {
-              track.enabled=!track.enabled;
-              track.stop();
-            }
-            })
-            stream.getVideoTracks()[0].enabled=false;   
-            videoCurrentState=false;
-            myvideo.srcObject=null;
-            console.log("a video");
-            // console.log(stream.getVideoTracks()[0]);
-        }
-        else
-        {
-            videoCurrentState=true;
-            navigator.mediaDevices.getUserMedia({
-              video:videoCurrentState,
-              audio:audioCurrentState
-            })
-            .then((newVideoStream)=>{
-              stream.removeTrack(stream.getVideoTracks()[0])
-              stream.addTrack(newVideoStream.getVideoTracks()[0])
-              addVideoStream(myvideo,newVideoStream);
-            })
-            console.log("b video")
-        }
-      })
       
-      document.querySelector('.micToggler').addEventListener('click',()=>{
-        if(stream.getAudioTracks()[0].enabled)
-        {
-            stream.getTracks().forEach(function(track){
-            if(track.readyState=='live' && track.kind==='audio')
-            {
-              track.enabled=!track.enabled;
-              track.stop();
-            }
-            })
-            stream.getAudioTracks()[0].enabled=false;   
-            audioCurrentState=false;
-            // myvideo.srcObject=null;
-            console.log("a audio");
-            // console.log(stream.getAudioTracks()[0]);
-        }
-        else
-        {
-            audioCurrentState=true;
-            navigator.mediaDevices.getUserMedia({
-              video:videoCurrentState,
-              audio:audioCurrentState
-            })
-            .then((newAudioStream)=>{
-              stream.removeTrack(stream.getAudioTracks()[0])
-              stream.addTrack(newAudioStream.getAudioTracks()[0])
-              addVideoStream(myvideo,newAudioStream);
-            })
-            console.log("b audio")
-        }
-      })*/
 
       socket.on("user-vid-connected", (peerId, username) => {
         displayMessageIncoming(username);
-
-        connectToNewUser(peerId, stream);
+        connectToNewUser(peerId, stream,username);
       });
       peer.on("call", (call) => {
         call.answer(stream);
         const video = document.createElement("video");
         call.on("stream", (userVideoStream) => {
-          addVideoStream(video, userVideoStream);
+          addVideoStream(video, userVideoStream,username);
         });
       });
     });
-  function addVideoStream(video, stream) {
+  function addVideoStream(video, stream,username) {
     video.srcObject = stream;
     video.addEventListener("loadedmetadata", () => {
       video.play();
@@ -156,15 +103,17 @@ function video(videoId, username, room) {
       <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i>
     </div>
   </div>`;
+  video.className =username;
     div.appendChild(video);
 
     video_grid.appendChild(div);
   }
-  function connectToNewUser(userId, stream) {
+  function connectToNewUser(userId, stream,username) {
     const call = peer.call(userId, stream);
     const video2 = document.createElement("video");
     call.on("stream", (userVideoStream) => {
-      addVideoStream(video2, userVideoStream);
+      console.log("he7")
+      addVideoStream(video2, userVideoStream,username);
     });
     call.on("close", () => {
       video2.remove();
