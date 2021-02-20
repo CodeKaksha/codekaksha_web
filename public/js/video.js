@@ -4,7 +4,7 @@ function video(videoId, username, room) {
   myvideo.muted = true;
   console.log("in video main");
   var videoCurrentState = true;
-  var audioCurrentState = false;
+  var audioCurrentState = true;
   navigator.mediaDevices
     .getUserMedia({
       video: videoCurrentState,
@@ -137,7 +137,7 @@ function videoOnlyUser(videoId, ind) {
   const myvideo = document.querySelector(`#${videoId}`);
   myvideo.muted = true;
   var videoCurrentState = true;
-  var audioCurrentState = false;
+  var audioCurrentState = true;
   console.log("in video only user");
   navigator.mediaDevices
     .getUserMedia({
