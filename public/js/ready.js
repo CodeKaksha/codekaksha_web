@@ -1,6 +1,7 @@
 let ready_btn = document.querySelector(".ready");
 let user_email;
 function ready(id, edit,isAdmin) {
+  ready_btn = document.querySelector(".ready");
   let user = firebase.auth().currentUser;
   console.log(edit)
   ready_btn.addEventListener("click", (e) => {
