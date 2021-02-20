@@ -344,6 +344,10 @@ function displaySavedOnes() {
               });
           });
       });
+      console.log(snapshot.size)
+      if(snapshot.size>0){
+        document.querySelector(".nahi-h-koi").remove();
+      }
       document.querySelector(".saved_coderence_loader").remove();
     });
 
