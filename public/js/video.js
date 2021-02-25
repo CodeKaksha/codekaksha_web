@@ -136,7 +136,7 @@ function removeVideo(videoId) {
 function videoOnlyUser(videoId, ind) {
   const myvideo = document.querySelector(`#${videoId}`);
   myvideo.muted = true;
-  var videoCurrentState = true;
+  var videoCurrentState = false;
   var audioCurrentState = true;
   console.log("in video only user");
   navigator.mediaDevices
