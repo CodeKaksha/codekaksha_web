@@ -87,74 +87,74 @@ function drawTree(tree, depth) {
   tree.y = depth;
   if (tree.left_child != null) {
     drawTree(adjArray[tree.left_child], depth + 100);
-    drawLine(tree.x,tree.y,adjArray[tree.left_child].x,adjArray[tree.left_child].y)
+    // drawLine(tree.x,tree.y,adjArray[tree.left_child].x,adjArray[tree.left_child].y)
   }
   drawNode(tree.val, curX, depth);
   curX += 100;
   if (tree.right_child != null) {
     drawTree(adjArray[tree.right_child], depth + 100);
-    drawLine(tree.x,tree.y,adjArray[tree.right_child].x,adjArray[tree._child].y)
+    // drawLine(tree.x,tree.y,adjArray[tree.right_child].x,adjArray[tree._child].y)
   }
 }
 drawTree(adjArray[0], 100);
-// drawLinesAfterMakingNodes(adjArray[0]);
+drawLinesAfterMakingNodes(adjArray[0]);
 
-let adjArray = [
-  {
-    val: 0,
-    x: null,
-    y: null,
-    children: [1, 2],
-  },
-  {
-    val: 1,
-    x: null,
-    y: null,
-    children: [3, 4, 5],
-  },
-  {
-    val: 2,
-    x: null,
-    y: null,
-    children: [6],
-  },
-  {
-    val: 3,
-    x: null,
-    y: null,
-    children: [],
-  },
-  {
-    val: 4,
-    x: null,
-    y: null,
-    children: [],
-  },
-  {
-    val: 5,
-    x: null,
-    y: null,
-    children: [],
-  },
-  {
-    val: 6,
-    x: null,
-    y: null,
-    children: [7],
-  },
-  {
-    val: 7,
-    x: null,
-    y: null,
-    children: [8],
-  },
-  {
-    val: 8,
-    x: null,
-    y: null,
-    children: [],
-  },
-];
+// let adjArray = [
+//   {
+//     val: 0,
+//     x: null,
+//     y: null,
+//     children: [1, 2],
+//   },
+//   {
+//     val: 1,
+//     x: null,
+//     y: null,
+//     children: [3, 4, 5],
+//   },
+//   {
+//     val: 2,
+//     x: null,
+//     y: null,
+//     children: [6],
+//   },
+//   {
+//     val: 3,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 4,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 5,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 6,
+//     x: null,
+//     y: null,
+//     children: [7],
+//   },
+//   {
+//     val: 7,
+//     x: null,
+//     y: null,
+//     children: [8],
+//   },
+//   {
+//     val: 8,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+// ];
 // let maxDepth = 10;
 // let curX = new Array(maxDepth);
 
