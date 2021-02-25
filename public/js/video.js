@@ -3,7 +3,7 @@ function video(videoId, username, room) {
   const myvideo = document.createElement("video");
   myvideo.muted = true;
   console.log("in video main");
-  var videoCurrentState = true;
+  var videoCurrentState = false;
   var audioCurrentState = true;
   navigator.mediaDevices
     .getUserMedia({

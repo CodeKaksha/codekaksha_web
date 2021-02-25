@@ -273,7 +273,7 @@ socket.on("ongoingLives", (currLiveStreams) => {
       console.log("ahhah");
       ready(ongoingLives[i].children[1].children[0].textContent, 0, 0);
       show_screen(ready_screen);
-      videoOnlyUser(`videoBeforeJoin`,1);
+      // videoOnlyUser(`videoBeforeJoin`,1);
     });
   }
 });
@@ -328,7 +328,7 @@ function displaySavedOnes() {
                   var canvas = document.querySelector(".whiteBoard");
                   var context = canvas.getContext("2d");
                   var data2 = JSON.parse(data.data_whiteboard);
-                  videoOnlyUser(`videoBeforeJoin`,1);
+                  // videoOnlyUser(`videoBeforeJoin`,1);
                   console.log(data.data_compiler);
                   var editor = ace.edit("jsEditor");
 

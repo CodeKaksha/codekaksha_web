@@ -47,7 +47,7 @@ function ready(id, edit,isAdmin) {
     e.preventDefault();
     show_screen(meet_screen);
     paint(id);
-    removeVideo("videoBeforeJoin");
+    // removeVideo("videoBeforeJoin");
     whiteBoard(id);
     video("sidenav-videogrid", user.displayName, id);
     editor(id);

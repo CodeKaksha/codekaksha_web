@@ -144,7 +144,7 @@ var messagesContainer = $(".messages");
 window.setTimeout(()=>{
   
   messagesContainer.append(['<li class="other">', def, "</li>"].join(""));
-},10000)
+},1000)
   function sendNewMessage() {
   var userInput = $(".text-box");
   var newMessage = userInput
