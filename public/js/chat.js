@@ -36,17 +36,17 @@ function displayRoomUsers(users) {
                     <span class="user-name">
                     ${users[i].username}
                     </span>
-                    <span class="user-mic">
+                    <span class="user-mic hidden">
                       <i class="material-icons">
                         mic_off
                       </i>
                     </span>
-                    <span class="user-cam">
+                    <span class="user-cam hidden">
                       <i class="material-icons">
                         videocam_off
                       </i>
                     </span>
-                    <span class="user-kick">
+                    <span class="user-kick hidden">
                       <i class="material-icons">
                         person_remove
                       </i>

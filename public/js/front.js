@@ -30,6 +30,7 @@ function show_screen(screen_name) {
   }, 600);
   screen_name.classList.remove("hidden");
 }
+
 function displaySavedOnes() {
   let user = firebase.auth().currentUser;
   const db = firebase.firestore();
@@ -80,7 +81,7 @@ function displaySavedOnes() {
                   var canvas = document.querySelector(".whiteBoard");
                   var context = canvas.getContext("2d");
                   var data2 = JSON.parse(data.data_whiteboard);
-                  videoOnlyUser(`videoBeforeJoin`,1);
+                  // videoOnlyUser(`videoBeforeJoin`,1);
                   console.log(data.data_compiler);
                   var editor = ace.edit("jsEditor");
 

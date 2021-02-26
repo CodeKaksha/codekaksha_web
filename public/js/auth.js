@@ -2,9 +2,12 @@ let username;
 let userDisplayPic;
 const auth = firebase.auth();
 const db = firebase.firestore();
-let windowUrl = window.location.href;
-if (windowUrl[4] != "s" && windowUrl[windowUrl.length - 2] == "m") {
-  window.location.href = "https://meetncode.herokuapp.com";
+
+let windowUrl=window.location.href;
+if(windowUrl[4]!='s'&&windowUrl[windowUrl.length-2]=='m')
+{
+  window.location.href="https://meetncode.herokuapp.com"
+
 }
 let googleSignIn = document.querySelectorAll(".googleSignIn");
 auth.onAuthStateChanged((user) => {

@@ -2,71 +2,172 @@ var canvas = document.querySelector("#exp-canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var c = canvas.getContext("2d");
-c.beginPath();
-c.arc(30, 30, 20, 0, Math.PI * 2, false);
-c.stroke();
-
-class Circle {
-  constructor(x, y, i) {
-    this.x = x;
-    this.y = y;
-    this.number = i;
+let adjArray = [
+  {
+    val: 5,
+    left_child: 1,
+    right_child: 2,
+    x: null,
+    y: null,
+  },
+  {
+    val: 9,
+    left_child: 4,
+    right_child: 5,
+    x: null,
+    y: null,
+  },
+  {
+    val: 10,
+    left_child: 3,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+  {
+    val: 3,
+    left_child: 6,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+  {
+    val: 7,
+    left_child: null,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+  {
+    val: 4,
+    left_child: null,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+  {
+    val: 11,
+    left_child: 7,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+  {
+    val: 13,
+    left_child: null,
+    right_child: null,
+    x: null,
+    y: null,
+  },
+];
+let curX = 100;
+let radius = 30;
+function drawNode(val, x, y) {
+  c.beginPath();
+  c.arc(x, y, radius, 0, Math.PI * 2, false);
+  c.stroke();
+  c.font = "30px Arial";
+  c.fillText(val, x - radius / 2 + 5, y + radius / 2 - 5);
+}
+function drawLine(x1, y1, x2, y2) {
+  c.beginPath();
+  let hypotenuse = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+  let cos = (x2 - x1) / hypotenuse;
+  let sin = (y2 - y1) / hypotenuse;
+  x1 = x1 + radius * cos;
+  y1 = y1 + radius * sin;
+  x2 = x2 - radius * cos;
+  y2 = y2 - radius * sin;
+  c.moveTo(x1, y1);
+  c.lineTo(x2, y2);
+  c.stroke();
+}
+function drawTree(tree, depth) {
+  tree.x = curX;
+  tree.y = depth;
+  if (tree.left_child != null) {
+    drawTree(adjArray[tree.left_child], depth + 100);
+    // drawLine(tree.x,tree.y,adjArray[tree.left_child].x,adjArray[tree.left_child].y)
   }
-  getCoordinates() {
-    return { x: this.x, y: this.y, number: this.number };
-  }
-  draw() {
-    c.beginPath();
-    c.arc(x, y, 30, 0, Math.PI * 2, false);
-    c.stroke();
-    c.font = "30px Arial";
-    c.fillText(this.number, x - 10, y + 10);
+  drawNode(tree.val, curX, depth);
+  curX += 100;
+  if (tree.right_child != null) {
+    drawTree(adjArray[tree.right_child], depth + 100);
+    // drawLine(tree.x,tree.y,adjArray[tree.right_child].x,adjArray[tree._child].y)
   }
 }
+drawTree(adjArray[0], 100);
+drawLinesAfterMakingNodes(adjArray[0]);
 
-let adjArray = [[1, 2, 3], [4, 5,0], [6,0], [7, 8, 9,0], [1], [1], [2],[3],[3],[3]];
+// let adjArray = [
+//   {
+//     val: 0,
+//     x: null,
+//     y: null,
+//     children: [1, 2],
+//   },
+//   {
+//     val: 1,
+//     x: null,
+//     y: null,
+//     children: [3, 4, 5],
+//   },
+//   {
+//     val: 2,
+//     x: null,
+//     y: null,
+//     children: [6],
+//   },
+//   {
+//     val: 3,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 4,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 5,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+//   {
+//     val: 6,
+//     x: null,
+//     y: null,
+//     children: [7],
+//   },
+//   {
+//     val: 7,
+//     x: null,
+//     y: null,
+//     children: [8],
+//   },
+//   {
+//     val: 8,
+//     x: null,
+//     y: null,
+//     children: [],
+//   },
+// ];
+// let maxDepth = 10;
+// let curX = new Array(maxDepth);
 
-
-
-
-
-
-let drawn = [];
-let x = 500,
-  y = 100;
-let circle_array = [];
-for (let i = 0; i < adjArray.length; i++) drawn[i] = 0;
-for (let i = 0; i < adjArray.length; i++) circle_array[i] = 0;
-let quickfix = 400;
-for (let i = 0; i < adjArray.length; i++) {
-  if (!drawn[i]) {
-    let circle = new Circle(x, y, i);
-
-    circle.draw();
-    circle_array[i] = circle;
-    drawn[i] = 1;
-  }
-  let sizee = adjArray[i].length;
-  
-  sizee--;
-  let p = x;
-  for (let j = 0; j < adjArray[i].length; j++) {
-    if (!drawn[adjArray[i][j]]) {
-      //   if (first) {
-      //     first = 0;
-      //     quickfix = x - 50;
-      //   }
-      console.log(circle_array[i].y + 100);
-      y = circle_array[i].y + 100;
-      console.log(x);
-      let circle = new Circle(x, y, adjArray[i][j]);
-
-      circle.draw();
-      circle_array[adjArray[i][j]] = circle;
-
-      drawn[adjArray[i][j]] = 1;
-    }
-    x += 75 * adjArray[adjArray[i][j]].length;
-  }
-  x = p;
-}
+// function drawTreeusingPostOrder(tree, depth) {
+//   if (curX[depth] == undefined) curX[depth] = 100;
+//   tree.x = curX[depth];
+//   tree.y = depth;
+//   console.log(curX[depth]);
+//   drawNode(tree.val, tree.x, tree.y);
+//   curX[depth] += 100;
+//   for (let i = 0; i < tree.children.length; i++) {
+//     drawTreeusingPostOrder(adjArray[tree.children[i]], depth + 100);
+//     drawLine(tree.x, tree.y, adjArray[tree.children[i]].x, adjArray[tree.children[i]].y);
+//   }
+// }
+// drawTreeusingPostOrder(adjArray[0], 100);

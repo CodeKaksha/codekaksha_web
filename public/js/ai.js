@@ -115,6 +115,7 @@ function ai()
     [`Here are some shortcuts for your rescue:
     <br><br>
   
+
     A: Drop an array
     <br>
     G: Drop a Grid
@@ -148,6 +149,7 @@ function ai()
     
     messagesContainer.append(['<li class="other">', def, "</li>"].join(""));
   },10000)
+
   function sendNewMessage() {
     var userInput = $(".text-box");
     var newMessage = userInput
