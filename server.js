@@ -1,12 +1,11 @@
 const path = require("path");
 require("dotenv").config();
-const fetch=require('node-fetch');
-
+const fetch = require("node-fetch");
 
 const express = require("express");
 var ExpressPeerServer = require("peer").ExpressPeerServer;
 const app = express();
-const formatMessage = require("./utils/message"); 
+const formatMessage = require("./utils/message");
 
 const http = require("http");
 
@@ -17,9 +16,9 @@ const {
   getRoomUsers,
   userLeave,
   getCurrentUser,
-  setAdmin,   
+  setAdmin,
   addToLiveStream,
-  getCurrLiveStreams
+  getCurrLiveStreams,
 } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
@@ -31,8 +30,7 @@ function onConnection(socket) {
   socket.on("chala_gaya", () => {
     const user = userLeave(socket.id);
     //console.log(user);
-    if(user)
-    {
+    if (user) {
       io.to(user.room).emit("user-disconnected", user.username);
       io.to(user.room).emit(
         "message",
@@ -44,15 +42,15 @@ function onConnection(socket) {
       });
     }
   });
-  socket.on("addToLiveSessions",(roomId,adminEmail,adminName,data)=>{
-    data=JSON.parse(data);
-    io.emit("ongoingLives",currLiveStreams);
-  })
-  socket.on("bringLives",()=>{
-    console.log(getCurrLiveStreams())
+  socket.on("addToLiveSessions", (roomId, adminEmail, adminName, data) => {
+    data = JSON.parse(data);
+    io.emit("ongoingLives", currLiveStreams);
+  });
+  socket.on("bringLives", () => {
+    console.log(getCurrLiveStreams());
 
-    io.emit("ongoingLives",getCurrLiveStreams());
-  })
+    io.emit("ongoingLives", getCurrLiveStreams());
+  });
   socket.on("editorChange", (data, room) => {
     //console.log(data,room)
     socket.broadcast.to(room).emit("changeEdit", data);
@@ -61,7 +59,7 @@ function onConnection(socket) {
     socket.broadcast.to(room).emit("bhag_gya_lauda", username);
   });
   socket.on("checkId", (room) => {
-    //console.log(room);
+    console.log(room);
     let users2 = getRoomUsers(room);
     if (users2.length == 0) {
       socket.emit("roomIdChecked", 0);
@@ -75,30 +73,36 @@ function onConnection(socket) {
   socket.on("drawing", (data, width, room) => {
     socket.broadcast.to(room).emit("drawing", data, width);
   });
-  socket.on("undo",room=>{
+  socket.on("undo", (room) => {
     socket.broadcast.to(room).emit("undo");
   });
-  socket.on("redo",room=>{
+  socket.on("redo", (room) => {
     socket.broadcast.to(room).emit("redo");
-  })
+  });
   socket.on("give_id", () => {
-    let ID = nanoid(4);
+    let ID = nanoid(6);
+    console.log(ID);
     io.to(socket.id).emit("rec_id", ID);
   });
   socket.on("join-vid", (peerId, username, room) => {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
-  socket.on("join-room", (roomId, userId, username,isAdmin, displayPic) => {
+  socket.on("join-room", (roomId, userId, username, isAdmin, displayPic) => {
     // //console.log(userId);
-    if(isAdmin)
-    {
-      setAdmin(roomId,userId);
-    }
-    else{
+    if (isAdmin) {
+      setAdmin(roomId, userId);
+    } else {
       let roomUsers = getRoomUsers(roomId);
-      io.to(roomUsers[0].socketId).emit("notificationToAccept",username);
+      io.to(roomUsers[0].socketId).emit("notificationToAccept", username);
     }
-    const user = userJoin(userId, username, roomId,displayPic, socket.id,isAdmin);
+    const user = userJoin(
+      userId,
+      username,
+      roomId,
+      displayPic,
+      socket.id,
+      isAdmin
+    );
 
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {
@@ -108,7 +112,7 @@ function onConnection(socket) {
     roomUsers = getRoomUsers(roomId);
     // //console.log(roomUsers)
     socket.to(roomId).broadcast.emit("user-connected", username, userId);
-    console.log(getRoomUsers(user.room))
+    console.log(getRoomUsers(user.room));
     io.to(user.room).emit("roomUsers", getRoomUsers(user.room));
 
     ///// CHAT
@@ -122,10 +126,10 @@ function onConnection(socket) {
         formatMessage("MeetNCode", `${username} has joined the chat`)
       );
   });
-  socket.on("mousePosChanged",(x,y,room)=>{
-    console.log(x,y);
-    socket.to(room).broadcast.emit("changeMouseHoGya",x,y);
-  })
+  socket.on("mousePosChanged", (x, y, room) => {
+    console.log(x, y);
+    socket.to(room).broadcast.emit("changeMouseHoGya", x, y);
+  });
   socket.on("whiteBoard_data", (data, socketId) => {
     io.to(socketId).emit("whiteData", data);
   });
@@ -144,9 +148,9 @@ function onConnection(socket) {
       socket.broadcast.to(user.room).emit("toast", "You have a new message");
     }
   });
-} 
+}
 
-io.on("connection", onConnection); 
+io.on("connection", onConnection);
 const PORT = process.env.PORT || 3000;
 const host = "0.0.0.0";
 
@@ -160,7 +164,7 @@ server.listen(PORT, host, function () {
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 var nodemailer = require("nodemailer");
 
@@ -168,7 +172,7 @@ app.post("/reportError", (req, res) => {
   var data = req.body;
   data = JSON.stringify(data);
   //console.log(data);
- 
+
   var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -193,32 +197,49 @@ app.post("/reportError", (req, res) => {
   });
 });
 
-app.post('/compileKro',(req,res)=>{
-      const url = "https://api.jdoodle.com/v1/execute";
-      fetch(url,{
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-        },
-        body:JSON.stringify({
-            script: req.body.codeWritten,
-            language: req.body.language,
-            versionIndex: "0",
-            stdin: req.body.inputGiven,
-            clientId: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
-        })
-      })
-      .then(t=>t.json())
-      .then((data)=>{
-          res.json(data)
-      })
-      .catch((err)=>{
-          console.log(err)
-      })
+app.post("/compileKro", (req, res) => {
+  const url = "https://api.jdoodle.com/v1/execute";
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    body: JSON.stringify({
+      script: req.body.codeWritten,
+      language: req.body.language,
+      versionIndex: "0",
+      stdin: req.body.inputGiven,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+    }),
+  })
+    .then((t) => t.json())
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+app.get("/screen/:id", (req, res) => {
+  //meet screen
+  let screen_name = req.params.id;
+  console.log(screen_name);
+  if (screen_name == "1") {
+    res.sendFile(__dirname + "/public/after_login.html");
+  }
+});
+app.get("/meet/:id",(req,res)=>{
+  let id=req.params.id; 
+  console.log(id);
+  let users2 = getRoomUsers(id);
+    if (users2.length == 0) {
+      res.send("not authorised");
+    } else if (users2 != undefined) {
+      res.send("authorised");
+    }
 })
-
 var options = {
   debug: true,
   allow_discovery: true,
