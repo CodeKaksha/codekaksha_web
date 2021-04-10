@@ -1,0 +1,1709 @@
+<!-- landing page if person is already logged in -->
+<div>
+  <div class="container1-page2 after_login_screen hidden">
+    <div class="navbar-page1 z-depth-3 navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left">
+            <span class="navbar-title logog">MeetNCode</span>
+          </ul>
+          <div
+            id="nav-mobile"
+            class="right hide-on-med-and-down"
+            style="display: flex"
+          >
+            <a class="waves-effect waves-light btn ongoing-but hidden"
+              >Ongoing Coderences</a
+            >
+            <span class="login-page1"
+              ><a href="#"><img src="" class="displayPic" /></a>
+            </span>
+            <a href="" class="logout">logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row"></div>
+    <div class="row">
+      <div class="col s12 m7" style="padding-left: 50px">
+        <div class="container2-page2" style="text-align: left">
+          <div class="heading1-page2">Hey, <span class="username"></span></div>
+          <div class="heading2-page2">LET'S CODE THE WAY OUT!</div>
+
+          <div class="login-buttons row">
+            <div
+              class="button1-page2 col s12 m6"
+              style="
+                display: inline-flex;
+                flex-direction: column;
+                padding-left: 0;
+                justify-content: center;
+              "
+            >
+              <a class="waves-effect waves-light btn host-but1 createRoom"
+                >CREATE A CODERENCE</a
+              >
+              <a
+                class="waves-effect waves-light btn golive-but hidden"
+                style="margin-top: 15px"
+                >GO LIVE !</a
+              >
+            </div>
+
+            <div class="col s12 m6" style="display: inline-flex">
+              <form name="loginBox" id="enterRoom" action="" method="POST">
+                <div class="input-container">
+                  <span><img src="res/keyboard.svg" class="icon1" /></span>
+                  <input
+                    class="input-field"
+                    name="roomId"
+                    type="text"
+                    id="roomIdEntered"
+                    placeholder="ENTER THE ROOM ID"
+                    style="
+                      height: 36px;
+                      width: auto;
+                      margin-bottom: 0;
+                      margin-top: 0.4em;
+                      margin-left: 1em;
+                      border-bottom: none;
+                      box-shadow: none;
+                    "
+                  />
+                </div>
+                <input type="submit" style="display: none" />
+                <button
+                  class="waves-effect waves-green btn host-but1 hidden"
+                  style="margin-top: 10px"
+                >
+                  Enter room
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <hr style="border: 1px solid black; margin-top: 4em" />
+        <div class="contactmsg">
+          <a
+            href="mailto:codidya@gmail.com?subject=Feedback%20and%20Response%20to%20your%20platform"
+            target="_blank"
+            >Get in touch with us!</a
+          >
+        </div>
+      </div>
+      <div class="col s12 m5 demo-img">
+        <img src="res/demo.png" />
+      </div>
+    </div>
+
+    <hr class="separator separator--dotter" />
+
+    <div class="saved-coderences">
+      <div class="save-text">
+        <span class="save-code-text">Your Saved Coderences</span>
+      </div>
+      <div class="hor-line"></div>
+    </div>
+    <div class="preloader-wrapper saved_coderence_loader big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="saved-cards">
+      <a class="card1 z-depth-3 no-card nahi-h-koi" href="#">
+        <div class="card-container1" style="margin-bottom: 10px">
+          <span class="default-card-head">
+            LET'S CODE SOMETHING! YOU HAVE NO SAVED CODERENCES
+          </span>
+          <span class="card-head"></span>
+        </div>
+
+        <div class="go-corner" href="#">
+          <div class="go-arrow"></div>
+        </div>
+      </a>
+    </div>
+
+    <hr class="separator separator--dotter" />
+
+    <div class="botcont-logged">
+      <div class="botcont1-logged">
+        <img class="bot-logo" src="res/logo.png" alt="" />
+        <div class="vert-line"></div>
+        <span>MeetNCode</span>
+      </div>
+      <div class="botcont2-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          ABOUT US
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          We are students of Delhi Technological University, check us here:
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Abhinandan Sharma(<a
+            target="_blank"
+            href="https://github.com/abhi-824"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Shubhang Jyotirmay(<a
+            target="_blank"
+            href="https://github.com/shubhangjyotirmay"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Vikash(<a target="_blank" href="https://github.com/vikash452"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/vikash-prasad-482944197/"
+            >Linkedin</a
+          >)
+        </p>
+      </div>
+      <div class="botcont3-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          Contact Us!
+        </p>
+        <p
+          class="feedback-form-link"
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          Feedback
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          class="hidden"
+        >
+          Write to us at
+          <a
+            href="mailto:codidya@gmail.com?subject=Feedback%20and%20Response%20to%20your%20platform"
+            target="_blank"
+            >codidya@gmail.com</a
+          >
+        </p>
+        <span
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          >Follow us at:
+          <i
+            class="material-icons"
+            style="vertical-align: middle; padding-left: 3px"
+          >
+            facebook
+          </i>
+          <img
+            class="linkedin"
+            src="res/logos/linkedin.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+          <img
+            class="linkedin"
+            src="res/logos/instagram.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ongoing Coderences -->
+  <div class="container111-page222 Ongoing_coderences_screen">
+    <div class="navbar-page1 z-depth-3 navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left">
+            <span class="navbar-title logog">MeetNCode</span>
+          </ul>
+          <div
+            id="nav-mobile"
+            class="right hide-on-med-and-down"
+            style="display: flex"
+          >
+            <a class="waves-effect waves-light btn ongoing-back"
+              >Back to Home</a
+            >
+            <span class="login-page1"
+              ><a href="#"><img src="" class="displayPic" /></a>
+            </span>
+            <a href="" class="logout">logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="ongoing-container">
+      <div class="ongoing-heading">Ongoing Coderences</div>
+    </div>
+
+    <div class="botcont-logged">
+      <div class="botcont1-logged">
+        <img class="bot-logo" src="res/logo.png" alt="" />
+        <div class="vert-line"></div>
+        <span>MeetNCode</span>
+      </div>
+      <div class="botcont2-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          ABOUT US
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          We are students of Delhi Technological University, check us here:
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Abhinandan Sharma(<a
+            target="_blank"
+            href="https://github.com/abhi-824"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Shubhang Jyotirmay(<a
+            target="_blank"
+            href="https://github.com/shubhangjyotirmay"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Vikash(<a target="_blank" href="https://github.com/vikash452"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/vikash-prasad-482944197/"
+            >Linkedin</a
+          >)
+        </p>
+      </div>
+      <div class="botcont3-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          Contact Us!
+        </p>
+        <p
+          class="feedback-form-link"
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          Feedback
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          class="hidden"
+        >
+          Write to us at
+          <a
+            href="mailto:codidya@gmail.com?subject=Feedback%20and%20Response%20to%20your%20platform"
+            target="_blank"
+            >codidya@gmail.com</a
+          >
+        </p>
+        <span
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          >Follow us at:
+          <i
+            class="material-icons"
+            style="vertical-align: middle; padding-left: 3px"
+          >
+            facebook
+          </i>
+          <img
+            class="linkedin"
+            src="res/logos/linkedin.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+          <img
+            class="linkedin"
+            src="res/logos/instagram.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!--  User Detail Input Screen  -->
+  <div class="container11-page22 user_detail_screen hidden">
+    <div class="navbar-page1 z-depth-3 navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left">
+            <span class="navbar-title logog">MeetNCode</span>
+          </ul>
+          <div
+            id="nav-mobile"
+            class="right hide-on-med-and-down"
+            style="display: flex"
+          >
+            <span class="login-page1"
+              ><a href="#"><img src="" class="displayPic" /></a>
+            </span>
+            <a href="" class="logout">logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeobzdPn1FeTJ1kU6nWF5tTuAEVMD0GMuExiEwFAHwAz-4FQg/viewform?embedded=true"
+      width="640"
+      height="1500"
+      style="margin-top: 3rem"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      >Loading…</iframe
+    >
+
+    <div class="botcont-logged">
+      <div class="botcont1-logged">
+        <img class="bot-logo" src="res/logo.png" alt="" />
+        <div class="vert-line"></div>
+        <span>MeetNCode</span>
+      </div>
+      <div class="botcont2-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          ABOUT US
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          We are students of Delhi Technological University, check us here:
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Abhinandan Sharma(<a
+            target="_blank"
+            href="https://github.com/abhi-824"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Shubhang Jyotirmay(<a
+            target="_blank"
+            href="https://github.com/shubhangjyotirmay"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Vikash(<a target="_blank" href="https://github.com/vikash452"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/vikash-prasad-482944197/"
+            >Linkedin</a
+          >)
+        </p>
+      </div>
+      <div class="botcont3-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          Contact Us!
+        </p>
+        <p
+          class="feedback-form-link"
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          Feedback
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          class="hidden"
+        >
+          Write to us at
+          <a
+            href="mailto:codidya@gmail.com?subject=Feedback%20and%20Response%20to%20your%20platform"
+            target="_blank"
+            >codidya@gmail.com</a
+          >
+        </p>
+        <span
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          >Follow us at:
+          <i
+            class="material-icons"
+            style="vertical-align: middle; padding-left: 3px"
+          >
+            facebook
+          </i>
+          <img
+            class="linkedin"
+            src="res/logos/linkedin.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+          <img
+            class="linkedin"
+            src="res/logos/instagram.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go Live form -->
+  <div class="container101-page201 golive_form_screen hidden">
+    <div class="navbar-page1 z-depth-3 navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left">
+            <span class="navbar-title logog">MeetNCode</span>
+          </ul>
+          <div
+            id="nav-mobile"
+            class="right hide-on-med-and-down"
+            style="display: flex"
+          >
+            <span class="login-page1"
+              ><a href="#"><img src="" class="displayPic" /></a>
+            </span>
+            <a href="" class="logout">logout</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <form class="golive_form_page">
+      <h1 class="golive_form_heading">Just one more step and you are live !</h1>
+      <div class="golive-form-fields">
+        <span class="golive-input-span">
+          <input
+            class="golive-fields golive-title"
+            placeholder="What is the title of your video?"
+            type="text"
+          />
+        </span>
+        <br />
+        <br />
+        <span class="golive-input-span">
+          <input
+            class="golive-fields golive-tags"
+            placeholder="Tags (eg: Web Competitive Android ML)"
+            type="text"
+          />
+        </span>
+        <br />
+        <br />
+        <span class="golive-input-span">
+          <input
+            class="golive-fields golive-description"
+            placeholder="Describe your video..."
+            type="text"
+          />
+        </span>
+        <br />
+        <br />
+      </div>
+      <div class="golive-form-but">
+        <button class="borderman btn-border golive-back">Go Back</button>
+        <button class="borderman btn-border golive-submit" type="submit">
+          Go Live !
+        </button>
+      </div>
+      <br />
+    </form>
+
+    <div class="botcont-logged">
+      <div class="botcont1-logged">
+        <img class="bot-logo" src="res/logo.png" alt="" />
+        <div class="vert-line"></div>
+        <span>MeetNCode</span>
+      </div>
+      <div class="botcont2-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          ABOUT US
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          We are students of Delhi Technological University, check us here:
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Abhinandan Sharma(<a
+            target="_blank"
+            href="https://github.com/abhi-824"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/abhinandan-sharma-0a2633175/"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Shubhang Jyotirmay(<a
+            target="_blank"
+            href="https://github.com/shubhangjyotirmay"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/shubhang-jyotirmay-383997196"
+            >Linkedin</a
+          >)
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          > Vikash(<a target="_blank" href="https://github.com/vikash452"
+            >Github</a
+          >,
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/vikash-prasad-482944197/"
+            >Linkedin</a
+          >)
+        </p>
+      </div>
+      <div class="botcont3-logged">
+        <p
+          style="
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            margin-left: 30px;
+          "
+        >
+          Contact Us!
+        </p>
+        <p
+          class="feedback-form-link"
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+        >
+          Feedback
+        </p>
+        <p
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          class="hidden"
+        >
+          Write to us at
+          <a
+            href="mailto:codidya@gmail.com?subject=Feedback%20and%20Response%20to%20your%20platform"
+            target="_blank"
+            >codidya@gmail.com</a
+          >
+        </p>
+        <span
+          style="
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            margin-left: 30px;
+          "
+          >Follow us at:
+          <i
+            class="material-icons"
+            style="vertical-align: middle; padding-left: 3px"
+          >
+            facebook
+          </i>
+          <img
+            class="linkedin"
+            src="res/logos/linkedin.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+          <img
+            class="linkedin"
+            src="res/logos/instagram.png"
+            alt=""
+            style="vertical-align: middle; padding-left: 3px"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ready screen -->
+  <div class="contaner1-page3 ready_screen hidden">
+    <div class="navbar-page1 z-depth-3">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="left" style="display: inline-flex">
+            <span style="display: inline-flex"
+              ><img
+                src="res/logo1.png"
+                style="
+                  width: 35px;
+                  height: 45px;
+                  margin-top: 0.8em;
+                  margin-right: 0.4em;
+                "
+            /></span>
+            <span
+              class="navbar-title logog"
+              style="
+                height: 40px;
+                align-items: center;
+                display: inline-flex;
+                padding-left: 0.5em;
+                margin-top: 0.8em;
+                border-left: 3px solid #4d4d4d;
+              "
+              >MeetNCode</span
+            >
+          </ul>
+          <div id="nav-mobile" class="right">
+            <span class="login-page1"
+              ><a href="#"><img src="" class="displayPic" /></a
+            ></span>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row"></div>
+    <div class="row readypage">
+      <div class="col s12 m6 vid-img" id="divOfvideoBeforeJoin">
+        <div class="buttons_ready_screen">
+          <div class="mute_icon">
+            <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
+          </div>
+
+          <!-- <i class="fa fa-microphone-slash" aria-hidden="true"></i> -->
+          <div class="video_icon">
+            <i class="fa fa-video-camera fa-2x" aria-hidden="true"></i>
+          </div>
+        </div>
+        <video id="videoBeforeJoin"></video>
+      </div>
+      <div class="col s12 m6" style="padding-left: 50px">
+        <div class="container2-page2" style="text-align: left">
+          <div class="heading1-page3">Default Language</div>
+          <hr style="border: 1px solid black" />
+          <div class="row">
+            <select class="browser-default" id="language">
+              <option value="cpp17">C++</option>
+              <option value="c">C</option>
+              <option value="java">Java</option>
+              <option value="python2">Python</option>
+            </select>
+          </div>
+
+          <!-- <div class="heading1-page3">Default Mode</div>
+          <hr style="border: 1px solid black" />
+          <div class="login-buttons1 row">
+            <div class="button1-page3 col s12 m6" style="display: inline-flex; padding-left: 0">
+              <a class="waves-effect waves-light btn host-but2 strictMode">Strict</a>
+            </div>
+            <div class="button2-page3 col s12 m6" style="display: inline-flex; padding-left: 0">
+              <a class="waves-effect waves-light btn host-but3">Default</a>
+            </div>
+          </div> -->
+          <div class="row">
+            <div
+              class="button3-page3 col s12 m6"
+              style="display: inline-flex; padding-left: 0"
+            >
+              <a class="waves-effect waves-light btn host-but4 ready">Join</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--- sizes need to be done appropriately ---->
+  </div>
+
+  <div id="array_data" class="modal">
+    <div class="modal-content" style="background: gainsboro">
+      <form action="" id="array_val">
+        <h4>Drop an Array!</h4>
+        <div>
+          <label for="array_size">Size of Array:</label>
+          <input id="array_size" name="array_size" type="number" value="10" />
+        </div>
+        <div>
+          <label for="array_nums"
+            >Elements of Array Separated by a space(If left empty would be
+            filled randomly):
+          </label>
+          <input
+            id="array_nums"
+            name="array_nums"
+            type="text"
+            placeholder="1 2 3 4 5 6 7 8"
+          />
+        </div>
+
+        <div style="background: white">
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="submit"
+          >
+            OK
+          </button>
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="grid_data" class="modal">
+    <div class="modal-content" style="background: gainsboro">
+      <form action="" id="grid_val">
+        <h4>Drop a Grid!</h4>
+        <div>
+          <label for="grid_row">Size of Grid:</label>
+          <input id="grid_row" name="grid_row" type="number" value="5" />
+          <input id="grid_col" name="grid_col" type="number" value="5" />
+        </div>
+        <div>
+          <label for="grid_nums"
+            >Elements of Grid Separated by a space(If left empty would be filled
+            randomly):
+          </label>
+          <textarea
+            id="grid_nums"
+            name="grid_nums"
+            type="text"
+            placeholder="1 2 3 4
+5 6 7 8 
+9 10 11 12
+            "
+          ></textarea>
+        </div>
+
+        <div style="background: white">
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="submit"
+          >
+            OK
+          </button>
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="graph_data" class="modal">
+    <div class="modal-content" style="background: gainsboro">
+      <form action="" id="graph_val">
+        <h4>Drop a Graph!</h4>
+        <div>
+          <label for="graph_nums">Input of graph: </label>
+          <textarea
+            id="graph_nums"
+            name="graph_nums"
+            type="text"
+            placeholder="1 3 10
+2 4 11
+5 4 10
+3 5 12
+1 6 10
+6 5 12"
+          ></textarea>
+        </div>
+
+        <div style="background: white">
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="submit"
+          >
+            OK
+          </button>
+          <button
+            class="modal-close btn-flat waves-effect waves-green"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- meet screen -->
+  <div class="container1-page4 meet_screen" id="meet_screen">
+    <div class="after_join">
+      <div class="section1">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closeLeftNav" onclick="closeNav()"
+            >&larr;</a
+          >
+          <h1>banana hai abhi</h1>
+        </div>
+
+        <a class="waves-effect hidden waves-light btn nextPage">></a>
+        <a class="waves-effect hidden waves-light btn prevPage">&lt</a>
+
+        <!-- <a class="waves-effect waves-light btn redo">-></a>
+          <a class="waves-effect waves-light btn undo">&lt-</a> -->
+
+        <div class="fixed-action-btn edit-btn">
+          <a class="btn-floating btn-large red">
+            <i class="large material-icons">mode_edit</i>
+          </a>
+          <ul>
+            <li class="fixed-action-btn-horizontal horizontal FAB2">
+              <!-- <a class="btn-floating"> -->
+              <!-- <div class="fixed-action-btn-horizontal"> -->
+              <a class="btn-floating blue"
+                ><i
+                  class="material-icons"
+                  style="font-size: 30px"
+                  id="pencilLarge"
+                  >lens</i
+                ></a
+              >
+
+              <ul class="bttom0px">
+                <li class="FAB2-li">
+                  <a class="btn-floating green"
+                    ><i
+                      class="material-icons"
+                      style="font-size: 25px"
+                      id="pencilMedium"
+                      >lens</i
+                    ></a
+                  >
+                </li>
+                <li class="FAB2-li">
+                  <a class="btn-floating pink"
+                    ><i
+                      class="material-icons"
+                      style="font-size: 15px"
+                      id="pencilSmall"
+                      >lens</i
+                    ></a
+                  >
+                </li>
+                <li class="FAB2-li">
+                  <a class="btn-floating red"
+                    ><i
+                      class="material-icons"
+                      style="font-size: 10px"
+                      id="pencilTiny"
+                      >lens</i
+                    ></a
+                  >
+                </li>
+              </ul>
+              <!-- </div> -->
+              <!-- </a>  -->
+            </li>
+
+            <!-- <li><a class="btn-floating red"><i class="material-icons">hdr_weak</i></a></li> -->
+            <!-- <li><a class="btn-floating green"><i class="material-icons">edit</i></a></li> -->
+            <li>
+              <a class="btn-floating blue" id="eraser"
+                ><i class="fas fa-eraser"></i
+              ></a>
+            </li>
+            <li class="fixed-action-btn-horizontal horizontal FAB2">
+              <!-- <a class="btn-floating"> -->
+              <!-- <div class="fixed-action-btn-horizontal"> -->
+              <a class="btn-floating blue circle" id="circleBanao"
+                ><i class="material-icons" style="font-size: 25px"
+                  >add_circle_outline
+                </i></a
+              >
+
+              <ul class="bttom0px">
+                <li class="FAB2-li">
+                  <a class="btn-floating orange rectangle" id="rect"
+                    ><i class="fas fa-square"></i
+                  ></a>
+                </li>
+              </ul>
+              <!-- </div> -->
+              <!-- </a>  -->
+            </li>
+            <!-- <li>
+              
+            </li> -->
+            <li>
+              <a class="btn-floating blue" id="hand">
+                <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a class="btn-floating orange clear" id="clearBoard"
+                ><i class="fas fa-chalkboard"></i
+              ></a>
+            </li>
+            <!-- <li>
+             
+            </li> -->
+            <li>
+              <a class="btn-floating orange text_add" id="addText"><i>A</i></a>
+            </li>
+          </ul>
+        </div>
+        <div id="modal_save" class="modal modal-log modal-share">
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+              >X</a
+            >
+          </div>
+          <div class="modal-content">
+            <h5 class="modal-heading" style="color: black">
+              SAVE THE CODERENCE
+            </h5>
+            <h6 style="color: black">
+              You haven't name the coderence yet! Give it a name that defines
+              this awesome session!
+            </h6>
+            <form action="">
+              <input type="text" id="coderenceName" />
+              <button class="btn btn-primary submitNameOfCoderence">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="fixed-action-btn file-btn left-btn">
+          <a class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+          </a>
+          <ul>
+            <li>
+              <a class="btn-floating red array modal-trigger" href="#array_data"
+                ><i class="material-icons">view_array</i></a
+              >
+            </li>
+            <li>
+              <a class="btn-floating red grid modal-trigger" href="#grid_data"
+                ><i class="material-icons grid">grid_on</i></a
+              >
+            </li>
+
+            <li>
+              <a class="btn-floating red graph modal-trigger" href="#graph_data"
+                ><i class="material-icons grid">timeline</i></a
+              >
+            </li>
+
+            <li>
+              <a class="btn-floating red download"
+                ><i class="material-icons">file_download</i></a
+              >
+            </li>
+
+            <li>
+              <a
+                class="btn-floating green save modal-trigger login"
+                href="#modal_save"
+                ><i class="material-icons">save</i></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="edit-features">
+          <div class="color-erase">
+            <form>
+              <div style="order: 2; margin-left: 2px">
+                <input
+                  class="palIcoColorPicker"
+                  type="color"
+                  id="color-picker"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <canvas class="whiteBoard"></canvas>
+        <div class="containerForCanvas hidden"></div>
+      </div>
+
+      <div class="video-grid">
+        <!-- <div class="chat-box z-depth-3 visible">
+          <div class="chat-header">
+            <i class="small material-icons close-msg" style="cursor: pointer">
+              close
+            </i>
+          </div>
+          <div class="chat-body" style="text-align: left">
+            <div class="message"></div>
+          </div>
+          <form id="chat-form">
+            <div class="chat-message">
+              <input id="msg" name="name" class="form-control user-msg" placeholder="message" />
+               <span class="user-send">
+              <btn>
+                <i class="material-icons msg-send"> send </i>
+              </btn>
+
+               </span>
+            </div>
+          </form>
+        </div> -->
+        <!-- <div class="option-menu" style="cursor: pointer">
+          <i class="material-icons" style="font-size: 3rem"> menu </i>
+        </div>   -->
+
+        <div
+          onclick="openNavRight()"
+          class="option-menus"
+          style="cursor: pointer"
+        >
+          <i class="material-icons" style="font-size: 3rem"> menu </i>
+        </div>
+
+        <div id="mySidenav-right" class="sidenav-right">
+          <a
+            href="javascript:void(0)"
+            class="closebtn"
+            onclick="closeNavRight()"
+            >&times;</a
+          >
+          <a
+            href="javascript:void(0)"
+            class="backbtn hidden"
+            onclick="backNavRight()"
+            >&larr;</a
+          >
+          <a
+            href="javascript:void(0)"
+            class="backvidbtn hidden"
+            onclick="decNavRight()"
+            >&rarr;</a
+          >
+          <div class="sidenav-right-menu hidden">
+            <div class="right-people-list">
+              <i class="small material-icons"> list </i>
+              <span class="right-menu-text">Show People List</span>
+            </div>
+            <div class="right-video-list">
+              <i class="small material-icons"> group </i>
+              <span class="right-menu-text">Show People video</span>
+            </div>
+            <div class="right-chat">
+              <i class="small material-icons"> chat </i>
+              <span class="right-menu-text">Chat</span>
+            </div>
+            <div class="right-share" style="cursor: pointer">
+              <i class="small material-icons"> share </i>
+              <span class="right-menu-text"> Share </span>
+            </div>
+            <div class="right-present">
+              <i class="small material-icons"> present_to_all </i>
+              <span class="right-menu-text">Present Screen</span>
+            </div>
+            <div class="right-options">
+              <i class="small material-icons"> more_vert </i>
+              <span class="right-menu-text">Options</span>
+            </div>
+            <div class="right-error">
+              <i class="small material-icons"> error </i>
+              <span class="right-menu-text">Report</span>
+            </div>
+          </div>
+
+          <div class="sidenav-videogrid hidden"></div>
+
+          <div class="user-list hidden">
+            <div class="user-list-row">
+              <span class="user-pic">
+                <img src="" class="displayPic user-photo" />
+              </span>
+              <span class="user-name"> shubhang-jyotirmay-383997196 </span>
+              <span class="user-mic">
+                <i class="material-icons"> mic_off </i>
+              </span>
+              <span class="user-cam">
+                <i class="material-icons"> videocam_off </i>
+              </span>
+              <span class="user-kick">
+                <i class="material-icons"> person_remove </i>
+              </span>
+            </div>
+          </div>
+
+          <div class="chat-box hidden">
+            <span class="chat-title"> Chat </span>
+            <div class="chat-body" style="text-align: left">
+              <div class="message"></div>
+            </div>
+            <form id="chat-form">
+              <div class="chat-message">
+                <input
+                  id="msg"
+                  name="name"
+                  class="form-control user-msg"
+                  placeholder="message"
+                  autocomplete="off"
+                />
+                <!-- <span class="user-send"> -->
+                <btn>
+                  <i class="material-icons msg-send"> send </i>
+                </btn>
+                <!-- </span> -->
+              </div>
+            </form>
+          </div>
+
+          <div class="sidenav-share-code hidden">
+            <div class="share-row1">
+              <span class="share-default-text">
+                Share this code to invite others to your coderence
+              </span>
+            </div>
+            <div class="share-row2">
+              <span id="share-code-room" class="share-codes"> </span>
+              <span class="copy-code">
+                <i
+                  class="small material-icons"
+                  style="cursor: pointer; padding-left: 10px"
+                >
+                  content_paste
+                </i>
+              </span>
+            </div>
+          </div>
+
+          <div class="sidenav-error hidden">
+            <form action="/reportError" method="POST" id="reportForm">
+              <h4 style="padding: 15px 0">Help us make this better</h4>
+              <div>
+                <p style="padding: 8px 0">
+                  <input
+                    type="checkbox"
+                    id="whiteboardError"
+                    name="whiteboardError"
+                    value="true"
+                  />
+                  <label for="whiteboardError" style="font-size: 1.4rem"
+                    >Error with Whiteboard</label
+                  >
+                </p>
+                <p style="padding: 8px 0">
+                  <input
+                    type="checkbox"
+                    id="cameraError"
+                    name="cameraError"
+                    value="true"
+                  />
+                  <label for="cameraError" style="font-size: 1.4rem"
+                    >Video not streaming properly</label
+                  >
+                </p>
+                <p style="padding: 8px 0">
+                  <input
+                    type="checkbox"
+                    id="audioError"
+                    name="audioError"
+                    value="true"
+                  />
+                  <label for="audioError" style="font-size: 1.4rem"
+                    >Poor audio</label
+                  >
+                </p>
+                <p style="padding: 8px 0">
+                  <input
+                    type="checkbox"
+                    id="compilerError"
+                    name="compilerError"
+                    value="true"
+                  />
+                  <label for="compilerError" style="font-size: 1.4rem"
+                    >Error with compiler</label
+                  >
+                </p>
+
+                <input
+                  id="otherErrors"
+                  name="otherErrors"
+                  type="text"
+                  style="font-size: 1.4rem; padding: 8px 0"
+                  placeholder="Found a different error?"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div style="background: white; display: contents">
+                <button
+                  class="btn-flat waves-effect waves-green error-submit"
+                  type="submit"
+                  style="background-color: white; margin-top: 10px"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="menu-open visible">
+          <div class="menu-column1">
+            <div class="option video-hide" style="cursor: pointer">
+              <i class="small material-icons"> groups </i>
+              <span class="opt-text vid-hid-text">Hide People</span>
+            </div>
+
+            <div class="option share-id share-room" style="cursor: pointer">
+              <a class="modal-trigger login" href="#modal3"
+                ><i class="small material-icons"> share </i></a
+              >
+              <div id="modal3" class="modal modal-log modal-share">
+                <div class="modal-footer">
+                  <a
+                    href="#!"
+                    class="modal-close waves-effect waves-green btn-flat"
+                    >X</a
+                  >
+                </div>
+                <div class="modal-content">
+                  <h5 class="modal-heading" style="color: black">
+                    SHARE THE CODERENCE
+                  </h5>
+                  <h6 style="color: black">
+                    You are the only one here! Share this code to the people you
+                    want in the coderence:
+                    <span id="share-code-room"> </span>
+                  </h6>
+                </div>
+              </div>
+              <span class="opt-text share-text">Share</span>
+            </div>
+          </div>
+
+          <div class="menu-column2">
+            <div class="option chat" style="cursor: pointer">
+              <i class="small material-icons"> chat </i>
+              <span class="opt-text chat-text">Chat</span>
+            </div>
+
+            <div class="option end-meet" style="cursor: pointer">
+              <i class="small material-icons"> more_vert </i>
+              <span class="opt-text end-meet-text">Options</span>
+            </div>
+          </div>
+
+          <div class="menu-column3">
+            <div class="option present-screen" style="cursor: pointer">
+              <i class="small material-icons"> present_to_all </i>
+              <span class="opt-text present-text">Present</span>
+            </div>
+
+            <div class="option report" style="cursor: pointer">
+              <i class="small material-icons"> error </i>
+              <!-- <span class="opt-text report-text">Report</span> -->
+              <a class="modal-trigger" href="#modal5">Report</a>
+
+              <!-- <div id="modal5" class="modal">
+                <div class="modal-content" style="background: gainsboro">
+                  <form action="/reportError" method="POST" id="reportForm">
+                    <h4>Help us make this better</h4>
+                    <div>
+                      <p>
+                        <input type="checkbox" id="whiteboardError" name="whiteboardError" value="true" />
+                        <label for="whiteboardError" style="color: indigo; font-size: larger">Error with
+                          Whiteboard</label>
+                      </p>
+                      <p>
+                        <input type="checkbox" id="cameraError" name="cameraError" value="true" />
+                        <label for="cameraError" style="color: indigo; font-size: larger">Video not streaming
+                          properly</label>
+                      </p>
+                      <p>
+                        <input type="checkbox" id="audioError" name="audioError" value="true" />
+                        <label for="audioError" style="color: indigo; font-size: larger">Poor audio</label>
+                      </p>
+                      <p>
+                        <input type="checkbox" id="compilerError" name="compilerError" value="true" />
+                        <label for="compilerError" style="color: indigo; font-size: larger">Error with compiler</label>
+                      </p>
+
+                      <input id="otherErrors" name="otherErrors" type="text" style="color: indigo; font-size: larger"
+                        placeholder="Mention here if there are some other errors" />
+                    </div>
+
+                    <div style="background: white">
+                      <button class="modal-close btn-flat waves-effect waves-green" type="submit">
+                        Submit
+                      </button>
+                      <button class="modal-close btn-flat waves-effect waves-green" type="button">
+                        Close
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="video-grid-1">
+          <div id="jsEditor" class="textArea"></div>
+          <div class="video video-table" id="video-add"></div>
+        </div>
+        <div class="video-grid-2">
+          <div class="input-output">
+            <div class="input">
+              <span class="user-input">INPUT</span>
+              <textarea name="name" rows="50" id="inp-val" cols="35"></textarea>
+            </div>
+            <div class="output">
+              <span class="user-output">OUTPUT</span>
+              <textarea
+                readonly
+                name="name"
+                rows="50"
+                id="out-val"
+                cols="35"
+              ></textarea>
+            </div>
+            <div class="run-com">
+              <button class="run-but">RUN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mute-end-cam visible">
+        <div class="mic-cam">
+          <a class="btn-floating btn-large red micToggler">
+            <i class="large material-icons mic_on">mic</i>
+            <i class="large material-icons mic_off">mic_off</i>
+          </a>
+        </div>
+        <div class="mic-cam">
+          <a class="btn-floating btn-large red call_end">
+            <i class="large material-icons">call_end</i>
+          </a>
+        </div>
+        <div class="mic-cam">
+          <a class="btn-floating btn-large red videoToggler">
+            <i class="large material-icons video_on video_on_off">videocam</i>
+            <i class="large material-icons video_off video_on_off"
+              >videocam_off</i
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="floating-chat hidden">
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    <div class="chat">
+      <div class="header">
+        <span class="title">
+          I wish I was AI but these developers are too lazy!
+        </span>
+        <button>
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul class="messages">
+        <!-- <li class="other">
+              Hey, How may I help you? Please choose one of the following.
+              <br>
+              1. How to create a coderence
+              <br>
+              2. Shortcut keys for whiteboard.
+              <br>
+              3. How to share meeting code.
+              <br>
+              4. Go Live Instructions
+              <br>
+              5. Saving and editing coderences
+              <br>
+            </li> -->
+      </ul>
+      <div class="footer">
+        <div class="text-box" contenteditable="true" disabled="true"></div>
+        <button id="sendMessage">send</button>
+      </div>
+    </div>
+  </div>
+</div>
