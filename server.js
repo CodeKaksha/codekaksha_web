@@ -18,8 +18,11 @@ const {
   userLeave,
   getCurrentUser,
   setAdmin,   
+<<<<<<< HEAD
   addToLiveStream,
   getCurrLiveStreams
+=======
+>>>>>>> 3e3e924 (added admin array)
 } = require("./utils/users");
 
 var { nanoid } = require("nanoid");
@@ -88,18 +91,27 @@ function onConnection(socket) {
   socket.on("join-vid", (peerId, username, room) => {
     socket.to(room).broadcast.emit("user-vid-connected", peerId, username);
   });
+<<<<<<< HEAD
   socket.on("join-room", (roomId, userId, username,isAdmin, displayPic) => {
     // //console.log(userId);
+=======
+  socket.on("join-room", (roomId, userId, username,isAdmin) => {
+    // console.log(userId);
+>>>>>>> 3e3e924 (added admin array)
     if(isAdmin)
     {
       setAdmin(roomId,userId);
     }
+<<<<<<< HEAD
     else{
       let roomUsers = getRoomUsers(roomId);
       io.to(roomUsers[0].socketId).emit("notificationToAccept",username);
     }
     const user = userJoin(userId, username, roomId,displayPic, socket.id,isAdmin);
 
+=======
+    const user = userJoin(userId, username, roomId, socket.id);
+>>>>>>> 3e3e924 (added admin array)
     let roomUsers = getRoomUsers(roomId);
     if (roomUsers.length) {
       io.to(roomUsers[0].socketId).emit("data_dijiye", socket.id);
