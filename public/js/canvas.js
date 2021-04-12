@@ -1,35 +1,31 @@
-function canvas()
-{
-	var canvas = document.querySelector('.whiteBoard');
-	var canvas2 = document.querySelector('.whiteBoard2');
-	var colors = document.getElementsByClassName('color');
-	var context = canvas.getContext('2d');
-	var context2 = canvas2.getContext('2d');
-	
-	var current = {
-		color: 'black',
-	};
-	var drawing = false;
-	
-	canvas.addEventListener('mousedown', onMouseDown, false);
-	canvas.addEventListener('mouseup', onMouseUp, false);
-	canvas.addEventListener('mouseout', onMouseUp, false);
-	canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
-	//Touch support for mobile devices
-	canvas.addEventListener('touchstart', onMouseDown, false);
-	canvas.addEventListener('touchend', onMouseUp, false);
-	canvas.addEventListener('touchcancel', onMouseUp, false);
-	canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
+var canvas = document.querySelector('.whiteBoard');
+var canvas2 = document.querySelector('.whiteBoard2');
+var colors = document.getElementsByClassName('color');
+var context = canvas.getContext('2d');
+var context2 = canvas2.getContext('2d');
 
-	for (var i = 0; i < colors.length; i++) {
-		colors[i].addEventListener('click', onColorUpdate, false);
-	}
-	
-	window.addEventListener('resize', onResize, false);
-	onResize();
+var current = {
+	color: 'black',
+};
+var drawing = false;
+
+canvas.addEventListener('mousedown', onMouseDown, false);
+canvas.addEventListener('mouseup', onMouseUp, false);
+canvas.addEventListener('mouseout', onMouseUp, false);
+canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
+
+//Touch support for mobile devices
+canvas.addEventListener('touchstart', onMouseDown, false);
+canvas.addEventListener('touchend', onMouseUp, false);
+canvas.addEventListener('touchcancel', onMouseUp, false);
+canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
+
+for (var i = 0; i < colors.length; i++) {
+	colors[i].addEventListener('click', onColorUpdate, false);
 }
 
-
+window.addEventListener('resize', onResize, false);
+onResize();
 
 function drawLine(x0, y0, x1, y1, color, emit) {
 	context.beginPath();
@@ -38,8 +34,8 @@ function drawLine(x0, y0, x1, y1, color, emit) {
 	context.strokeStyle = color;
 	context.lineWidth = 2;
 	context.stroke();
-	context.closePath();
-	void context2.putImageData(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight),0,0,0,0,canvas.clientWidth,canvas.clientHeight);
+    context.closePath();
+    void context2.putImageData(context.getImageData(0,0,canvas.clientWidth,canvas.clientHeight),0,0,0,0,canvas.clientWidth,canvas.clientHeight);
 	
 	if (!emit) {
 		return;
