@@ -1,6 +1,8 @@
 function editor(roomId) {
   var editor = ace.edit("jsEditor");
+  var editor2 = ace.edit("jsEditor2");
   editor.getSession().setMode("ace/mode/c_cpp");
+  editor2.getSession().setMode("ace/mode/javascript");
   let user = firebase.auth().currentUser;
   document.querySelector(".save").addEventListener("click", (e) => {
     console.log("ss");
@@ -79,8 +81,18 @@ function editor(roomId) {
     e.preventDefault();
   });
   editor.setTheme("ace/theme/terminal");
+  editor2.setTheme("ace/theme/terminal");
   editor.setShowPrintMargin(false);
-
+  editor2.setShowPrintMargin(false);
+  let initialCode2 = `
+  function fn(n)
+  {
+      if(n<=0) 
+          return;
+      return fn(n-1);
+  }  
+  `;
+  editor2.setValue(initialCode2);
 
   const languageChoosenByUser = document.getElementById("language").value;
   if (!editor.getValue()) {
@@ -126,14 +138,14 @@ function editor(roomId) {
   document.querySelector(".ace_text-input").addEventListener("keyup", () => {
     console.log("hello");
     const text = editor.getValue();
-    socket.emit("editorChange",text,roomId);
+    socket.emit("editorChange", text, roomId);
   });
   socket.on("changeEdit", (data) => {
     console.log("hey");
     editor.setValue(data);
     editor.clearSelection();
-  }); 
-  
+  });
+
   document.querySelector(".run-but").addEventListener("click", (e) => {
     const myCode = editor.getValue();
     const input = document.getElementById("inp-val").value;
@@ -142,28 +154,28 @@ function editor(roomId) {
     document.querySelector(".run-but").disabled = true;
     document.querySelector(".run-but").style.opacity = "0.5";
 
-    const data={
-      codeWritten:myCode,
-      language:languageChoosenByUser,
-      inputGiven:input,
-    }
+    const data = {
+      codeWritten: myCode,
+      language: languageChoosenByUser,
+      inputGiven: input,
+    };
     // console.log(data);
 
     // socket.emit("compileCode", data, roomId);
 
-    fetch('/compileKro',{
-      method:"POST",
-      headers:{
-        'Content-Type':'application/json'
+    fetch("/compileKro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-    .then(res=>res.json())
-    .then((res2)=>{
-      document.getElementById("out-val").innerHTML = res2.output;
-          // console.log(data);
-          document.querySelector(".run-but").disabled = false;
-          document.querySelector(".run-but").style.opacity = "1";
-    })
+      .then((res) => res.json())
+      .then((res2) => {
+        document.getElementById("out-val").innerHTML = res2.output;
+        // console.log(data);
+        document.querySelector(".run-but").disabled = false;
+        document.querySelector(".run-but").style.opacity = "1";
+      });
   });
 }

@@ -991,7 +991,28 @@
 
     <!--- sizes need to be done appropriately ---->
   </div>
+  
+  <div id="recursion-visualiser" class="modal">
+    <div class="modal-content" style="background: gainsboro">
+      <form action="" id="recursion_val">
+        <h4>Visualise recursion!</h4>
+        
+        <div>
+          <div id="jsEditor2" class="textArea"></div>
+          <input type="text" class="codeCall">
+        </div>
 
+        <div style="background: white">
+          <button class="modal-close btn-flat waves-effect waves-green" type="submit">
+            OK
+          </button>
+          <button class="modal-close btn-flat waves-effect waves-green" type="button">
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
   <div id="array_data" class="modal">
     <div class="modal-content" style="background: gainsboro">
       <form action="" id="array_val">
@@ -1184,6 +1205,10 @@
             <i class="large material-icons">add</i>
           </a>
           <ul>
+            <li>
+              <a class="btn-floating red array modal-trigger" href="#recursion-visualiser"><i
+                  class="material-icons">all_inclusive</i></a>
+            </li>
             <li>
               <a class="btn-floating red array modal-trigger" href="#array_data"><i
                   class="material-icons">view_array</i></a>
@@ -1471,6 +1496,7 @@
                       <button class="modal-close btn-flat waves-effect waves-green" type="submit">
                         Submit
                       </button>
+
                       <button class="modal-close btn-flat waves-effect waves-green" type="button">
                         Close
                       </button>
@@ -1599,6 +1625,7 @@
   <script src="js/ready.js"></script>
   <script src="js/video.js"></script>
   <script src="js/saving.js"></script>
+  <script src="js/recursion.js"></script>
   <script src="js/paint.js"></script>
   <script src="js/ai.js"></script>
   <script src="js/chat.js"></script>

@@ -61,6 +61,23 @@
       src="https://kit.fontawesome.com/565487f9b5.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let n=10;
+      let table=document.createElement('div')
+      for(let i=0;i<n;i++)
+      {
+
+        let row=document.createElement('div')
+        for(let j=0;j<n;j++)
+        {
+          let inp=document.createElement('input');
+          row.appendChild(inp);
+        }
+        table.appendChild(row);
+      }
+      document.body.appendChild(table);
+    </script>
     <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
   </body>
+  
 </html>

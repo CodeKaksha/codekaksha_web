@@ -54,6 +54,7 @@ $(document).ready(function () {
       show_screen(after_login_screen);
     });
   }
+  $("#recursion-visualiser").modal();
   $("#modal1").modal();
   $("#modal2").modal();
   $("#modal3").modal();
