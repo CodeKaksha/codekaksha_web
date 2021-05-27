@@ -1,6 +1,6 @@
-# Codekaksha
+# MeetNCode
 
-<img src="https://codekaksha.herokuapp.com/res/logo.png" align="right"
+<img src="https://meetncode.herokuapp.com/res/logo.png" align="right"
      alt="CK LOGO" width="110" height="140">
 
 ## OBJECTIVES
